@@ -1,0 +1,50 @@
+{
+ "ProjectInfo": {
+  "Project": {
+   "Name": "GGJ2026_WwiseProject",
+   "GUID": "{D938A95E-05FC-461C-917D-DCDA85D62F92}",
+   "Generator": "2025.1.4.9062"
+  },
+  "CacheRoot": "../.cache",
+  "Platforms": [
+   {
+    "Name": "Linux",
+    "GUID": "{A86817F6-1013-4AB4-903B-CB55E43631C5}",
+    "BasePlatform": "Linux",
+    "BasePlatformGUID": "{BD0BDF13-3125-454F-8BFD-319537169F81}",
+    "Path": "Linux"
+   },
+   {
+    "Name": "Mac",
+    "GUID": "{1AF23DDA-A609-4631-A779-627F04B51951}",
+    "BasePlatform": "Mac",
+    "BasePlatformGUID": "{9C6217D5-DD11-4795-87C1-6CE02853C540}",
+    "Path": "Mac"
+   },
+   {
+    "Name": "Web",
+    "GUID": "{FF55C6FB-55EC-4F5C-86EB-1B1521CF0DD3}",
+    "BasePlatform": "Web",
+    "BasePlatformGUID": "{639AD233-23F2-4C0F-9127-79F44C15E1DA}",
+    "Path": "Web"
+   },
+   {
+    "Name": "Windows",
+    "GUID": "{041EC9EB-33B3-45FF-B677-68DD2236550B}",
+    "BasePlatform": "Windows",
+    "BasePlatformGUID": "{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}",
+    "Path": "Windows"
+   }
+  ],
+  "Languages": [
+   {
+    "Name": "English(US)",
+    "Id": "684519430",
+    "GUID": "{A1B20D19-3775-4F43-91DD-1CCB00D9D3BD}",
+    "Default": "true",
+    "UseAsStandIn": "true"
+   }
+  ],
+  "FileHash": "{E54E34D3-400B-FF5D-A7B9-F9809ECE039B}"
+ }
+}
