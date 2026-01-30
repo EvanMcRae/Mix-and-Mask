@@ -1,0 +1,29 @@
+﻿{
+  "name": "dev.relaxitsdax.noisiernodes",
+  "version": "1.0.0",
+  "displayName": "Noisier Nodes",
+  "description": "A collection of noise functions and utilities to assist with shader development.",
+  "unity": "6000.3",
+  "documentationUrl": "https://example.com/",
+  "licensesUrl": "https://example.com/licensing.html",
+  "keywords": [
+    "shader graph",
+    "HLSL",
+    "shader",
+    "noise",
+    "perlin",
+    "simplex",
+    "voronoi",
+    "white noise",
+    "3D noise",
+    "2D noise"
+  ],
+  "dependencies": {
+    "com.unity.shadergraph": "17.5.0"
+  },
+  "author": {
+    "name": "Dax Mikow",
+    "email": "me@relaxitsdax.dev",
+    "url": "https://www.relaxitsdax.dev"
+  }
+}
