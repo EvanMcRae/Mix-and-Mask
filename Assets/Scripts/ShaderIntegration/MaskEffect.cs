@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 using UnityEngine.VFX;
@@ -6,7 +7,8 @@ using UnityEngine.VFX;
 public class MaskEffect : MonoBehaviour {
     
     public DetatchedMask mask;
-    public VisualEffect vfx;
+    public VisualEffect possessVFX;
+    public VisualEffect flingVFX;
     public float speed = 1;
     public bool transitionDirection = false;
     public bool isTransitioning = false;
@@ -16,22 +18,29 @@ public class MaskEffect : MonoBehaviour {
     public void OnEnable() {
         mask.onAttach.AddListener(OnAttach);
         mask.onDetach.AddListener(OnDetach);
+        mask.onFling.AddListener(OnFling);
     }
 
     public void OnDisable() {
         mask.onAttach.RemoveListener(OnAttach);
         mask.onDetach.RemoveListener(OnDetach);
+        mask.onFling.RemoveListener(OnFling);
     }
 
     public void OnAttach() {
         StartFade(true);
-        vfx.Play();
+        possessVFX.Play();
     }
 
     public void OnDetach() {
         StartFade(false);
     }
 
+    public void OnFling(Vector3 direction) {
+        flingVFX.SetVector3("Direction", -direction);
+        flingVFX.Play();
+    }
+    
     public void StartFade(bool direction) {
         transitionDirection = direction;
         isTransitioning = true;
