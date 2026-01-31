@@ -10,9 +10,11 @@ public class RunnerController : ControllableEnemy
     private float dashCooldown = 0;
     private UnityEngine.AI.NavMeshAgent navAgent = null;
 
+    [Header("Cat Model Specific")]
     [SerializeField] private float maxDashCooldown = 5f;
+    [SerializeField] private GameObject catModel = null;
 
-    void Start()
+    public override void Start()
     {
         base.Start();
         runnerEnemy = GetComponent<RunnerEnemy>();
@@ -41,10 +43,11 @@ public class RunnerController : ControllableEnemy
         else rigidbody.linearVelocity = rigidbody.linearVelocity.normalized * maxSpeed;
     }
 
-    public override void Rotate(float zRotation)
+    public override void Rotate(float yRotation)
     {
         if (isDashing) return;
-        base.Rotate(zRotation);
+        base.Rotate(yRotation);
+        catModel.transform.localEulerAngles = new Vector3(0, 0, 0);
     }
 
     public override void PrimaryAction()

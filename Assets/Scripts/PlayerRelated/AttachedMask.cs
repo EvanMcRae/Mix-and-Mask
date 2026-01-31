@@ -38,7 +38,8 @@ public class AttachedMask : MonoBehaviour
             controlledEnemy.Rotate(zRotation);
         }
 
-        this.transform.position = controlledEnemy.transform.position;
+        this.transform.position = controlledEnemy.maskTransform.position;
+        this.transform.rotation = controlledEnemy.maskTransform.rotation;
         rigidbody.linearVelocity = new Vector3(0, 0, 0);
     }
 

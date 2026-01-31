@@ -7,12 +7,13 @@ public class ControllableEnemy : MonoBehaviour
     [Header("All Controllable Enemies")]
     [SerializeField] public float moveAcceleration = 5f;
     [SerializeField] public float maxSpeed = 7f;
+    [SerializeField] public Transform maskTransform;
 
     protected Vector2 moveDir = new Vector2(0, 0);
     protected Rigidbody rigidbody = null;
     protected bool isUnderControl = false;
 
-    public void Start()
+    public virtual void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         //rigidbody.freezeRotation = true;
@@ -34,11 +35,11 @@ public class ControllableEnemy : MonoBehaviour
         Debug.Log("Enemy moveDir: " + moveDir.x + ", " + moveDir.y);
     }
 
-    public virtual void Rotate(float zRotation)
+    public virtual void Rotate(float yRotation)
     {
         if (!isUnderControl) return;
         //Debug.Log("Enemy zRotation: " + zRotation);
-        this.gameObject.transform.eulerAngles = new Vector3(0, zRotation, 0);
+        this.gameObject.transform.eulerAngles = new Vector3(0, yRotation, 0);
     }
 
     public virtual void PrimaryAction()
