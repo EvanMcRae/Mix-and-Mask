@@ -41,6 +41,8 @@ public class TankEnemy : EnemyBase
 
     public void Update()
     {
+        if (agent == null) agent = GetComponent<NavMeshAgent>();
+        
         if (!agent.isOnNavMesh)
             return;
 
