@@ -8,7 +8,7 @@ using UnityEngine.InputSystem.UI;
 public class ScreenTransition : MonoBehaviour
 {
     public static ScreenTransition instance; // not really a singleton but just so we can have some convenience
-    public MaskEffectTransition met;
+    private MaskEffectTransition met;
     public static bool inProgress = false;
 
     void Awake()
