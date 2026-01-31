@@ -16,6 +16,7 @@ public class WaveManager : MonoBehaviour
     private int currentWave = 0;
     private int activeEnemies = 0;
     private bool spawningWave = false;
+    private bool isClearing = false;
 
     void Start()
     {
@@ -72,6 +73,12 @@ public class WaveManager : MonoBehaviour
 
     public void EnemyDied()
     {
+        if (isClearing) 
+        {
+            activeEnemies--; 
+            return;
+        }
+
         activeEnemies--;
         if (activeEnemies <= 0 && !spawningWave)
         {
@@ -81,23 +88,29 @@ public class WaveManager : MonoBehaviour
 
     void DebugKillAll()
     {
-        // 1. Kill all Enemies (triggers next wave logic)
+
+        StopAllCoroutines(); // Stop any currently spawning enemies
+        spawningWave = false;
+        isClearing = true;
+
         EnemyBase[] allEnemies = FindObjectsByType<EnemyBase>(FindObjectsSortMode.None);
-        Debug.Log($"NUKE: Clearing {allEnemies.Length} enemies.");
         foreach (EnemyBase enemy in allEnemies)
         {
-            Destroy(enemy.gameObject);
+            // Use TakeDamage so effects play, OR use Destroy but manually decrement activeEnemies. 
+            // Using TakeDamage is safer for logic consistency.
+            if(enemy != null) enemy.TakeDamage(9999f); 
         }
 
-        // 2. NEW: Destroy all active Projectiles immediately
         Projectile[] allProjectiles = FindObjectsByType<Projectile>(FindObjectsSortMode.None);
         foreach (Projectile proj in allProjectiles)
         {
-            Destroy(proj.gameObject);
+           if(proj != null) Destroy(proj.gameObject);
         }
         
-        spawningWave = false;
-        StopAllCoroutines();
+        // Force reset the counter in case of any drift
+        activeEnemies = 0; 
+        isClearing = false; // <--- Turn off the safety flag
+
         StartNextWave();
     }
 }
