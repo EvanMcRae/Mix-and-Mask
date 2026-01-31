@@ -13,6 +13,16 @@ public static class GameViewExtensions
         EditorApplication.playModeStateChanged += PlayModeChanged;
         EditorApplication.pauseStateChanged += PauseStateChanged;
         AssemblyReloadEvents.beforeAssemblyReload += GameViewExtensionsDestructor;
+
+        var update = new string[1] { "Assets/ShaderPass.asset" };
+        AssetDatabase.ForceReserializeAssets(update);
+        AssemblyReloadEvents.afterAssemblyReload += SetShaderOnLoad;
+    }
+
+    private static void SetShaderOnLoad()
+    {
+        AssemblyReloadEvents.afterAssemblyReload -= SetShaderOnLoad;
+        ShaderPassHolder.Pass.injectionPoint = FullScreenPassRendererFeature.InjectionPoint.BeforeRenderingTransparents;
     }
 
     private static void GameViewExtensionsDestructor()
@@ -29,12 +39,14 @@ public static class GameViewExtensions
         {
             if (playMode == PlayModeStateChange.EnteredEditMode || playMode == PlayModeStateChange.ExitingPlayMode)
             {
-                ShaderPassHolder.Pass.injectionPoint = FullScreenPassRendererFeature.InjectionPoint.BeforeRenderingTransparents;
+                if (ShaderPassHolder.Pass != null)
+                    ShaderPassHolder.Pass.injectionPoint = FullScreenPassRendererFeature.InjectionPoint.BeforeRenderingTransparents;
             }
             return;
         }
 
-        ShaderPassHolder.Pass.injectionPoint = FullScreenPassRendererFeature.InjectionPoint.AfterRenderingPostProcessing;
+        if (ShaderPassHolder.Pass != null)
+            ShaderPassHolder.Pass.injectionPoint = FullScreenPassRendererFeature.InjectionPoint.AfterRenderingPostProcessing;
 
         var gameWindow = EditorWindow.GetWindow(typeof(EditorWindow).Assembly.GetType("UnityEditor.GameView"));
         // We only do the force focus if Focused or Maximized play mode selected.
