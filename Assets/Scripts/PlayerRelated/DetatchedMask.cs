@@ -19,6 +19,7 @@ public class DetatchedMask : MonoBehaviour
     private float movementCooldown = 0;
     private float attachedCooldown = 0;
     private bool isControlling = false;
+    private ControllableEnemy.EnemyType controlledEnemyType = ControllableEnemy.EnemyType.None;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,15 +35,6 @@ public class DetatchedMask : MonoBehaviour
     {
         if (movementCooldown > 0) movementCooldown -= Time.deltaTime;
         if (attachedCooldown > 0 && !isControlling) attachedCooldown -= Time.deltaTime;
-    }
-
-    public void SwitchToDetachedMovement()
-    {
-        collider.enabled = true;
-        actions.SwitchCurrentActionMap("detatched");
-        rigidbody.detectCollisions = true;
-        //rigidbody.freezeRotation = false;
-        isControlling = false;
     }
 
     // Grabs the position of the mouse when the slingshot button is initially pressed and when it is released
@@ -91,6 +83,7 @@ public class DetatchedMask : MonoBehaviour
         }
     }
 
+    // Called when a player starts possessing
     private void BeginEnemyControl(ControllableEnemy enemyScript)
     {
         attachedMask.SetControlledEnemy(enemyScript);
@@ -103,5 +96,19 @@ public class DetatchedMask : MonoBehaviour
         //rigidbody.freezeRotation = true;
 
         attachedCooldown = maxAttachedCooldown;
+        controlledEnemyType = enemyScript.type;
     }
+
+     // Called when a player stops possessing
+    public void SwitchToDetachedMovement()
+    {
+        collider.enabled = true;
+        actions.SwitchCurrentActionMap("detatched");
+        rigidbody.detectCollisions = true;
+        //rigidbody.freezeRotation = false;
+        isControlling = false;
+        controlledEnemyType = ControllableEnemy.EnemyType.None;
+    }
+    
+    public ControllableEnemy.EnemyType GetCurrentlyControlledEnemyType() { return controlledEnemyType; }
 }

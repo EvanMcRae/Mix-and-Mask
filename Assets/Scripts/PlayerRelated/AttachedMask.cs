@@ -9,7 +9,6 @@ public class AttachedMask : MonoBehaviour
     private PlayerInput actions = null;
     private DetatchedMask detatchedMask = null;
     private bool isControlling = false;
-    private ControllableEnemy.EnemyType controlledEnemyType = ControllableEnemy.EnemyType.None;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -53,7 +52,6 @@ public class AttachedMask : MonoBehaviour
     public void SetControlledEnemy(ControllableEnemy toControl)
     {
         controlledEnemy = toControl;
-        controlledEnemyType = controlledEnemy.type;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -81,8 +79,5 @@ public class AttachedMask : MonoBehaviour
         detatchedMask.SwitchToDetachedMovement();
         controlledEnemy.SetControlled(false);
         this.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z); // Plus 1 is to avoid immediate collisions
-        controlledEnemyType = ControllableEnemy.EnemyType.None;
     }
-
-    public ControllableEnemy.EnemyType GetCurrentlyControlledEnemyType() { return controlledEnemyType; }
 }

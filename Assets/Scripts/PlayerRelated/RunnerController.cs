@@ -28,7 +28,7 @@ public class RunnerController : ControllableEnemy
     {
         if (!isUnderControl) return;
 
-        Debug.Log("Enemy is under Control");
+        //Debug.Log("Enemy is under Control");
 
         if (isDashing)
         {

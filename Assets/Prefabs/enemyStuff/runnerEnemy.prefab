@@ -170,7 +170,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -242,6 +242,7 @@ MonoBehaviour:
   moveAcceleration: 15
   maxSpeed: 9.64
   maskTransform: {fileID: 8819291296875314493}
+  type: 1
   maxDashCooldown: 5
   catModel: {fileID: 2887894025711782268}
 --- !u!1001 &2653382696860595245
