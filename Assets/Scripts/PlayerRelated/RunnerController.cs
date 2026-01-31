@@ -73,4 +73,19 @@ public class RunnerController : ControllableEnemy
         rigidbody.isKinematic = !underControl;
         base.SetControlled(underControl);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isDashing && collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Runner slams the player like a fucking missile");
+
+            EnemyBase enemy = collision.gameObject.GetComponent<EnemyBase>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(5f);
+            }
+        }
+    }
+
 }

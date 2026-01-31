@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: -8608804040371270441}
   m_Layer: 0
   m_Name: runnerEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   backupDistance: 3
   dashSpeed: 12
   dashDuration: 0.4
-  damage: 1
+  damage: 5
   model: {fileID: 2546799867178931142}
   turnSpeed: 10
   state: 0
@@ -242,6 +242,7 @@ MonoBehaviour:
   moveAcceleration: 15
   maxSpeed: 9.64
   maskTransform: {fileID: 8819291296875314493}
+  health: 10
   type: 1
   maxDashCooldown: 5
   catModel: {fileID: 2887894025711782268}
