@@ -5,6 +5,8 @@ public class SettingsManager : MonoBehaviour
 {
     [SerializeField] private Slider musicVolumeSlider, soundVolumeSlider, masterVolumeSlider;
     [SerializeField] private Toggle fullscreenToggle, vsyncToggle;
+    [SerializeField] private GameObject fullscreenLabel;
+    [SerializeField] private Button closeButton;
 
     public void Start()
     {
@@ -26,52 +28,62 @@ public class SettingsManager : MonoBehaviour
 
         // Reload saved settings
         musicVolumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
-        SetMusicVolume(musicVolumeSlider.value);
+        SetMusicVolume();
 
         soundVolumeSlider.value = PlayerPrefs.GetFloat("soundVolume");
-        SetSoundVolume(musicVolumeSlider.value);
+        SetSoundVolume();
 
         masterVolumeSlider.value = PlayerPrefs.GetFloat("masterVolume");
-        SetMasterVolume(masterVolumeSlider.value);
+        SetMasterVolume();
 
         if (!Utils.IsWebPlayer())
-        {
+        {           
             fullscreenToggle.isOn = PlayerPrefs.GetInt("fullscreen") == 1;
-            SetFullscreen(fullscreenToggle.isOn);
+            SetFullscreen();
+        }
+        else
+        {
+            fullscreenToggle.gameObject.SetActive(false);
+            fullscreenLabel.SetActive(false);
+
+            // Update navigation for other things
+            Utils.SetNavigation(vsyncToggle, closeButton, Utils.Direction.DOWN);
+            Utils.SetNavigation(soundVolumeSlider, null, Utils.Direction.LEFT);
+            Utils.SetNavigation(soundVolumeSlider, null, Utils.Direction.RIGHT);
         }
         
         vsyncToggle.isOn = PlayerPrefs.GetInt("vsync") == 1;
-        SetVSync(vsyncToggle.isOn);
+        SetVSync();
     }
 
-    public void SetMusicVolume(float value)
+    public void SetMusicVolume()
     {
-        AkUnitySoundEngine.SetRTPCValue("musicVolume", value);
-        PlayerPrefs.SetFloat("musicVolume", value);
+        AkUnitySoundEngine.SetRTPCValue("musicVolume", musicVolumeSlider.value);
+        PlayerPrefs.SetFloat("musicVolume", musicVolumeSlider.value);
     }
 
-    public void SetSoundVolume(float value)
+    public void SetSoundVolume()
     {
-        AkUnitySoundEngine.SetRTPCValue("soundVolume", value);
-        PlayerPrefs.SetFloat("soundVolume", value);
+        AkUnitySoundEngine.SetRTPCValue("soundVolume", soundVolumeSlider.value);
+        PlayerPrefs.SetFloat("soundVolume", soundVolumeSlider.value);
     }
 
-    public void SetMasterVolume(float value)
+    public void SetMasterVolume()
     {
-        AkUnitySoundEngine.SetRTPCValue("masterVolume", value);
-        PlayerPrefs.SetFloat("masterVolume", value);
+        AkUnitySoundEngine.SetRTPCValue("masterVolume", masterVolumeSlider.value);
+        PlayerPrefs.SetFloat("masterVolume", masterVolumeSlider.value);
     }
 
-    public void SetFullscreen(bool value)
+    public void SetFullscreen()
     {
         if (Utils.IsWebPlayer()) return;
-        Screen.SetResolution(Display.main.systemWidth, (int)(9 / 16f * Display.main.systemWidth), value);
-        PlayerPrefs.SetInt("fullscreen", value ? 1 : 0);
+        Screen.SetResolution(Display.main.systemWidth, (int)(9 / 16f * Display.main.systemWidth), fullscreenToggle.isOn);
+        PlayerPrefs.SetInt("fullscreen", fullscreenToggle.isOn ? 1 : 0);
     }
 
-    public void SetVSync(bool value)
+    public void SetVSync()
     {
-        QualitySettings.vSyncCount = value ? 1 : 0;
-        PlayerPrefs.SetInt("vsync", value ? 1 : 0);
+        QualitySettings.vSyncCount = vsyncToggle.isOn ? 1 : 0;
+        PlayerPrefs.SetInt("vsync", vsyncToggle.isOn ? 1 : 0);
     }
 }
