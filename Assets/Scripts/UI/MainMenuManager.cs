@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     private const string GAME_SCENE = "MASTER_GameScene";
+    [SerializeField] private GameObject firstSelection;
     private GameObject previousSelection;
 
     [SerializeField] private GameObject SettingsPanel, CreditsPanel, InstructionsPanel;
@@ -13,6 +14,7 @@ public class MainMenuManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        EventSystem.current.SetSelectedGameObject(firstSelection);
     }
 
     public void PressPlay()

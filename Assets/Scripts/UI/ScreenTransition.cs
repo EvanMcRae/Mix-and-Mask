@@ -12,7 +12,6 @@ public class ScreenTransition : MonoBehaviour
     private const float DURATION = 0.5f;
     private Image image;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         image = GetComponent<Image>();
@@ -27,12 +26,14 @@ public class ScreenTransition : MonoBehaviour
 
     public static void In(Action action)
     {
+        EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = false;
         instance.image.raycastTarget = true;
 
         // TODO: @dax do your shader magic
         instance.image.DOFade(1, 0).Complete();
         instance.image.DOFade(0, DURATION).OnComplete(() =>
         {
+            EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = true;
             instance.image.raycastTarget = false;
             action?.Invoke();
         });
