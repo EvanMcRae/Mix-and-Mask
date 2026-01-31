@@ -38,5 +38,6 @@ public class SliderNavHandler : MonoBehaviour
     {
         navOn = true;
         GetComponent<Slider>().navigation = nav;
+        image.sprite = inactive;
     }
 }
