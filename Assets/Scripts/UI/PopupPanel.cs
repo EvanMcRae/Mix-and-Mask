@@ -37,11 +37,11 @@ public class PopupPanel : MonoBehaviour
         screenBlocker.SetActive(true);
 
         if (blockerTween != null)
-            KillTween(ref blockerTween);
+            Utils.KillTween(ref blockerTween);
         blockerTween = screenBlocker.GetComponent<Image>().DOFade(0.25f, duration);
 
         if (panelTween != null)
-            KillTween(ref panelTween);
+            Utils.KillTween(ref panelTween);
         panelTween = GetComponent<RectTransform>().DOAnchorPosY(0, duration).SetEase(Ease.OutCubic).OnComplete(() =>
         {
             EventSystem.current.SetSelectedGameObject(firstSelection);
@@ -69,7 +69,7 @@ public class PopupPanel : MonoBehaviour
 
         screenBlocker.GetComponent<Image>().raycastTarget = false;
         if (blockerTween != null)
-            KillTween(ref blockerTween);
+            Utils.KillTween(ref blockerTween);
         blockerTween = screenBlocker.GetComponent<Image>().DOFade(0, duration).OnComplete(() =>
         {
             screenBlocker.SetActive(false);
@@ -77,7 +77,7 @@ public class PopupPanel : MonoBehaviour
         });
 
         if (panelTween != null)
-            KillTween(ref panelTween);
+            Utils.KillTween(ref panelTween);
         panelTween = GetComponent<RectTransform>().DOAnchorPosY(-Screen.height, duration * 2).SetEase(Ease.OutCubic).OnComplete(() =>
         {
             action?.Invoke();
@@ -86,12 +86,5 @@ public class PopupPanel : MonoBehaviour
         });
     }
 
-    public void KillTween(ref Tween currTween)
-    {
-        if (currTween != null && currTween.IsActive() && !currTween.IsComplete())
-        {
-            currTween.Kill();
-            currTween = null;
-        }
-    }
+    
 }

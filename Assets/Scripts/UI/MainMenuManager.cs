@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class MainMenuManager : MonoBehaviour
     private GameObject previousSelection;
 
     [SerializeField] private PopupPanel SettingsPanel, ControlsPanel, CreditsPanel;
+    [SerializeField] private Button PlayButton, QuitButton, CreditsButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,14 +23,12 @@ public class MainMenuManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(firstSelection);
         instance = this;
 
-        // Disable fullscreen in demo / web player
-        if (Application.platform == RuntimePlatform.WebGLPlayer
-#if UNITY_EDITOR
-            || EditorUserBuildSettings.activeBuildTarget == BuildTarget.WebGL
-#endif
-        )
+        // Disable quitting in web player
+        if (Utils.IsWebPlayer())
         {
-            
+            QuitButton.gameObject.SetActive(false);
+            Utils.SetNavigation(PlayButton, CreditsButton, Utils.Direction.UP);
+            Utils.SetNavigation(CreditsButton, PlayButton, Utils.Direction.DOWN);
         }
     }
 
@@ -44,6 +44,13 @@ public class MainMenuManager : MonoBehaviour
     public void PressQuit()
     {
         if (ScreenTransition.inProgress) return;
+
+        // Disable quitting in web player
+        if (Utils.IsWebPlayer())
+        {
+            return;
+        }
+
         ScreenTransition.Out(() =>
         {
 #if UNITY_EDITOR
