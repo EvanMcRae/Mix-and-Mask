@@ -19,6 +19,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void PressPlay()
     {
+        if (ScreenTransition.inProgress) return;
         ScreenTransition.Out(() =>
         {
             SceneManager.LoadScene(GAME_SCENE);
@@ -27,6 +28,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void PressQuit()
     {
+        if (ScreenTransition.inProgress) return;
         ScreenTransition.Out(() =>
         {
 #if UNITY_EDITOR
@@ -39,18 +41,21 @@ public class MainMenuManager : MonoBehaviour
 
     public void PressCredits()
     {
+        if (ScreenTransition.inProgress) return;
         previousSelection = EventSystem.current.currentSelectedGameObject;
         CreditsPanel.Up();
     }
 
     public void PressControls()
     {
+        if (ScreenTransition.inProgress) return;
         previousSelection = EventSystem.current.currentSelectedGameObject;
         ControlsPanel.Up();
     }
 
     public void PressSettings()
     {
+        if (ScreenTransition.inProgress) return;
         previousSelection = EventSystem.current.currentSelectedGameObject;
         SettingsPanel.Up();
     }

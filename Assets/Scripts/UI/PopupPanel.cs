@@ -11,7 +11,8 @@ public class PopupPanel : MonoBehaviour
     [SerializeField] private bool snap = false;
     [SerializeField] private GameObject screenBlocker;
     private bool goingDown = false;
-    private Tween blockerTween, panelTween;
+    private Tween panelTween;
+    private static Tween blockerTween;
 
     void Update()
     {
@@ -43,6 +44,7 @@ public class PopupPanel : MonoBehaviour
             KillTween(ref panelTween);
         panelTween = GetComponent<RectTransform>().DOAnchorPosY(0, duration).SetEase(Ease.OutCubic).OnComplete(() =>
         {
+            screenBlocker.GetComponent<Image>().raycastTarget = true;
             action?.Invoke();
         });
     }
@@ -60,6 +62,7 @@ public class PopupPanel : MonoBehaviour
         if (snap)
             GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
 
+        screenBlocker.GetComponent<Image>().raycastTarget = false;
         if (blockerTween != null)
             KillTween(ref blockerTween);
         blockerTween = screenBlocker.GetComponent<Image>().DOFade(0, duration).OnComplete(() =>

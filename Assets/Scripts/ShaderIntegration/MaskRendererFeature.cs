@@ -19,15 +19,14 @@ public class MaskRendererFeature : FullScreenPassRendererFeature {
         passMaterial = CoreUtils.CreateEngineMaterial(shader);
         passMaterial.SetFloat(Shader.PropertyToID("_AnimationProgress"), progress);
         passMaterial.SetColor(Shader.PropertyToID("_TransitionColor"), color);
+        passMaterial.SetFloat(Shader.PropertyToID("_EffectScreenDist"), 0.5f);
+        passMaterial.SetFloat(Shader.PropertyToID("_EffectScreenStrength"), 2);
         base.AddRenderPasses(renderer, ref renderingData);
     }
 
-    public void SetProgress(float progress) {
+    public void ApplyMask(float newProgress, Color newColor) {
         if (progress < 0 || progress > 1) Debug.LogError("Progress must be between 0 and 1.");
-        this.progress = progress;
-    }
-
-    public void SetColor(Color color) {
-        this.color = color;
+        progress = newProgress;
+        color = newColor;
     }
 }
