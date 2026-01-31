@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 
 public class MaskEffectTransition : MonoBehaviour {
 
@@ -27,6 +29,7 @@ public class MaskEffectTransition : MonoBehaviour {
         if (Mathf.Approximately(t, 1f) || t == 0f) {
             isTransitioning = false;
             if (onComplete != null) onComplete.Invoke();
+            EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = true;
         }
     }
     

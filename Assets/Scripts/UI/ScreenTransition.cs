@@ -19,11 +19,13 @@ public class ScreenTransition : MonoBehaviour
 
     public static void In(Action action = null)
     {
+        EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = false;
         instance.met.StartTransition(false, action);
     }
 
     public static void Out(Action action = null)
     {
+        EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = false;
         instance.met.StartTransition(true, action);
     }
 }
