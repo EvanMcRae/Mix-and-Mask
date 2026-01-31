@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7468663384300224483}
   - component: {fileID: 2232661044508933095}
   - component: {fileID: 6489985735766291042}
+  - component: {fileID: 2317704334769707556}
   m_Layer: 0
   m_Name: tankGuy
   m_TagString: Untagged
@@ -28,15 +29,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263359668965652456}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.16847, y: -0.06, z: 0.96467}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.98455554, y: -0.059999943, z: 0.7703705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9038091080988963486}
   - {fileID: 5217342122926034961}
+  - {fileID: 4711953940606790409}
   m_Father: {fileID: 8906436539713407908}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!195 &8601086045874272452
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -104,8 +106,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.7
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &6489985735766291042
@@ -116,7 +118,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263359668965652456}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -135,6 +137,54 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2317704334769707556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263359668965652456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2935ba147e99803098985b1bf2c483d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankController
+  moveAcceleration: 5
+  maxSpeed: 7
+  maskTransform: {fileID: 4711953940606790409}
+  type: 2
+  tankModel: {fileID: 4840359870832052907}
+--- !u!1 &872154902097045148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4711953940606790409}
+  m_Layer: 0
+  m_Name: Mask Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4711953940606790409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872154902097045148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.115, y: 0.642, z: 0.295}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1678655666423976265}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &3425330026249237025
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,8 +335,8 @@ Transform:
   m_GameObject: {fileID: 7681932378775738210}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.16847, y: 0.543, z: -0.96467}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.3808, y: 0.2742, z: -1.094}
+  m_LocalScale: {x: 1.2713566, y: 1.2713566, z: 1.2713566}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1678655666423976265}
@@ -386,6 +436,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7ceb96ada449c4478f3008866c160c0, type: 3}
+--- !u!1 &4840359870832052907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2190303572512111131, guid: b7ceb96ada449c4478f3008866c160c0, type: 3}
+  m_PrefabInstance: {fileID: 6722164325577552048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5217342122926034961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1526251684415283361, guid: b7ceb96ada449c4478f3008866c160c0, type: 3}

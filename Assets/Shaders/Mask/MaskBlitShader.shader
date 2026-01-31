@@ -63,7 +63,7 @@ Shader "Custom/MaskShader"
                 float smoothNoise = Smoothstep01(clampedNoise);
                 float lenDiff = uvLen * 2 * smoothNoise - anim * root2;
                 smoothNoise = saturate(min(smoothNoise, lenDiff));
-                smoothNoise = saturate((smoothNoise - _EffectScreenDist) * _EffectScreenStrength * 10000);
+                smoothNoise = saturate((smoothNoise - _EffectScreenDist) * _EffectScreenStrength);
                 
                 return color * (1 - smoothNoise) + _TransitionColor * smoothNoise;
             }
