@@ -6,15 +6,9 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements.Experimental;
 
 public class TransitionRendererFeature : FullScreenPassRendererFeature {
-    public static TransitionRendererFeature instance;
     
     public Shader shader;
     public float progress;
-
-    public void OnEnable() {
-        if (instance) Debug.LogWarning("Instance already exists! Only one TransitionRendererFeature can exist at a time!");
-        instance = this;
-    }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {
         passMaterial = CoreUtils.CreateEngineMaterial(shader);
