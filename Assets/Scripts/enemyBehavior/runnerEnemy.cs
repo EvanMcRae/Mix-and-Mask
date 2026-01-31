@@ -40,6 +40,8 @@ public class RunnerEnemy : EnemyBase
         agent.updateRotation = false;
 
         state = State.Move;
+
+        agent.speed = UnityEngine.Random.Range(4, 8);
     }
 
     public void Update()

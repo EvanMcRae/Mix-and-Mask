@@ -40,7 +40,7 @@ public class WaveManager : MonoBehaviour
         currentWave++;
         // The math logic: Previous count + 10
         if (currentWave > 1) {
-            enemiesToSpawn += 10;
+            enemiesToSpawn += 2;
         }
 
         waveTimer = timeBetweenWaves; // Reset timer
@@ -66,11 +66,11 @@ public class WaveManager : MonoBehaviour
 
         GameObject newEnemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
         
-        // Setup the enemy placeholder script
-        EnemyScript script = newEnemy.GetComponent<EnemyScript>();
-        if (script != null)
-        {
-            script.playerTransform = playerTransform;
-        }
+        //// Setup the enemy placeholder script
+        //EnemyScript script = newEnemy.GetComponent<EnemyScript>();
+        //if (script != null)
+        //{
+        //    script.playerTransform = playerTransform;
+        //}
     }
 }
