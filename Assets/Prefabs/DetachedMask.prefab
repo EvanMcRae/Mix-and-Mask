@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7016911111499221389}
   - component: {fileID: 3284060932612893811}
   - component: {fileID: 3973024201605432059}
+  - component: {fileID: 5015259439577089172}
   m_Layer: 0
   m_Name: DetachedMask
   m_TagString: Player
@@ -161,6 +162,12 @@ MonoBehaviour:
   maxMovementCooldown: 1.5
   minVelocityToTakeOver: 1.5
   maxAttachedCooldown: 1
+  onAttach:
+    m_PersistentCalls:
+      m_Calls: []
+  onDetach:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3284060932612893811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +290,22 @@ MonoBehaviour:
   m_DefaultActionMap: detatched
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5015259439577089172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280922278393579992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c73e0d719b2599439366276de8f6bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaskEffect
+  mask: {fileID: 7016911111499221389}
+  speed: 1
+  transitionDirection: 0
+  isTransitioning: 0
 --- !u!1001 &7299932834822537250
 PrefabInstance:
   m_ObjectHideFlags: 0
