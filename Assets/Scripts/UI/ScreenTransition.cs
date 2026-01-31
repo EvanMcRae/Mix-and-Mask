@@ -17,22 +17,12 @@ public class ScreenTransition : MonoBehaviour
         In();
     }
 
-    public static void In()
-    {
-        In(null);
-    }
-
-    public static void In(Action action)
+    public static void In(Action action = null)
     {
         instance.met.StartTransition(false, action);
     }
 
-    public static void Out()
-    {
-        Out(null);
-    }
-
-    public static void Out(Action action)
+    public static void Out(Action action = null)
     {
         instance.met.StartTransition(true, action);
     }
