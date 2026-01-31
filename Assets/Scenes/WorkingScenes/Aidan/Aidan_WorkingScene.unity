@@ -678,7 +678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f45976d3cac94b4abe0435d6a4080af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
-  enemyPrefabs: []
+  enemyPrefabs:
+  - {fileID: 8027495602229665048, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
   baseEnemiesPerPoint: 5
   waveIncreasePerPoint: 2
 --- !u!4 &1519087589
@@ -922,6 +923,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 263359668965652456, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7681932378775738210, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
       propertyPath: m_Name
       value: tankEnemyHolder
@@ -1038,6 +1043,10 @@ PrefabInstance:
     - target: {fileID: 8027495602229665048, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027495602229665048, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

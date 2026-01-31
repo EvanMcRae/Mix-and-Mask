@@ -152,6 +152,7 @@ MonoBehaviour:
   moveAcceleration: 5
   maxSpeed: 7
   maskTransform: {fileID: 4711953940606790409}
+  health: 10
   type: 2
   tankModel: {fileID: 4840359870832052907}
 --- !u!1 &872154902097045148
@@ -321,7 +322,7 @@ GameObject:
   - component: {fileID: -9000049718471844598}
   m_Layer: 0
   m_Name: tankEnemyHolder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

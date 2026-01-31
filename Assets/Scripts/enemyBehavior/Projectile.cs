@@ -12,8 +12,14 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") || other.isTrigger) 
-            return;
+        if (other.CompareTag("Enemy") || other.isTrigger)
+        {
+            EnemyBase enemy = other.GetComponent<EnemyBase>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(5f);
+            }
+        }
         
         if (other.CompareTag("Player"))
         {
