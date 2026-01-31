@@ -187,7 +187,14 @@ public class RunnerEnemy : EnemyBase
             else
             {
                 playerHealth playerAsMask = collision.gameObject.GetComponent<playerHealth>();
-                playerAsMask.playerTakeDamage(5);
+                if (playerAsMask != null)
+                {
+                    playerAsMask.playerTakeDamage(5);
+                }
+                else
+                {
+                    Debug.LogWarning("Runner hit the Player (Mask) but no 'playerHealth' script was found on it!");
+                }
             }
 
             nextAttackTime = Time.time + attackCooldown;

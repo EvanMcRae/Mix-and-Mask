@@ -102,6 +102,7 @@ public class DetatchedMask : MonoBehaviour
         if (collision.gameObject.TryGetComponent<ControllableEnemy>(out ControllableEnemy enemyScript))
         {
             if (attachedCooldown > 0) return;
+            if (enemyScript == null) return;
             Debug.Log("Hit a controllable enemy!");
             BeginEnemyControl(enemyScript);
         }
