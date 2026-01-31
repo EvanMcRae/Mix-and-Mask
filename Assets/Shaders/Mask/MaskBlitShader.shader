@@ -4,7 +4,7 @@ Shader "Custom/MaskShader"
     {
         _AnimationProgress("Animation Progress", Range(0, 1)) = 0
         _TransitionColor("Transition Color", Color) = (0, 0, 0, 1)
-       
+      
     }
     
     
@@ -49,7 +49,7 @@ Shader "Custom/MaskShader"
                 
                 float2 centeredUV = input.texcoord - 0.5;
                 float2 uvDir = normalize(centeredUV);
-                float2 uvLen = length(centeredUV);
+                float uvLen = length(centeredUV);
                 
                 float root2 =  1.4142135623;
                 float anim = (1 - _AnimationProgress);
