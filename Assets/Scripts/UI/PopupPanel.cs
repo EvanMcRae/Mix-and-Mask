@@ -19,7 +19,7 @@ public class PopupPanel : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current[Key.Escape].wasPressedThisFrame)
+        if (Keyboard.current[Utils.IsWebPlayer() ? Key.Tab : Key.Escape].wasPressedThisFrame)
         {
             Down();
         }
