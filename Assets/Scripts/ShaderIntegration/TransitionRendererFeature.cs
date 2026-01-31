@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.RenderGraphModule;
+using UnityEngine.Rendering.UI;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements.Experimental;
 
@@ -11,8 +12,8 @@ public class TransitionRendererFeature : FullScreenPassRendererFeature {
     public float progress;
 
     public void OnEnable() {
-        if (instance) Debug.LogError("Instance already exists! Only one TransitionRendererFeature can exist at a time!");
-        else instance = this;
+        if (instance) Debug.LogWarning("Instance already exists! Only one TransitionRendererFeature can exist at a time!");
+        instance = this;
     }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {
@@ -27,6 +28,7 @@ public class TransitionRendererFeature : FullScreenPassRendererFeature {
 
     public void ApplyTransition(float newProgress) {
         if (progress < 0 || progress > 1) Debug.LogError("Progress must be between 0 and 1.");
+        Debug.Log("NewProgress: " + newProgress);
         progress = newProgress;
     }
 }

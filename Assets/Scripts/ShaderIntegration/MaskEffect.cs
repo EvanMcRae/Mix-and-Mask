@@ -59,4 +59,9 @@ public class MaskEffect : MonoBehaviour {
     public void SetMaskColor(Color newColor) {
         color = newColor;
     }
+
+    public void OnApplicationQuit()
+    {
+        MaskRendererFeature.instance.ApplyMask(0, color);
+    }
 }

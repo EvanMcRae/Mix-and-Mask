@@ -7,10 +7,10 @@ public class DetatchedMask : MonoBehaviour
 {
     private Vector2 initialClickPoint = new Vector2(0, 0);
     private Vector2 finalClickPoint = new Vector2(0, 0);
-    private Rigidbody rigidbody = null;
+    private Rigidbody _rigidbody = null;
     private PlayerInput actions = null;
     private AttachedMask attachedMask = null; // The attached compliment to this script on the player entity
-    private BoxCollider collider = null;
+    private BoxCollider _collider = null;
     public Camera mainCamera;
 
     [SerializeField] float maxRealSlingLength = 20f;
@@ -31,10 +31,10 @@ public class DetatchedMask : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
         actions = GetComponent<PlayerInput>();
         attachedMask = GetComponent<AttachedMask>();
-        collider = GetComponent<BoxCollider>();
+        _collider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -87,7 +87,7 @@ public class DetatchedMask : MonoBehaviour
             float wsSlingLength = wsSlingDelta.magnitude * slingStrengthScalar;
             
             if (wsSlingLength > maxSlingVelocity) wsSlingLength = maxSlingVelocity; // Caps force magnitude
-            rigidbody.AddForce(new Vector3(wsSlingDirection.x, 0.5f, wsSlingDirection.z) * wsSlingLength, ForceMode.Impulse);
+            _rigidbody.AddForce(new Vector3(wsSlingDirection.x, 0.5f, wsSlingDirection.z) * wsSlingLength, ForceMode.Impulse);
 
             movementCooldown = maxMovementCooldown;
             
@@ -97,7 +97,7 @@ public class DetatchedMask : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (rigidbody.linearVelocity.magnitude < minVelocityToTakeOver && !isControlling) return;
+        if (_rigidbody.linearVelocity.magnitude < minVelocityToTakeOver && !isControlling) return;
 
         if (collision.gameObject.TryGetComponent<ControllableEnemy>(out ControllableEnemy enemyScript))
         {
@@ -112,11 +112,11 @@ public class DetatchedMask : MonoBehaviour
     {
         attachedMask.SetControlledEnemy(enemyScript);
         attachedMask.SwtichToAttachedControls();
-        collider.enabled = false;
+        _collider.enabled = false;
         isControlling = true;
         enemyScript.SetControlled(true);
 
-        rigidbody.detectCollisions = false;
+        _rigidbody.detectCollisions = false;
         //rigidbody.freezeRotation = true;
 
         attachedCooldown = maxAttachedCooldown;
@@ -128,9 +128,9 @@ public class DetatchedMask : MonoBehaviour
      // Called when a player stops possessing
     public void SwitchToDetachedMovement()
     {
-        collider.enabled = true;
+        _collider.enabled = true;
         actions.SwitchCurrentActionMap("detatched");
-        rigidbody.detectCollisions = true;
+        _rigidbody.detectCollisions = true;
         //rigidbody.freezeRotation = false;
         isControlling = false;
         controlledEnemyType = ControllableEnemy.EnemyType.None;
