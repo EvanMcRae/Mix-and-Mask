@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1772545698791862272}
   - component: {fileID: 1191460387562816242}
   - component: {fileID: 4516478814258087144}
+  - component: {fileID: -8608804040371270441}
   m_Layer: 0
   m_Name: runnerEnemy
   m_TagString: Untagged
@@ -174,8 +175,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8027495602229665048}
   serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
+  m_Mass: 0.05
+  m_LinearDamping: 0.1
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -191,8 +192,23 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 48
   m_CollisionDetection: 0
+--- !u!114 &-8608804040371270441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027495602229665048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854d814c5699544eba3d4d9d8d1de110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RunnerController
+  moveAcceleration: 15
+  maxSpeed: 7
+  maxDashCooldown: 5
 --- !u!1001 &2653382696860595245
 PrefabInstance:
   m_ObjectHideFlags: 0

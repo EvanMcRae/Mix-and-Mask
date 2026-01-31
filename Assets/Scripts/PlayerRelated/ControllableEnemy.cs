@@ -12,10 +12,10 @@ public class ControllableEnemy : MonoBehaviour
     protected Rigidbody rigidbody = null;
     protected bool isUnderControl = false;
 
-    void Start()
+    public void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        rigidbody.freezeRotation = true;
+        //rigidbody.freezeRotation = true;
     }
 
     void FixedUpdate()
@@ -37,7 +37,7 @@ public class ControllableEnemy : MonoBehaviour
     public virtual void Rotate(float zRotation)
     {
         if (!isUnderControl) return;
-        Debug.Log("Enemy zRotation: " + zRotation);
+        //Debug.Log("Enemy zRotation: " + zRotation);
         this.gameObject.transform.eulerAngles = new Vector3(0, zRotation, 0);
     }
 
@@ -51,7 +51,7 @@ public class ControllableEnemy : MonoBehaviour
         Debug.Log("Attempting Secondary Enemy Action!");
     }
 
-    public void SetControlled(bool underControl)
+    public virtual void SetControlled(bool underControl)
     {
         isUnderControl = underControl;
     }
