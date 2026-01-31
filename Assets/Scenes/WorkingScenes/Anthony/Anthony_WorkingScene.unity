@@ -468,8 +468,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
   enemyPrefabs:
-  - {fileID: 7681932378775738210, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
   - {fileID: 8027495602229665048, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
+  - {fileID: 7681932378775738210, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
   baseEnemiesPerPoint: 5
   waveIncreasePerPoint: 2
 --- !u!4 &708284580
@@ -644,8 +644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5def2026818887442af0994d443525cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawnPoint
-  enemyCountDelta: -2
-  scatterRadius: 12
+  enemyCountDelta: 0
+  scatterRadius: 10
 --- !u!4 &1024852659
 Transform:
   m_ObjectHideFlags: 0
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5def2026818887442af0994d443525cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawnPoint
-  enemyCountDelta: 2
+  enemyCountDelta: 0
   scatterRadius: 10
 --- !u!4 &1424786176
 Transform:
