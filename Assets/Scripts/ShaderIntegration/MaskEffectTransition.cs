@@ -5,7 +5,8 @@ using UnityEngine.InputSystem.UI;
 
 public class MaskEffectTransition : MonoBehaviour {
 
-
+    public TransitionRendererFeature feature;
+    
     public float speed = 1;
     public bool transitionDirection = false;
     public bool isTransitioning = true;
@@ -25,7 +26,7 @@ public class MaskEffectTransition : MonoBehaviour {
         if (!isTransitioning) return;
         t += (transitionDirection ? 1 : -1) * speed * Time.deltaTime;
         t = Mathf.Clamp(t, 0, 1);
-        if (isTransitioning) TransitionRendererFeature.instance.ApplyTransition(t);
+        if (isTransitioning) feature.ApplyTransition(t);
         if (Mathf.Approximately(t, 1f) || t == 0f) {
             isTransitioning = false;
             if (onComplete != null) onComplete.Invoke();
