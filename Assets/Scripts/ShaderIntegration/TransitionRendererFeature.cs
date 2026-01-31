@@ -12,12 +12,11 @@ public class TransitionRendererFeature : FullScreenPassRendererFeature {
     public float progress;
 
     public void OnEnable() {
-        if (instance) Debug.LogWarning("Instance already exists! Only one TransitionRendererFeature can exist at a time!");
-        instance = this;
+        if (instance && instance != this) Debug.LogWarning("Instance already exists! Only one TransitionRendererFeature can exist at a time!");
+        else instance = this;
     }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {
-        passMaterial = CoreUtils.CreateEngineMaterial(shader);
         passMaterial.SetFloat(Shader.PropertyToID("_AnimationProgress"), 1);
         passMaterial.SetColor(Shader.PropertyToID("_TransitionColor"), Color.black);
         float easedProgress = 1 - progress; //No easing, we could add some.

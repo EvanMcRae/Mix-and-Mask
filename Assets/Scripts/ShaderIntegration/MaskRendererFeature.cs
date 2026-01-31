@@ -11,7 +11,7 @@ public class MaskRendererFeature : FullScreenPassRendererFeature {
     private Color color;
 
     public void OnEnable() {
-        if (instance) Debug.LogWarning("Instance already exists! Only one MaskRendererFeature can exist at a time!");
+        if (instance&& instance != this) Debug.LogWarning("Instance already exists! Only one MaskRendererFeature can exist at a time!");
         instance = this;
     }
 
