@@ -12,18 +12,24 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Enemy") || other.isTrigger) 
+            return;
+        
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player got hit by tank shot");
 
             //later:
-            //other.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
 
             Destroy(gameObject);
         }
-        else if (!other.isTrigger)
-        {
-            Destroy(gameObject);
-        }
+
+        Destroy(gameObject);
+        
     }
 }
