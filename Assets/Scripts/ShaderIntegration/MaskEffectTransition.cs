@@ -1,13 +1,15 @@
 using UnityEngine;
 
-public class MaskEffect : MonoBehaviour {
+public class MaskEffectTransition : MonoBehaviour {
+
+
     public float speed = 1;
     public bool transitionDirection = false;
-    public bool isTransitioning = false;
-    private float t;
-    private Color color;
+    public bool isTransitioning = true;
+    public float t = 1;
 
-    public void StartFade(bool direction) {
+    // True direction is closing in, false is closing out from in.
+    public void StartTransition(bool direction) {
         transitionDirection = direction;
         isTransitioning = true;
     }
@@ -16,11 +18,9 @@ public class MaskEffect : MonoBehaviour {
         if (!isTransitioning) return;
         t += (transitionDirection ? 1 : -1) * speed * Time.deltaTime;
         t = Mathf.Clamp(t, 0, 1);
-        if (isTransitioning) MaskRendererFeature.instance.ApplyMask(t, color);
+        if (isTransitioning) TransitionRendererFeature.instance.ApplyTransition(t);
         if (Mathf.Approximately(t, 1f) || t == 0f) isTransitioning = false;
     }
-
-    public void SetMaskColor(Color newColor) {
-        color = newColor;
-    }
+    
+    
 }

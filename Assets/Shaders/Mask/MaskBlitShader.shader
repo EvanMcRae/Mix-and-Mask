@@ -4,7 +4,8 @@ Shader "Custom/MaskShader"
     {
         _AnimationProgress("Animation Progress", Range(0, 1)) = 0
         _TransitionColor("Transition Color", Color) = (0, 0, 0, 1)
-      
+        _EffectScreenDist("Effect Screen Distance", Range(0, 1)) = 0.5
+        _EffectScreenStrength("Effect Screen Strength", Range(0, 100)) = 2
     }
     
     
@@ -33,6 +34,8 @@ Shader "Custom/MaskShader"
             CBUFFER_START(UNITY_PER_MATERIAL)
                 float _AnimationProgress;
                 half4 _TransitionColor;
+                float _EffectScreenDist;
+                float _EffectScreenStrength;
             CBUFFER_END
             
             float sample_noise(float3 pos)
@@ -50,6 +53,7 @@ Shader "Custom/MaskShader"
                 float2 centeredUV = input.texcoord - 0.5;
                 float2 uvDir = normalize(centeredUV);
                 float uvLen = length(centeredUV);
+                _AnimationProgress = 1;
                 
                 float root2 =  1.4142135623;
                 float anim = (1 - _AnimationProgress);
@@ -60,7 +64,7 @@ Shader "Custom/MaskShader"
                 float smoothNoise = Smoothstep01(clampedNoise);
                 float lenDiff = uvLen * 2 * smoothNoise - anim * root2;
                 smoothNoise = saturate(min(smoothNoise, lenDiff));
-                smoothNoise = saturate((smoothNoise - 0.5) * 2);
+                smoothNoise = saturate((smoothNoise - _EffectScreenDist) * _EffectScreenStrength);
                 
                 return color * (1 - smoothNoise) + _TransitionColor * smoothNoise;
             }
