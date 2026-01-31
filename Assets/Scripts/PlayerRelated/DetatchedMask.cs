@@ -82,11 +82,8 @@ public class DetatchedMask : MonoBehaviour
                              mainCamera.transform.position);
             Vector3 wsInitialClickPoint = GetPositionAtHeight(mainCamera.transform.position, rayDir, transform.position.y);
             
-            Debug.Log(wsFinalClickPoint);
-            Debug.Log(wsInitialClickPoint);
             Vector3 wsSlingDelta = wsFinalClickPoint - wsInitialClickPoint;
             Vector3 wsSlingDirection = Vector3.Normalize(wsSlingDelta);
-            Debug.Log(wsSlingDirection);
             float wsSlingLength = wsSlingDelta.magnitude * slingStrengthScalar;
             
             if (wsSlingLength > maxSlingVelocity) wsSlingLength = maxSlingVelocity; // Caps force magnitude
