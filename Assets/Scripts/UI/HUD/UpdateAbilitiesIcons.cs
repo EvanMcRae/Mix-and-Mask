@@ -32,6 +32,11 @@ public class UpdateAbilitiesIcons : MonoBehaviour
     private Vector2 startPos;
     private Quaternion startRot;
 
+    [SerializeField] GameObject canvasParent;
+
+    //Needed for connecting to mask logic
+    DetatchedMask maskController;
+
 
     //Set the things needs to animate the canvas
     private void Awake()
@@ -39,6 +44,7 @@ public class UpdateAbilitiesIcons : MonoBehaviour
         rect = GetComponent<RectTransform>();
         startPos = rect.anchoredPosition;
         startRot = rect.localRotation;
+        maskController = FindFirstObjectByType<DetatchedMask>();
     }
 
 
@@ -56,12 +62,12 @@ public class UpdateAbilitiesIcons : MonoBehaviour
         //Fade out
         seq.Join(canvasGroup.DOFade(0f, fallDuration * 0.8f));
         //Hide the game object
-        seq.OnComplete(() =>{gameObject.SetActive(false);});
+        seq.OnComplete(() =>{canvasParent.SetActive(false);});
     }
 
     public void UISlotIn()
     {
-        gameObject.SetActive(true);
+        canvasParent.SetActive(true);
 
         rect.DOKill();
         canvasGroup.DOKill();
@@ -112,13 +118,9 @@ public class UpdateAbilitiesIcons : MonoBehaviour
             rightImageA.sprite = iconSprites[firstIndex];
 
             rightImageB.sprite = iconSprites[secondIndex];
-            UISlotIn();
         }
-        else
-        {
 
-            UIFallOff();
-        }
+        UISlotIn();
 
     }
 
@@ -131,5 +133,53 @@ public class UpdateAbilitiesIcons : MonoBehaviour
 
         UpdateAbilityIcons(EnemyType.Runner);
         
+    }
+
+    public void OnAttach()
+    {
+        DetatchedMask maskController = FindFirstObjectByType<DetatchedMask>();
+
+        if (maskController == null)
+        {
+            Debug.Log("NO DETATCHED MASK TO PULL TYPE FROM");
+            return;
+        }
+
+
+        
+        //Update the UI based on what you did
+        UpdateAbilityIcons(maskController.GetCurrentlyControlledEnemyType());
+    }
+
+    public void OnDettach()
+    {
+        
+
+        if (maskController == null)
+        {
+            Debug.Log("NO DETATCHED MASK TO PULL TYPE FROM");
+            return;
+        }
+
+        //Update the UI based on what you did
+        UIFallOff();
+    }
+
+    public void OnEnable()
+    {
+        if (maskController != null)
+        {
+            maskController.onAttach.AddListener(OnAttach);
+            maskController.onDetach.AddListener(OnDettach);
+        }
+    }
+
+    public void OnDisable()
+    {
+        if (maskController != null)
+        {
+            maskController.onAttach.RemoveListener(OnAttach);
+            maskController.onDetach.RemoveListener(OnDettach);
+        }
     }
 }

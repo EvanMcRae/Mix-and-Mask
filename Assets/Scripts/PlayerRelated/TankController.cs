@@ -20,7 +20,7 @@ public class TankController : ControllableEnemy
     {
         if (!isUnderControl) return;
 
-        Debug.Log("Enemy is under Control");
+        //Debug.Log("Enemy is under Control");
 
         if (_rigidbody.linearVelocity.magnitude < maxSpeed) _rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
         else _rigidbody.linearVelocity = _rigidbody.linearVelocity.normalized * maxSpeed;
