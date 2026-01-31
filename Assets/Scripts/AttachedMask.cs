@@ -25,7 +25,11 @@ public class AttachedMask : MonoBehaviour
 
         if (controlledEnemy != null)
         {
+            // Set the move direction of this enemy
             controlledEnemy.Move(moveDir);
+
+            // Find the angle of the current mouse position relative to the center of the screen
+            // And then set the controlled enemy's rotation to that
             Vector2 mousePos = Mouse.current.position.ReadValue();
             Vector2 screenCenter = new Vector2(Screen.width/2, Screen.height/2);
             Vector2 centerToMouse = mousePos - screenCenter;
