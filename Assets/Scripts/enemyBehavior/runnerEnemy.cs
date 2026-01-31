@@ -194,5 +194,14 @@ public class RunnerEnemy : EnemyBase
             agent.enabled = true;
             state = State.Move;
         }
+        else if(state == State.Dash && collision.gameObject.CompareTag("Enemy"))
+        {
+            print("possessed was hit by runner enemy");
+            ControllableEnemy player = collision.gameObject.GetComponent<ControllableEnemy>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
+        }
     }
 }
