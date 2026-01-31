@@ -106,6 +106,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _PixelDensity: 6.7
+    - _PixelWidth: 250
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Sigma: -1

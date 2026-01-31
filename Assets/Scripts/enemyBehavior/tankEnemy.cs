@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class tankEnemy : EnemyBase
+public class TankEnemy : EnemyBase
 {
     public Transform[] patrolPoints;
     public float waitTime = 2f;
