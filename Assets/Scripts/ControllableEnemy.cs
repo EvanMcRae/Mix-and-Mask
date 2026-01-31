@@ -15,6 +15,7 @@ public class ControllableEnemy : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        rigidbody.freezeRotation = true;
     }
 
     void FixedUpdate()
