@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 1823235021558209283}
   - component: {fileID: 3414434764460955031}
   - component: {fileID: 1483075824128782690}
+  - component: {fileID: 7016911111499221389}
+  - component: {fileID: 3284060932612893811}
   - component: {fileID: 3973024201605432059}
-  - component: {fileID: 1341451551606808484}
   m_Layer: 0
   m_Name: DetachedMask
   m_TagString: Untagged
@@ -142,6 +143,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7016911111499221389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280922278393579992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37f87d6767036520ebc5c2c37e837341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetatchedMovement
+  maxRealSlingLength: 200
+  maxSlingVelocity: 12
+  maxMovementCooldown: 1.5
+  minVelocityToTakeOver: 1.5
+--- !u!114 &3284060932612893811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280922278393579992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa46d787bb51211bbcdea762a147d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttachedMask
 --- !u!114 &3973024201605432059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,8 +198,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1341451551606808484}
-        m_TargetAssemblyTypeName: DetatchedMovement, Assembly-CSharp
+      - m_Target: {fileID: 7016911111499221389}
+        m_TargetAssemblyTypeName: DetatchedMask, Assembly-CSharp
         m_MethodName: Slingshot
         m_Mode: 0
         m_Arguments:
@@ -184,33 +213,71 @@ MonoBehaviour:
     m_ActionId: c60ebe6b-3bf6-4287-b04b-ce632bd579ae
     m_ActionName: 'detatched/Slingshot[/Mouse/leftButton]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3284060932612893811}
+        m_TargetAssemblyTypeName: AttachedMask, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b56bd83b-7789-4f26-82f3-6386b92654ea
     m_ActionName: 'possession/OnMove[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3284060932612893811}
+        m_TargetAssemblyTypeName: AttachedMask, Assembly-CSharp
+        m_MethodName: PrimaryAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5b262249-d37f-4fe6-92c1-3c5d1c0ba260
     m_ActionName: possession/PrimaryAction
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3284060932612893811}
+        m_TargetAssemblyTypeName: AttachedMask, Assembly-CSharp
+        m_MethodName: SecondaryAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a9f3ca3e-c1fe-4cc4-a1dc-f56e8d4dc009
     m_ActionName: possession/SecondaryAction
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3284060932612893811}
+        m_TargetAssemblyTypeName: AttachedMask, Assembly-CSharp
+        m_MethodName: Detatch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9bdaf723-e71a-4cc3-858e-6f5ecc811183
+    m_ActionName: 'possession/Detatch[/Keyboard/ctrl]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: detatched
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1341451551606808484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8280922278393579992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37f87d6767036520ebc5c2c37e837341, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DetatchedMovement
-  maxRealSlingLength: 200
-  maxSlingVelocity: 15

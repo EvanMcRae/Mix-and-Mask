@@ -60,6 +60,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Detatch",
+                    "type": "Button",
+                    "id": "9bdaf723-e71a-4cc3-858e-6f5ecc811183",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -121,7 +130,7 @@
                 {
                     "name": "",
                     "id": "978989bf-90c4-4b93-bdce-5889c4b522e1",
-                    "path": "",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -132,11 +141,22 @@
                 {
                     "name": "",
                     "id": "1dc5b691-404d-49d0-991e-3d3d1969e2aa",
-                    "path": "",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "SecondaryAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "402cd2de-6537-4842-8f5c-dbc65b420b9d",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Detatch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
