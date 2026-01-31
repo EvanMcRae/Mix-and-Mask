@@ -39,8 +39,10 @@ public class TankEnemy : EnemyBase
         agent.SetDestination(patrolPoints[currentPoint].position);
     }
 
-    public void Update()
+    public override void Update()
     {
+        base.Update();
+
         if (agent == null) agent = GetComponent<NavMeshAgent>();
         
         if (!agent.isOnNavMesh)

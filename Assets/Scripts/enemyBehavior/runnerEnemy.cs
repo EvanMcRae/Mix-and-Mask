@@ -44,8 +44,9 @@ public class RunnerEnemy : EnemyBase
         agent.speed = UnityEngine.Random.Range(4, 8);
     }
 
-    public void Update()
+    public override void Update()
     {
+        base.Update();
         UpdateState();
         Act();
     }
