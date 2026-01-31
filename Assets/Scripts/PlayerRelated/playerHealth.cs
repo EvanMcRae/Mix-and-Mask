@@ -1,7 +1,7 @@
 using DG.Tweening.Core.Easing;
 using UnityEngine;
 
-public class playerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     public float maxPlayerHealth = 10f;
     public float currPlayerHealth = 10f;

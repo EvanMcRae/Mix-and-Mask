@@ -159,6 +159,17 @@
                     "action": "Detatch",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4f1df68-fd60-4098-b52e-e8e3ed37f76b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Detatch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

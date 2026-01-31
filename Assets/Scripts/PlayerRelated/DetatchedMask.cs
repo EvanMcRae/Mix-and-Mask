@@ -49,7 +49,10 @@ public class DetatchedMask : MonoBehaviour
         {
             Vector2 currentMousePos = Mouse.current.position.ReadValue();
             Vector2 localMousePos;
-            Vector2 initialClickPointCanvasSpace;
+            Vector2 maskPosScreenSpace;
+            Vector2 maskPosCanvasSpace;
+
+            maskPosScreenSpace = mainCamera.WorldToScreenPoint(transform.position);
 
             RectTransform parentRect = arrow.parent as RectTransform;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -61,18 +64,21 @@ public class DetatchedMask : MonoBehaviour
 
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 parentRect,
-                initialClickPoint,
+                maskPosScreenSpace,
                 null,
-                out initialClickPointCanvasSpace
+                out maskPosCanvasSpace
             );
-
-            Vector2 arrowDir = localMousePos - initialClickPointCanvasSpace;
+            
+            Vector2 arrowDir = localMousePos - maskPosCanvasSpace;
 
             float angle = Mathf.Atan2(arrowDir.y, arrowDir.x) * Mathf.Rad2Deg;
 
-            arrow.anchoredPosition = initialClickPointCanvasSpace;
+            float arrowLength = (arrowDir.magnitude / maxRealSlingLength) * maxRealSlingLength;
+            if (arrowLength > maxRealSlingLength) arrowLength = maxRealSlingLength;
+
+            arrow.anchoredPosition = maskPosCanvasSpace;
             arrow.localRotation = Quaternion.Euler(0, 0, angle);
-            arrow.sizeDelta = new Vector2(arrowDir.magnitude, 3f);
+            arrow.sizeDelta = new Vector2(arrowLength, 3f);
         }
     }
 

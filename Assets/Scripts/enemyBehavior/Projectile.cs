@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {
     public float damage = 1f;
     public float lifetime = 5f;
+    public bool belongsToPlayer = false;
 
     void Start()
     {
@@ -12,16 +13,17 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") || other.isTrigger)
+        if ((other.CompareTag("Enemy") || other.isTrigger) && belongsToPlayer)
         {
             EnemyBase enemy = other.GetComponent<EnemyBase>();
+            ControllableEnemy ce = other.GetComponent<ControllableEnemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(5f);
+                if(ce != null && !ce.isUnderControl) enemy.TakeDamage(5f);
             }
         }
         
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !belongsToPlayer)
         {
             Debug.Log("Player got hit by tank shot");
 
@@ -33,14 +35,12 @@ public class Projectile : MonoBehaviour
             }
             else
             {
-                playerHealth playerAsMask = other.GetComponent<playerHealth>();
+                PlayerHealth playerAsMask = other.GetComponent<PlayerHealth>();
                 playerAsMask.playerTakeDamage(5);
             }
 
             Destroy(gameObject);
         }
-
-        Destroy(gameObject);
         
     }
 }

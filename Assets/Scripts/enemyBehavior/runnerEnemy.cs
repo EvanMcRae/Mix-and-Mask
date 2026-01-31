@@ -186,7 +186,7 @@ public class RunnerEnemy : EnemyBase
             }
             else
             {
-                playerHealth playerAsMask = collision.gameObject.GetComponent<playerHealth>();
+                PlayerHealth playerAsMask = collision.gameObject.GetComponent<PlayerHealth>();
                 playerAsMask.playerTakeDamage(5);
             }
 
@@ -196,9 +196,9 @@ public class RunnerEnemy : EnemyBase
         }
         else if(state == State.Dash && collision.gameObject.CompareTag("Enemy"))
         {
-            print("possessed was hit by runner enemy");
+            Debug.Log("possessed was hit by runner enemy");
             ControllableEnemy player = collision.gameObject.GetComponent<ControllableEnemy>();
-            if (player != null)
+            if (player != null && player.isUnderControl)
             {
                 player.TakeDamage(damage);
             }
