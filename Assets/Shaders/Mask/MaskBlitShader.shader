@@ -56,7 +56,7 @@ Shader "Custom/MaskShader"
                 float noise = sample_noise(float3(centeredUV * 10, _Time.y));
                 float clampedNoise = Remap(-1, 1, uvLen * root2, 1, noise);
                 float smoothNoise = Smoothstep01(clampedNoise);
-                float lenDiff = uvLen * 2 * smoothNoise - _AnimationProgress * root2;
+                float lenDiff = uvLen * 2 * smoothNoise - (1 - _AnimationProgress) * root2;
                 smoothNoise = saturate(min(smoothNoise, lenDiff));
                 smoothNoise = saturate((smoothNoise - 0.5) * 2);
                 
