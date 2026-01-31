@@ -1,4 +1,7 @@
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -17,6 +20,16 @@ public class MainMenuManager : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(firstSelection);
         instance = this;
+
+        // Disable fullscreen in demo / web player
+        if (Application.platform == RuntimePlatform.WebGLPlayer
+#if UNITY_EDITOR
+            || EditorUserBuildSettings.activeBuildTarget == BuildTarget.WebGL
+#endif
+        )
+        {
+            
+        }
     }
 
     public void PressPlay()

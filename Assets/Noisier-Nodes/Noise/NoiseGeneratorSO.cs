@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Unity.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
@@ -125,6 +127,7 @@ namespace Noise {
             Debug.LogError("Could not find generator with type " + type + "!");
         }
 
+#if UNITY_EDITOR
         private static Texture2D SaveRT2DToTexture2DAsset(RenderTexture rt2D, string fileName, bool encodeToPng) {
             int width = rt2D.width, height = rt2D.height;
             NativeArray<byte> arr = new NativeArray<byte>(width * height * 4, Allocator.Persistent, // * 4 because of the color format.
@@ -177,7 +180,6 @@ namespace Noise {
         }
     }
 
-
     [CustomEditor(typeof(NoiseGeneratorSO))]
     public class MyDataSOEditor : Editor {
         public override void OnInspectorGUI() {
@@ -191,4 +193,5 @@ namespace Noise {
             }
         }
     }
+#endif
 }
