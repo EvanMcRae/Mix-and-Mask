@@ -29,7 +29,7 @@ public class RunnerEnemy : EnemyBase
 
     public State state;
 
-    public void Start()
+    public override void Start()
     {
         base.Start();
 
@@ -155,7 +155,11 @@ public class RunnerEnemy : EnemyBase
             Debug.Log("Runner slams the player like a fucking missile");
 
             // later:
-            // other.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
 
             nextAttackTime = Time.time + attackCooldown;
             agent.enabled = true;

@@ -14,7 +14,7 @@ public class tankEnemy : EnemyBase
     public Transform firePoint;
     public float projectileSpeed = 10f;
 
-    public void Start()
+    public override void Start()
     {
         base.Start();
 

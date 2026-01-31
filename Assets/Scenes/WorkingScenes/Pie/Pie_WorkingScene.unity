@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 444321504}
   - component: {fileID: 444321508}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: PlayerCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,7 +399,8 @@ MonoBehaviour:
   heightAbovePlayer: 15
   offsetFromPlayerX: 0
   offsetFromPlayerY: -10
-  cameraAngle: 45
+  cameraAngleX: 45
+  rotationY: 0
 --- !u!1 &816265774
 GameObject:
   m_ObjectHideFlags: 0
