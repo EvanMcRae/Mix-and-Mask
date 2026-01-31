@@ -9,12 +9,13 @@ public class WaveManager : MonoBehaviour
     public GameObject[] enemyPrefabs; // Drag Runner and Tank prefabs here
     
     [Header("Wave Settings")]
-    public int baseEnemiesPerPoint = 5;
+    public int baseEnemiesPerPoint = 3;
     public int waveIncreasePerPoint = 2;
     
     private List<WaveSpawnPoint> spawnPoints = new List<WaveSpawnPoint>();
     private int currentWave = 0;
     private int activeEnemies = 0;
+    private bool spawningWave = false;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class WaveManager : MonoBehaviour
 
     void StartNextWave()
     {
+        spawningWave = true;
         currentWave++;
         StartCoroutine(SpawnWave());
     }
@@ -54,6 +56,7 @@ public class WaveManager : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
         }
+        spawningWave = false;
     }
 
     void SpawnRandomEnemy(WaveSpawnPoint point)
@@ -70,7 +73,7 @@ public class WaveManager : MonoBehaviour
     public void EnemyDied()
     {
         activeEnemies--;
-        if (activeEnemies <= 0)
+        if (activeEnemies <= 0 && !spawningWave)
         {
             StartNextWave();
         }
@@ -83,7 +86,7 @@ public class WaveManager : MonoBehaviour
         Debug.Log($"NUKE: Clearing {allEnemies.Length} enemies.");
         foreach (EnemyBase enemy in allEnemies)
         {
-            enemy.TakeDamage(99999f); 
+            Destroy(enemy.gameObject);
         }
 
         // 2. NEW: Destroy all active Projectiles immediately
@@ -92,5 +95,9 @@ public class WaveManager : MonoBehaviour
         {
             Destroy(proj.gameObject);
         }
+        
+        spawningWave = false;
+        StopAllCoroutines();
+        StartNextWave();
     }
 }
