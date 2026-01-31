@@ -2372,8 +2372,8 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 4192729910260573028}
     m_SelectOnDown: {fileID: 2196251970162318983}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 4495675995201765079}
+    m_SelectOnRight: {fileID: 4495675995201765079}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3305,8 +3305,8 @@ MonoBehaviour:
   rightNav:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 717959453987392930}
-    m_SelectOnDown: {fileID: 4300681297095437627}
+    m_SelectOnUp: {fileID: 4300681297095437627}
+    m_SelectOnDown: {fileID: 717959453987392930}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
 --- !u!1 &1533422100596392351 stripped
