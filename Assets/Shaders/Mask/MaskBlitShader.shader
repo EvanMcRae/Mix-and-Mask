@@ -53,7 +53,6 @@ Shader "Custom/MaskShader"
                 float2 centeredUV = input.texcoord - 0.5;
                 float2 uvDir = normalize(centeredUV);
                 float uvLen = length(centeredUV);
-                _AnimationProgress = 1;
                 
                 float root2 =  1.4142135623;
                 float anim = (1 - _AnimationProgress);
