@@ -9,7 +9,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject firstSelection;
     private GameObject previousSelection;
 
-    [SerializeField] private GameObject SettingsPanel, CreditsPanel, InstructionsPanel;
+    [SerializeField] private PopupPanel SettingsPanel, ControlsPanel, CreditsPanel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,16 +40,19 @@ public class MainMenuManager : MonoBehaviour
     public void PressCredits()
     {
         previousSelection = EventSystem.current.currentSelectedGameObject;
+        CreditsPanel.Up();
     }
 
-    public void PressInstructions()
+    public void PressControls()
     {
         previousSelection = EventSystem.current.currentSelectedGameObject;
+        ControlsPanel.Up();
     }
 
     public void PressSettings()
     {
         previousSelection = EventSystem.current.currentSelectedGameObject;
+        SettingsPanel.Up();
     }
 
     // TODO

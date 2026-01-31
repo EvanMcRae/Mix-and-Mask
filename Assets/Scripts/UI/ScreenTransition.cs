@@ -9,7 +9,7 @@ using UnityEngine.InputSystem.UI;
 public class ScreenTransition : MonoBehaviour
 {
     public static ScreenTransition instance; // not really a singleton but just so we can have some convenience
-    private const float DURATION = 0.5f;
+    private readonly float duration = 0.5f;
     private Image image;
 
     void Awake()
@@ -31,7 +31,7 @@ public class ScreenTransition : MonoBehaviour
 
         // TODO: @dax do your shader magic
         instance.image.DOFade(1, 0).Complete();
-        instance.image.DOFade(0, DURATION).OnComplete(() =>
+        instance.image.DOFade(0, instance.duration).OnComplete(() =>
         {
             EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = true;
             instance.image.raycastTarget = false;
@@ -51,7 +51,7 @@ public class ScreenTransition : MonoBehaviour
 
         // TODO: @dax do your shader magic
         instance.image.DOFade(0, 0).Complete();
-        instance.image.DOFade(1, DURATION).OnComplete(() =>
+        instance.image.DOFade(1, instance.duration).OnComplete(() =>
         {
             action?.Invoke();
         });
