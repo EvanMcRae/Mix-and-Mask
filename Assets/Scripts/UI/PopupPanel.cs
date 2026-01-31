@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 
 [RequireComponent(typeof(RectTransform))]
 public class PopupPanel : MonoBehaviour
@@ -10,6 +12,7 @@ public class PopupPanel : MonoBehaviour
     [SerializeField] private float duration = 1f;
     [SerializeField] private bool snap = false;
     [SerializeField] private GameObject screenBlocker;
+    [SerializeField] private GameObject firstSelection;
     private bool goingDown = false;
     private Tween panelTween;
     private static Tween blockerTween;
@@ -27,6 +30,8 @@ public class PopupPanel : MonoBehaviour
         goingDown = false;
         gameObject.SetActive(true);
 
+        EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = false;
+
         if (snap)
             GetComponent<RectTransform>().anchoredPosition = Vector2.down * Screen.height;
         screenBlocker.SetActive(true);
@@ -39,12 +44,19 @@ public class PopupPanel : MonoBehaviour
             KillTween(ref panelTween);
         panelTween = GetComponent<RectTransform>().DOAnchorPosY(0, duration).SetEase(Ease.OutCubic).OnComplete(() =>
         {
+            EventSystem.current.SetSelectedGameObject(firstSelection);
             screenBlocker.GetComponent<Image>().raycastTarget = true;
             action?.Invoke();
+            EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = true;
         });
     }
 
-    public void Down(Action action = null)
+    public void Down()
+    {
+        Down(null);
+    }
+
+    public void Down(Action action)
     {
         if (goingDown) return;
         goingDown = true;
@@ -52,12 +64,16 @@ public class PopupPanel : MonoBehaviour
         if (snap)
             GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
 
+        MainMenuManager.instance.ClosePopup();
+        EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = false;
+
         screenBlocker.GetComponent<Image>().raycastTarget = false;
         if (blockerTween != null)
             KillTween(ref blockerTween);
         blockerTween = screenBlocker.GetComponent<Image>().DOFade(0, duration).OnComplete(() =>
         {
             screenBlocker.SetActive(false);
+            EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = true;
         });
 
         if (panelTween != null)

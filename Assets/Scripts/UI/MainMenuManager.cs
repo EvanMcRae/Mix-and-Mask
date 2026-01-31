@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public static MainMenuManager instance;
     private const string GAME_SCENE = "MASTER_GameScene";
     [SerializeField] private GameObject firstSelection;
     private GameObject previousSelection;
@@ -15,6 +16,7 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         EventSystem.current.SetSelectedGameObject(firstSelection);
+        instance = this;
     }
 
     public void PressPlay()
@@ -60,7 +62,6 @@ public class MainMenuManager : MonoBehaviour
         SettingsPanel.Up();
     }
 
-    // TODO
     public void ClosePopup()
     {
         EventSystem.current.SetSelectedGameObject(previousSelection);
