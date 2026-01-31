@@ -14,7 +14,7 @@ public class DetatchedMask : MonoBehaviour
     public Camera mainCamera;
 
     [SerializeField] float maxRealSlingLength = 20f;
-    [SerializeField] float maxSlingVelocity = 5f;
+    [SerializeField] float maxSlingVelocity = 15f;
     [SerializeField] float slingStrengthScalar = 3f;
     [SerializeField] float maxMovementCooldown = 1.5f;
     [SerializeField] float minVelocityToTakeOver = 2.5f;
