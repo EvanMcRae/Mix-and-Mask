@@ -8,6 +8,23 @@ public class SettingsManager : MonoBehaviour
 
     public void Start()
     {
+        // Declare defaults
+        if (!PlayerPrefs.HasKey("musicVolume"))
+            PlayerPrefs.SetFloat("musicVolume", 50);
+
+        if (!PlayerPrefs.HasKey("soundVolume"))
+            PlayerPrefs.SetFloat("soundVolume", 50);
+
+        if (!PlayerPrefs.HasKey("masterVolume"))
+            PlayerPrefs.SetFloat("masterVolume", 100);
+
+        if (!PlayerPrefs.HasKey("fullscreen"))
+            PlayerPrefs.SetInt("fullscreen", 1);
+
+        if (!PlayerPrefs.HasKey("vsync"))
+            PlayerPrefs.SetInt("vsync", 1);
+
+        // Reload saved settings
         musicVolumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
         SetMusicVolume(musicVolumeSlider.value);
 

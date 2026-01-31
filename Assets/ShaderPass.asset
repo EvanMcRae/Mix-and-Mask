@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ShaderPass
   m_EditorClassIdentifier: Assembly-CSharp::ShaderPassHolder
   _pass: {fileID: -7351174916389082965, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
+  _passMaterial: {fileID: 2100000, guid: 6379ad916efee1741b72ba3f38554d7b, type: 2}

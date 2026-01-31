@@ -10,7 +10,7 @@ public class ControllableEnemy : MonoBehaviour
     [SerializeField] public Transform maskTransform;
 
     protected Vector2 moveDir = new Vector2(0, 0);
-    protected Rigidbody rigidbody = null;
+    protected Rigidbody _rigidbody = null;
     protected bool isUnderControl = false;
 
     public enum EnemyType
@@ -24,7 +24,7 @@ public class ControllableEnemy : MonoBehaviour
 
     public virtual void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
         //rigidbody.freezeRotation = true;
     }
 
@@ -34,8 +34,8 @@ public class ControllableEnemy : MonoBehaviour
 
         //Debug.Log("Enemy is under Control");
 
-        if (rigidbody.linearVelocity.magnitude < maxSpeed) rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
-        else rigidbody.linearVelocity = rigidbody.linearVelocity.normalized * maxSpeed;
+        if (_rigidbody.linearVelocity.magnitude < maxSpeed) _rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
+        else _rigidbody.linearVelocity = _rigidbody.linearVelocity.normalized * maxSpeed;
     }
 
     public virtual void Move(Vector2 moveDir)

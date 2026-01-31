@@ -40,8 +40,8 @@ public class RunnerController : ControllableEnemy
 
         if (dashCooldown > 0) dashCooldown -= Time.deltaTime;
 
-        if (rigidbody.linearVelocity.magnitude < maxSpeed) rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
-        else rigidbody.linearVelocity = rigidbody.linearVelocity.normalized * maxSpeed;
+        if (_rigidbody.linearVelocity.magnitude < maxSpeed) _rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
+        else _rigidbody.linearVelocity = _rigidbody.linearVelocity.normalized * maxSpeed;
     }
 
     public override void Rotate(float yRotation)
@@ -70,7 +70,7 @@ public class RunnerController : ControllableEnemy
     {
         runnerEnemy.enabled = !underControl;
         navAgent.enabled = !underControl;
-        rigidbody.isKinematic = !underControl;
+        _rigidbody.isKinematic = !underControl;
         base.SetControlled(underControl);
     }
 }

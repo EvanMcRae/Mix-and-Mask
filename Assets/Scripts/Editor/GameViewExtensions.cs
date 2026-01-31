@@ -22,7 +22,7 @@ public static class GameViewExtensions
     private static void SetShaderOnLoad()
     {
         AssemblyReloadEvents.afterAssemblyReload -= SetShaderOnLoad;
-        ShaderPassHolder.Pass.injectionPoint = FullScreenPassRendererFeature.InjectionPoint.BeforeRenderingTransparents;
+        ShaderPassHolder.DisablePass();
     }
 
     private static void GameViewExtensionsDestructor()
@@ -40,13 +40,13 @@ public static class GameViewExtensions
             if (playMode == PlayModeStateChange.EnteredEditMode || playMode == PlayModeStateChange.ExitingPlayMode)
             {
                 if (ShaderPassHolder.Pass != null)
-                    ShaderPassHolder.Pass.injectionPoint = FullScreenPassRendererFeature.InjectionPoint.BeforeRenderingTransparents;
+                    ShaderPassHolder.DisablePass();
             }
             return;
         }
 
         if (ShaderPassHolder.Pass != null)
-            ShaderPassHolder.Pass.injectionPoint = FullScreenPassRendererFeature.InjectionPoint.AfterRenderingPostProcessing;
+            ShaderPassHolder.EnablePass();
 
         var gameWindow = EditorWindow.GetWindow(typeof(EditorWindow).Assembly.GetType("UnityEditor.GameView"));
         // We only do the force focus if Focused or Maximized play mode selected.

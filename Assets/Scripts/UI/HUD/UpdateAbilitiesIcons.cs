@@ -13,7 +13,7 @@ public class UpdateAbilitiesIcons : MonoBehaviour
     [SerializeField] Sprite[] iconSprites;
 
     //test variable
-    int testIndex = 0;
+    // int testIndex = 0;
 
     //Animating the fall animation
     [SerializeField] private CanvasGroup canvasGroup;

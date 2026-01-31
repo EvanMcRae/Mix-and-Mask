@@ -5,10 +5,23 @@ using UnityEngine.Rendering.Universal;
 public class ShaderPassHolder : ScriptableObject
 {
     [SerializeField] private FullScreenPassRendererFeature _pass;
+    [SerializeField] private Material _passMaterial;
     public static FullScreenPassRendererFeature Pass { get; private set; }
+    private static Material PassMaterial;
 
     private void OnValidate()
     {
         Pass = _pass;
+        PassMaterial = _passMaterial;
+    }
+
+    public static void EnablePass()
+    {
+        Pass.passMaterial = PassMaterial;
+    }
+
+    public static void DisablePass()
+    {
+        Pass.passMaterial = null;
     }
 }

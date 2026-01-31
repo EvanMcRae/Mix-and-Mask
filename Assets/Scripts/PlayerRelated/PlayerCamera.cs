@@ -12,7 +12,7 @@ public class PlayerCamera : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerMask = FindObjectOfType<DetatchedMask>();
+        playerMask = FindFirstObjectByType<DetatchedMask>();
         transform.eulerAngles = new Vector3(cameraAngleX, rotationY, 0);
         transform.position = new Vector3(offsetFromPlayerX, heightAbovePlayer, offsetFromPlayerY);
     }

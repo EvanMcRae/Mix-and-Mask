@@ -68,6 +68,7 @@ namespace Noise {
         };
 
 
+#if UNITY_EDITOR
         public void Generate() {
             foreach (NoiseGeneratorEntry entry in noiseGenerators) {
                 if (entry.type == type) {
@@ -127,7 +128,6 @@ namespace Noise {
             Debug.LogError("Could not find generator with type " + type + "!");
         }
 
-#if UNITY_EDITOR
         private static Texture2D SaveRT2DToTexture2DAsset(RenderTexture rt2D, string fileName, bool encodeToPng) {
             int width = rt2D.width, height = rt2D.height;
             NativeArray<byte> arr = new NativeArray<byte>(width * height * 4, Allocator.Persistent, // * 4 because of the color format.
@@ -178,8 +178,10 @@ namespace Noise {
             Debug.Log($"Texture3D saved to: Assets/{fileName}.asset");
             return output;
         }
+#endif
     }
 
+#if UNITY_EDITOR
     [CustomEditor(typeof(NoiseGeneratorSO))]
     public class MyDataSOEditor : Editor {
         public override void OnInspectorGUI() {
