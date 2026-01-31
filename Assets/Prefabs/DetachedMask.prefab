@@ -159,6 +159,7 @@ MonoBehaviour:
   maxSlingVelocity: 12
   maxMovementCooldown: 1.5
   minVelocityToTakeOver: 1.5
+  maxAttachedCooldown: 1
 --- !u!114 &3284060932612893811
 MonoBehaviour:
   m_ObjectHideFlags: 0
