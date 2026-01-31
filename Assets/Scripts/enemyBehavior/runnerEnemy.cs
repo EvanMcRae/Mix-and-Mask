@@ -29,7 +29,7 @@ public class RunnerEnemy : EnemyBase
 
     public State state;
 
-    public void Start()
+    public override void Start()
     {
         base.Start();
 
