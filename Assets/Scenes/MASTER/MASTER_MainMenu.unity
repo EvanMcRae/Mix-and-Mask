@@ -950,6 +950,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 937654351}
   - {fileID: 1267218076}
   - {fileID: 1600082962}
   - {fileID: 803841089}
@@ -1296,6 +1297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937654351}
   - component: {fileID: 937654350}
+  - component: {fileID: 937654354}
   m_Layer: 0
   m_Name: MaskEffectTransition
   m_TagString: Untagged
@@ -1327,13 +1329,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937654349}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -300.64075, y: 244.9298, z: -768.1328}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2811.915, y: 2281.4932, z: -8026.1787}
+  m_LocalScale: {x: 9.353073, y: 9.353073, z: 9.353073}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 786309540}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &937654354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937654349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9218a4d37be2604a884f22767dad09c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenTransition
+  met: {fileID: 937654350}
 --- !u!1 &1179329166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,4 +3011,3 @@ SceneRoots:
   - {fileID: 898487942}
   - {fileID: 1989043638}
   - {fileID: 786309540}
-  - {fileID: 937654351}

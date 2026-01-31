@@ -5,16 +5,14 @@ using System;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 
-[RequireComponent(typeof(Image))]
 public class ScreenTransition : MonoBehaviour
 {
     public static ScreenTransition instance; // not really a singleton but just so we can have some convenience
-    private readonly float duration = 0.5f;
-    private Image image;
+    public MaskEffectTransition met;
 
     void Awake()
     {
-        image = GetComponent<Image>();
+        met = GetComponent<MaskEffectTransition>();
         instance = this;
         In();
     }
@@ -26,17 +24,7 @@ public class ScreenTransition : MonoBehaviour
 
     public static void In(Action action)
     {
-        EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = false;
-        instance.image.raycastTarget = true;
-
-        // TODO: @dax do your shader magic
-        instance.image.DOFade(1, 0).Complete();
-        instance.image.DOFade(0, instance.duration).OnComplete(() =>
-        {
-            EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = true;
-            instance.image.raycastTarget = false;
-            action?.Invoke();
-        });
+        instance.met.StartTransition(false, action);
     }
 
     public static void Out()
@@ -46,14 +34,6 @@ public class ScreenTransition : MonoBehaviour
 
     public static void Out(Action action)
     {
-        EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = false;
-        instance.image.raycastTarget = true;
-
-        // TODO: @dax do your shader magic
-        instance.image.DOFade(0, 0).Complete();
-        instance.image.DOFade(1, instance.duration).OnComplete(() =>
-        {
-            action?.Invoke();
-        });
+        instance.met.StartTransition(true, action);
     }
 }

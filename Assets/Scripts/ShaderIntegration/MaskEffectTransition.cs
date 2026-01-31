@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MaskEffectTransition : MonoBehaviour {
@@ -8,10 +9,14 @@ public class MaskEffectTransition : MonoBehaviour {
     public bool isTransitioning = true;
     public float t = 1;
 
+    public Action onComplete;
+
     // True direction is closing in, false is closing out from in.
-    public void StartTransition(bool direction) {
+    public void StartTransition(bool direction, Action onCompleteCallback) {
         transitionDirection = direction;
         isTransitioning = true;
+        if (onComplete != null) onComplete.Invoke();
+        onComplete = onCompleteCallback;
     }
 
     public void Update() {
@@ -19,7 +24,10 @@ public class MaskEffectTransition : MonoBehaviour {
         t += (transitionDirection ? 1 : -1) * speed * Time.deltaTime;
         t = Mathf.Clamp(t, 0, 1);
         if (isTransitioning) TransitionRendererFeature.instance.ApplyTransition(t);
-        if (Mathf.Approximately(t, 1f) || t == 0f) isTransitioning = false;
+        if (Mathf.Approximately(t, 1f) || t == 0f) {
+            isTransitioning = false;
+            if (onComplete != null) onComplete.Invoke();
+        }
     }
     
     
