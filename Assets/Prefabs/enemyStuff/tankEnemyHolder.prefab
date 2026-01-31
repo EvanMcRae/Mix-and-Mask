@@ -76,6 +76,7 @@ MonoBehaviour:
   attackRange: 5
   attackCooldown: 5
   nextAttackTime: 0
+  waveManager: {fileID: 0}
   patrolPoints:
   - {fileID: 5598770051410844625}
   - {fileID: 4066203624118645928}
@@ -267,6 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8906436539713407908}
+  - component: {fileID: -9000049718471844598}
   m_Layer: 0
   m_Name: tankEnemyHolder
   m_TagString: Untagged
@@ -293,6 +295,27 @@ Transform:
   - {fileID: 4531529328361816234}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &-9000049718471844598
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7681932378775738210}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6722164325577552048
 PrefabInstance:
   m_ObjectHideFlags: 0
