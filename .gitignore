@@ -90,4 +90,3 @@ mono_crash.*
 Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
 
 .idea/*
-Assets/Shaders/Mask/TransitionMaskMaterial.mat
