@@ -3,7 +3,7 @@ Shader "Custom/MaskShader"
     Properties
     {
         _AnimationProgress("Animation Progress", Range(0, 1)) = 0
-        _TransitionColor("Transition Color", Color) = (0.8, 0.2, 0.2, 1)
+        _TransitionColor("Transition Color", Color) = (0, 0, 0, 1)
        
     }
     
@@ -52,11 +52,13 @@ Shader "Custom/MaskShader"
                 float2 uvLen = length(centeredUV);
                 
                 float root2 =  1.4142135623;
+                float anim = (1 - _AnimationProgress);
+                anim *= anim;
                 
                 float noise = sample_noise(float3(centeredUV * 10, _Time.y));
                 float clampedNoise = Remap(-1, 1, uvLen * root2, 1, noise);
                 float smoothNoise = Smoothstep01(clampedNoise);
-                float lenDiff = uvLen * 2 * smoothNoise - (1 - _AnimationProgress) * root2;
+                float lenDiff = uvLen * 2 * smoothNoise - anim * root2;
                 smoothNoise = saturate(min(smoothNoise, lenDiff));
                 smoothNoise = saturate((smoothNoise - 0.5) * 2);
                 

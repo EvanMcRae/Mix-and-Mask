@@ -2,7 +2,7 @@ Shader "Custom/PixelationBlitPostprocessor"
 {
     Properties
     {
-        _PixelDensity("Pixel Density", Float) = 5
+        _PixelWidth("Pixel Width", Float) = 500
         _BlurTestRadius("Blur Test Radius", Int) = 2
     }
     
@@ -26,13 +26,15 @@ Shader "Custom/PixelationBlitPostprocessor"
             #pragma fragment Frag
             
             CBUFFER_START(UNITY_PER_MATERIAL)
-                float _PixelDensity;
+                float _PixelWidth;
                 float _BlurTestRadius;
             CBUFFER_END
 
             float4 Frag (Varyings input) : SV_Target
             {
-                float2 pixelCount = _ScreenParams.xy / _PixelDensity;
+                float aspectRatio = _ScreenParams.x / _ScreenParams.y;
+                
+                float2 pixelCount = float2(_PixelWidth, _PixelWidth / aspectRatio);
                 float2 pixelUV = ceil(input.texcoord * pixelCount) / pixelCount;
                 
                 float4 colorSum = 0;
