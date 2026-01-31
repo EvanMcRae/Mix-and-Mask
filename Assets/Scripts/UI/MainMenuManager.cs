@@ -15,7 +15,7 @@ public class MainMenuManager : MonoBehaviour
     private GameObject previousSelection;
 
     [SerializeField] private PopupPanel SettingsPanel, ControlsPanel, CreditsPanel;
-    [SerializeField] private Button PlayButton, QuitButton, CreditsButton;
+    [SerializeField] private Button QuitButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,8 +27,10 @@ public class MainMenuManager : MonoBehaviour
         if (Utils.IsWebPlayer())
         {
             QuitButton.gameObject.SetActive(false);
-            Utils.SetNavigation(PlayButton, CreditsButton, Utils.Direction.UP);
-            Utils.SetNavigation(CreditsButton, PlayButton, Utils.Direction.DOWN);
+
+            // Remap navigation
+            Utils.SetNavigation(QuitButton.navigation.selectOnDown, QuitButton.navigation.selectOnUp, Utils.Direction.UP);
+            Utils.SetNavigation(QuitButton.navigation.selectOnUp, QuitButton.navigation.selectOnDown, Utils.Direction.DOWN);
         }
     }
 

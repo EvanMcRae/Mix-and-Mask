@@ -755,6 +755,7 @@ MonoBehaviour:
   SettingsPanel: {fileID: 30810931}
   ControlsPanel: {fileID: 1239595431571545274}
   CreditsPanel: {fileID: 2319043887460407132}
+  QuitButton: {fileID: 417908350}
 --- !u!114 &786309537
 MonoBehaviour:
   m_ObjectHideFlags: 0
