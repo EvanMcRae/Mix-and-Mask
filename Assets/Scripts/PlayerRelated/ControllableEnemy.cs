@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +13,8 @@ public class ControllableEnemy : MonoBehaviour
     protected Vector2 moveDir = new Vector2(0, 0);
     protected Rigidbody rigidbody = null;
     protected bool isUnderControl = false;
+
+    public float health = 10f;
 
     public enum EnemyType
     {
@@ -65,4 +68,17 @@ public class ControllableEnemy : MonoBehaviour
     {
         isUnderControl = underControl;
     }
+
+    public void TakeDamage(float dmg)
+    {
+        health -= dmg;
+        if (health <= 0)
+            Die();
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+
 }
