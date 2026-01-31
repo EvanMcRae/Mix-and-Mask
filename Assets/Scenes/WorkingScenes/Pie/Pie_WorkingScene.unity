@@ -246,6 +246,79 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1001 &325929516
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1678655666423976265, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066203624118645928, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489985735766291042, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468663384300224483, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7681932378775738210, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_Name
+      value: tankEnemyHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.20938
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.129
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.5321
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
 --- !u!1 &444321503
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: runnerEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8027495602229665048, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -828,3 +905,4 @@ SceneRoots:
   - {fileID: 8235288340790235579}
   - {fileID: 444321507}
   - {fileID: 970834849}
+  - {fileID: 325929516}

@@ -21,6 +21,7 @@ public class RunnerController : ControllableEnemy
         navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         dashSpeed = runnerEnemy.dashSpeed;
         dashDuration = runnerEnemy.dashDuration;
+        type = ControllableEnemy.EnemyType.Runner;
     }
 
     void FixedUpdate()

@@ -13,6 +13,15 @@ public class ControllableEnemy : MonoBehaviour
     protected Rigidbody rigidbody = null;
     protected bool isUnderControl = false;
 
+    public enum EnemyType
+    {
+        None,
+        Runner,
+        Tank
+    }
+
+    public EnemyType type = EnemyType.None;
+
     public virtual void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -23,7 +32,7 @@ public class ControllableEnemy : MonoBehaviour
     {
         if (!isUnderControl) return;
 
-        Debug.Log("Enemy is under Control");
+        //Debug.Log("Enemy is under Control");
 
         if (rigidbody.linearVelocity.magnitude < maxSpeed) rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
         else rigidbody.linearVelocity = rigidbody.linearVelocity.normalized * maxSpeed;
@@ -32,7 +41,7 @@ public class ControllableEnemy : MonoBehaviour
     public virtual void Move(Vector2 moveDir)
     {
         this.moveDir = moveDir;
-        Debug.Log("Enemy moveDir: " + moveDir.x + ", " + moveDir.y);
+        //Debug.Log("Enemy moveDir: " + moveDir.x + ", " + moveDir.y);
     }
 
     public virtual void Rotate(float yRotation)
