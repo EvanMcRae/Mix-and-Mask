@@ -9,7 +9,7 @@ public class WaveManager : MonoBehaviour
     public GameObject[] enemyPrefabs; // Drag Runner and Tank prefabs here
     
     [Header("Wave Settings")]
-    public int baseEnemiesPerPoint = 5;
+    public int baseEnemiesPerPoint = 3;
     public int waveIncreasePerPoint = 2;
     
     private List<WaveSpawnPoint> spawnPoints = new List<WaveSpawnPoint>();
