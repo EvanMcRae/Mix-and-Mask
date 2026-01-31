@@ -23,6 +23,12 @@ public class AttachedMask : MonoBehaviour
     {
         if (!isControlling) return;
 
+        if (controlledEnemy == null)
+        {
+            Detatch(); // Immediately detach so we don't crash
+            return;
+        }
+
         if (controlledEnemy != null)
         {
             // Set the move direction of this enemy
@@ -73,11 +79,13 @@ public class AttachedMask : MonoBehaviour
         if (controlledEnemy != null) controlledEnemy.SecondaryAction();
     }
 
-    public void Detatch(InputAction.CallbackContext context)
+    public void Detatch(InputAction.CallbackContext context = default)
     {
         isControlling = false;
         detatchedMask.SwitchToDetachedMovement();
-        controlledEnemy.SetControlled(false);
-        this.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z); // Plus 1 is to avoid immediate collisions
+        if (controlledEnemy != null) {
+            controlledEnemy.SetControlled(false);
+            this.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z); // Plus 1 is to avoid immediate collisions
+        }
     }
 }
