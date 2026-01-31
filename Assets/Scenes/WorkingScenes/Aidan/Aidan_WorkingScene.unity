@@ -391,11 +391,7 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
-<<<<<<< Updated upstream
---- !u!1 &824394054
-=======
 --- !u!1 &387743885
->>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,11 +399,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< Updated upstream
-  - component: {fileID: 824394057}
-  - component: {fileID: 824394056}
-  - component: {fileID: 824394055}
-=======
   - component: {fileID: 387743886}
   m_Layer: 0
   m_Name: firePoint
@@ -702,7 +693,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1126257889}
   - component: {fileID: 1126257888}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -710,34 +700,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< Updated upstream
---- !u!114 &824394055
-=======
 --- !u!114 &1126257888
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-  m_GameObject: {fileID: 824394054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed39f2b237e573f4f85990bb5d1440ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AK.Wwise.Unity.Addressables::AK.Wwise.Unity.WwiseAddressables.InitBankHolder
-  InitBank: {fileID: 11400000, guid: 426ee278f4aea7b499b01bf01d400bdc, type: 2}
---- !u!114 &824394056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824394054}
-=======
   m_GameObject: {fileID: 1126257887}
->>>>>>> Stashed changes
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9ede7eb7f3d3f943b94f414228094f1, type: 3}
@@ -756,21 +725,13 @@ MonoBehaviour:
   spatialAudioPoolSize: 0
   maxSoundPropagationDepth: 0
   engineLogging: 0
-<<<<<<< Updated upstream
---- !u!4 &824394057
-=======
 --- !u!4 &1126257889
->>>>>>> Stashed changes
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-  m_GameObject: {fileID: 824394054}
-=======
   m_GameObject: {fileID: 1126257887}
->>>>>>> Stashed changes
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -779,8 +740,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1001 &1164573351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1142,7 +1101,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4769980121395422439, guid: e8bbfd7c1da871c408f3897954404cb6, type: 3}
   firePoint: {fileID: 387743886}
   projectileSpeed: 10
->>>>>>> Stashed changes
 --- !u!1 &2000466432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,10 +1111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2000466435}
   - component: {fileID: 2000466434}
-<<<<<<< Updated upstream
-=======
   - component: {fileID: 2000466438}
->>>>>>> Stashed changes
   - component: {fileID: 2000466437}
   - component: {fileID: 2000466436}
   m_Layer: 0
@@ -1241,8 +1196,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2000466432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< Updated upstream
-=======
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
@@ -1287,7 +1240,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2000466432}
   m_Enabled: 1
   m_EditorHideFlags: 0
->>>>>>> Stashed changes
   m_Script: {fileID: 11500000, guid: 936f207f8a39fad488311aa29135da19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkAudioListener
@@ -1295,11 +1247,7 @@ MonoBehaviour:
   bOverrideScalingFactor: 0
   scalingFactor: -1
   listenerId: 0
-<<<<<<< Updated upstream
---- !u!114 &2000466437
-=======
 --- !u!114 &2000466438
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1323,8 +1271,6 @@ MonoBehaviour:
   scalingFactor: 1
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
-<<<<<<< Updated upstream
-=======
 --- !u!1001 &378297321946395738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1386,20 +1332,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8bbfd7c1da871c408f3897954404cb6, type: 3}
->>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2000466435}
   - {fileID: 135889618}
-<<<<<<< Updated upstream
-  - {fileID: 824394057}
-=======
   - {fileID: 1126257889}
   - {fileID: 38557574}
   - {fileID: 1331952777}
   - {fileID: 591187230}
   - {fileID: 1031110482}
   - {fileID: 378297321946395738}
->>>>>>> Stashed changes
