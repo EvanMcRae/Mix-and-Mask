@@ -5,7 +5,7 @@ public class AttachedMask : MonoBehaviour
 {
     private Vector2 moveDir = new Vector2(0, 0);
     private ControllableEnemy controlledEnemy = null;
-    private Rigidbody rigidbody = null;
+    private Rigidbody _rigidbody = null;
     private PlayerInput actions = null;
     private DetatchedMask detatchedMask = null;
     private bool isControlling = false;
@@ -13,7 +13,7 @@ public class AttachedMask : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
         actions = GetComponent<PlayerInput>();
         detatchedMask = GetComponent<DetatchedMask>();
     }
@@ -40,7 +40,7 @@ public class AttachedMask : MonoBehaviour
 
         this.transform.position = controlledEnemy.maskTransform.position;
         this.transform.rotation = controlledEnemy.maskTransform.rotation;
-        rigidbody.linearVelocity = new Vector3(0, 0, 0);
+        _rigidbody.linearVelocity = new Vector3(0, 0, 0);
     }
 
     public void SwtichToAttachedControls()

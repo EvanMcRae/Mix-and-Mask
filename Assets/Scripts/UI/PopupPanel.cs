@@ -63,6 +63,8 @@ public class PopupPanel : MonoBehaviour
 
         if (snap)
             GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        
+        SelectOnPointerMove.disabledEnter = true;
 
         MainMenuManager.instance.ClosePopup();
         EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = false;
@@ -74,6 +76,7 @@ public class PopupPanel : MonoBehaviour
         {
             screenBlocker.SetActive(false);
             EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = true;
+            Invoke(nameof(EnablePointerEnter), 0.1f);
         });
 
         if (panelTween != null)
@@ -86,5 +89,8 @@ public class PopupPanel : MonoBehaviour
         });
     }
 
-    
+    public void EnablePointerEnter()
+    {
+        SelectOnPointerMove.disabledEnter = false;
+    }
 }

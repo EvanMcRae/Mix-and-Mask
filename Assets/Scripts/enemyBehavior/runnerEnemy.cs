@@ -148,22 +148,60 @@ public class RunnerEnemy : EnemyBase
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (state == State.Dash && other.CompareTag("Player"))
+    //    {
+    //        Debug.Log("Runner slams the player like a fucking missile");
+
+    //        // later:
+    //        ControllableEnemy player = other.GetComponent<ControllableEnemy>();
+    //        if (player != null)
+    //        {
+    //            player.TakeDamage(damage);
+    //        }
+    //        else
+    //        {
+    //            playerHealth playerAsMask = other.GetComponent<playerHealth>();
+    //            playerAsMask.playerTakeDamage(5);
+    //        }
+
+    //            nextAttackTime = Time.time + attackCooldown;
+    //        agent.enabled = true;
+    //        state = State.Move;
+    //    }
+    //}
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (state == State.Dash && other.CompareTag("Player"))
+        if (state == State.Dash && collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Runner slams the player like a fucking missile");
 
             // later:
-            PlayerController player = other.GetComponent<PlayerController>();
+            ControllableEnemy player = collision.gameObject.GetComponent<ControllableEnemy>();
             if (player != null)
             {
                 player.TakeDamage(damage);
+            }
+            else
+            {
+                playerHealth playerAsMask = collision.gameObject.GetComponent<playerHealth>();
+                playerAsMask.playerTakeDamage(5);
             }
 
             nextAttackTime = Time.time + attackCooldown;
             agent.enabled = true;
             state = State.Move;
+        }
+        else if(state == State.Dash && collision.gameObject.CompareTag("Enemy"))
+        {
+            print("possessed was hit by runner enemy");
+            ControllableEnemy player = collision.gameObject.GetComponent<ControllableEnemy>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
         }
     }
 }

@@ -7,13 +7,15 @@ public class DetatchedMask : MonoBehaviour
 {
     private Vector2 initialClickPoint = new Vector2(0, 0);
     private Vector2 finalClickPoint = new Vector2(0, 0);
-    private Rigidbody rigidbody = null;
+    private Rigidbody _rigidbody = null;
     private PlayerInput actions = null;
     private AttachedMask attachedMask = null; // The attached compliment to this script on the player entity
-    private BoxCollider collider = null;
+    private BoxCollider _collider = null;
+    public Camera mainCamera;
 
     [SerializeField] float maxRealSlingLength = 20f;
-    [SerializeField] float maxSlingVelocity = 5f;
+    [SerializeField] float maxSlingVelocity = 12f;
+    [SerializeField] float slingStrengthScalar = 3f;
     [SerializeField] float maxMovementCooldown = 1.5f;
     [SerializeField] float minVelocityToTakeOver = 2.5f;
     [SerializeField] float maxAttachedCooldown = 1f;
@@ -26,14 +28,15 @@ public class DetatchedMask : MonoBehaviour
 
     public UnityEvent onAttach;
     public UnityEvent onDetach;
+    public UnityEvent<Vector3> onFling; //Passes in direction.
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
         actions = GetComponent<PlayerInput>();
         attachedMask = GetComponent<AttachedMask>();
-        collider = GetComponent<BoxCollider>();
+        _collider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -73,6 +76,18 @@ public class DetatchedMask : MonoBehaviour
         }
     }
 
+    public Vector3 GetPositionAtHeight(Vector3 startPos, Vector3 worldDir, float targetHeight)
+    {
+        if (Mathf.Approximately(worldDir.y, 0f))
+        {
+            return Vector3.zero;
+        }
+        
+        float t = (targetHeight - startPos.y) / worldDir.y;
+        
+        return startPos + (worldDir * t);
+    }
+    
     // Grabs the position of the mouse when the slingshot button is initially pressed and when it is released
     // Then uses the difference between the positions to create a launch vector for the mask and flings it in that direction
     public void Slingshot(InputAction.CallbackContext context)
@@ -99,26 +114,31 @@ public class DetatchedMask : MonoBehaviour
 
             //Debug.Log("Sling released");
             finalClickPoint = Mouse.current.position.ReadValue();
-            Vector2 slingDirection = initialClickPoint - finalClickPoint;
-            // Debug.Log("Sling Direction: " + slingDirection.x + ", " + slingDirection.y);
 
 
-            float slingLength = slingDirection.magnitude;
-            //Debug.Log("Sling Length: " + slingLength);
-            float slingVelocity = (slingLength / maxRealSlingLength) * maxSlingVelocity; // Uses percentage of real screenspace vector to calculate force vector length
-            if (slingVelocity > maxSlingVelocity) slingVelocity = maxSlingVelocity; // Caps force magnitude
-            slingDirection = slingDirection.normalized;
-            rigidbody.AddForce(new Vector3(slingDirection.x, 0.5f, slingDirection.y) * slingVelocity, ForceMode.Impulse);
+            Vector3 wsFinalClickPoint = transform.position;
+            Vector3 rayDir = Vector3.Normalize(mainCamera.ScreenToWorldPoint(new Vector3(finalClickPoint.x, finalClickPoint.y, 1)) -
+                             mainCamera.transform.position);
+            Vector3 wsInitialClickPoint = GetPositionAtHeight(mainCamera.transform.position, rayDir, transform.position.y);
+            
+            Vector3 wsSlingDelta = wsFinalClickPoint - wsInitialClickPoint;
+            Vector3 wsSlingDirection = Vector3.Normalize(wsSlingDelta);
+            float wsSlingLength = wsSlingDelta.magnitude * slingStrengthScalar;
+            
+            if (wsSlingLength > maxSlingVelocity) wsSlingLength = maxSlingVelocity; // Caps force magnitude
+            _rigidbody.AddForce(new Vector3(wsSlingDirection.x, 0.5f, wsSlingDirection.z) * wsSlingLength, ForceMode.Impulse);
 
             movementCooldown = maxMovementCooldown;
             arrow.gameObject.SetActive(false);
             isDrawing = false;
+            
+            onFling.Invoke(wsSlingDirection);
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (rigidbody.linearVelocity.magnitude < minVelocityToTakeOver && !isControlling) return;
+        if (_rigidbody.linearVelocity.magnitude < minVelocityToTakeOver && !isControlling) return;
 
         if (collision.gameObject.TryGetComponent<ControllableEnemy>(out ControllableEnemy enemyScript))
         {
@@ -133,11 +153,11 @@ public class DetatchedMask : MonoBehaviour
     {
         attachedMask.SetControlledEnemy(enemyScript);
         attachedMask.SwtichToAttachedControls();
-        collider.enabled = false;
+        _collider.enabled = false;
         isControlling = true;
         enemyScript.SetControlled(true);
 
-        rigidbody.detectCollisions = false;
+        _rigidbody.detectCollisions = false;
         //rigidbody.freezeRotation = true;
 
         attachedCooldown = maxAttachedCooldown;
@@ -149,9 +169,9 @@ public class DetatchedMask : MonoBehaviour
      // Called when a player stops possessing
     public void SwitchToDetachedMovement()
     {
-        collider.enabled = true;
+        _collider.enabled = true;
         actions.SwitchCurrentActionMap("detatched");
-        rigidbody.detectCollisions = true;
+        _rigidbody.detectCollisions = true;
         //rigidbody.freezeRotation = false;
         isControlling = false;
         controlledEnemyType = ControllableEnemy.EnemyType.None;

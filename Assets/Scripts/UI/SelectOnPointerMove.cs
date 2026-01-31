@@ -3,6 +3,8 @@ using UnityEngine.EventSystems;
 
 public class SelectOnPointerMove : MonoBehaviour, IPointerMoveHandler, IPointerEnterHandler
 {
+    public static bool disabledEnter = false;
+
     public void OnPointerMove(PointerEventData eventData)
     {
         if (EventSystem.current != null && gameObject != null)
@@ -11,7 +13,7 @@ public class SelectOnPointerMove : MonoBehaviour, IPointerMoveHandler, IPointerE
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (EventSystem.current != null && gameObject != null)
+        if (EventSystem.current != null && gameObject != null && !disabledEnter)
             EventSystem.current.SetSelectedGameObject(gameObject);
     }
 }
