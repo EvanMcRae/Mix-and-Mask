@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
+using UnityEngine.VFX;
 
 public class MaskEffect : MonoBehaviour {
     
     public DetatchedMask mask;
+    public VisualEffect vfx;
     public float speed = 1;
     public bool transitionDirection = false;
     public bool isTransitioning = false;
@@ -23,6 +25,7 @@ public class MaskEffect : MonoBehaviour {
 
     public void OnAttach() {
         StartFade(true);
+        vfx.Play();
     }
 
     public void OnDetach() {
