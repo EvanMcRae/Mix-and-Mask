@@ -21,12 +21,7 @@ public class PopupPanel : MonoBehaviour
         }
     }
 
-    public void Up()
-    {
-        Up(null);
-    }
-
-    public void Up(Action action)
+    public void Up(Action action = null)
     {
         goingDown = false;
         gameObject.SetActive(true);
@@ -47,12 +42,7 @@ public class PopupPanel : MonoBehaviour
         });
     }
 
-    public void Down()
-    {
-        Down(null);
-    }
-
-    public void Down(Action action)
+    public void Down(Action action = null)
     {
         if (goingDown) return;
         goingDown = true;
