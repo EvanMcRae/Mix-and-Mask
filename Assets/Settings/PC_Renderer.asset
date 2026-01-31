@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: MaskRendererFeature
   m_EditorClassIdentifier: Assembly-CSharp::MaskRendererFeature
   m_Active: 1
-  injectionPoint: 600
+  injectionPoint: 550
   fetchColorBuffer: 1
   requirements: 0
   passMaterial: {fileID: 0}

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class DetatchedMask : MonoBehaviour
@@ -20,6 +21,9 @@ public class DetatchedMask : MonoBehaviour
     private float attachedCooldown = 0;
     private bool isControlling = false;
     private ControllableEnemy.EnemyType controlledEnemyType = ControllableEnemy.EnemyType.None;
+
+    public UnityEvent onAttach;
+    public UnityEvent onDetach;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -97,6 +101,8 @@ public class DetatchedMask : MonoBehaviour
 
         attachedCooldown = maxAttachedCooldown;
         controlledEnemyType = enemyScript.type;
+        
+        onAttach.Invoke();
     }
 
      // Called when a player stops possessing
@@ -108,6 +114,8 @@ public class DetatchedMask : MonoBehaviour
         //rigidbody.freezeRotation = false;
         isControlling = false;
         controlledEnemyType = ControllableEnemy.EnemyType.None;
+        
+        onDetach.Invoke();
     }
     
     public ControllableEnemy.EnemyType GetCurrentlyControlledEnemyType() { return controlledEnemyType; }
