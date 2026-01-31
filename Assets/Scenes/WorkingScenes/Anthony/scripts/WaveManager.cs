@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WaveManager : MonoBehaviour
 {
@@ -8,69 +9,67 @@ public class WaveManager : MonoBehaviour
     public Transform playerTransform;
 
     [Header("Wave Settings")]
-    public float timeBetweenWaves = 5f;
-    public int initialEnemyCount = 10;
-    public float spawnRadius = 20f;
+    public float timeBetweenWaves = 10f;
+    public int baseEnemiesPerPoint = 5; // The "Universal Toggle"
+    public int waveIncreasePerPoint = 2; // How many more each point gets next wave
 
+    private List<WaveSpawnPoint> spawnPoints = new List<WaveSpawnPoint>();
     private int currentWave = 0;
-    private int enemiesToSpawn;
     private float waveTimer;
 
     void Start()
     {
-        enemiesToSpawn = initialEnemyCount;
+        // Automatically find all spawn points in the scene
+        spawnPoints.AddRange(FindObjectsByType<WaveSpawnPoint>(FindObjectsSortMode.None));
+        
+        if (spawnPoints.Count == 0)
+            Debug.LogError("No WaveSpawnPoints found in the scene!");
+
         waveTimer = timeBetweenWaves;
-        // Optional: Start the first wave immediately
         StartCoroutine(SpawnWave());
     }
 
     void Update()
     {
-        // Timer logic
         waveTimer -= Time.deltaTime;
-
         if (waveTimer <= 0)
         {
-            PrepareNextWave();
+            currentWave++;
+            waveTimer = timeBetweenWaves;
+            StartCoroutine(SpawnWave());
         }
-    }
-
-    void PrepareNextWave()
-    {
-        currentWave++;
-        // The math logic: Previous count + 10
-        if (currentWave > 1) {
-            enemiesToSpawn += 2;
-        }
-
-        waveTimer = timeBetweenWaves; // Reset timer
-        StartCoroutine(SpawnWave());
     }
 
     IEnumerator SpawnWave()
     {
-        Debug.Log($"Spawning Wave {currentWave}: {enemiesToSpawn} enemies.");
+        Debug.Log($"--- Starting Wave {currentWave + 1} ---");
 
-        for (int i = 0; i < enemiesToSpawn; i++)
+        foreach (WaveSpawnPoint point in spawnPoints)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.1f); // Slight delay so they don't pop in all at once
+            int countForThisPoint = baseEnemiesPerPoint + (waveIncreasePerPoint * currentWave) + point.enemyCountDelta;
+            countForThisPoint = Mathf.Max(0, countForThisPoint);
+
+            for (int i = 0; i < countForThisPoint; i++)
+            {
+                // NEW: Pass the radius to the spawn function
+                SpawnEnemyAtPoint(point.transform.position, point.scatterRadius);
+                yield return new WaitForSeconds(0.05f);
+            }
         }
     }
 
-    void SpawnEnemy()
+    void SpawnEnemyAtPoint(Vector3 center, float radius)
     {
-        // Generate random position in a circle around the player
-        Vector2 randomCircle = Random.insideUnitCircle.normalized * spawnRadius;
-        Vector3 spawnPos = new Vector3(randomCircle.x, 0, randomCircle.y) + playerTransform.position;
-
-        GameObject newEnemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+        // Generate a random 2D point inside a circle
+        Vector2 randomPoint = Random.insideUnitCircle * radius;
         
-        //// Setup the enemy placeholder script
-        //EnemyScript script = newEnemy.GetComponent<EnemyScript>();
-        //if (script != null)
-        //{
-        //    script.playerTransform = playerTransform;
-        //}
+        // Convert 2D (x, y) to 3D (x, 0, z) relative to the spawn point center
+        Vector3 spawnPos = new Vector3(
+            center.x + randomPoint.x,
+            center.y, // Keeps them at the same height as the spawn point
+            center.z + randomPoint.y
+        );
+
+        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
     }
 }
