@@ -27,9 +27,10 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
-        // CHEAT CODE: Press Space to kill all enemies
+        // CHEAT CODE: Press R to kill all enemies
         // (Ensure Player Settings > Active Input Handling is set to "Both" or "Legacy")
-        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+        // TODO: REMOVE
+        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
         {
             DebugKillAll();
         }
