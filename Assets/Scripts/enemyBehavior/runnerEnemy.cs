@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class RunnerEnemy : EnemyBase
 {
     public float orbitRadius = 4f;
-    [SerializeField] Renderer renderer = null;
+    [SerializeField] Renderer _renderer = null;
 
     [Header("Attack")]
     public float windupTime = 0.4f;
@@ -16,7 +16,7 @@ public class RunnerEnemy : EnemyBase
     public float maxInvulCooldown = 10f;
     private float invulCooldown = 5f;
     private float invulTime = 0f;
-    [SerializeField] Collider collider = null;
+    [SerializeField] Collider _collider = null;
 
 
     private NavMeshAgent agent;
@@ -264,23 +264,23 @@ public class RunnerEnemy : EnemyBase
         invulCooldown = maxInvulCooldown;
         invulTime = maxInvulTime;
 
-        Color color = renderer.material.color;
+        Color color = _renderer.material.color;
         color.a = 0.3f;
-        renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+        _renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
         isSolid = false;
         state = State.Invulnerable;
-        collider.isTrigger = true;
+        _collider.isTrigger = true;
     }
 
     private void BecomeVulnerable()
     {
         invulCooldown = maxInvulCooldown + UnityEngine.Random.Range(0, 6); // Adds randomness so all cats on the map don't become invulnerable at once
-        Color color = renderer.material.color;
+        Color color = _renderer.material.color;
         color.a = 1f;
-        renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+        _renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
         isSolid = true;
         state = State.Move;
-        collider.isTrigger = false;
+        _collider.isTrigger = false;
     }
 
     private void InvulnerabilityChecks()

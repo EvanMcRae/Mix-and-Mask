@@ -16,7 +16,7 @@ public class TankController : ControllableEnemy
         type = ControllableEnemy.EnemyType.Tank;
     }
 
-    void FixedUpdate()
+    public override void FixedUpdate()
     {
         if (!isUnderControl) return;
 
