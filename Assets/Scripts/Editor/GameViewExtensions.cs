@@ -14,9 +14,12 @@ public static class GameViewExtensions
         EditorApplication.pauseStateChanged += PauseStateChanged;
         AssemblyReloadEvents.beforeAssemblyReload += GameViewExtensionsDestructor;
 
-        var update = new string[1] { "Assets/ShaderPass.asset" };
-        AssetDatabase.ForceReserializeAssets(update);
-        AssemblyReloadEvents.afterAssemblyReload += SetShaderOnLoad;
+        if (!EditorApplication.isPlaying)
+        {
+            var update = new string[1] { "Assets/ShaderPass.asset" };
+            AssetDatabase.ForceReserializeAssets(update);
+            AssemblyReloadEvents.afterAssemblyReload += SetShaderOnLoad;
+        }
     }
 
     private static void SetShaderOnLoad()

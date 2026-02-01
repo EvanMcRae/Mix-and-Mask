@@ -20,7 +20,6 @@ public class TankController : ControllableEnemy
     {
         if (!isUnderControl) return;
 
-        if (primaryCooldown > 0) primaryCooldown -= Time.deltaTime;
         if (secondaryCooldown > 0) secondaryCooldown -= Time.deltaTime;
 
         if (_rigidbody.linearVelocity.magnitude < maxSpeed) _rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
@@ -35,13 +34,14 @@ public class TankController : ControllableEnemy
 
     public override void PrimaryAction()
     {
-        if (primaryCooldown > 0) return;
+        base.PrimaryAction();
         Debug.Log("Player shooting!");
         Shoot();
     }
 
     public override void SecondaryAction()
     {
+        base.SecondaryAction();
         if (secondaryCooldown > 0) return; 
         Debug.Log("Player acid!");
         LeakAcid();
@@ -74,8 +74,6 @@ public class TankController : ControllableEnemy
         Rigidbody rb = proj.GetComponent<Rigidbody>();
         if (rb != null)
             rb.linearVelocity = dir * tankEnemy.projectileSpeed;
-
-        primaryCooldown = maxPrimaryCooldown;
     }
 
     void LeakAcid()

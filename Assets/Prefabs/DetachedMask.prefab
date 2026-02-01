@@ -408,6 +408,7 @@ MonoBehaviour:
   speed: 2
   transitionDirection: 0
   isTransitioning: 0
+  color: {r: 0.12156863, g: 0.05490196, b: 0.10980392, a: 0}
 --- !u!114 &8443896761527555983
 MonoBehaviour:
   m_ObjectHideFlags: 0
