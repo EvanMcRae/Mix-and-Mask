@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseScreen : MonoBehaviour
 {
-    public static bool Paused = false, PausedThisFrame;
+    public static bool Paused = false, PausedThisFrame, GoingToMainMenu = false;
     [SerializeField] private PopupPanel pausePanel, settingsPanel;
 
     // Update is called once per frame
@@ -41,7 +41,13 @@ public class PauseScreen : MonoBehaviour
 
     public void TitleScreen()
     {
-        ScreenTransition.Out(() => SceneManager.LoadScene("MASTER_MainMenu"));
+        GoingToMainMenu = true;
+        ScreenTransition.Out(() =>
+        {
+            Time.timeScale = 1;
+            GoingToMainMenu = false;
+            SceneManager.LoadScene("MASTER_MainMenu");
+        });
     }
 
     public void Settings()

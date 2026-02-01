@@ -24,7 +24,7 @@ public class MaskEffectTransition : MonoBehaviour {
 
     public void Update() {
         if (!isTransitioning) return;
-        t += (transitionDirection ? 1 : -1) * speed * Time.deltaTime;
+        t += (transitionDirection ? 1 : -1) * speed * (!PauseScreen.GoingToMainMenu ? Time.deltaTime : Time.unscaledDeltaTime);
         t = Mathf.Clamp(t, 0, 1);
         if (isTransitioning) feature.ApplyTransition(t);
         if (Mathf.Approximately(t, 1f) || t == 0f) {
