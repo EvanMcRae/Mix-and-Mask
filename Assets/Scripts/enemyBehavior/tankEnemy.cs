@@ -11,8 +11,12 @@ public class TankEnemy : EnemyBase
     private float waitTimer;
 
     public GameObject projectilePrefab;
+    public GameObject acidPrefab;
     public Transform firePoint;
+    public Transform acidPoint;
     public float projectileSpeed = 10f;
+    [SerializeField] public float maxAcidCooldown = 10f;
+    private float acidCooldown = 0f;
 
     public override void Start()
     {
@@ -44,7 +48,7 @@ public class TankEnemy : EnemyBase
         base.Update();
 
         if (agent == null) agent = GetComponent<NavMeshAgent>();
-        
+
         if (!agent.isOnNavMesh)
             return;
 
@@ -70,6 +74,8 @@ public class TankEnemy : EnemyBase
 
             nextAttackTime = Time.time + attackCooldown;
         }
+
+        if (acidCooldown > 0) acidCooldown -= Time.deltaTime;
     }
 
     void Shoot()
@@ -88,6 +94,31 @@ public class TankEnemy : EnemyBase
         Rigidbody rb = proj.GetComponent<Rigidbody>();
         if (rb != null)
             rb.linearVelocity = dir * projectileSpeed;
+    }
+
+    public override void TakeDamage(float dmg)
+    {
+        if (acidCooldown <= 0)
+        {
+            LeakAcid();
+        }
+
+        base.TakeDamage(dmg);
+    }
+
+    public void LeakAcid()
+    {
+        if (acidPrefab == null) return;
+
+        Debug.Log("Leaking Acid!");
+
+        GameObject acidSpawn = Instantiate(
+            acidPrefab,
+            acidPoint.position,
+            acidPrefab.transform.rotation
+        );
+
+        acidCooldown = maxAcidCooldown;
     }
 
 }

@@ -9,6 +9,12 @@ public class ControllableEnemy : MonoBehaviour
     [SerializeField] public float moveAcceleration = 5f;
     [SerializeField] public float maxSpeed = 7f;
     [SerializeField] public Transform maskTransform;
+    [SerializeField] protected float maxPrimaryCooldown = 5f;
+    [SerializeField] protected float maxSecondaryCooldown = 5f;
+    protected float primaryCooldown = 0;
+    protected float secondaryCooldown = 0;
+    public bool isSolid { get; protected set; }
+
 
     protected Vector2 moveDir = new Vector2(0, 0);
     protected Rigidbody _rigidbody = null;
@@ -31,10 +37,11 @@ public class ControllableEnemy : MonoBehaviour
     public virtual void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        isSolid = true;
         //rigidbody.freezeRotation = true;
     }
 
-    void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         if (!isUnderControl) return;
 
@@ -73,7 +80,7 @@ public class ControllableEnemy : MonoBehaviour
         UpdateHealthUI();
     }
 
-    public void TakeDamage(float dmg)
+    public virtual void TakeDamage(float dmg)
     {
         health -= dmg;
         UpdateHealthUI();
@@ -81,6 +88,9 @@ public class ControllableEnemy : MonoBehaviour
             Die();
     }
 
+    public virtual void Die(){
+        Destroy(gameObject);
+    }
     private void UpdateHealthUI()
     {
         if (isUnderControl)
@@ -91,11 +101,6 @@ public class ControllableEnemy : MonoBehaviour
                 healthUI.UpdateHealth((int)health, (int)maxHealth);
             }
         }
-    }
-
-    public void Die()
-    {
-        Destroy(gameObject);
     }
 
 }

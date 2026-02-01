@@ -153,6 +153,7 @@ public class DetatchedMask : MonoBehaviour
         {
             if (attachedCooldown > 0) return;
             if (enemyScript == null) return;
+            if (!enemyScript.isSolid) return;
             Debug.Log("Hit a controllable enemy!");
             BeginEnemyControl(enemyScript);
         }
