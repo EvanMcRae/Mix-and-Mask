@@ -349,6 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   rightImageA: {fileID: 356772132243492943}
   rightImageB: {fileID: 947117938515462903}
+  fillA: {fileID: 0}
+  fillB: {fileID: 0}
   iconSprites:
   - {fileID: 1023360044, guid: 619b78468a385564dbe1e15dd4107a40, type: 3}
   - {fileID: 1871976487, guid: 619b78468a385564dbe1e15dd4107a40, type: 3}
@@ -479,7 +481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &71614678255552279
 RectTransform:
   m_ObjectHideFlags: 0
