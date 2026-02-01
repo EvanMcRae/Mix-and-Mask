@@ -57,6 +57,7 @@ public class LongArmController : ControllableEnemy
 
     public override void PrimaryAction()
     {
+        base.PrimaryAction();
         if (!isUnderControl || isSpinning || isPunching) return;
         
         // Check cooldown
@@ -297,6 +298,7 @@ public class LongArmController : ControllableEnemy
 
     public override void SecondaryAction()
     {
+        base.SecondaryAction();
         if (!isUnderControl || isPunching || isSpinning) return;
         
         // Check cooldown
