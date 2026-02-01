@@ -35,5 +35,8 @@ public class MaskEffectTransition : MonoBehaviour {
         }
     }
     
-    
+    public void OnApplicationQuit()
+    {
+        feature.ApplyTransition(0);
+    }
 }
