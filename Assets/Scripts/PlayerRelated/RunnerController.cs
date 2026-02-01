@@ -7,10 +7,7 @@ public class RunnerController : ControllableEnemy
     private float dashDuration = 0;
     private float dashTimer = 0;
     private bool isDashing = false;
-    private float dashCooldown = 0;
     private float maxInvulTime = 2f;
-    private float maxInvulCooldown = 10f;
-    private float invulCooldown = 0;
     private float invulTime = 0;
     private bool isInvulnerable = false;
     private UnityEngine.AI.NavMeshAgent navAgent = null;
@@ -28,7 +25,7 @@ public class RunnerController : ControllableEnemy
         dashSpeed = runnerEnemy.dashSpeed;
         dashDuration = runnerEnemy.dashDuration;
         maxInvulTime = runnerEnemy.maxInvulTime;
-        maxInvulCooldown = runnerEnemy.maxInvulCooldown;
+        maxSecondaryCooldown = runnerEnemy.maxInvulCooldown;
         type = ControllableEnemy.EnemyType.Runner;
     }
 
@@ -60,8 +57,8 @@ public class RunnerController : ControllableEnemy
         }
 
 
-        if (invulTime > 0) invulTime -= Time.deltaTime;
-        if (dashCooldown > 0) dashCooldown -= Time.deltaTime;
+        if (secondaryCooldown > 0) secondaryCooldown -= Time.deltaTime;
+        if (primaryCooldown > 0) primaryCooldown -= Time.deltaTime;
 
         if (_rigidbody.linearVelocity.magnitude < maxSpeed) _rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
         else _rigidbody.linearVelocity = _rigidbody.linearVelocity.normalized * maxSpeed;
@@ -76,12 +73,12 @@ public class RunnerController : ControllableEnemy
 
     public override void PrimaryAction()
     {
-        if (isDashing || dashCooldown > 0) return;
+        if (isDashing || primaryCooldown > 0) return;
         Debug.Log("Attempting Dash!");
 
         isDashing = true;
         dashTimer = dashDuration;
-        dashCooldown = maxDashCooldown;
+        primaryCooldown = maxPrimaryCooldown;
     }
 
     public override void SecondaryAction()
@@ -89,7 +86,7 @@ public class RunnerController : ControllableEnemy
         if (isInvulnerable || invulTime > 0) return;
         Debug.Log("Temporary Invulnerability!");
         isInvulnerable = true;
-        invulCooldown = maxInvulCooldown;
+        secondaryCooldown = maxSecondaryCooldown;
         invulTime = maxInvulTime;
 
         Color color = renderer.material.color;

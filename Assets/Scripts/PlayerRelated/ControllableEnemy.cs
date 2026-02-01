@@ -9,6 +9,11 @@ public class ControllableEnemy : MonoBehaviour
     [SerializeField] public float moveAcceleration = 5f;
     [SerializeField] public float maxSpeed = 7f;
     [SerializeField] public Transform maskTransform;
+    [SerializeField] protected float maxPrimaryCooldown = 5f;
+    [SerializeField] protected float maxSecondaryCooldown = 5f;
+    protected float primaryCooldown = 0;
+    protected float secondaryCooldown = 0;
+
 
     protected Vector2 moveDir = new Vector2(0, 0);
     protected Rigidbody _rigidbody = null;

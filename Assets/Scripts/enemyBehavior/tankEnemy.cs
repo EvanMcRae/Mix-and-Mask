@@ -11,7 +11,9 @@ public class TankEnemy : EnemyBase
     private float waitTimer;
 
     public GameObject projectilePrefab;
+    public GameObject acidPrefab;
     public Transform firePoint;
+    public Transform acidPoint;
     public float projectileSpeed = 10f;
 
     public override void Start()

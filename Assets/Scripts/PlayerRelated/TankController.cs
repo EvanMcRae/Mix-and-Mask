@@ -20,7 +20,7 @@ public class TankController : ControllableEnemy
     {
         if (!isUnderControl) return;
 
-        //Debug.Log("Enemy is under Control");
+        if (secondaryCooldown > 0) secondaryCooldown -= Time.deltaTime;
 
         if (_rigidbody.linearVelocity.magnitude < maxSpeed) _rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
         else _rigidbody.linearVelocity = _rigidbody.linearVelocity.normalized * maxSpeed;
@@ -40,7 +40,9 @@ public class TankController : ControllableEnemy
 
     public override void SecondaryAction()
     {
-        Debug.Log("Attempting Secondary Runner Enemy Action!");
+        if (secondaryCooldown > 0) return; 
+        Debug.Log("Player acid!");
+        LeakAcid();
     }
 
     public override void SetControlled(bool underControl)
@@ -50,7 +52,7 @@ public class TankController : ControllableEnemy
         _rigidbody.isKinematic = !underControl;
         base.SetControlled(underControl);
     }
-    
+
     void Shoot()
     {
         if (tankEnemy.projectilePrefab == null || tankEnemy.firePoint == null)
@@ -70,5 +72,21 @@ public class TankController : ControllableEnemy
         Rigidbody rb = proj.GetComponent<Rigidbody>();
         if (rb != null)
             rb.linearVelocity = dir * tankEnemy.projectileSpeed;
+    }
+
+    void LeakAcid()
+    {
+        if (tankEnemy.acidPrefab == null) return;
+
+        GameObject acidSpawn = Instantiate(
+            tankEnemy.acidPrefab,
+            tankEnemy.acidPoint.position,
+            tankEnemy.acidPrefab.transform.rotation
+        );
+
+        Acid acid = acidSpawn.GetComponent<Acid>();
+        acid.belongsToPlayer = true;
+
+        secondaryCooldown = maxSecondaryCooldown;
     }
 }
