@@ -99,7 +99,9 @@ public class LongArmController : ControllableEnemy
             enemyScript.rightArmCollider.SetActive(true);
             Debug.Log("Player spin: Right arm enabled");
         }
-        
+
+        AkUnitySoundEngine.PostEvent("StartSpin", gameObject);
+
         // Start shoulder rotation animation
         if (enemyScript.spinAttack != null)
         {
@@ -156,7 +158,9 @@ public class LongArmController : ControllableEnemy
             
             yield return null;
         }
-        
+
+        AkUnitySoundEngine.PostEvent("StopSpin", gameObject);
+
         Debug.Log("Player spin: Complete!");
         isSpinning = false;
     }
