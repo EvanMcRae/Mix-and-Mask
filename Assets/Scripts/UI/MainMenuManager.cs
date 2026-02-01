@@ -15,6 +15,7 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField] private PopupPanel SettingsPanel, ControlsPanel, CreditsPanel;
     [SerializeField] private Button QuitButton;
+    [SerializeField] private GameObject wwiseGlobal;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +31,20 @@ public class MainMenuManager : MonoBehaviour
             // Remap navigation
             Utils.SetNavigation(QuitButton.navigation.selectOnDown, QuitButton.navigation.selectOnUp, Utils.Direction.UP);
             Utils.SetNavigation(QuitButton.navigation.selectOnUp, QuitButton.navigation.selectOnDown, Utils.Direction.DOWN);
+        }
+
+        if (Utils.WwiseGlobal == null)
+        {
+            Utils.WwiseGlobal = wwiseGlobal;
+        }
+        AkUnitySoundEngine.PostEvent("PlayTitle", Utils.WwiseGlobal);
+    }
+
+    void Update()
+    {
+        if (Utils.WwiseGlobal == null)
+        {
+            Utils.WwiseGlobal = wwiseGlobal;
         }
     }
 
@@ -51,6 +66,8 @@ public class MainMenuManager : MonoBehaviour
         {
             return;
         }
+
+        AkUnitySoundEngine.PostEvent("StopMusic", Utils.WwiseGlobal);
 
         ScreenTransition.Out(() =>
         {

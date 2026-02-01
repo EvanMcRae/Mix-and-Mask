@@ -67,19 +67,19 @@ public class SettingsManager : MonoBehaviour
 
     public void SetMusicVolume()
     {
-        AkUnitySoundEngine.SetRTPCValue("musicVolume", musicVolumeSlider.value);
+        AkUnitySoundEngine.SetRTPCValue("MusicVolume", musicVolumeSlider.value);
         PlayerPrefs.SetFloat("musicVolume", musicVolumeSlider.value);
     }
 
     public void SetSoundVolume()
     {
-        AkUnitySoundEngine.SetRTPCValue("soundVolume", soundVolumeSlider.value);
+        AkUnitySoundEngine.SetRTPCValue("FXVolume", soundVolumeSlider.value);
         PlayerPrefs.SetFloat("soundVolume", soundVolumeSlider.value);
     }
 
     public void SetMasterVolume()
     {
-        AkUnitySoundEngine.SetRTPCValue("masterVolume", masterVolumeSlider.value);
+        AkUnitySoundEngine.SetRTPCValue("MasterVolume", masterVolumeSlider.value);
         PlayerPrefs.SetFloat("masterVolume", masterVolumeSlider.value);
     }
 

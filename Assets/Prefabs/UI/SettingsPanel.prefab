@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3092bf54884c71b4fa8f15b198dcc528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsManager
-  musicVolumeSlider: {fileID: 4495675995201765079}
+  musicVolumeSlider: {fileID: 6187316269251447562}
   soundVolumeSlider: {fileID: 5171914591125530645}
   masterVolumeSlider: {fileID: 4495675995201765079}
   fullscreenToggle: {fileID: 4300681297095437627}
