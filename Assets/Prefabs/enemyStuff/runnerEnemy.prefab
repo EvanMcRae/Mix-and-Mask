@@ -157,6 +157,7 @@ MonoBehaviour:
   maxInvulTime: 2
   maxInvulCooldown: 10
   _collider: {fileID: 1772545698791862272}
+  animator: {fileID: 5287650938716446655}
   model: {fileID: 3405390858390558466}
   turnSpeed: 10
   state: 0

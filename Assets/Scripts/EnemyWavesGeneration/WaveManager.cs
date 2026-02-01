@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.InputSystem; // <--- THIS LINE IS REQUIRED FOR 'Keyboard'
+using UnityEngine.InputSystem;
+using UnityEngine.VFX; // <--- THIS LINE IS REQUIRED FOR 'Keyboard'
 
 public class WaveManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class WaveManager : MonoBehaviour
     private bool spawningWave = false;
     private bool isClearing = false;
     public static bool GameOver = false;
+
+    public VisualEffect enemySpawnVFX;
 
     void Start()
     {
@@ -62,6 +65,7 @@ public class WaveManager : MonoBehaviour
             for (int i = 0; i < Mathf.Max(0, count); i++)
             {
                 SpawnRandomEnemy(point);
+                
                 activeEnemies++;
                 yield return new WaitForSeconds(0.1f);
             }
@@ -76,6 +80,10 @@ public class WaveManager : MonoBehaviour
         
         Vector2 randomPoint = Random.insideUnitCircle * point.scatterRadius;
         Vector3 spawnPos = new Vector3(point.transform.position.x + randomPoint.x, point.transform.position.y, point.transform.position.z + randomPoint.y);
+        
+        VisualEffect vfxObj = Instantiate(enemySpawnVFX);
+        vfxObj.gameObject.transform.position = spawnPos + new Vector3(0, 0.05f, 0);
+        vfxObj.Play();
         
         Instantiate(randomPrefab, spawnPos, Quaternion.identity);
     }
