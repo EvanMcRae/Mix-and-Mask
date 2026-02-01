@@ -34,12 +34,14 @@ public class TankController : ControllableEnemy
 
     public override void PrimaryAction()
     {
+        base.PrimaryAction();
         Debug.Log("Player shooting!");
         Shoot();
     }
 
     public override void SecondaryAction()
     {
+        base.SecondaryAction();
         if (secondaryCooldown > 0) return; 
         Debug.Log("Player acid!");
         LeakAcid();

@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using DG.Tweening;
 using UnityEditor;
 #endif
 
@@ -15,6 +16,8 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField] private PopupPanel SettingsPanel, ControlsPanel, CreditsPanel;
     [SerializeField] private Button QuitButton;
+    [SerializeField] private CanvasGroup buttonGroup;
+    private Tween fadeTween;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,7 +38,19 @@ public class MainMenuManager : MonoBehaviour
 
     public void PressPlay()
     {
-        if (ScreenTransition.inProgress) return;
+        if (ScreenTransition.inProgress)
+        {
+            if (ScreenTransition.goingIn)
+            {
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Play);
+            }
+            return;
+        }
+        Play();
+    }
+
+    public void Play()
+    {
         ScreenTransition.Out(() =>
         {
             SceneManager.LoadScene(GAME_SCENE);
@@ -44,39 +59,104 @@ public class MainMenuManager : MonoBehaviour
 
     public void PressQuit()
     {
-        if (ScreenTransition.inProgress) return;
-
         // Disable quitting in web player
         if (Utils.IsWebPlayer())
         {
             return;
         }
 
-        ScreenTransition.Out(() =>
+        if (ScreenTransition.inProgress)
         {
+            if (ScreenTransition.goingIn)
+            {
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, () => ScreenTransition.Out(() => Quit()));
+            }
+            return;
+        }
+
+        ScreenTransition.Out(() => Quit());
+    }
+
+    public void Quit()
+    {
 #if UNITY_EDITOR
-            EditorApplication.ExitPlaymode();
+        EditorApplication.ExitPlaymode();
 #else
         Application.Quit();
 #endif
-        });
     }
 
     public void PressCredits()
     {
-        if (ScreenTransition.inProgress) return;
+        if (ScreenTransition.inProgress)
+        {
+            if (ScreenTransition.goingIn)
+            {
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Credits);
+            }
+            return;
+        }
+        Credits();
+    }
+
+    public void Credits()
+    {
+        FadeOutMenu();
         CreditsPanel.Up();
+        CreditsPanel.OnClose = FadeInMenu;
     }
 
     public void PressControls()
     {
-        if (ScreenTransition.inProgress) return;
+        if (ScreenTransition.inProgress)
+        {
+            if (ScreenTransition.goingIn)
+            {
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Controls);
+            }
+            return;
+        }
+        Controls();
+    }
+
+    public void Controls()
+    {
+        FadeOutMenu();
         ControlsPanel.Up();
+        ControlsPanel.OnClose = FadeInMenu;
     }
 
     public void PressSettings()
     {
-        if (ScreenTransition.inProgress) return;
+        if (ScreenTransition.inProgress)
+        {
+            if (ScreenTransition.goingIn)
+            {
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Settings);
+            }
+            return;
+        }
+        Settings();
+    }
+
+    public void Settings()
+    {
+        FadeOutMenu();
         SettingsPanel.Up();
+        SettingsPanel.OnClose = FadeInMenu;
+    }
+
+    void FadeOutMenu()
+    {
+        if (fadeTween != null)
+            Utils.KillTween(ref fadeTween);
+        fadeTween = buttonGroup.DOFade(0, 0.5f).SetUpdate(true);
+    }
+
+    void FadeInMenu()
+    {
+        if (fadeTween != null)
+            Utils.KillTween(ref fadeTween);
+        fadeTween = buttonGroup.DOFade(1, 0.5f).SetUpdate(true);
     }
 }
