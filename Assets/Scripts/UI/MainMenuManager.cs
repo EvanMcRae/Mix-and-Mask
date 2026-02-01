@@ -87,7 +87,7 @@ public class MainMenuManager : MonoBehaviour
             if (ScreenTransition.goingIn)
             {
                 AkUnitySoundEngine.PostEvent("Back", Utils.WwiseGlobal);
-                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, () => ScreenTransition.Out(() => Quit()));
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Quit);
             }
             return;
         }
