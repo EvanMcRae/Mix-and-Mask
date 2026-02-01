@@ -64,6 +64,9 @@ public class TankController : ControllableEnemy
             Quaternion.LookRotation(dir)
         );
 
+        Projectile projectile = proj.GetComponent<Projectile>();
+        projectile.belongsToPlayer = true;
+
         Rigidbody rb = proj.GetComponent<Rigidbody>();
         if (rb != null)
             rb.linearVelocity = dir * tankEnemy.projectileSpeed;

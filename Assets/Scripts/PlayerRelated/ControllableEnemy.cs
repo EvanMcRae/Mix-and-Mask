@@ -12,7 +12,7 @@ public class ControllableEnemy : MonoBehaviour
 
     protected Vector2 moveDir = new Vector2(0, 0);
     protected Rigidbody _rigidbody = null;
-    protected bool isUnderControl = false;
+    public bool isUnderControl = false;
 
     public float health = 10f;
 
