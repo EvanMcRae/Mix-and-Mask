@@ -26,8 +26,10 @@ namespace AK
         static const AkUniqueID RESUMEALL = 3240900869U;
         static const AkUniqueID SELECT = 1432588725U;
         static const AkUniqueID STARTGAME = 1521187885U;
+        static const AkUniqueID STARTSPIN = 655593811U;
         static const AkUniqueID STOPMUSIC = 1917263390U;
         static const AkUniqueID STOPPANIC = 2922217614U;
+        static const AkUniqueID STOPSPIN = 3357596825U;
     } // namespace EVENTS
 
     namespace STATES

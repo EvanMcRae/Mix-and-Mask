@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="172">
 	<SoundBanks>
-		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{961535E1-E0FB-1DEE-9058-0FBA3AA36839}">
+		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{18AFCD51-AB3C-B010-0E5E-A309EC8B66BD}">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -52,15 +52,15 @@
 				</File>
 				<File Id="200480144" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Beep_2.wav</ShortName>
-					<CachePath>8B/{8B533A0D-F067-08D6-EF40-A9427BF8AE8A}.wem</CachePath>
+					<CachePath>F4/{F46130E0-1E47-EBD5-5762-B8B7CD3F34E2}.wem</CachePath>
 				</File>
 				<File Id="223144473" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Beep_1.wav</ShortName>
-					<CachePath>73/{731DED40-1E05-B836-6A62-52E5C9A2C575}.wem</CachePath>
+					<CachePath>4F/{4F1AC70B-D2C7-783C-8DB8-A577DD433A7C}.wem</CachePath>
 				</File>
 				<File Id="231202635" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Possess Keys jingle#01_bip_2.1.wav</ShortName>
-					<CachePath>73/{734734B7-E285-0660-1436-239916135333}.wem</CachePath>
+					<CachePath>77/{7720D934-6692-CA2B-66C4-4AE2ABBACEB5}.wem</CachePath>
 				</File>
 				<File Id="231853013" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Level V1A_Cello Pizz_147_8B_1p master.wav</ShortName>
@@ -76,15 +76,11 @@
 				</File>
 				<File Id="299114942" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Possess Knife Scrape#02 merged_1_bip merged_bip.wav</ShortName>
-					<CachePath>0E/{0E088745-9749-E7CE-D27F-2FA4574BEC2E}.wem</CachePath>
+					<CachePath>6E/{6E84B948-B147-4255-361E-1032E9F6B59C}.wem</CachePath>
 				</File>
 				<File Id="310282067" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Level V2_VIolin 2 Trill_147_8B_1p master.wav</ShortName>
 					<CachePath>78/{7880EFA7-177E-8AE8-9A06-C17AB8D87EED}.wem</CachePath>
-				</File>
-				<File Id="314107693" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Wooshes#04.49.wav</ShortName>
-					<CachePath>C8/{C83B2D87-3E90-F811-D436-102D779AC5C2}.wem</CachePath>
 				</File>
 				<File Id="360452982" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Transition V2C_VIolin 2 staccato_147_3p master.wav</ShortName>
@@ -152,7 +148,7 @@
 				</File>
 				<File Id="715859576" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pull Back.wav</ShortName>
-					<CachePath>F2/{F28F0687-9731-6A82-3B97-0AC6357C3E44}.wem</CachePath>
+					<CachePath>8D/{8D87BAE6-8F9B-2921-8193-FAE129012572}.wem</CachePath>
 				</File>
 				<File Id="746209726" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Transition V2C_Crotales bow_147_3p master.wav</ShortName>
@@ -192,7 +188,7 @@
 				</File>
 				<File Id="922506316" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Big Verb hit (Possess).wav</ShortName>
-					<CachePath>3E/{3E8DDB96-EAA4-8864-9736-D0BCC429FF89}.wem</CachePath>
+					<CachePath>07/{071486DF-D64A-3943-E4B6-BB6960F25ED6}.wem</CachePath>
 				</File>
 				<File Id="925792368" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Level B_VIolin 2 staccato_147_8B_1p master.wav</ShortName>
@@ -216,15 +212,15 @@
 				</File>
 				<File Id="1024512673" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Beep.wav</ShortName>
-					<CachePath>95/{959628C8-0C54-31A7-BBE4-96076E69BB85}.wem</CachePath>
+					<CachePath>BC/{BCBBA405-84EF-350E-CD01-3BEDECC52480}.wem</CachePath>
 				</File>
 				<File Id="1044414243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BIG HIT.wav</ShortName>
-					<CachePath>32/{3200161A-88CB-1E4E-489F-679754EB7FED}.wem</CachePath>
+					<CachePath>9F/{9FEF0826-6182-EFA0-C970-74BCD3030CF4}.wem</CachePath>
 				</File>
 				<File Id="1060083229" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BIG HIT.wav</ShortName>
-					<CachePath>5A/{5A384C91-71AC-5BA8-38C4-17968D301197}.wem</CachePath>
+					<CachePath>1A/{1A75EAD0-6635-7BE9-C9E9-61D040FF61E0}.wem</CachePath>
 				</File>
 			</Media>
 			<Plugins>
@@ -418,10 +414,7 @@
 						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
 					</AuxBusRefs>
 				</Event>
-				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Player Related\Jump" GUID="{F8909CA3-4E47-4DB7-A101-75C00E692BC9}" DurationType="OneShot" DurationMin="0.19611153" DurationMax="0.19611153">
-					<MediaRefs>
-						<MediaRef Id="314107693"/>
-					</MediaRefs>
+				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Player Related\Jump" GUID="{F8909CA3-4E47-4DB7-A101-75C00E692BC9}" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
 					<AuxBusRefs>
 						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
 					</AuxBusRefs>
@@ -685,10 +678,7 @@
 						<ActionSetStateEntry GroupId="58477120" Id="3330989325" Name="Possessing" ObjectPath="\States\Default Work Unit\Possessed\Possessing" GUID="{33517D12-B2D4-4880-ACEE-454CFAE09C28}"/>
 					</ActionSetState>
 				</Event>
-				<Event Id="3348899946" Name="Possessnot" ObjectPath="\Events\Default Work Unit\Player Related\Possessnot" GUID="{070EAE3F-6344-4187-AFF0-36027ABFBDD7}" DurationType="OneShot" DurationMin="0.19611153" DurationMax="0.19611153">
-					<MediaRefs>
-						<MediaRef Id="314107693"/>
-					</MediaRefs>
+				<Event Id="3348899946" Name="Possessnot" ObjectPath="\Events\Default Work Unit\Player Related\Possessnot" GUID="{070EAE3F-6344-4187-AFF0-36027ABFBDD7}" DurationType="OneShot" DurationMin="0.5" DurationMax="0.5">
 					<AuxBusRefs>
 						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
 					</AuxBusRefs>
@@ -954,6 +944,11 @@
 						<ActionSetSwitchEntry GroupId="2275179450" Id="3594052030" Name="PreGame" ObjectPath="\Switches\Default Work Unit\Musicc\GameplayMusic\PreGame" GUID="{778F5691-CCC4-4137-A4BC-738A932B1E3B}"/>
 					</ActionSetSwitch>
 				</Event>
+				<Event Id="655593811" Name="StartSpin" ObjectPath="\Events\Default Work Unit\EnemiesPoss\Spinner\StartSpin" GUID="{56DFF254-BBA3-409E-AD56-44731E89692A}" DurationType="Infinite">
+					<AuxBusRefs>
+						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
+					</AuxBusRefs>
+				</Event>
 				<Event Id="1917263390" Name="StopMusic" ObjectPath="\Events\Default Work Unit\Music\StopMusic" GUID="{9AFC09F7-DB2C-4E7B-855B-31A21B97CD33}" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<SwitchContainers>
 						<SwitchContainer>
@@ -1074,6 +1069,11 @@
 					</SwitchContainers>
 				</Event>
 				<Event Id="2922217614" Name="StopPanic" ObjectPath="\Events\Default Work Unit\StopPanic" GUID="{94D8EE79-F791-4821-A3E6-47CF41CA30F7}" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="3357596825" Name="StopSpin" ObjectPath="\Events\Default Work Unit\EnemiesPoss\Spinner\StopSpin" GUID="{D2DF450B-BF03-4D62-B9FD-2E1E1969D42B}" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<AuxBusRefs>
+						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
+					</AuxBusRefs>
+				</Event>
 			</Events>
 			<Busses>
 				<Bus Id="393239870" Name="SFX" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX" GUID="{BA11651D-4472-4123-9070-3CD580BA7D92}"/>
@@ -1120,5 +1120,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{14C6D1BD-0D5B-2F6C-9664-A2499F52BF88}</FileHash>
+	<FileHash>{E9E23A4F-32AA-7099-A250-3E6AE735A777}</FileHash>
 </SoundBanksInfo>

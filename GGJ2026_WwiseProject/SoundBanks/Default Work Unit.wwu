@@ -5,6 +5,7 @@
 			<ChildrenList>
 				<SoundBank Name="Main" ID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}">
 					<ObjectInclusionList>
+						<ObjectRef Name="EnemiesPoss" ID="{464B8415-AD91-4431-A32B-342A25D015C2}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Music Work Unit" ID="{706EE1C2-2B52-45A1-9E61-CD8E4534886A}" WorkUnitID="{706EE1C2-2B52-45A1-9E61-CD8E4534886A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Factory Effects" ID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Default Work Unit" ID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}" Origin="Manual" Filter="7"/>
@@ -18,6 +19,7 @@
 						<ObjectRef Name="Containers" ID="{5EA7BBF8-64C0-4A50-8821-A07E8BE21D68}" WorkUnitID="{5EA7BBF8-64C0-4A50-8821-A07E8BE21D68}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="BlobCannon" ID="{BF33DDFE-0DA7-4B1C-8062-E4A43604FA82}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Default Work Unit" ID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Spinning Enemy" ID="{419E21CC-FC79-4CE5-A740-0E211D5ABF20}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="ResumeAll" ID="{695C7766-F115-4D6C-9E9E-61E0B4242567}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerDamage" ID="{49EFE95E-922A-4D85-AAEF-2DCF588DA914}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PauseAll" ID="{2FA2E241-5ADA-4DD6-962A-1D9D90D8023A}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>

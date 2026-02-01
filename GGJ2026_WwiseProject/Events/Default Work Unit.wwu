@@ -183,7 +183,7 @@
 								<Action Name="" ID="{2772BCE1-44C6-4368-B08F-DA859725925F}" ShortID="52266032">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Unpossess" ID="{2A6E73C4-BBEF-43CD-834B-DCF7BC977A55}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+											<ObjectRef Name="JumpFR" ID="{26D3C2C4-0D09-43FC-9270-503DBD2371DC}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -215,7 +215,7 @@
 								<Action Name="" ID="{C47ADFFA-765A-417C-9318-88F6C3674754}" ShortID="848927598">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Unpossess" ID="{2A6E73C4-BBEF-43CD-834B-DCF7BC977A55}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+											<ObjectRef Name="Jump" ID="{EF268455-859D-41E6-8AA8-7DB8053A8D1B}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -295,6 +295,35 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Folder Name="Spinner" ID="{3409500D-2E35-41ED-9018-3671CA2ED374}" ShortID="113192726">
+							<ChildrenList>
+								<Event Name="StartSpin" ID="{56DFF254-BBA3-409E-AD56-44731E89692A}">
+									<ChildrenList>
+										<Action Name="" ID="{8152DB23-7639-4D37-977A-2E1ED92331E5}" ShortID="327956748">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Spin" ID="{A0151B8A-D3E8-45CA-AF56-7DB69A24FD62}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="StopSpin" ID="{D2DF450B-BF03-4D62-B9FD-2E1E1969D42B}">
+									<ChildrenList>
+										<Action Name="" ID="{A48BE31B-53EC-42B0-B4E9-8C160500A944}" ShortID="95264668">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Spin" ID="{A0151B8A-D3E8-45CA-AF56-7DB69A24FD62}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
