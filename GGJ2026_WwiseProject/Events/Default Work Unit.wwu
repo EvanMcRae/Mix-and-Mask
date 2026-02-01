@@ -213,7 +213,7 @@
 								<Action Name="" ID="{2772BCE1-44C6-4368-B08F-DA859725925F}" ShortID="52266032">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="JumpFR" ID="{26D3C2C4-0D09-43FC-9270-503DBD2371DC}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+											<ObjectRef Name="JumpFR" ID="{5BF75D77-1D21-41B8-8707-EAC604F58978}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -245,7 +245,7 @@
 								<Action Name="" ID="{C47ADFFA-765A-417C-9318-88F6C3674754}" ShortID="848927598">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Jump" ID="{EF268455-859D-41E6-8AA8-7DB8053A8D1B}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+											<ObjectRef Name="JumpFR" ID="{5BF75D77-1D21-41B8-8707-EAC604F58978}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
