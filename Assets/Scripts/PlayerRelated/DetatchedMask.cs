@@ -106,6 +106,7 @@ public class DetatchedMask : MonoBehaviour
         // When first pressed, get mouse position
         if (context.started)
         {
+            AkUnitySoundEngine.PostEvent("Pullback", Utils.WwiseGlobal);
             //Debug.Log("Sling Started");
             initialClickPoint = Mouse.current.position.ReadValue();
             //Debug.Log("Position: " + initialClickPoint.x + ", " + initialClickPoint.y);
@@ -144,6 +145,7 @@ public class DetatchedMask : MonoBehaviour
             isDrawing = false;
             
             onFling.Invoke(wsSlingDirection);
+            AkUnitySoundEngine.PostEvent("Jump", Utils.WwiseGlobal);
         }
     }
 
