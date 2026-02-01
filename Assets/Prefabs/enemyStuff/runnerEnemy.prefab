@@ -246,7 +246,7 @@ MonoBehaviour:
   moveAcceleration: 15
   maxSpeed: 9.64
   maskTransform: {fileID: 8819291296875314493}
-  maxPrimaryCooldown: 5
+  maxPrimaryCooldown: 2.5
   maxSecondaryCooldown: 15
   isUnderControl: 0
   health: 10
