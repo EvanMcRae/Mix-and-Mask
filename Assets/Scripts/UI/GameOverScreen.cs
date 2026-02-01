@@ -22,6 +22,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void PlayAgain()
     {
+        AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
         PauseScreen.GoingToMainMenu = true;
         ScreenTransition.Out(() =>
         {
@@ -33,6 +34,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void TitleScreen()
     {
+        AkUnitySoundEngine.PostEvent("Back", Utils.WwiseGlobal);
         PauseScreen.GoingToMainMenu = true;
         ScreenTransition.Out(() =>
         {

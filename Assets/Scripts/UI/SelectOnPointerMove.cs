@@ -37,6 +37,7 @@ public class SelectOnPointerMove : MonoBehaviour, IPointerMoveHandler, IPointerE
                     image.color = GetComponent<Selectable>().colors.selectedColor;
             }
         }
+        AkUnitySoundEngine.PostEvent("Highlight", Utils.WwiseGlobal);
     }
 
     public void OnDeselect(BaseEventData eventData)

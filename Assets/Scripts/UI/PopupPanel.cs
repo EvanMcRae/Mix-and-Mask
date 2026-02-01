@@ -87,6 +87,8 @@ public class PopupPanel : MonoBehaviour
 
         OnClose?.Invoke();
 
+        AkUnitySoundEngine.PostEvent("Back", Utils.WwiseGlobal);
+
         if (snap)
             GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         
