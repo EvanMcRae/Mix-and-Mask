@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -1320,6 +1320,14 @@ PrefabInstance:
     - target: {fileID: 5830757901323878157, guid: 0474f246e7b7c234fbe06f22681a3cba, type: 3}
       propertyPath: m_Name
       value: RightBorder
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975497030776457967, guid: 0474f246e7b7c234fbe06f22681a3cba, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 88494982}
+    - target: {fileID: 5975497030776457967, guid: 0474f246e7b7c234fbe06f22681a3cba, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6209955923825066349, guid: 0474f246e7b7c234fbe06f22681a3cba, type: 3}
       propertyPath: m_Name

@@ -15,8 +15,8 @@ public class RunnerController : ControllableEnemy
     [Header("Cat Model Specific")]
     [SerializeField] private float maxDashCooldown = 5f;
     [SerializeField] private GameObject catModel = null;
-    [SerializeField] private Renderer renderer;
-    [SerializeField] private Collider collider;
+    [SerializeField] private Renderer _renderer;
+    [SerializeField] private Collider _collider;
 
     public override void Start()
     {
@@ -30,7 +30,7 @@ public class RunnerController : ControllableEnemy
         type = ControllableEnemy.EnemyType.Runner;
     }
 
-    void FixedUpdate()
+    public override void FixedUpdate()
     {
         if (!isUnderControl) return;
 
@@ -51,9 +51,7 @@ public class RunnerController : ControllableEnemy
             {
                 isInvulnerable = false;
 
-                Color color = renderer.material.color;
-                color.a = 1;
-                renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+                _renderer.material.SetFloat("_MaxAlpha", 1f);
                 isSolid = true;
             }
         }
@@ -96,9 +94,7 @@ public class RunnerController : ControllableEnemy
         secondaryCooldown = maxSecondaryCooldown;
         invulTime = maxInvulTime;
 
-        Color color = renderer.material.color;
-        color.a = 0.3f;
-        renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+        _renderer.material.SetFloat("_MaxAlpha", 0.3f);
         isSolid = false;
     }
 
