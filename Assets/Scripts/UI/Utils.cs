@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -31,6 +32,19 @@ public class Utils
                 break;
         }
         source.navigation = nav;
+    }
+
+    public static void SetExclusiveAction(ref Action source, Action target)
+    {
+        if (source != null)
+        {
+            foreach (Action action in source.GetInvocationList())
+            {
+                source -= action;
+            }
+        }
+        if (target != null)
+            source += target;
     }
 
     public static void KillTween(ref Tween currTween)

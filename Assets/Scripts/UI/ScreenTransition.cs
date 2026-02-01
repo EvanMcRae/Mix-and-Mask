@@ -9,7 +9,8 @@ public class ScreenTransition : MonoBehaviour
 {
     public static ScreenTransition instance; // not really a singleton but just so we can have some convenience
     private MaskEffectTransition met;
-    public static bool inProgress = false;
+    public static bool inProgress = false, goingIn = false;
+    public Action InAction;
 
     void Awake()
     {
@@ -21,6 +22,7 @@ public class ScreenTransition : MonoBehaviour
     public static void In(Action action = null)
     {
         inProgress = true;
+        goingIn = true;
         instance.met.StartTransition(false, action);
     }
 

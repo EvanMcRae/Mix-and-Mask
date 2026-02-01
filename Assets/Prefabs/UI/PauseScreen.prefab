@@ -328,6 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2278631e508a35f4f862c7bf35e24b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectOnPointerMove
+  dependencies:
+  - {fileID: 6570082789517143620}
 --- !u!1 &1910678382842181342
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,10 +566,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9607843, g: 0.92941177, b: 0.7294118, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.92941177, b: 0.7294118, a: 1}
-    m_PressedColor: {r: 0.89411765, g: 0.5803922, b: 0.22745098, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.6156863, g: 0.1882353, b: 0.23137255, a: 1}
+    m_HighlightedColor: {r: 0.6156863, g: 0.1882353, b: 0.23137255, a: 1}
+    m_PressedColor: {r: 0.24313726, g: 0.12941177, b: 0.21568628, a: 1}
+    m_SelectedColor: {r: 0.8235294, g: 0.39215687, b: 0.44313726, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0
@@ -611,6 +613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2278631e508a35f4f862c7bf35e24b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectOnPointerMove
+  dependencies:
+  - {fileID: 7744678421902934884}
 --- !u!1 &5079558249047257410
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,8 +901,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290440693
-  m_fontColor: {r: 0.9607843, g: 0.92941177, b: 0.7294118, a: 1}
+    rgba: 4282069149
+  m_fontColor: {r: 0.6156863, g: 0.1882353, b: 0.23137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1181,6 +1185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2278631e508a35f4f862c7bf35e24b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectOnPointerMove
+  dependencies:
+  - {fileID: 1910678382842181342}
 --- !u!1001 &2210053784921056150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1329,6 +1335,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2014046612875461541, guid: 3fe96fb048cfdf94cbbefa2b88f47bd7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7171019246133834430}
+    - targetCorrespondingSourceObject: {fileID: 2014046612875461541, guid: 3fe96fb048cfdf94cbbefa2b88f47bd7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3965343401479170839}
   m_SourcePrefab: {fileID: 100100000, guid: 3fe96fb048cfdf94cbbefa2b88f47bd7, type: 3}
 --- !u!1 &385309060120928307 stripped
 GameObject:
@@ -1349,6 +1358,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseScreen
   pausePanel: {fileID: 5405275580716474484}
   settingsPanel: {fileID: 0}
+--- !u!225 &3965343401479170839
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385309060120928307}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!224 &3625568760596798485 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3241232329000763267, guid: 3fe96fb048cfdf94cbbefa2b88f47bd7, type: 3}

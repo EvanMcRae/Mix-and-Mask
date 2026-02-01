@@ -74,6 +74,7 @@ public class RunnerController : ControllableEnemy
 
     public override void PrimaryAction()
     {
+        base.PrimaryAction();
         if (isDashing || primaryCooldown > 0) return;
         Debug.Log("Attempting Dash!");
 
@@ -84,6 +85,7 @@ public class RunnerController : ControllableEnemy
 
     public override void SecondaryAction()
     {
+        base.SecondaryAction();
         if (isInvulnerable || invulTime > 0 || secondaryCooldown > 0) return;
         Debug.Log("Temporary Invulnerability!");
         BecomeInvulnerable();

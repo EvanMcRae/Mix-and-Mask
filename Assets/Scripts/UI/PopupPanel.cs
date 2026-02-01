@@ -22,6 +22,7 @@ public class PopupPanel : MonoBehaviour
     [SerializeField] private bool overlayPanel = false;
     private bool isUp = false;
     public static bool overlayUp = false;
+    public Action OnClose;
 
     void Start()
     {
@@ -83,6 +84,8 @@ public class PopupPanel : MonoBehaviour
     {
         if (goingDown) return;
         goingDown = true;
+
+        OnClose?.Invoke();
 
         if (snap)
             GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
