@@ -40,7 +40,7 @@ public class WaveManager : MonoBehaviour
         // TODO: REMOVE
         if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
         {
-            DebugKillAll();
+            //DebugKillAll();
         }
     }
 
@@ -104,7 +104,7 @@ public class WaveManager : MonoBehaviour
         }
         barUI.UpdateBars(activeEnemies/totalEnemies);
         activeEnemies--;
-        if (activeEnemies <= 0 && !spawningWave)
+        if (activeEnemies <= 1 && !spawningWave)
         {
             StartCoroutine(StartNextWaveAfterDelay());
         }
