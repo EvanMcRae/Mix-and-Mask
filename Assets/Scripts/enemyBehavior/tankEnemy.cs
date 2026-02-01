@@ -47,6 +47,14 @@ public class TankEnemy : EnemyBase
     {
         base.Update();
 
+        if (!canMove) {
+            agent.enabled = false;
+            return;
+        }
+        else {
+            agent.enabled = true;
+        }
+        
         if (agent == null) agent = GetComponent<NavMeshAgent>();
 
         if (!agent.isOnNavMesh)

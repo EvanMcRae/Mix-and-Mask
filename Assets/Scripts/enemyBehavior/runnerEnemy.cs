@@ -59,6 +59,7 @@ public class RunnerEnemy : EnemyBase
     public override void Update()
     {
         base.Update();
+        if (!canMove) return;
         UpdateState();
         Act();
     }
