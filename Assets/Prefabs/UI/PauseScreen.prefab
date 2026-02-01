@@ -1329,6 +1329,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2014046612875461541, guid: 3fe96fb048cfdf94cbbefa2b88f47bd7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7171019246133834430}
+    - targetCorrespondingSourceObject: {fileID: 2014046612875461541, guid: 3fe96fb048cfdf94cbbefa2b88f47bd7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3965343401479170839}
   m_SourcePrefab: {fileID: 100100000, guid: 3fe96fb048cfdf94cbbefa2b88f47bd7, type: 3}
 --- !u!1 &385309060120928307 stripped
 GameObject:
@@ -1349,6 +1352,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseScreen
   pausePanel: {fileID: 5405275580716474484}
   settingsPanel: {fileID: 0}
+--- !u!225 &3965343401479170839
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385309060120928307}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!224 &3625568760596798485 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3241232329000763267, guid: 3fe96fb048cfdf94cbbefa2b88f47bd7, type: 3}
