@@ -8,11 +8,17 @@ public class RunnerController : ControllableEnemy
     private float dashTimer = 0;
     private bool isDashing = false;
     private float dashCooldown = 0;
+    private float maxInvulTime = 2f;
+    private float maxInvulCooldown = 10f;
+    private float invulCooldown = 0;
+    private float invulTime = 0;
+    private bool isInvulnerable = false;
     private UnityEngine.AI.NavMeshAgent navAgent = null;
 
     [Header("Cat Model Specific")]
     [SerializeField] private float maxDashCooldown = 5f;
     [SerializeField] private GameObject catModel = null;
+    [SerializeField] private Renderer renderer;
 
     public override void Start()
     {
@@ -21,6 +27,8 @@ public class RunnerController : ControllableEnemy
         navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         dashSpeed = runnerEnemy.dashSpeed;
         dashDuration = runnerEnemy.dashDuration;
+        maxInvulTime = runnerEnemy.maxInvulTime;
+        maxInvulCooldown = runnerEnemy.maxInvulCooldown;
         type = ControllableEnemy.EnemyType.Runner;
     }
 
@@ -38,6 +46,21 @@ public class RunnerController : ControllableEnemy
             return;
         }
 
+        if (isInvulnerable)
+        {
+            invulTime -= Time.deltaTime;
+            if (invulTime <= 0)
+            {
+                isInvulnerable = false;
+
+                Color color = renderer.material.color;
+                color.a = 1;
+                renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+            }
+        }
+
+
+        if (invulTime > 0) invulTime -= Time.deltaTime;
         if (dashCooldown > 0) dashCooldown -= Time.deltaTime;
 
         if (_rigidbody.linearVelocity.magnitude < maxSpeed) _rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
@@ -63,7 +86,15 @@ public class RunnerController : ControllableEnemy
 
     public override void SecondaryAction()
     {
-        Debug.Log("Attempting Secondary Runner Enemy Action!");
+        if (isInvulnerable || invulTime > 0) return;
+        Debug.Log("Temporary Invulnerability!");
+        isInvulnerable = true;
+        invulCooldown = maxInvulCooldown;
+        invulTime = maxInvulTime;
+
+        Color color = renderer.material.color;
+        color.a = 0.3f;
+        renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
     }
 
     public override void SetControlled(bool underControl)
@@ -72,6 +103,13 @@ public class RunnerController : ControllableEnemy
         navAgent.enabled = !underControl;
         _rigidbody.isKinematic = !underControl;
         base.SetControlled(underControl);
+    }
+
+    public override void TakeDamage(float dmg)
+    {
+        if (isInvulnerable) return;
+        Debug.Log("Runner Took Damage!");
+        base.TakeDamage(dmg);
     }
 
     private void OnCollisionEnter(Collision collision)

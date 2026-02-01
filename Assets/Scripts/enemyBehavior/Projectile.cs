@@ -16,12 +16,20 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if ((other.CompareTag("Enemy") || other.isTrigger) && belongsToPlayer)
+        if (other.CompareTag("Enemy") || other.isTrigger)
         {
             EnemyBase enemy = other.GetComponent<EnemyBase>();
+            ControllableEnemy ce = other.GetComponent<ControllableEnemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(5f);
+                if (belongsToPlayer)
+                {
+                    if (ce != null && !ce.isUnderControl) enemy.TakeDamage(5f);
+                }
+                else
+                {
+                    if (ce != null && ce.isUnderControl) ce.TakeDamage(damage);
+                }
             }
         }
         

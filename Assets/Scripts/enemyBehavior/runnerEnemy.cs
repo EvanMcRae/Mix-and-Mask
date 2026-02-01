@@ -11,6 +11,9 @@ public class RunnerEnemy : EnemyBase
     public float dashSpeed = 12f;
     public float dashDuration = 0.4f;
     public float damage = 1f;
+    public float maxInvulTime = 2f;
+    public float maxInvulCooldown = 10f;
+
 
     private NavMeshAgent agent;
     private float stateTimer;

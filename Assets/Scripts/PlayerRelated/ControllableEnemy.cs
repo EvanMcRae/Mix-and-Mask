@@ -31,7 +31,7 @@ public class ControllableEnemy : MonoBehaviour
         //rigidbody.freezeRotation = true;
     }
 
-    void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         if (!isUnderControl) return;
 
@@ -69,14 +69,14 @@ public class ControllableEnemy : MonoBehaviour
         isUnderControl = underControl;
     }
 
-    public void TakeDamage(float dmg)
+    public virtual void TakeDamage(float dmg)
     {
         health -= dmg;
         if (health <= 0)
             Die();
     }
 
-    public void Die()
+    public virtual void Die()
     {
         Destroy(gameObject);
     }
