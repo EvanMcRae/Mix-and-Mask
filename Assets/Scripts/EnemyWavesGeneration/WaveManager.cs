@@ -11,6 +11,7 @@ public class WaveManager : MonoBehaviour
     [Header("Wave Settings")]
     public int baseEnemiesPerPoint = 3;
     public int waveIncreasePerPoint = 2;
+    public float delayBetweenWaves = 3;
     
     private List<WaveSpawnPoint> spawnPoints = new List<WaveSpawnPoint>();
     private int currentWave = 0;
@@ -41,6 +42,12 @@ public class WaveManager : MonoBehaviour
         spawningWave = true;
         currentWave++;
         StartCoroutine(SpawnWave());
+    }
+
+    IEnumerator StartNextWaveAfterDelay()
+    {
+        yield return new WaitForSeconds(delayBetweenWaves);
+        StartNextWave();
     }
 
     IEnumerator SpawnWave()
@@ -84,7 +91,7 @@ public class WaveManager : MonoBehaviour
         activeEnemies--;
         if (activeEnemies <= 0 && !spawningWave)
         {
-            StartNextWave();
+            StartCoroutine(StartNextWaveAfterDelay());
         }
     }
 
@@ -113,7 +120,7 @@ public class WaveManager : MonoBehaviour
         activeEnemies = 0; 
         isClearing = false; // <--- Turn off the safety flag
 
-        StartNextWave();
+        StartCoroutine(StartNextWaveAfterDelay());
     }
 
     void OnDestroy()
