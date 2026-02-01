@@ -17,6 +17,7 @@ public class WaveManager : MonoBehaviour
     private int activeEnemies = 0;
     private bool spawningWave = false;
     private bool isClearing = false;
+    public static bool GameOver = false;
 
     void Start()
     {
@@ -26,9 +27,10 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
-        // CHEAT CODE: Press Space to kill all enemies
+        // CHEAT CODE: Press R to kill all enemies
         // (Ensure Player Settings > Active Input Handling is set to "Both" or "Legacy")
-        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+        // TODO: REMOVE
+        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
         {
             DebugKillAll();
         }
@@ -112,5 +114,15 @@ public class WaveManager : MonoBehaviour
         isClearing = false; // <--- Turn off the safety flag
 
         StartNextWave();
+    }
+
+    void OnDestroy()
+    {
+        GameOver = false;
+    }
+
+    void OnApplicationQuit()
+    {
+        GameOver = false;
     }
 }
