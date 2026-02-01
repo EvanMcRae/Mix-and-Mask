@@ -102,7 +102,7 @@ public class DetatchedMask : MonoBehaviour
     public void Slingshot(InputAction.CallbackContext context)
     {
         if (Time.timeScale == 0) return;
-        
+
         // When first pressed, get mouse position
         if (context.started)
         {
@@ -165,6 +165,7 @@ public class DetatchedMask : MonoBehaviour
     private void BeginEnemyControl(ControllableEnemy enemyScript)
     {
         PlayerStats.EnemiesPossessed++;
+        AkUnitySoundEngine.PostEvent("Possess", Utils.WwiseGlobal);
         attachedMask.SetControlledEnemy(enemyScript);
         attachedMask.SwtichToAttachedControls();
         _collider.enabled = false;
@@ -183,6 +184,7 @@ public class DetatchedMask : MonoBehaviour
      // Called when a player stops possessing
     public void SwitchToDetachedMovement()
     {
+        AkUnitySoundEngine.PostEvent("Possessnot", Utils.WwiseGlobal);
         _collider.enabled = true;
         actions.SwitchCurrentActionMap("detatched");
         _rigidbody.detectCollisions = true;
