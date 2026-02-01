@@ -102,8 +102,12 @@ public class WaveManager : MonoBehaviour
             activeEnemies--; 
             return;
         }
-        barUI.UpdateBars(activeEnemies/totalEnemies);
+
         activeEnemies--;
+        barUI.UpdateBars(activeEnemies/totalEnemies);
+
+        Debug.Log("Wave Manager Enemies Remaining: " + activeEnemies);
+
         if (activeEnemies <= 1 && !spawningWave)
         {
             StartCoroutine(StartNextWaveAfterDelay());
