@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}",
     "Language": "SFX",
-    "Hash": "{D463F1B6-0A21-71D3-B418-478291DAA24B}",
+    "Hash": "{B2EC6400-8EE1-2066-4F18-88C9F9FD5FD8}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -446,6 +446,14 @@
       "Location": "Memory",
       "ShortName": "BIG HIT.wav",
       "CachePath": "32/{3200161A-88CB-1E4E-489F-679754EB7FED}.wem"
+     },
+     {
+      "Id": "1060083229",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BIG HIT.wav",
+      "CachePath": "5A/{5A384C91-71AC-5BA8-38C4-17968D301197}.wem"
      }
     ],
     "Plugins": {
@@ -1760,6 +1768,28 @@
       "MediaRefs": [
        {
         "Id": "200480144"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "2411154035",
+        "Name": "Hallverb",
+        "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\SFX\\Hallverb",
+        "GUID": "{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"
+       }
+      ]
+     },
+     {
+      "Id": "1580738503",
+      "Name": "BlobCannon",
+      "ObjectPath": "\\Events\\Default Work Unit\\EnemiesPoss\\BlobCannon",
+      "GUID": "{BF33DDFE-0DA7-4B1C-8062-E4A43604FA82}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.160716",
+      "DurationMax": "1.160716",
+      "MediaRefs": [
+       {
+        "Id": "1060083229"
        }
       ],
       "AuxBusRefs": [
@@ -3582,6 +3612,6 @@
     ]
    }
   ],
-  "FileHash": "{39DD3F19-E6A3-E430-6884-2D16115AC7EB}"
+  "FileHash": "{9E0785BD-7A8E-489F-B949-AA301C5BB2B0}"
  }
 }

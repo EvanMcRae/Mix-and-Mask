@@ -5,6 +5,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1432588725	Select			\Default Work Unit\UI\Select	
 	1521187885	StartGame			\Default Work Unit\Music\StartGame	
 	1559875400	Back			\Default Work Unit\UI\Back	
+	1580738503	BlobCannon			\Default Work Unit\EnemiesPoss\BlobCannon	
 	1917263390	StopMusic			\Default Work Unit\Music\StopMusic	
 	2922217614	StopPanic			\Default Work Unit\StopPanic	
 	3174665583	Highlight			\Default Work Unit\UI\Highlight	
@@ -268,4 +269,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1004767331	Transition C2B_VIolin 2 Trill_147_3p master	.cache\F3\{F3D5A272-05B3-A42B-7FE0-12D20F250ACD}.wem		\Containers\Music Work Unit\Music\Level\Transitions\To C Key\Transition C2B_VIolin 2 Trill_147_3p master		103601
 	1024512673	Highlight	.cache\95\{959628C8-0C54-31A7-BBE4-96076E69BB85}.wem		\Containers\Default Work Unit\SFX\UI\Highlight		164112
 	1044414243	Damage	.cache\32\{3200161A-88CB-1E4E-489F-679754EB7FED}.wem		\Containers\Default Work Unit\SFX\Player\Damage		84168
+	1060083229	Cannon	.cache\5A\{5A384C91-71AC-5BA8-38C4-17968D301197}.wem		\Containers\Default Work Unit\SFX\Enemy\Blob\Cannon		111736
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Web" BasePlatform="Web" SchemaVersion="16" SoundBankVersion="172">
 	<SoundBanks>
-		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{D463F1B6-0A21-71D3-B418-478291DAA24B}">
+		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{B2EC6400-8EE1-2066-4F18-88C9F9FD5FD8}">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -222,6 +222,10 @@
 					<ShortName>BIG HIT.wav</ShortName>
 					<CachePath>32/{3200161A-88CB-1E4E-489F-679754EB7FED}.wem</CachePath>
 				</File>
+				<File Id="1060083229" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BIG HIT.wav</ShortName>
+					<CachePath>5A/{5A384C91-71AC-5BA8-38C4-17968D301197}.wem</CachePath>
+				</File>
 			</Media>
 			<Plugins>
 				<ShareSets>
@@ -393,6 +397,14 @@
 				<Event Id="1559875400" Name="Back" ObjectPath="\Events\Default Work Unit\UI\Back" GUID="{C34702DB-279E-4BCB-80F0-3E19F6594FC9}" DurationType="OneShot" DurationMin="0.8268075" DurationMax="0.8268075">
 					<MediaRefs>
 						<MediaRef Id="200480144"/>
+					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
+					</AuxBusRefs>
+				</Event>
+				<Event Id="1580738503" Name="BlobCannon" ObjectPath="\Events\Default Work Unit\EnemiesPoss\BlobCannon" GUID="{BF33DDFE-0DA7-4B1C-8062-E4A43604FA82}" DurationType="OneShot" DurationMin="1.160716" DurationMax="1.160716">
+					<MediaRefs>
+						<MediaRef Id="1060083229"/>
 					</MediaRefs>
 					<AuxBusRefs>
 						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
@@ -1108,5 +1120,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{CC90F2BA-4B59-55F3-D816-8A4A7299522E}</FileHash>
+	<FileHash>{B88E0168-EE57-C0B3-C60F-4614E3445C9B}</FileHash>
 </SoundBanksInfo>

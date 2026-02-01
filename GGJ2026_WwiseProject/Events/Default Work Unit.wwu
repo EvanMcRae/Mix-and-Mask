@@ -281,6 +281,21 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="EnemiesPoss" ID="{464B8415-AD91-4431-A32B-342A25D015C2}" ShortID="38810633">
+					<ChildrenList>
+						<Event Name="BlobCannon" ID="{BF33DDFE-0DA7-4B1C-8062-E4A43604FA82}">
+							<ChildrenList>
+								<Action Name="" ID="{B69BB434-69CB-47F4-AE2D-72F94CC095FB}" ShortID="23755853">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Cannon" ID="{B56F09BD-7ABB-4C5A-9DF3-0C1CF9315BE3}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

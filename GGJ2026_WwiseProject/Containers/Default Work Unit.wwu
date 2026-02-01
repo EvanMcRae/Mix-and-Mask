@@ -619,6 +619,95 @@
 								</Sound>
 							</ChildrenList>
 						</PropertyContainer>
+						<PropertyContainer Name="Enemy" ID="{0AA5EF73-5F14-43CA-ADF0-05A8362F3368}" ShortID="877447187">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{34A7A9EE-75B0-4FED-8385-32D7E761783B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<PropertyContainer Name="Blob" ID="{AD903077-9096-41EA-88F6-D5ABB5986F65}" ShortID="615949438">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{34A7A9EE-75B0-4FED-8385-32D7E761783B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Cannon" ID="{B56F09BD-7ABB-4C5A-9DF3-0C1CF9315BE3}" ShortID="154011720">
+											<PropertyList>
+												<Property Name="Lowpass" Type="int16">
+													<ValueList>
+														<Value>46</Value>
+													</ValueList>
+												</Property>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-1050</Value>
+													</ValueList>
+												</Property>
+												<Property Name="UserAuxSendLPF0" Type="int16">
+													<ValueList>
+														<Value>19</Value>
+													</ValueList>
+												</Property>
+												<Property Name="UserAuxSendVolume0" Type="Real64">
+													<ValueList>
+														<Value>2</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{34A7A9EE-75B0-4FED-8385-32D7E761783B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Hallverb" ID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BIG HIT" ID="{C0BACC39-FDA8-4F83-AA85-CC9D1D562B75}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.298862332036059"/>
+														<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0761805944405642"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.709065527268921"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>BIG HIT.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1060083229"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BIG HIT" ID="{C0BACC39-FDA8-4F83-AA85-CC9D1D562B75}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</PropertyContainer>
+							</ChildrenList>
+						</PropertyContainer>
 					</ChildrenList>
 				</PropertyContainer>
 			</ChildrenList>

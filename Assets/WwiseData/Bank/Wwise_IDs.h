@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID BACK = 1559875400U;
+        static const AkUniqueID BLOBCANNON = 1580738503U;
         static const AkUniqueID HIGHLIGHT = 3174665583U;
         static const AkUniqueID JUMP = 3833651337U;
         static const AkUniqueID PAUSEALL = 4091047182U;
