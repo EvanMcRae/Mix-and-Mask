@@ -15,6 +15,14 @@ public class playerHealth : MonoBehaviour
     public void playerTakeDamage(float dmg)
     {
         currPlayerHealth -= dmg;
+
+        //update UI element
+        HealthUI healthUI = FindAnyObjectByType<HealthUI>();
+        if (healthUI != null)
+        {
+            healthUI.UpdateHealth((int)currPlayerHealth, (int)maxPlayerHealth);
+        }
+
         if (currPlayerHealth <= 0)
             Die();
     }
