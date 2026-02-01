@@ -94,6 +94,7 @@ public class RunnerEnemy : EnemyBase
             stateTimer = windupTime;
 
             //back up slightly (the tell)
+            facePlayer = true;
             Vector3 away = (transform.position - player.position).normalized;
             Vector3 backupPos = transform.position + away * backupDistance;
             agent.SetDestination(backupPos);
@@ -141,7 +142,7 @@ public class RunnerEnemy : EnemyBase
     void StartDash()
     {
         agent.enabled = false;
-        facePlayer = true;
+        
 
         dashDirection = (player.position - transform.position).normalized;
         dashDirection.y = 0f;
