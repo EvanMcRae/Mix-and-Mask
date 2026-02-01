@@ -366,6 +366,7 @@ MonoBehaviour:
   slideDistance: 600
   slideDuration: 0.45
   overshoot: 20
+  centerRect: {fileID: 4361923568153192480}
   canvasParent: {fileID: 2443520016458674162}
 --- !u!1 &2138775300910299355
 GameObject:
