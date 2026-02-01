@@ -1,5 +1,26 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	58477120	Possessed			\Default Work Unit\Possessed	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Possessed			
+	2665410631	JustMask	Possessed			
+	3330989325	Possessing	Possessed			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2346531308	MusicVolume			\Default Work Unit\Settings\MusicVolume	
+	2918011349	MasterVolume			\Default Work Unit\Settings\MasterVolume	
+	3328840097	FXVolume			\Default Work Unit\Settings\FXVolume	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	393239870	SFX			\Default Work Unit\Main Audio Bus\SFX	
 	2246998526	Main Audio Bus			\Default Work Unit\Main Audio Bus	
+	3991942870	Music			\Default Work Unit\Main Audio Bus\Music	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	2411154035	Hallverb			\Default Work Unit\Main Audio Bus\SFX\Hallverb	
+
+Effect plug-ins	ID	Name	Type				Notes
+	2648499661	Hall_Medium_Dark	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

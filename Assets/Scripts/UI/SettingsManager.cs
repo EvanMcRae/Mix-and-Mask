@@ -37,8 +37,8 @@ public class SettingsManager : MonoBehaviour
         SetMasterVolume();
 
         if (!Utils.IsWebPlayer())
-        {           
-            fullscreenToggle.isOn = PlayerPrefs.GetInt("fullscreen") == 1;
+        {
+            fullscreenToggle.SetIsOnWithoutNotify(PlayerPrefs.GetInt("fullscreen") == 1);
             SetFullscreen();
         }
         else
@@ -52,7 +52,7 @@ public class SettingsManager : MonoBehaviour
             Utils.SetNavigation(soundVolumeSlider, null, Utils.Direction.RIGHT);
         }
         
-        vsyncToggle.isOn = PlayerPrefs.GetInt("vsync") == 1;
+        vsyncToggle.SetIsOnWithoutNotify(PlayerPrefs.GetInt("vsync") == 1);
         SetVSync();
     }
 
@@ -60,26 +60,26 @@ public class SettingsManager : MonoBehaviour
     {
         if (fullscreenToggle.isOn != Screen.fullScreen)
         {
-            fullscreenToggle.isOn = Screen.fullScreen;
+            fullscreenToggle.SetIsOnWithoutNotify(Screen.fullScreen);
             PlayerPrefs.SetInt("fullscreen", Screen.fullScreen ? 1 : 0);
         }
     }
 
     public void SetMusicVolume()
     {
-        AkUnitySoundEngine.SetRTPCValue("musicVolume", musicVolumeSlider.value);
+        AkUnitySoundEngine.SetRTPCValue("MusicVolume", musicVolumeSlider.value);
         PlayerPrefs.SetFloat("musicVolume", musicVolumeSlider.value);
     }
 
     public void SetSoundVolume()
     {
-        AkUnitySoundEngine.SetRTPCValue("soundVolume", soundVolumeSlider.value);
+        AkUnitySoundEngine.SetRTPCValue("FXVolume", soundVolumeSlider.value);
         PlayerPrefs.SetFloat("soundVolume", soundVolumeSlider.value);
     }
 
     public void SetMasterVolume()
     {
-        AkUnitySoundEngine.SetRTPCValue("masterVolume", masterVolumeSlider.value);
+        AkUnitySoundEngine.SetRTPCValue("MasterVolume", masterVolumeSlider.value);
         PlayerPrefs.SetFloat("masterVolume", masterVolumeSlider.value);
     }
 
@@ -94,5 +94,10 @@ public class SettingsManager : MonoBehaviour
     {
         QualitySettings.vSyncCount = vsyncToggle.isOn ? 1 : 0;
         PlayerPrefs.SetInt("vsync", vsyncToggle.isOn ? 1 : 0);
+    }
+
+    public void PlaySelectSound()
+    {
+        AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
     }
 }

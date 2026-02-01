@@ -93,6 +93,8 @@ public class TankEnemy : EnemyBase
 
         Vector3 dir = (player.position - firePoint.position).normalized;
 
+        AkUnitySoundEngine.PostEvent("BlobCannon", gameObject);
+
         GameObject proj = Instantiate(
             projectilePrefab,
             firePoint.position,

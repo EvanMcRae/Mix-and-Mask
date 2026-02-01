@@ -87,11 +87,13 @@ public class PopupPanel : MonoBehaviour
 
         OnClose?.Invoke();
 
+        AkUnitySoundEngine.PostEvent("Back", Utils.WwiseGlobal);
+
         if (snap)
             GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         
         SelectOnPointerMove.disabledEnter = true;
-
+        SelectOnPointerMove.disabledSound = true;
         EventSystem.current.SetSelectedGameObject(previousObject);
         EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = false;
 
@@ -107,6 +109,7 @@ public class PopupPanel : MonoBehaviour
                 screenBlocker.SetActive(false);
                 EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = true;
                 isUp = false;
+                SelectOnPointerMove.disabledSound = false;
                 Invoke(nameof(EnablePointerEnter), 0.1f);
             });
         }
@@ -120,6 +123,7 @@ public class PopupPanel : MonoBehaviour
                 EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = true;
                 isUp = false;
                 overlayUp = false;
+                SelectOnPointerMove.disabledSound = false;
                 Invoke(nameof(EnablePointerEnter), 0.1f);
             });
         }

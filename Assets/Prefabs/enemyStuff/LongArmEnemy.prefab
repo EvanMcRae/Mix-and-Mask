@@ -621,11 +621,19 @@ PrefabInstance:
       value: LongArmGhost
       objectReference: {fileID: 0}
     - target: {fileID: 1630794972795428178, guid: 276ecc81e904d604898e458c62c73071, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f26ad50450a6a7642b5a2f856171aafa, type: 2}
+    - target: {fileID: 5797384429611982230, guid: 276ecc81e904d604898e458c62c73071, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f26ad50450a6a7642b5a2f856171aafa, type: 2}
+    - target: {fileID: 1630794972795428178, guid: 276ecc81e904d604898e458c62c73071, type: 3}
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1e1c97a5e9c868742ab12633d80217cf, type: 2}
     - target: {fileID: 5797384429611982230, guid: 276ecc81e904d604898e458c62c73071, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1e1c97a5e9c868742ab12633d80217cf, type: 2}
     m_RemovedComponents: []

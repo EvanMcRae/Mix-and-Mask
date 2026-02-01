@@ -103,9 +103,12 @@ public class DetatchedMask : MonoBehaviour
     // Then uses the difference between the positions to create a launch vector for the mask and flings it in that direction
     public void Slingshot(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0) return;
+
         // When first pressed, get mouse position
         if (context.started)
         {
+            AkUnitySoundEngine.PostEvent("Pullback", Utils.WwiseGlobal);
             //Debug.Log("Sling Started");
             initialClickPoint = Mouse.current.position.ReadValue();
             //Debug.Log("Position: " + initialClickPoint.x + ", " + initialClickPoint.y);
@@ -144,6 +147,7 @@ public class DetatchedMask : MonoBehaviour
             isDrawing = false;
             
             onFling.Invoke(wsSlingDirection);
+            AkUnitySoundEngine.PostEvent("Jump", Utils.WwiseGlobal);
         }
     }
 
@@ -165,6 +169,7 @@ public class DetatchedMask : MonoBehaviour
     private void BeginEnemyControl(ControllableEnemy enemyScript)
     {
         PlayerStats.EnemiesPossessed++;
+        AkUnitySoundEngine.PostEvent("Possess", Utils.WwiseGlobal);
         attachedMask.SetControlledEnemy(enemyScript);
         attachedMask.SwtichToAttachedControls();
         _collider.enabled = false;
@@ -183,6 +188,7 @@ public class DetatchedMask : MonoBehaviour
     // Called when a player stops possessing
     public void SwitchToDetachedMovement()
     {
+        AkUnitySoundEngine.PostEvent("Possessnot", Utils.WwiseGlobal);
         _collider.enabled = true;
         actions.SwitchCurrentActionMap("detatched");
         _rigidbody.detectCollisions = true;

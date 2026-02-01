@@ -18,6 +18,7 @@ public class SliderNavHandler : MonoBehaviour
 
     public void ToggleNav()
     {
+        AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
         navOn = !navOn;
         if (navOn)
         {
