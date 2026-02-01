@@ -35,7 +35,19 @@ public class MainMenuManager : MonoBehaviour
 
     public void PressPlay()
     {
-        if (ScreenTransition.inProgress) return;
+        if (ScreenTransition.inProgress)
+        {
+            if (ScreenTransition.goingIn)
+            {
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Play);
+            }
+            return;
+        }
+        Play();
+    }
+
+    public void Play()
+    {
         ScreenTransition.Out(() =>
         {
             SceneManager.LoadScene(GAME_SCENE);
@@ -44,39 +56,69 @@ public class MainMenuManager : MonoBehaviour
 
     public void PressQuit()
     {
-        if (ScreenTransition.inProgress) return;
-
         // Disable quitting in web player
         if (Utils.IsWebPlayer())
         {
             return;
         }
 
-        ScreenTransition.Out(() =>
+        if (ScreenTransition.inProgress)
         {
+            if (ScreenTransition.goingIn)
+            {
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, () => ScreenTransition.Out(() => Quit()));
+            }
+            return;
+        }
+
+        ScreenTransition.Out(() => Quit());
+    }
+
+    public void Quit()
+    {
 #if UNITY_EDITOR
-            EditorApplication.ExitPlaymode();
+        EditorApplication.ExitPlaymode();
 #else
         Application.Quit();
 #endif
-        });
     }
 
     public void PressCredits()
     {
-        if (ScreenTransition.inProgress) return;
+        if (ScreenTransition.inProgress)
+        {
+            if (ScreenTransition.goingIn)
+            {
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, () => CreditsPanel.Up());
+            }
+            return;
+        }
         CreditsPanel.Up();
     }
 
     public void PressControls()
     {
-        if (ScreenTransition.inProgress) return;
+        if (ScreenTransition.inProgress)
+        {
+            if (ScreenTransition.goingIn)
+            {
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, () => ControlsPanel.Up());
+            }
+            return;
+        }
         ControlsPanel.Up();
     }
 
     public void PressSettings()
     {
-        if (ScreenTransition.inProgress) return;
+        if (ScreenTransition.inProgress)
+        {
+            if (ScreenTransition.goingIn)
+            {
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, () => SettingsPanel.Up());
+            }
+        return;
+        }
         SettingsPanel.Up();
     }
 }

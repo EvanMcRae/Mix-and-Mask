@@ -31,7 +31,14 @@ public class MaskEffectTransition : MonoBehaviour {
         if (Mathf.Approximately(t, 1f) || t == 0f) {
             isTransitioning = false;
             if (onComplete != null) onComplete.Invoke();
+            onComplete = null;
             ScreenTransition.inProgress = false;
+            if (ScreenTransition.goingIn)
+            {
+                ScreenTransition.instance.InAction?.Invoke();
+                ScreenTransition.instance.InAction = null;
+                ScreenTransition.goingIn = false;
+            }
             EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = true;
         }
     }
