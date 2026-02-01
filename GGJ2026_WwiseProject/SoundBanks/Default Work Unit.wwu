@@ -10,6 +10,7 @@
 						<ObjectRef Name="Default Work Unit" ID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Busses" ID="{2388DAEA-9775-46C6-A2ED-C5222A397756}" WorkUnitID="{2388DAEA-9775-46C6-A2ED-C5222A397756}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Player Related" ID="{31834B25-A142-4790-A90A-1712013C55BC}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Damage" ID="{45D5D96A-8101-480F-BC07-73F76D48DB30}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="StopPanic" ID="{94D8EE79-F791-4821-A3E6-47CF41CA30F7}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Events" ID="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}" WorkUnitID="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Music" ID="{BB78BB53-31F8-496A-99E2-6461B9BC3222}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>

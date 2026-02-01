@@ -15,6 +15,7 @@ namespace AK
     {
         static const AkUniqueID JUMP = 3833651337U;
         static const AkUniqueID PAUSEALL = 4091047182U;
+        static const AkUniqueID PLAYERDAMAGE = 337406793U;
         static const AkUniqueID PLAYTITLE = 3593803035U;
         static const AkUniqueID POSSESS = 47246163U;
         static const AkUniqueID POSSESSNOT = 3348899946U;

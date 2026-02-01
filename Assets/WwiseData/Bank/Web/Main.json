@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}",
     "Language": "SFX",
-    "Hash": "{6D17ED39-DC44-4186-1BD5-76A6C60AC5B4}",
+    "Hash": "{FE8BFB5B-FAD6-2C39-8EAD-0BC4A33CFA18}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -1758,6 +1758,28 @@
       "DurationMax": "0"
      },
      {
+      "Id": "337406793",
+      "Name": "PlayerDamage",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player Related\\PlayerDamage",
+      "GUID": "{49EFE95E-922A-4D85-AAEF-2DCF588DA914}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.40078557",
+      "DurationMax": "0.40078557",
+      "MediaRefs": [
+       {
+        "Id": "1044414243"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "2411154035",
+        "Name": "Hallverb",
+        "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\SFX\\Hallverb",
+        "GUID": "{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"
+       }
+      ]
+     },
+     {
       "Id": "3593803035",
       "Name": "PlayTitle",
       "ObjectPath": "\\Events\\Default Work Unit\\Music\\PlayTitle",
@@ -3470,6 +3492,6 @@
     ]
    }
   ],
-  "FileHash": "{37830E2C-6C9A-02CD-0CDD-FF080BDEDC32}"
+  "FileHash": "{BD526A53-6C1F-7F64-57EB-4F5B003F0459}"
  }
 }

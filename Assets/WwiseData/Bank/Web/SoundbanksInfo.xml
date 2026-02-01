@@ -69,7 +69,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{6D17ED39-DC44-4186-1BD5-76A6C60AC5B4}">
+		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{FE8BFB5B-FAD6-2C39-8EAD-0BC4A33CFA18}">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -455,6 +455,14 @@
 					</AuxBusRefs>
 				</Event>
 				<Event Id="4091047182" Name="PauseAll" ObjectPath="\Events\Default Work Unit\PauseAll" GUID="{2FA2E241-5ADA-4DD6-962A-1D9D90D8023A}" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="337406793" Name="PlayerDamage" ObjectPath="\Events\Default Work Unit\Player Related\PlayerDamage" GUID="{49EFE95E-922A-4D85-AAEF-2DCF588DA914}" DurationType="OneShot" DurationMin="0.40078557" DurationMax="0.40078557">
+					<MediaRefs>
+						<MediaRef Id="1044414243"/>
+					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
+					</AuxBusRefs>
+				</Event>
 				<Event Id="3593803035" Name="PlayTitle" ObjectPath="\Events\Default Work Unit\Music\PlayTitle" GUID="{4A77AB81-71C8-42E4-BC6A-AB5A2A8F2D0A}" DurationType="Infinite">
 					<SwitchContainers>
 						<SwitchContainer>
@@ -1132,5 +1140,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{43EC2A16-CEC1-D430-F013-2313128E10B6}</FileHash>
+	<FileHash>{2D8C4DBF-9B0D-FC15-F3E5-E542BFC47ED7}</FileHash>
 </SoundBanksInfo>

@@ -1,5 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	47246163	Possess			\Default Work Unit\Player Related\Possess	
+	337406793	PlayerDamage			\Default Work Unit\Player Related\PlayerDamage	
 	830775945	Pullback			\Default Work Unit\Player Related\Pullback	
 	1521187885	StartGame			\Default Work Unit\Music\StartGame	
 	1917263390	StopMusic			\Default Work Unit\Music\StopMusic	
