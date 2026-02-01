@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2935ba147e99803098985b1bf2c483d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TankController
-  moveAcceleration: 5
-  maxSpeed: 7
+  moveAcceleration: 7
+  maxSpeed: 9
   maskTransform: {fileID: 4711953940606790409}
   isUnderControl: 0
   health: 10
