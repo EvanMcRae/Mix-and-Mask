@@ -10,23 +10,28 @@ public class playerHealth : MonoBehaviour
     void Start()
     {
         currPlayerHealth = maxPlayerHealth;
+        UpdateHealthUI();
     }
 
     public void playerTakeDamage(float dmg)
     {
         currPlayerHealth -= dmg;
 
+        UpdateHealthUI();
+
+        if (currPlayerHealth <= 0)
+            Die();
+    }
+
+    private void UpdateHealthUI()
+    {
         //update UI element
         HealthUI healthUI = FindAnyObjectByType<HealthUI>();
         if (healthUI != null)
         {
             healthUI.UpdateHealth((int)currPlayerHealth, (int)maxPlayerHealth);
         }
-
-        if (currPlayerHealth <= 0)
-            Die();
     }
-
     public void Die()
     {
         print("Game over!");
