@@ -7,6 +7,7 @@ public abstract class EnemyBase : MonoBehaviour
     public float attackRange = 5f;
     public float attackCooldown = 1f;
     public float nextAttackTime;
+    public bool isSolid { get; protected set; }
 
     [HideInInspector] 
     public WaveManager waveManager; // Added reference
@@ -16,6 +17,8 @@ public abstract class EnemyBase : MonoBehaviour
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
             player = playerObj.transform;
+
+        isSolid = true;
 
         // Find the manager in the scene
         waveManager = Object.FindFirstObjectByType<WaveManager>();

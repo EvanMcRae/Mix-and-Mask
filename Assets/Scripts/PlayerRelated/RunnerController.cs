@@ -53,6 +53,7 @@ public class RunnerController : ControllableEnemy
                 Color color = renderer.material.color;
                 color.a = 1;
                 renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+                isSolid = true;
             }
         }
 
@@ -85,6 +86,11 @@ public class RunnerController : ControllableEnemy
     {
         if (isInvulnerable || invulTime > 0) return;
         Debug.Log("Temporary Invulnerability!");
+        BecomeInvulnerable();
+    }
+
+    private void BecomeInvulnerable()
+    {
         isInvulnerable = true;
         secondaryCooldown = maxSecondaryCooldown;
         invulTime = maxInvulTime;
@@ -92,6 +98,7 @@ public class RunnerController : ControllableEnemy
         Color color = renderer.material.color;
         color.a = 0.3f;
         renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+        isSolid = false;
     }
 
     public override void SetControlled(bool underControl)

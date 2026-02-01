@@ -13,6 +13,7 @@ public class ControllableEnemy : MonoBehaviour
     [SerializeField] protected float maxSecondaryCooldown = 5f;
     protected float primaryCooldown = 0;
     protected float secondaryCooldown = 0;
+    public bool isSolid { get; protected set; }
 
 
     protected Vector2 moveDir = new Vector2(0, 0);
@@ -33,6 +34,7 @@ public class ControllableEnemy : MonoBehaviour
     public virtual void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        isSolid = true;
         //rigidbody.freezeRotation = true;
     }
 
