@@ -148,7 +148,7 @@ MonoBehaviour:
   nextAttackTime: 0
   waveManager: {fileID: 0}
   orbitRadius: 14
-  _renderer: {fileID: 0}
+  _renderer: {fileID: 3886667577965455417}
   windupTime: 1
   backupDistance: 3
   dashSpeed: 12
@@ -157,6 +157,7 @@ MonoBehaviour:
   maxInvulTime: 2
   maxInvulCooldown: 10
   _collider: {fileID: 0}
+  animator: {fileID: 5287650938716446655}
   model: {fileID: 3405390858390558466}
   turnSpeed: 10
   state: 0
