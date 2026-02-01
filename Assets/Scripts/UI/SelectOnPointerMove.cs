@@ -31,6 +31,11 @@ public class SelectOnPointerMove : MonoBehaviour, IPointerMoveHandler, IPointerE
                 if (!pressed)
                     text.color = GetComponent<Selectable>().colors.selectedColor;
             }
+            else if (g.TryGetComponent(out Image image))
+            {
+                if (!pressed)
+                    image.color = GetComponent<Selectable>().colors.selectedColor;
+            }
         }
     }
 
@@ -44,6 +49,11 @@ public class SelectOnPointerMove : MonoBehaviour, IPointerMoveHandler, IPointerE
                 if (!pressed)
                     text.color = GetComponent<Selectable>().colors.normalColor;
             }
+            else if (g.TryGetComponent(out Image image))
+            {
+                if (!pressed)
+                    image.color = GetComponent<Selectable>().colors.normalColor;
+            }
         }
     }
 
@@ -56,6 +66,10 @@ public class SelectOnPointerMove : MonoBehaviour, IPointerMoveHandler, IPointerE
             {
                 text.color = GetComponent<Selectable>().colors.pressedColor;
             }
+            else if (g.TryGetComponent(out Image image))
+            {
+                image.color = GetComponent<Selectable>().colors.pressedColor;
+            }
         }
     }
 
@@ -67,6 +81,10 @@ public class SelectOnPointerMove : MonoBehaviour, IPointerMoveHandler, IPointerE
             if (g.TryGetComponent(out TextMeshProUGUI text))
             {
                 text.color = selected ? GetComponent<Selectable>().colors.selectedColor : GetComponent<Selectable>().colors.normalColor;
+            }
+            else if (g.TryGetComponent(out Image image))
+            {
+                image.color = selected ? GetComponent<Selectable>().colors.selectedColor : GetComponent<Selectable>().colors.normalColor;
             }
         }
     }
