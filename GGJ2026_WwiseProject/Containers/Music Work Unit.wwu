@@ -1066,6 +1066,13 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Level V1A_VIolin 2 Legato_147_8B_1p master" ID="{6EAB160F-BE46-498A-A571-511911FA4252}" ShortID="766062250">
+													<PropertyList>
+														<Property Name="Inclusion" Type="bool">
+															<ValueList>
+																<Value>False</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
@@ -1198,6 +1205,13 @@
 													</ObjectLists>
 												</MusicTrack>
 												<MusicTrack Name="Level V1A_Violin Legato_147_8B_1p master" ID="{F97E5ABA-2F0A-4671-94AE-594F48FCF159}" ShortID="299054604">
+													<PropertyList>
+														<Property Name="Inclusion" Type="bool">
+															<ValueList>
+																<Value>False</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>

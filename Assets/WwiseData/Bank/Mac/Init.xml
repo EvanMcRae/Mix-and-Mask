@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="16" SoundBankVersion="172">
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{54775F04-BCCB-B5A2-7827-8AADB1877FBC}">
+		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{4DC6025F-9BB8-7F57-6CDF-F56E864A7751}">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -30,6 +30,7 @@
 			</AuxBusses>
 			<GameParameters>
 				<GameParameter Id="1328605826" Name="Pullpitch" ObjectPath="\Game Parameters\Default Work Unit\Game\Pullpitch" GUID="{94A1893B-E156-4491-A14E-E17A89855FF7}"/>
+				<GameParameter Id="1924569601" Name="ApplauseRTPC" ObjectPath="\Game Parameters\Default Work Unit\Game\ApplauseRTPC" GUID="{C472854D-D63C-4C30-9DCE-50BE2FEB87A2}"/>
 				<GameParameter Id="2346531308" Name="MusicVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MusicVolume" GUID="{D4A310EE-8626-4E8F-8FFB-FD7B895D1B27}"/>
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume" GUID="{732E2AFE-F830-4950-8BAF-6DB770D75704}"/>
 				<GameParameter Id="3328840097" Name="FXVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\FXVolume" GUID="{50A7FDEE-6AD9-44D8-AC80-A7871FE3C1EE}"/>
@@ -62,5 +63,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{F26AFFA7-6C7A-544F-A7DB-B0C2AD39ABC1}</FileHash>
+	<FileHash>{EAD42825-F19D-35EB-1376-2D1F89303F1C}</FileHash>
 </SoundBanksInfo>

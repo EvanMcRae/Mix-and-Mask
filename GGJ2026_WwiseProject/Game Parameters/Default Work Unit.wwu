@@ -29,6 +29,11 @@
 								<Property Name="InitialValue" Type="Real64" Value="0"/>
 							</PropertyList>
 						</GameParameter>
+						<GameParameter Name="ApplauseRTPC" ID="{C472854D-D63C-4C30-9DCE-50BE2FEB87A2}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+							</PropertyList>
+						</GameParameter>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

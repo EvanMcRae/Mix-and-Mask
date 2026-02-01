@@ -18,7 +18,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{341DED47-6D40-47A1-538B-7D48815202B1}",
+    "Hash": "{FD553CDA-7F6A-77B4-B20D-98A21E502029}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -93,6 +93,12 @@
       "Name": "Pullpitch",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Game\\Pullpitch",
       "GUID": "{94A1893B-E156-4491-A14E-E17A89855FF7}"
+     },
+     {
+      "Id": "1924569601",
+      "Name": "ApplauseRTPC",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Game\\ApplauseRTPC",
+      "GUID": "{C472854D-D63C-4C30-9DCE-50BE2FEB87A2}"
      },
      {
       "Id": "2346531308",
@@ -196,7 +202,7 @@
     "Type": "User",
     "GUID": "{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}",
     "Language": "SFX",
-    "Hash": "{18AFCD51-AB3C-B010-0E5E-A309EC8B66BD}",
+    "Hash": "{B90D626C-5AD2-011B-B369-4258B0E1C13A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -266,14 +272,6 @@
       "CachePath": "0B/{0B1857BC-D5E1-91C6-51AC-8B05121D1E25}.wem"
      },
      {
-      "Id": "138676990",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Level V1A_VIolin 2 Legato_147_8B_1p master.wav",
-      "CachePath": "DF/{DFB0B424-70BE-5F4C-6A79-8D5BFA3000F9}.wem"
-     },
-     {
       "Id": "181384360",
       "Language": "SFX",
       "Streaming": "false",
@@ -295,7 +293,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Beep_2.wav",
-      "CachePath": "F4/{F46130E0-1E47-EBD5-5762-B8B7CD3F34E2}.wem"
+      "CachePath": "6C/{6C09EB68-E074-558D-E66F-96229AE86FAC}.wem"
      },
      {
       "Id": "223144473",
@@ -303,7 +301,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Beep_1.wav",
-      "CachePath": "4F/{4F1AC70B-D2C7-783C-8DB8-A577DD433A7C}.wem"
+      "CachePath": "B7/{B7F7E8B0-6DC3-D508-152A-E5A01F2FF9AA}.wem"
      },
      {
       "Id": "231202635",
@@ -578,12 +576,12 @@
       "CachePath": "B8/{B8FF483B-04E0-DC6C-2C26-E81DE912C848}.wem"
      },
      {
-      "Id": "943181524",
+      "Id": "946546211",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Level V1A_Violin Legato_147_8B_1p master.wav",
-      "CachePath": "D0/{D004ABBF-7759-4A58-0836-1F2F34296BB5}.wem"
+      "ShortName": "proper Wooshes#04_bip_2.2.wav",
+      "CachePath": "D7/{D72A6DEF-9E43-8AEC-17C5-E2AAC452590B}.wem"
      },
      {
       "Id": "980527910",
@@ -615,7 +613,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Beep.wav",
-      "CachePath": "BC/{BCBBA405-84EF-350E-CD01-3BEDECC52480}.wem"
+      "CachePath": "48/{480CEEEC-B7F2-878F-34DA-58F064F00FC8}.wem"
      },
      {
       "Id": "1044414243",
@@ -635,6 +633,16 @@
      }
     ],
     "Plugins": {
+     "Custom": [
+      {
+       "Id": "573913135",
+       "Name": "Synth One",
+       "ObjectPath": "\\Containers\\Default Work Unit\\SFX\\UI\\Applause\\Synth One",
+       "GUID": "{808B9A57-EFDE-44AE-840E-5100267D7CAD}",
+       "LibName": "Wwise Synth One",
+       "LibId": "9699330"
+      }
+     ],
      "ShareSets": [
       {
        "Id": "4496003",
@@ -2198,9 +2206,6 @@
                   "Id": "112853337"
                  },
                  {
-                  "Id": "138676990"
-                 },
-                 {
                   "Id": "181384360"
                  },
                  {
@@ -2280,9 +2285,6 @@
                  },
                  {
                   "Id": "925792368"
-                 },
-                 {
-                  "Id": "943181524"
                  },
                  {
                   "Id": "980527910"
@@ -2479,9 +2481,6 @@
                   "Id": "112853337"
                  },
                  {
-                  "Id": "138676990"
-                 },
-                 {
                   "Id": "181384360"
                  },
                  {
@@ -2561,9 +2560,6 @@
                  },
                  {
                   "Id": "925792368"
-                 },
-                 {
-                  "Id": "943181524"
                  },
                  {
                   "Id": "980527910"
@@ -2748,6 +2744,28 @@
       ]
      },
      {
+      "Id": "3607344297",
+      "Name": "SpinAttack",
+      "ObjectPath": "\\Events\\Default Work Unit\\EnemiesPoss\\LongArm\\SpinAttack",
+      "GUID": "{1A3EDCE7-25EC-4AA9-BFA3-7801EC94CC98}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.36688665",
+      "DurationMax": "0.36688665",
+      "MediaRefs": [
+       {
+        "Id": "946546211"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "2411154035",
+        "Name": "Hallverb",
+        "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\SFX\\Hallverb",
+        "GUID": "{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"
+       }
+      ]
+     },
+     {
       "Id": "1521187885",
       "Name": "StartGame",
       "ObjectPath": "\\Events\\Default Work Unit\\Music\\StartGame",
@@ -2895,9 +2913,6 @@
                   "Id": "112853337"
                  },
                  {
-                  "Id": "138676990"
-                 },
-                 {
                   "Id": "181384360"
                  },
                  {
@@ -2977,9 +2992,6 @@
                  },
                  {
                   "Id": "925792368"
-                 },
-                 {
-                  "Id": "943181524"
                  },
                  {
                   "Id": "980527910"
@@ -3176,9 +3188,6 @@
                   "Id": "112853337"
                  },
                  {
-                  "Id": "138676990"
-                 },
-                 {
                   "Id": "181384360"
                  },
                  {
@@ -3260,9 +3269,6 @@
                   "Id": "925792368"
                  },
                  {
-                  "Id": "943181524"
-                 },
-                 {
                   "Id": "980527910"
                  },
                  {
@@ -3340,21 +3346,6 @@
         "Name": "PreGame",
         "ObjectPath": "\\Switches\\Default Work Unit\\Musicc\\GameplayMusic\\PreGame",
         "GUID": "{778F5691-CCC4-4137-A4BC-738A932B1E3B}"
-       }
-      ]
-     },
-     {
-      "Id": "655593811",
-      "Name": "StartSpin",
-      "ObjectPath": "\\Events\\Default Work Unit\\EnemiesPoss\\Spinner\\StartSpin",
-      "GUID": "{56DFF254-BBA3-409E-AD56-44731E89692A}",
-      "DurationType": "Infinite",
-      "AuxBusRefs": [
-       {
-        "Id": "2411154035",
-        "Name": "Hallverb",
-        "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\SFX\\Hallverb",
-        "GUID": "{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"
        }
       ]
      },
@@ -3509,9 +3500,6 @@
                   "Id": "112853337"
                  },
                  {
-                  "Id": "138676990"
-                 },
-                 {
                   "Id": "181384360"
                  },
                  {
@@ -3593,9 +3581,6 @@
                   "Id": "925792368"
                  },
                  {
-                  "Id": "943181524"
-                 },
-                 {
                   "Id": "980527910"
                  },
                  {
@@ -3660,24 +3645,6 @@
       "DurationType": "OneShot",
       "DurationMin": "0",
       "DurationMax": "0"
-     },
-     {
-      "Id": "3357596825",
-      "Name": "StopSpin",
-      "ObjectPath": "\\Events\\Default Work Unit\\EnemiesPoss\\Spinner\\StopSpin",
-      "GUID": "{D2DF450B-BF03-4D62-B9FD-2E1E1969D42B}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
-      "AuxBusRefs": [
-       {
-        "Id": "2411154035",
-        "Name": "Hallverb",
-        "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\SFX\\Hallverb",
-        "GUID": "{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"
-       }
-      ]
      }
     ],
     "Busses": [
@@ -3813,6 +3780,6 @@
     ]
    }
   ],
-  "FileHash": "{601A87F1-895B-DAF5-AB36-1BC1713E6A8D}"
+  "FileHash": "{FEE19B25-18DD-A27E-445B-BCC7FBED00CA}"
  }
 }

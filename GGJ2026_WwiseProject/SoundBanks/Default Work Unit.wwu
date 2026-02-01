@@ -17,9 +17,9 @@
 						<ObjectRef Name="UI" ID="{29A505CE-64B4-492A-A8CF-8D1FA46B8C11}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Music" ID="{BB78BB53-31F8-496A-99E2-6461B9BC3222}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Containers" ID="{5EA7BBF8-64C0-4A50-8821-A07E8BE21D68}" WorkUnitID="{5EA7BBF8-64C0-4A50-8821-A07E8BE21D68}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SpinAttack" ID="{1A3EDCE7-25EC-4AA9-BFA3-7801EC94CC98}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="BlobCannon" ID="{BF33DDFE-0DA7-4B1C-8062-E4A43604FA82}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Default Work Unit" ID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Spinning Enemy" ID="{419E21CC-FC79-4CE5-A740-0E211D5ABF20}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="ResumeAll" ID="{695C7766-F115-4D6C-9E9E-61E0B4242567}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerDamage" ID="{49EFE95E-922A-4D85-AAEF-2DCF588DA914}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PauseAll" ID="{2FA2E241-5ADA-4DD6-962A-1D9D90D8023A}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}" Origin="Manual" Filter="7"/>

@@ -295,28 +295,14 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Folder Name="Spinner" ID="{3409500D-2E35-41ED-9018-3671CA2ED374}" ShortID="113192726">
+						<Folder Name="LongArm" ID="{DD03EEAB-8F8A-43C5-8068-F33AD85BFB28}" ShortID="254156621">
 							<ChildrenList>
-								<Event Name="StartSpin" ID="{56DFF254-BBA3-409E-AD56-44731E89692A}">
+								<Event Name="SpinAttack" ID="{1A3EDCE7-25EC-4AA9-BFA3-7801EC94CC98}">
 									<ChildrenList>
-										<Action Name="" ID="{8152DB23-7639-4D37-977A-2E1ED92331E5}" ShortID="327956748">
+										<Action Name="" ID="{7D35A94F-5243-4487-A1FF-2BCEC6D0EA42}" ShortID="1016306321">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Spin" ID="{A0151B8A-D3E8-45CA-AF56-7DB69A24FD62}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
-								<Event Name="StopSpin" ID="{D2DF450B-BF03-4D62-B9FD-2E1E1969D42B}">
-									<ChildrenList>
-										<Action Name="" ID="{A48BE31B-53EC-42B0-B4E9-8C160500A944}" ShortID="95264668">
-											<PropertyList>
-												<Property Name="ActionType" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="Spin" ID="{A0151B8A-D3E8-45CA-AF56-7DB69A24FD62}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+													<ObjectRef Name="Spin" ID="{6C80DBE8-E24E-4B84-957D-871B3B860875}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

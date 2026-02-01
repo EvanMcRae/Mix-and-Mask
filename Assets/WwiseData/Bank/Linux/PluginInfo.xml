@@ -13,8 +13,9 @@
 		<PluginLib LibName="Wwise Stereo Delay" LibId="8847363" Type="Effect" DLL="AkStereoDelay" StaticLib="AkStereoDelayFX"/>
 		<PluginLib LibName="Wwise Pitch Shifter" LibId="8912899" Type="Effect" DLL="AkPitchShifter" StaticLib="AkPitchShifterFX"/>
 		<PluginLib LibName="Wwise Harmonizer" LibId="9043971" Type="Effect" DLL="AkHarmonizer" StaticLib="AkHarmonizerFX"/>
+		<PluginLib LibName="Wwise Synth One" LibId="9699330" Type="Source" DLL="AkSynthOne" StaticLib="AkSynthOneSource"/>
 		<PluginLib LibName="System" LibId="11403271" Type="AudioDevice"/>
 		<PluginLib LibName="No Output" LibId="11862023" Type="AudioDevice"/>
 	</PluginLibs>
-	<FileHash>{5E0BAA88-EF39-8AD6-ED00-AFBF53F67C96}</FileHash>
+	<FileHash>{FE371D80-5528-22B2-4521-3A132187DD79}</FileHash>
 </PluginInfo>

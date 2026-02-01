@@ -88,6 +88,13 @@
     "StaticLib": "AkHarmonizerFX"
    },
    {
+    "LibName": "Wwise Synth One",
+    "LibId": "9699330",
+    "Type": "Source",
+    "DLL": "AkSynthOne",
+    "StaticLib": "AkSynthOneSource"
+   },
+   {
     "LibName": "System",
     "LibId": "11403271",
     "Type": "AudioDevice"
@@ -98,6 +105,6 @@
     "Type": "AudioDevice"
    }
   ],
-  "FileHash": "{516FCB7D-DA2E-483B-664F-A375F6FC525D}"
+  "FileHash": "{A87876B6-C352-9B32-37B3-30876C66968D}"
  }
 }

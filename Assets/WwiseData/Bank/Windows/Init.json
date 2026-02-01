@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{9BAA8CE7-8EC1-0754-ED9B-00780D928D5D}",
+    "Hash": "{47AA01C2-DD21-9711-AA17-D9D9A32222DA}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -85,6 +85,12 @@
       "Name": "Pullpitch",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Game\\Pullpitch",
       "GUID": "{94A1893B-E156-4491-A14E-E17A89855FF7}"
+     },
+     {
+      "Id": "1924569601",
+      "Name": "ApplauseRTPC",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Game\\ApplauseRTPC",
+      "GUID": "{C472854D-D63C-4C30-9DCE-50BE2FEB87A2}"
      },
      {
       "Id": "2346531308",
@@ -184,6 +190,6 @@
     ]
    }
   ],
-  "FileHash": "{7C37CABB-CB36-DB38-4B12-B0FBCD2300E0}"
+  "FileHash": "{0026526D-5DA0-37D1-5253-394D57067426}"
  }
 }
