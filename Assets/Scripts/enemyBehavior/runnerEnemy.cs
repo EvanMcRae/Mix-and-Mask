@@ -204,10 +204,10 @@ public class RunnerEnemy : EnemyBase
         }
         else if(state == State.Dash && collision.gameObject.CompareTag("Enemy"))
         {
-            print("possessed was hit by runner enemy");
             ControllableEnemy player = collision.gameObject.GetComponent<ControllableEnemy>();
-            if (player != null)
+            if (player != null && player.isUnderControl)
             {
+                Debug.Log("possessed was hit by runner enemy");
                 player.TakeDamage(damage);
             }
         }
