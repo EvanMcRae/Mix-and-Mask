@@ -48,7 +48,7 @@ public class DetatchedMask : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isDrawing)
+        if (isDrawing && Time.timeScale != 0)
         {
             Vector2 currentMousePos = Mouse.current.position.ReadValue();
             Vector2 localMousePos;
@@ -153,6 +153,7 @@ public class DetatchedMask : MonoBehaviour
         {
             if (attachedCooldown > 0) return;
             if (enemyScript == null) return;
+            if (!enemyScript.isSolid) return;
             Debug.Log("Hit a controllable enemy!");
             BeginEnemyControl(enemyScript);
         }
@@ -161,6 +162,7 @@ public class DetatchedMask : MonoBehaviour
     // Called when a player starts possessing
     private void BeginEnemyControl(ControllableEnemy enemyScript)
     {
+        PlayerStats.EnemiesPossessed++;
         attachedMask.SetControlledEnemy(enemyScript);
         attachedMask.SwtichToAttachedControls();
         _collider.enabled = false;

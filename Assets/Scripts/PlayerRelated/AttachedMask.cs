@@ -21,7 +21,7 @@ public class AttachedMask : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isControlling) return;
+        if (!isControlling || Time.timeScale == 0) return;
 
         if (controlledEnemy == null)
         {

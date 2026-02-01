@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        bool dontDestroy = false;
         if (other.CompareTag("Enemy") || other.isTrigger)
         {
             EnemyBase enemy = other.GetComponent<EnemyBase>();
@@ -25,10 +26,12 @@ public class Projectile : MonoBehaviour
                 if (belongsToPlayer)
                 {
                     if (ce != null && !ce.isUnderControl) enemy.TakeDamage(5f);
+                    if (!enemy.isSolid) dontDestroy = true;
                 }
                 else
                 {
                     if (ce != null && ce.isUnderControl) ce.TakeDamage(damage);
+                    if (ce != null && !ce.isSolid) dontDestroy = true;
                 }
             }
         }
@@ -42,6 +45,7 @@ public class Projectile : MonoBehaviour
             if (player != null)
             {
                 player.TakeDamage(damage);
+                if (!player.isSolid) dontDestroy = true;
             }
             else
             {
@@ -51,8 +55,9 @@ public class Projectile : MonoBehaviour
 
         }
 
-        if (Time.time - spawnTime > iframes)
+        if (Time.time - spawnTime > iframes && !dontDestroy)
         {
+            Debug.Log("Destroying Projectile!");
             Destroy(gameObject);
         }
     }
