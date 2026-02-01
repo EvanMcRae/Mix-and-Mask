@@ -13,9 +13,22 @@ public abstract class EnemyBase : MonoBehaviour
 
     public virtual void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+            player = playerObj.transform;
+
         // Find the manager in the scene
         waveManager = Object.FindFirstObjectByType<WaveManager>();
+    }
+
+    public virtual void Update()
+    {
+        if (player == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+                player = playerObj.transform;
+        }
     }
 
     public virtual void TakeDamage(float dmg)

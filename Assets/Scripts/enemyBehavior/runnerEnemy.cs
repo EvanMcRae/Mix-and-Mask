@@ -44,8 +44,9 @@ public class RunnerEnemy : EnemyBase
         agent.speed = UnityEngine.Random.Range(4, 8);
     }
 
-    public void Update()
+    public override void Update()
     {
+        base.Update();
         UpdateState();
         Act();
     }
@@ -187,7 +188,14 @@ public class RunnerEnemy : EnemyBase
             else
             {
                 PlayerHealth playerAsMask = collision.gameObject.GetComponent<PlayerHealth>();
-                playerAsMask.playerTakeDamage(5);
+                if (playerAsMask != null)
+                {
+                    playerAsMask.playerTakeDamage(5);
+                }
+                else
+                {
+                    Debug.LogWarning("Runner hit the Player (Mask) but no 'playerHealth' script was found on it!");
+                }
             }
 
             nextAttackTime = Time.time + attackCooldown;

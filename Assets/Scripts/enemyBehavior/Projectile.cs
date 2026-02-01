@@ -5,10 +5,13 @@ public class Projectile : MonoBehaviour
     public float damage = 1f;
     public float lifetime = 5f;
     public bool belongsToPlayer = false;
+    private float spawnTime = 0;
+    private const float iframes = 0.05f;
 
     void Start()
     {
         Destroy(gameObject, lifetime);
+        spawnTime = Time.time;
     }
 
     void OnTriggerEnter(Collider other)
@@ -39,8 +42,12 @@ public class Projectile : MonoBehaviour
                 playerAsMask.playerTakeDamage(5);
             }
 
-            Destroy(gameObject);
         }
         
+
+        if (Time.time - spawnTime > iframes)
+        {
+            Destroy(gameObject);
+        }
     }
 }
