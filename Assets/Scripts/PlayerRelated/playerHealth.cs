@@ -5,6 +5,8 @@ public class playerHealth : MonoBehaviour
 {
     public float maxPlayerHealth = 10f;
     public float currPlayerHealth = 10f;
+    [SerializeField] private float iframes = 0.1f;
+    private float canDamageTime = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,6 +17,8 @@ public class playerHealth : MonoBehaviour
 
     public void playerTakeDamage(float dmg)
     {
+        if (Time.time < canDamageTime) { Debug.Log("iframes stopped player damage"); return; }
+
         currPlayerHealth -= dmg;
 
         AkUnitySoundEngine.PostEvent("PlayerDamage", Utils.WwiseGlobal);
@@ -23,9 +27,12 @@ public class playerHealth : MonoBehaviour
 
         if (currPlayerHealth <= 0)
             Die();
+
+        GiveIFrames();
+        Debug.Log("Took player damage");
     }
 
-    private void UpdateHealthUI()
+    public void UpdateHealthUI()
     {
         //update UI element
         HealthUI healthUI = FindAnyObjectByType<HealthUI>();
@@ -54,6 +61,11 @@ public class playerHealth : MonoBehaviour
         panel.Up();
 
         Destroy(this.gameObject);
+    }
+
+    public void GiveIFrames()
+    {
+        canDamageTime = Time.time + iframes;
     }
 
     // Update is called once per frame

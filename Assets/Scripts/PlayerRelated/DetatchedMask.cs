@@ -29,6 +29,7 @@ public class DetatchedMask : MonoBehaviour
     public UnityEvent onAttach;
     public UnityEvent onDetach;
     public UnityEvent<Vector3> onFling; //Passes in direction.
+    private playerHealth healthScript = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +38,7 @@ public class DetatchedMask : MonoBehaviour
         actions = GetComponent<PlayerInput>();
         attachedMask = GetComponent<AttachedMask>();
         _collider = GetComponent<BoxCollider>();
+        healthScript = GetComponent<playerHealth>();
     }
 
     // Update is called once per frame
@@ -183,7 +185,7 @@ public class DetatchedMask : MonoBehaviour
         onAttach.Invoke();
     }
 
-     // Called when a player stops possessing
+    // Called when a player stops possessing
     public void SwitchToDetachedMovement()
     {
         AkUnitySoundEngine.PostEvent("Possessnot", Utils.WwiseGlobal);
@@ -193,8 +195,10 @@ public class DetatchedMask : MonoBehaviour
         //rigidbody.freezeRotation = false;
         isControlling = false;
         controlledEnemyType = ControllableEnemy.EnemyType.None;
-        
+
         onDetach.Invoke();
+        healthScript.GiveIFrames();
+        healthScript.UpdateHealthUI();
     }
     
     public ControllableEnemy.EnemyType GetCurrentlyControlledEnemyType() { return controlledEnemyType; }
