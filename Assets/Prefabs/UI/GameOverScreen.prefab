@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec2cee8b91b2804eb656b64154ac7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  text: {fileID: 0}
+  text: {fileID: 6676858378903941642}
   highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!224 &3625568760596798485 stripped
 RectTransform:

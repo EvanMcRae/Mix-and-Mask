@@ -6,8 +6,12 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] private TMP_Text text;
     public Color highlightColor;
 
-    public void UpdateText(int possessions, int kills)
+    public void UpdateText()
     {
+        //find the stats
+        
+        int possessions = PlayerStats.EnemiesPossessed;
+        int kills = PlayerStats.EnemiesKilled;
         string colorHex = ColorUtility.ToHtmlStringRGB(highlightColor);
 
         text.text =

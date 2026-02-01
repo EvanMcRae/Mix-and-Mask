@@ -21,6 +21,18 @@ public class playerHealth : MonoBehaviour
     public void Die()
     {
         print("Game over!");
+        //Find the game manager object
+        GameOverScreen gameOverUI = FindAnyObjectByType<GameOverScreen>();
+
+        if (gameOverUI == null)
+        {
+            Debug.LogError("No Game Over UI!");
+        }
+
+        //Update stats text
+        gameOverUI.UpdateText();
+        PopupPanel panel = gameOverUI.gameObject.GetComponent<PopupPanel>();
+        panel.Up();
 
         Destroy(this.gameObject);
     }
