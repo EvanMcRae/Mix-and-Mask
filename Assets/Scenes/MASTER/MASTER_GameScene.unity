@@ -1614,6 +1614,10 @@ PrefabInstance:
       propertyPath: screenBlocker
       value: 
       objectReference: {fileID: 210521089}
+    - target: {fileID: 5405275580716474484, guid: eecffdec82589f646b0c5b7a47efc2bc, type: 3}
+      propertyPath: blockerOpacity
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5721010625473035603, guid: eecffdec82589f646b0c5b7a47efc2bc, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
       value: 1

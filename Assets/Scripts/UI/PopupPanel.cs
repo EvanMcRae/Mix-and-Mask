@@ -39,11 +39,11 @@ public class PopupPanel : MonoBehaviour
 
         if (blockerTween != null)
             Utils.KillTween(ref blockerTween);
-        blockerTween = screenBlocker.GetComponent<Image>().DOFade(blockerOpacity, duration);
+        blockerTween = screenBlocker.GetComponent<Image>().DOFade(blockerOpacity, duration).SetUpdate(true);
 
         if (panelTween != null)
             Utils.KillTween(ref panelTween);
-        panelTween = GetComponent<RectTransform>().DOAnchorPosY(0, duration).SetEase(Ease.OutCubic).OnComplete(() =>
+        panelTween = GetComponent<RectTransform>().DOAnchorPosY(0, duration).SetEase(Ease.OutCubic).SetUpdate(true).OnComplete(() =>
         {
             EventSystem.current.SetSelectedGameObject(firstSelection);
             screenBlocker.GetComponent<Image>().raycastTarget = true;
@@ -73,7 +73,7 @@ public class PopupPanel : MonoBehaviour
         screenBlocker.GetComponent<Image>().raycastTarget = false;
         if (blockerTween != null)
             Utils.KillTween(ref blockerTween);
-        blockerTween = screenBlocker.GetComponent<Image>().DOFade(0, duration).OnComplete(() =>
+        blockerTween = screenBlocker.GetComponent<Image>().DOFade(0, duration).SetUpdate(true).OnComplete(() =>
         {
             screenBlocker.SetActive(false);
             EventSystem.current.GetComponent<InputSystemUIInputModule>().enabled = true;
@@ -82,7 +82,7 @@ public class PopupPanel : MonoBehaviour
 
         if (panelTween != null)
             Utils.KillTween(ref panelTween);
-        panelTween = GetComponent<RectTransform>().DOAnchorPosY(-Screen.height, duration * 2).SetEase(Ease.OutCubic).OnComplete(() =>
+        panelTween = GetComponent<RectTransform>().DOAnchorPosY(-Screen.height, duration * 2).SetEase(Ease.OutCubic).SetUpdate(true).OnComplete(() =>
         {
             action?.Invoke();
             goingDown = false;
