@@ -22,7 +22,6 @@ public class TransitionRendererFeature : FullScreenPassRendererFeature {
 
     public void ApplyTransition(float newProgress) {
         if (progress < 0 || progress > 1) Debug.LogError("Progress must be between 0 and 1.");
-        Debug.Log("NewProgress: " + newProgress);
         progress = newProgress;
     }
 }
