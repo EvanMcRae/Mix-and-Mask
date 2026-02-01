@@ -10,6 +10,7 @@ using UnityEngine.InputSystem.UI;
 public class PopupPanel : MonoBehaviour
 {
     [SerializeField] private float duration = 1f;
+    [SerializeField] private float blockerOpacity = 0.25f;
     [SerializeField] private bool snap = false;
     [SerializeField] private GameObject screenBlocker;
     [SerializeField] private GameObject firstSelection;
@@ -38,7 +39,7 @@ public class PopupPanel : MonoBehaviour
 
         if (blockerTween != null)
             Utils.KillTween(ref blockerTween);
-        blockerTween = screenBlocker.GetComponent<Image>().DOFade(0.25f, duration);
+        blockerTween = screenBlocker.GetComponent<Image>().DOFade(blockerOpacity, duration);
 
         if (panelTween != null)
             Utils.KillTween(ref panelTween);
