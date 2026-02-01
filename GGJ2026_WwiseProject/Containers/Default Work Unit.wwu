@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}" SchemaVersion="133">
 	<Containers>
-		<WorkUnit Name="Default Work Unit" ID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}" PersistMode="Standalone">
-			<ChildrenList>
-				<Folder Name="Test" ID="{5E95BC20-094D-4C6F-AE2D-5A1CC49E3209}" ShortID="764163832">
-					<ChildrenList>
-						<Sound Name="TestSFX" ID="{09A445DC-013B-47B9-B7CC-2C909919712E}" ShortID="733848444">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{34A7A9EE-75B0-4FED-8385-32D7E761783B}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="press" ID="{AFA8165C-1FDD-445A-BFCA-3B307E9F6A57}">
-									<Language>SFX</Language>
-									<AudioFile>press.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="276899763"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="press" ID="{AFA8165C-1FDD-445A-BFCA-3B307E9F6A57}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-				</Folder>
-			</ChildrenList>
-		</WorkUnit>
+		<WorkUnit Name="Default Work Unit" ID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}" PersistMode="Standalone"/>
 	</Containers>
 </WwiseDocument>

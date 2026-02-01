@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{D2109DA1-5BE3-4065-BFFA-645BD6914B87}" SchemaVersion="133">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{D2109DA1-5BE3-4065-BFFA-645BD6914B87}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{D2109DA1-5BE3-4065-BFFA-645BD6914B87}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="Music" ID="{64D99FD8-EA99-42D2-8409-65458F7874BD}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Possess" ID="{B8787EBB-6109-439C-8479-B5E370F6261E}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PlayTitle" ID="{4A77AB81-71C8-42E4-BC6A-AB5A2A8F2D0A}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="StartGame" ID="{3528EA39-2F60-4568-9F2A-C9DDCE3A2639}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="StopMusic" ID="{9AFC09F7-DB2C-4E7B-855B-31A21B97CD33}" WorkUnitID="{1F016CB8-45E1-4853-A4EA-6BA2AE3A46B0}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+					</ModuleList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

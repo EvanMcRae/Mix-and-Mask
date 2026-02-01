@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{77809AD6-F2DB-4AAE-B394-A8716712741C}" SchemaVersion="133">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{77809AD6-F2DB-4AAE-B394-A8716712741C}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{77809AD6-F2DB-4AAE-B394-A8716712741C}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Possessed" ID="{339BB0BB-FFDB-493E-8816-3330424DC047}">
+					<ChildrenList>
+						<State Name="None" ID="{8188F288-CE37-467B-A9FD-3C6E49CCAB2A}"/>
+						<State Name="Possessing" ID="{33517D12-B2D4-4880-ACEE-454CFAE09C28}"/>
+						<State Name="JustMask" ID="{9A454829-8DAD-4751-AE40-BFB9E6E00BC7}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>
