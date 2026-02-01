@@ -48,7 +48,7 @@ public class DetatchedMask : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isDrawing)
+        if (isDrawing && Time.timeScale != 0)
         {
             Vector2 currentMousePos = Mouse.current.position.ReadValue();
             Vector2 localMousePos;

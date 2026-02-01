@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
@@ -17,5 +18,27 @@ public class GameOverScreen : MonoBehaviour
         text.text =
             $"You possessed monsters <color=#{colorHex}>{possessions}</color> times\n" +
             $"You killed <color=#{colorHex}>{kills}</color> monsters";
+    }
+
+    public void PlayAgain()
+    {
+        PauseScreen.GoingToMainMenu = true;
+        ScreenTransition.Out(() =>
+        {
+            Time.timeScale = 1;
+            PauseScreen.GoingToMainMenu = false;
+            SceneManager.LoadScene("MASTER_GameScene");
+        });
+    }
+
+    public void TitleScreen()
+    {
+        PauseScreen.GoingToMainMenu = true;
+        ScreenTransition.Out(() =>
+        {
+            Time.timeScale = 1;
+            PauseScreen.GoingToMainMenu = false;
+            SceneManager.LoadScene("MASTER_MainMenu");
+        });
     }
 }
