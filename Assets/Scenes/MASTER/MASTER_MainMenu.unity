@@ -253,6 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2278631e508a35f4f862c7bf35e24b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectOnPointerMove
+  dependencies:
+  - {fileID: 1902931139}
 --- !u!222 &60167961
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -333,6 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2278631e508a35f4f862c7bf35e24b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectOnPointerMove
+  dependencies:
+  - {fileID: 1206244802}
 --- !u!114 &417908348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2278631e508a35f4f862c7bf35e24b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectOnPointerMove
+  dependencies:
+  - {fileID: 1279222836}
 --- !u!114 &545893188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,6 +830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2278631e508a35f4f862c7bf35e24b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectOnPointerMove
+  dependencies:
+  - {fileID: 1179329166}
 --- !u!222 &773197336
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1181,6 +1189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2278631e508a35f4f862c7bf35e24b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectOnPointerMove
+  dependencies:
+  - {fileID: 1968616839}
 --- !u!222 &827721194
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1424,7 +1434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: SETTINGS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f4eed3cd1c00fc6449fc183405ddf082, type: 2}
   m_sharedMaterial: {fileID: 2938917090791696900, guid: f4eed3cd1c00fc6449fc183405ddf082, type: 2}
@@ -1561,7 +1571,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: QUIT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f4eed3cd1c00fc6449fc183405ddf082, type: 2}
   m_sharedMaterial: {fileID: 2938917090791696900, guid: f4eed3cd1c00fc6449fc183405ddf082, type: 2}
@@ -1985,7 +1995,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play
+  m_text: PLAY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f4eed3cd1c00fc6449fc183405ddf082, type: 2}
   m_sharedMaterial: {fileID: 2938917090791696900, guid: f4eed3cd1c00fc6449fc183405ddf082, type: 2}
@@ -2558,7 +2568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Credits
+  m_text: CREDITS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f4eed3cd1c00fc6449fc183405ddf082, type: 2}
   m_sharedMaterial: {fileID: 2938917090791696900, guid: f4eed3cd1c00fc6449fc183405ddf082, type: 2}
@@ -2695,7 +2705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Controls
+  m_text: CONTROLS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f4eed3cd1c00fc6449fc183405ddf082, type: 2}
   m_sharedMaterial: {fileID: 2938917090791696900, guid: f4eed3cd1c00fc6449fc183405ddf082, type: 2}
