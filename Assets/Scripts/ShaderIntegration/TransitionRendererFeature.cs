@@ -1,0 +1,29 @@
+﻿using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.RenderGraphModule;
+using UnityEngine.Rendering.UI;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UIElements.Experimental;
+
+public class TransitionRendererFeature : FullScreenPassRendererFeature {
+    
+    public Shader shader;
+    public float progress;
+    private Color color;
+
+    public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {
+        passMaterial = CoreUtils.CreateEngineMaterial(shader);
+        passMaterial.SetFloat(Shader.PropertyToID("_AnimationProgress"), 1);
+        passMaterial.SetColor(Shader.PropertyToID("_TransitionColor"), color);
+        float easedProgress = 1 - progress; //No easing, we could add some.
+        passMaterial.SetFloat(Shader.PropertyToID("_EffectScreenDist"), easedProgress * 2 - 1);
+        passMaterial.SetFloat(Shader.PropertyToID("_EffectScreenStrength"), 5);
+        base.AddRenderPasses(renderer, ref renderingData);
+    }
+
+    public void ApplyTransition(float newProgress, Color newColor) {
+        if (progress < 0 || progress > 1) Debug.LogError("Progress must be between 0 and 1.");
+        progress = newProgress;
+        color = newColor;
+    }
+}
