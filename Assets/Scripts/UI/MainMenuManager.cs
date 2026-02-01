@@ -107,7 +107,7 @@ public class MainMenuManager : MonoBehaviour
     public void Quit()
     {
         AkUnitySoundEngine.PostEvent("StopMusic", Utils.WwiseGlobal);
-        ScreenTransition.Out(() => Quit());
+        ScreenTransition.Out(ActuallyQuit);
     }
 
     public void PressCredits()
