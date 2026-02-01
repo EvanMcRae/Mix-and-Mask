@@ -1,8 +1,7 @@
 #if UNITY_EDITOR
-using DG.Tweening;
 using UnityEditor;
 #endif
-
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
