@@ -123,7 +123,7 @@ public class PopupPanel : MonoBehaviour
         
         if (panelTween != null)
             Utils.KillTween(ref panelTween);
-        panelTween = GetComponent<RectTransform>().DOAnchorPosY(-Screen.height, duration * 2).SetEase(Ease.OutCubic).SetUpdate(true).OnComplete(() =>
+        panelTween = GetComponent<RectTransform>().DOAnchorPosY(-1080, duration * 2).SetEase(Ease.OutCubic).SetUpdate(true).OnComplete(() =>
         {
             action?.Invoke();
             goingDown = false;
