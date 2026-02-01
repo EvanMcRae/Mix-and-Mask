@@ -356,8 +356,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 35c47a7abdfc2094f983a891a813d50f, type: 3}
   - {fileID: 21300000, guid: 011128d4cee5da84e95d091d427a6be0, type: 3}
   - {fileID: -403794712, guid: 619b78468a385564dbe1e15dd4107a40, type: 3}
-  - {fileID: 434563189, guid: 619b78468a385564dbe1e15dd4107a40, type: 3}
   - {fileID: 21300000, guid: 8132172ba1d180d4891e5a60bc0557a6, type: 3}
+  - {fileID: 1023360044, guid: 619b78468a385564dbe1e15dd4107a40, type: 3}
   - {fileID: 1023360044, guid: 619b78468a385564dbe1e15dd4107a40, type: 3}
   canvasGroup: {fileID: 308963791603381770}
   fallDistance: 600
