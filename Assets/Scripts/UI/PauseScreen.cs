@@ -57,6 +57,11 @@ public class PauseScreen : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    public void PlaySelectSound()
+    {
+        AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
+    }
+
     public void Resume()
     {
         EventSystem.current.SetSelectedGameObject(null);
@@ -68,6 +73,7 @@ public class PauseScreen : MonoBehaviour
 
     public void TitleScreen()
     {
+        AkUnitySoundEngine.PostEvent("Back", Utils.WwiseGlobal);
         GoingToMainMenu = true;
         ScreenTransition.Out(() =>
         {
@@ -79,6 +85,7 @@ public class PauseScreen : MonoBehaviour
 
     public void Settings()
     {
+        AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
         settingsPanel.Up();
         Debug.Log(GetComponent<CanvasGroup>());
         GetComponent<CanvasGroup>().DOFade(0, 0.5f).SetUpdate(true);

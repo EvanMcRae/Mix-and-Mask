@@ -1173,6 +1173,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7171019246133834430}
+        m_TargetAssemblyTypeName: PauseScreen, Assembly-CSharp
+        m_MethodName: PlaySelectSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6699325448092338280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1358,6 +1370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseScreen
   pausePanel: {fileID: 5405275580716474484}
   settingsPanel: {fileID: 0}
+  wwiseGlobal: {fileID: 0}
 --- !u!225 &3965343401479170839
 CanvasGroup:
   m_ObjectHideFlags: 0
