@@ -263,10 +263,7 @@ public class RunnerEnemy : EnemyBase
     {
         invulCooldown = maxInvulCooldown;
         invulTime = maxInvulTime;
-
-        Color color = _renderer.material.color;
-        color.a = 0.3f;
-        _renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+        _renderer.material.SetFloat("_MaxAlpha", 0.3f);
         isSolid = false;
         state = State.Invulnerable;
         _collider.isTrigger = true;
@@ -275,9 +272,7 @@ public class RunnerEnemy : EnemyBase
     private void BecomeVulnerable()
     {
         invulCooldown = maxInvulCooldown + UnityEngine.Random.Range(0, 6); // Adds randomness so all cats on the map don't become invulnerable at once
-        Color color = _renderer.material.color;
-        color.a = 1f;
-        _renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+        _renderer.material.SetFloat("_MaxAlpha", 1f);
         isSolid = true;
         state = State.Move;
         _collider.isTrigger = false;
