@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class Utils
 {
+    public static GameObject WwiseGlobal = null;
     public enum Direction
     {
         UP, DOWN, LEFT, RIGHT

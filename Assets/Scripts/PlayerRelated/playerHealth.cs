@@ -21,6 +21,8 @@ public class playerHealth : MonoBehaviour
 
         currPlayerHealth -= dmg;
 
+        AkUnitySoundEngine.PostEvent("PlayerDamage", Utils.WwiseGlobal);
+
         UpdateHealthUI();
 
         if (currPlayerHealth <= 0)
@@ -50,6 +52,8 @@ public class playerHealth : MonoBehaviour
     public void Die()
     {
         print("Game over!");
+        AkUnitySoundEngine.PostEvent("StopMusic", Utils.WwiseGlobal);
+        
         //Find the game manager object
         GameOverScreen gameOverUI = FindAnyObjectByType<GameOverScreen>();
         WaveManager.GameOver = true;

@@ -10,7 +10,7 @@
    "SourceFilesRoot": "../../.cache",
    "SoundBanksRoot": ".",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "../../../Assets/GeneratedSoundBanks/Linux"
+   "ExternalSourcesOutputRoot": "."
   },
   "DefaultAlign": "16",
   "Settings": {
@@ -33,6 +33,6 @@
    "PrintObjectPath": "true",
    "PrintObjectColor": "true"
   },
-  "FileHash": "{DF26CB95-CFB5-037E-50D6-FDF503B04A4A}"
+  "FileHash": "{AA703FFC-A04E-CFFC-9E19-C3F22B58D59B}"
  }
 }

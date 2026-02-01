@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{77A6A1AD-D9A8-4040-A65F-F62EAF079D3D}" SchemaVersion="133">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{77A6A1AD-D9A8-4040-A65F-F62EAF079D3D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{77A6A1AD-D9A8-4040-A65F-F62EAF079D3D}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Musicc" ID="{4448E772-929D-4827-892D-F01B4F853C0D}" ShortID="1016105186">
+					<ChildrenList>
+						<SwitchGroup Name="Music" ID="{E201DB7E-59FE-4F5A-A9B0-BCBB97A85F9B}">
+							<ChildrenList>
+								<Switch Name="Title" ID="{0032B4C4-3B8D-497C-BDF7-B1360A342600}"/>
+								<Switch Name="GamePlay" ID="{70877CFA-EA5A-46AC-9FE5-3C2E7D9F16C8}"/>
+							</ChildrenList>
+						</SwitchGroup>
+						<SwitchGroup Name="GameplayMusic" ID="{88FA528F-3E29-4949-A8C5-BC96A2CF3EF0}">
+							<ChildrenList>
+								<Switch Name="PreGame" ID="{778F5691-CCC4-4137-A4BC-738A932B1E3B}"/>
+								<Switch Name="InGame" ID="{370AF961-57B3-4295-88A1-1AF657F2DBC8}"/>
+							</ChildrenList>
+						</SwitchGroup>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Gameplay" ID="{32479E44-837E-4E4E-AC68-A099A59EE531}" ShortID="746528818">
+					<ChildrenList>
+						<SwitchGroup Name="PullbackSwitch" ID="{A1DADBAE-9667-406A-9674-6886A9804FA8}"/>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>
