@@ -5,6 +5,7 @@ public class playerHealth : MonoBehaviour
 {
     public float maxPlayerHealth = 10f;
     public float currPlayerHealth = 10f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +24,8 @@ public class playerHealth : MonoBehaviour
         print("Game over!");
         //Find the game manager object
         GameOverScreen gameOverUI = FindAnyObjectByType<GameOverScreen>();
-
+        WaveManager.GameOver = true;
+        
         if (gameOverUI == null)
         {
             Debug.LogError("No Game Over UI!");

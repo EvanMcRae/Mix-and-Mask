@@ -17,6 +17,7 @@ public class WaveManager : MonoBehaviour
     private int activeEnemies = 0;
     private bool spawningWave = false;
     private bool isClearing = false;
+    public static bool GameOver = false;
 
     void Start()
     {
@@ -112,5 +113,15 @@ public class WaveManager : MonoBehaviour
         isClearing = false; // <--- Turn off the safety flag
 
         StartNextWave();
+    }
+
+    void OnDestroy()
+    {
+        GameOver = false;
+    }
+
+    void OnApplicationQuit()
+    {
+        GameOver = false;
     }
 }

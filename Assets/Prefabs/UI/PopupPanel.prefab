@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopupPanel
   duration: 0.5
+  blockerOpacity: 0.25
   snap: 0
   screenBlocker: {fileID: 0}
   firstSelection: {fileID: 512682775792492022}
