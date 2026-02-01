@@ -17,6 +17,7 @@ public class RunnerEnemy : EnemyBase
     private float invulCooldown = 5f;
     private float invulTime = 0f;
     [SerializeField] Collider _collider = null;
+    [SerializeField] Animator animator;
 
 
     private NavMeshAgent agent;
@@ -58,6 +59,7 @@ public class RunnerEnemy : EnemyBase
     public override void Update()
     {
         base.Update();
+        if (!canMove) return;
         UpdateState();
         Act();
     }
@@ -113,6 +115,7 @@ public class RunnerEnemy : EnemyBase
             stateTimer = windupTime;
 
             //back up slightly (the tell)
+            animator.SetTrigger("StartPounce");
             facePlayer = true;
             Vector3 away = (transform.position - player.position).normalized;
             Vector3 backupPos = transform.position + away * backupDistance;
@@ -161,6 +164,8 @@ public class RunnerEnemy : EnemyBase
 
         Vector3 target = player.position + tangent * orbitRadius;
         agent.SetDestination(target);
+
+        animator.SetTrigger("Circling");
     }
 
     void StartDash()
@@ -173,6 +178,7 @@ public class RunnerEnemy : EnemyBase
 
         stateTimer = dashDuration;
         state = State.Dash;
+        animator.SetTrigger("Pounce");
     }
 
     void DashForward()

@@ -1143,6 +1143,10 @@ PrefabInstance:
       value: WaveManager
       objectReference: {fileID: 0}
     - target: {fileID: 909961703917578552, guid: 3da0791c4502a52448fe4c118249ab9d, type: 3}
+      propertyPath: enemySpawnVFX
+      value: 
+      objectReference: {fileID: 4620934184830140701, guid: 02e4c34e2a79b3341ad659308256b092, type: 3}
+    - target: {fileID: 909961703917578552, guid: 3da0791c4502a52448fe4c118249ab9d, type: 3}
       propertyPath: baseEnemiesPerPoint
       value: 3
       objectReference: {fileID: 0}

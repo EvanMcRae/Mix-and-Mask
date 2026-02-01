@@ -50,6 +50,7 @@ public class RunnerController : ControllableEnemy
             if (invulTime <= 0)
             {
                 isInvulnerable = false;
+                _collider.isTrigger = false;
 
                 _renderer.material.SetFloat("_MaxAlpha", 1f);
                 isSolid = true;
@@ -85,7 +86,7 @@ public class RunnerController : ControllableEnemy
     public override void SecondaryAction()
     {
         base.SecondaryAction();
-        if (isInvulnerable || invulTime > 0) return;
+        if (isInvulnerable || invulTime > 0 || secondaryCooldown > 0) return;
         Debug.Log("Temporary Invulnerability!");
         BecomeInvulnerable();
     }
@@ -96,6 +97,8 @@ public class RunnerController : ControllableEnemy
         secondaryCooldown = maxSecondaryCooldown;
         invulTime = maxInvulTime;
 
+        _collider.isTrigger = true;
+
         _renderer.material.SetFloat("_MaxAlpha", 0.3f);
         isSolid = false;
     }
@@ -105,6 +108,9 @@ public class RunnerController : ControllableEnemy
         runnerEnemy.enabled = !underControl;
         navAgent.enabled = !underControl;
         _rigidbody.isKinematic = !underControl;
+        _rigidbody.useGravity = !underControl;
+        if(underControl) _rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+        else _rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionY;
         base.SetControlled(underControl);
     }
 

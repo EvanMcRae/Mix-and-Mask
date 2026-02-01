@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -1507,14 +1507,6 @@ PrefabInstance:
       propertyPath: waveIncreasePerPoint
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 909961703917578552, guid: 3da0791c4502a52448fe4c118249ab9d, type: 3}
-      propertyPath: enemyPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 909961703917578552, guid: 3da0791c4502a52448fe4c118249ab9d, type: 3}
-      propertyPath: 'enemyPrefabs.Array.data[2]'
-      value: 
-      objectReference: {fileID: 3198165356481605193, guid: 6db3d47f92246184889e2cedcaa629be, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
