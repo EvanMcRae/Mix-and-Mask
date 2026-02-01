@@ -43,6 +43,8 @@ public abstract class EnemyBase : MonoBehaviour
         if (waveManager != null)
             waveManager.EnemyDied(); // Report death to progress the wave
 
+        PlayerStats.EnemiesKilled++;
+
         Destroy(gameObject);
     }
 }

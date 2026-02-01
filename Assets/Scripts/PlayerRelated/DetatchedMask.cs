@@ -111,6 +111,7 @@ public class DetatchedMask : MonoBehaviour
     // Called when a player starts possessing
     private void BeginEnemyControl(ControllableEnemy enemyScript)
     {
+        PlayerStats.EnemiesPossessed++;
         attachedMask.SetControlledEnemy(enemyScript);
         attachedMask.SwtichToAttachedControls();
         _collider.enabled = false;
