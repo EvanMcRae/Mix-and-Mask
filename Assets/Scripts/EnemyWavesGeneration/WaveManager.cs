@@ -9,12 +9,14 @@ public class WaveManager : MonoBehaviour
     public GameObject[] enemyPrefabs; // Drag Runner and Tank prefabs here
     
     [Header("Wave Settings")]
-    public int baseEnemiesPerPoint = 5;
+    public int baseEnemiesPerPoint = 3;
     public int waveIncreasePerPoint = 2;
     
     private List<WaveSpawnPoint> spawnPoints = new List<WaveSpawnPoint>();
     private int currentWave = 0;
     private int activeEnemies = 0;
+    private bool spawningWave = false;
+    private bool isClearing = false;
 
     void Start()
     {
@@ -34,6 +36,7 @@ public class WaveManager : MonoBehaviour
 
     void StartNextWave()
     {
+        spawningWave = true;
         currentWave++;
         StartCoroutine(SpawnWave());
     }
@@ -54,6 +57,7 @@ public class WaveManager : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
         }
+        spawningWave = false;
     }
 
     void SpawnRandomEnemy(WaveSpawnPoint point)
@@ -69,8 +73,14 @@ public class WaveManager : MonoBehaviour
 
     public void EnemyDied()
     {
+        if (isClearing) 
+        {
+            activeEnemies--; 
+            return;
+        }
+
         activeEnemies--;
-        if (activeEnemies <= 0)
+        if (activeEnemies <= 0 && !spawningWave)
         {
             StartNextWave();
         }
@@ -78,19 +88,29 @@ public class WaveManager : MonoBehaviour
 
     void DebugKillAll()
     {
-        // 1. Kill all Enemies (triggers next wave logic)
+
+        StopAllCoroutines(); // Stop any currently spawning enemies
+        spawningWave = false;
+        isClearing = true;
+
         EnemyBase[] allEnemies = FindObjectsByType<EnemyBase>(FindObjectsSortMode.None);
-        Debug.Log($"NUKE: Clearing {allEnemies.Length} enemies.");
         foreach (EnemyBase enemy in allEnemies)
         {
-            enemy.TakeDamage(99999f); 
+            // Use TakeDamage so effects play, OR use Destroy but manually decrement activeEnemies. 
+            // Using TakeDamage is safer for logic consistency.
+            if(enemy != null) enemy.TakeDamage(9999f); 
         }
 
-        // 2. NEW: Destroy all active Projectiles immediately
         Projectile[] allProjectiles = FindObjectsByType<Projectile>(FindObjectsSortMode.None);
         foreach (Projectile proj in allProjectiles)
         {
-            Destroy(proj.gameObject);
+           if(proj != null) Destroy(proj.gameObject);
         }
+        
+        // Force reset the counter in case of any drift
+        activeEnemies = 0; 
+        isClearing = false; // <--- Turn off the safety flag
+
+        StartNextWave();
     }
 }
