@@ -8,6 +8,6 @@ public class CustomBuildProcessor : IPreprocessBuildWithReport
 
     public void OnPreprocessBuild(BuildReport report)
     {
-        // ShaderPassHolder.EnablePass(); // TODO if we actually like pixelation turn it back on
+        ShaderPassHolder.EnablePass();
     }
 }
