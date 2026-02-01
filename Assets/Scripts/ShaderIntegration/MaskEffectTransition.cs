@@ -13,6 +13,7 @@ public class MaskEffectTransition : MonoBehaviour {
     public float t = 1;
 
     public Action onComplete;
+    [SerializeField] private Color color;
 
     // True direction is closing in, false is closing out from in.
     public void StartTransition(bool direction, Action onCompleteCallback) {
@@ -26,7 +27,7 @@ public class MaskEffectTransition : MonoBehaviour {
         if (!isTransitioning) return;
         t += (transitionDirection ? 1 : -1) * speed * (!PauseScreen.GoingToMainMenu ? Time.deltaTime : Time.unscaledDeltaTime);
         t = Mathf.Clamp(t, 0, 1);
-        if (isTransitioning) feature.ApplyTransition(t);
+        if (isTransitioning) feature.ApplyTransition(t, color);
         if (Mathf.Approximately(t, 1f) || t == 0f) {
             isTransitioning = false;
             if (onComplete != null) onComplete.Invoke();
@@ -37,6 +38,6 @@ public class MaskEffectTransition : MonoBehaviour {
     
     public void OnApplicationQuit()
     {
-        feature.ApplyTransition(0);
+        feature.ApplyTransition(0, color);
     }
 }

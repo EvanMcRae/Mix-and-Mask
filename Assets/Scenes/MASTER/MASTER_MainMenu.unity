@@ -3425,6 +3425,7 @@ MonoBehaviour:
   transitionDirection: 0
   isTransitioning: 1
   t: 1
+  color: {r: 0.12156863, g: 0.05490196, b: 0.10980392, a: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
