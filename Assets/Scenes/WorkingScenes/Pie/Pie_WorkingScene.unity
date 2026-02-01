@@ -246,11 +246,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!23 &218631112 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3680320646483126441, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
-  m_PrefabInstance: {fileID: 1883238966}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &325929516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -568,11 +563,6 @@ MonoBehaviour:
   offsetFromPlayerY: -10
   cameraAngleX: 45
   rotationY: 0
---- !u!23 &650224059 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3680320646483126441, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
-  m_PrefabInstance: {fileID: 2076452367}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &698671393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -970,7 +960,7 @@ PrefabInstance:
     - target: {fileID: -8608804040371270441, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
       propertyPath: renderer
       value: 
-      objectReference: {fileID: 218631112}
+      objectReference: {fileID: 0}
     - target: {fileID: 1772545698791862272, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -1047,7 +1037,7 @@ PrefabInstance:
     - target: {fileID: -8608804040371270441, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
       propertyPath: renderer
       value: 
-      objectReference: {fileID: 650224059}
+      objectReference: {fileID: 0}
     - target: {fileID: 1772545698791862272, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
       propertyPath: m_IsTrigger
       value: 0
