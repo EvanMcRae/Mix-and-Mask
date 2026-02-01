@@ -84,7 +84,7 @@ public class RunnerController : ControllableEnemy
 
     public override void SecondaryAction()
     {
-        if (isInvulnerable || invulTime > 0) return;
+        if (isInvulnerable || invulTime > 0 || secondaryCooldown > 0) return;
         Debug.Log("Temporary Invulnerability!");
         BecomeInvulnerable();
     }
