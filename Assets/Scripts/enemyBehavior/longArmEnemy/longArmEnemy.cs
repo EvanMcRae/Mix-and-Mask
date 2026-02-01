@@ -243,6 +243,7 @@ public class LongArmEnemy : EnemyBase
 
     void StartSpin()
     {
+        AkUnitySoundEngine.PostEvent("SpinAttack", gameObject);
         agent.enabled = false;
         stateTimer = spinDuration;
         state = State.Spin;

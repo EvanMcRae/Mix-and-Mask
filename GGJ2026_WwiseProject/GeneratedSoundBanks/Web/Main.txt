@@ -1,6 +1,84 @@
 Event	ID	Name			Wwise Object Path	Notes
-	3157003241	Test			\Default Work Unit\Test	
+	47246163	Possess			\Default Work Unit\Music\Possess	
+	1521187885	StartGame			\Default Work Unit\Music\StartGame	
+	1917263390	StopMusic			\Default Work Unit\Music\StopMusic	
+	2922217614	StopPanic			\Default Work Unit\StopPanic	
+	3240900869	ResumeAll			\Default Work Unit\ResumeAll	
+	3348899946	Possessnot			\Default Work Unit\Music\Possessnot	
+	3593803035	PlayTitle			\Default Work Unit\Music\PlayTitle	
+	4091047182	PauseAll			\Default Work Unit\PauseAll	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	2275179450	GameplayMusic			\Default Work Unit\GameplayMusic	
+	3991942870	Music			\Default Work Unit\Music	
+
+Switch	ID	Name	Switch Group			Notes
+	984691642	InGame	GameplayMusic			
+	3594052030	PreGame	GameplayMusic			
+	89505537	GamePlay	Music			
+	3705726509	Title	Music			
+
+State Group	ID	Name			Wwise Object Path	Notes
+	58477120	Possessed			\Default Work Unit\Possessed	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Possessed			
+	2665410631	JustMask	Possessed			
+	3330989325	Possessing	Possessed			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2346531308	MusicVolume			\Default Work Unit\Settings\MusicVolume	
+	2918011349	MasterVolume			\Default Work Unit\Settings\MasterVolume	
+	3328840097	FXVolume			\Default Work Unit\Settings\FXVolume	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	393239870	SFX			\Default Work Unit\Main Audio Bus\SFX	
+	2246998526	Main Audio Bus			\Default Work Unit\Main Audio Bus	
+	3991942870	Music			\Default Work Unit\Main Audio Bus\Music	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	276899763	TestSFX	.cache\06\{06109787-C2BF-2067-C65D-1C7A2B660341}.wem		\Containers\Default Work Unit\Test\TestSFX		18784
+	8877785	Level C_Combined Piano_147_16B_1p master	.cache\E9\{E97839A8-711C-BACC-39A8-B095FEF02C60}.wem		\Containers\Music Work Unit\Music\Level\Possessing\C1\Level C_Combined Piano_147_16B_1p master		460708
+	30167682	Transition C2B_Combined Piano RH_147_3p master	.cache\60\{60A7508D-4C81-21FE-4D7D-BE553319D391}.wem		\Containers\Music Work Unit\Music\Level\Transitions\To C Key\Transition C2B_Combined Piano RH_147_3p master		24964
+	42356810	Level B_Clarinet_147_8B_1p master	.cache\1A\{1ABCF917-9DD2-BB7C-FEF4-9D3B73C01EC0}.wem		\Containers\Music Work Unit\Music\Level\Possessing\B1\Level B_Clarinet_147_8B_1p master		107288
+	78207960	Pregame_Violin Legato_147_10B_1p_1master	.cache\26\{26100F99-CCE1-B546-D26C-2E969A8B2AC5}.wem		\Containers\Music Work Unit\Music\Level\PreGame\PPreGame\Pregame_Violin Legato_147_10B_1p_1master		91732
+	92192739	Level B_Cello Stacc_147_8B_1p master	.cache\9A\{9A001A1C-5749-6B52-9729-2F98943F47CE}.wem		\Containers\Music Work Unit\Music\Level\Possessing\B1\Level B_Cello Stacc_147_8B_1p master		250338
+	108010996	Level V2_Violin Staccato_147_8B_1p master	.cache\78\{78863D2A-797A-5379-D22D-A4307AB7B69B}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V2\Level V2_Violin Staccato_147_8B_1p master		228564
+	112853337	Level C_Clarinet_147_16B_1p master	.cache\DA\{DAABA4E9-4A64-84B7-F291-BD57DD3A7F6A}.wem		\Containers\Music Work Unit\Music\Level\Possessing\C1\Level C_Clarinet_147_16B_1p master		441978
+	138138962	Pregame_VIolin 2 Trill_147_10B_1p_1master	.cache\0B\{0B1857BC-D5E1-91C6-51AC-8B05121D1E25}.wem		\Containers\Music Work Unit\Music\Level\PreGame\PPreGame\Pregame_VIolin 2 Trill_147_10B_1p_1master		109754
+	138676990	Level V1A_VIolin 2 Legato_147_8B_1p master	.cache\DF\{DFB0B424-70BE-5F4C-6A79-8D5BFA3000F9}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1A\Level V1A_VIolin 2 Legato_147_8B_1p master		251632
+	181384360	Level C_Cello Harmonic_147_16B_1p master	.cache\0F\{0F6FC4EC-0396-AE33-449F-383C2B80A4BE}.wem		\Containers\Music Work Unit\Music\Level\Possessing\C1\Level C_Cello Harmonic_147_16B_1p master		381411
+	186814078	Level V1B_VIolin 2 Legato_147_8B_1p master	.cache\EB\{EBEA0D12-4221-37D8-F70C-8BEAFFB3825D}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1B\Level V1B_VIolin 2 Legato_147_8B_1p master		248840
+	231853013	Level V1A_Cello Pizz_147_8B_1p master	.cache\D1\{D1530644-448A-3B75-401D-27FD7C8B0A51}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1A\Level V1A_Cello Pizz_147_8B_1p master		243462
+	257705047	Level V1A_VIolin 2 Trill_147_8B_1p master	.cache\59\{593A793C-8259-84F9-74F5-1938D3C8049C}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1A\Level V1A_VIolin 2 Trill_147_8B_1p master		191204
+	310282067	Level V2_VIolin 2 Trill_147_8B_1p master	.cache\78\{7880EFA7-177E-8AE8-9A06-C17AB8D87EED}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V2\Level V2_VIolin 2 Trill_147_8B_1p master		201505
+	360452982	Transition V2C_VIolin 2 staccato_147_3p master	.cache\51\{510D57F5-AA29-E2F7-85A4-42E18BC11FFB}.wem		\Containers\Music Work Unit\Music\Level\Transitions\To D Key\Transition V2C_VIolin 2 staccato_147_3p master		46932
+	363308786	Transition V2C_Cello Spiccato_147_3p master	.cache\16\{16E64ED9-D5B3-1EB2-706A-58165759DE14}.wem		\Containers\Music Work Unit\Music\Level\Transitions\To D Key\Transition V2C_Cello Spiccato_147_3p master		48671
+	382540285	Level V1B_Crotales bow_147_8B_1p master	.cache\AE\{AE4C10B7-8B50-A7D7-CAC6-CB58A48BB6F7}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1B\Level V1B_Crotales bow_147_8B_1p master		313960
+	392719887	Pregame_Cello Harmonic_147_10B_1p_1master	.cache\CF\{CF278FD1-5B40-2958-43AD-274B75EA9ECB}.wem		\Containers\Music Work Unit\Music\Level\PreGame\PPreGame\Pregame_Cello Harmonic_147_10B_1p_1master		85174
+	406940579	Level V1B_VIolin 2 Trill_147_8B_1p master	.cache\95\{957F6479-8D07-E679-CD0F-3386F262C3B3}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1B\Level V1B_VIolin 2 Trill_147_8B_1p master		200492
+	413800811	Pregame_Crotales bow_147_10B_1p_1master	.cache\D5\{D5052EC6-7DDF-8F5A-87C8-BB85234A863E}.wem		\Containers\Music Work Unit\Music\Level\PreGame\PPreGame\Pregame_Crotales bow_147_10B_1p_1master		229201
+	424376612	Level C_Crotales_147_16B_1p master	.cache\B0\{B0BD9767-4253-386E-1715-7DB1249754CF}.wem		\Containers\Music Work Unit\Music\Level\Possessing\C1\Level C_Crotales_147_16B_1p master		547410
+	472004228	Level C_Bells_147_16B_1p master	.cache\B7\{B7CA9701-F94B-4423-D2AB-80A2B9E542C8}.wem		\Containers\Music Work Unit\Music\Level\Possessing\C1\Level C_Bells_147_16B_1p master		518569
+	492997492	Level C_Theramin_147_16B_1p master	.cache\C7\{C74527DC-B71D-D662-CFD8-A9BDC3E0EDAD}.wem		\Containers\Music Work Unit\Music\Level\Possessing\C1\Level C_Theramin_147_16B_1p master		449175
+	517681480	Level B_Violin Staccato_147_8B_1p master	.cache\F2\{F2C32C4A-E1CD-4443-BDAD-F7CBDDF99DDA}.wem		\Containers\Music Work Unit\Music\Level\Possessing\B1\Level B_Violin Staccato_147_8B_1p master		260128
+	524851499	Transition C2B_VIolin 2 Trem_147_3p master	.cache\63\{63DE4F95-D4D0-7994-C0CF-BC9F01313473}.wem		\Containers\Music Work Unit\Music\Level\Transitions\To C Key\Transition C2B_VIolin 2 Trem_147_3p master		103231
+	527958838	Level B_Crotales bow_147_8B_1p master	.cache\ED\{ED980428-0CF7-5C82-7F78-CAA350578FD4}.wem		\Containers\Music Work Unit\Music\Level\Possessing\B1\Level B_Crotales bow_147_8B_1p master		303474
+	572304989	Level V1B_VIolin 2 staccato_147_8B_1p master	.cache\95\{95598A74-DD17-50CA-810E-937087B15625}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1B\Level V1B_VIolin 2 staccato_147_8B_1p master		233728
+	584699890	Pregame_Combined Piano_147_10B_1p_1master	.cache\E3\{E37F2B90-8BC3-CB5C-EF34-DAF3B8310387}.wem		\Containers\Music Work Unit\Music\Level\PreGame\PPreGame\Pregame_Combined Piano_147_10B_1p_1master		321196
+	607404648	Level B_VIolin 2 Trem_147_8B_1p master	.cache\55\{55437C2C-143A-3626-5165-602EFC3BBC79}.wem		\Containers\Music Work Unit\Music\Level\Possessing\B1\Level B_VIolin 2 Trem_147_8B_1p master		212086
+	683038840	Level V1B_Cello Pizz_147_8B_1p master	.cache\81\{81422001-1C2F-20A0-1BCF-3F655255AA15}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1B\Level V1B_Cello Pizz_147_8B_1p master		255602
+	746209726	Transition V2C_Crotales bow_147_3p master	.cache\8D\{8D9A08C0-0CFB-40DD-7726-410F578361DE}.wem		\Containers\Music Work Unit\Music\Level\Transitions\To D Key\Transition V2C_Crotales bow_147_3p master		135796
+	762897438	Level B_Cello Legato_147_8B_1p master	.cache\4D\{4DF1CB5F-2B1E-E212-65AD-5A3966D0441C}.wem		\Containers\Music Work Unit\Music\Level\Possessing\B1\Level B_Cello Legato_147_8B_1p master		206287
+	778518464	Title Theme	.cache\3C\{3C780D37-D544-E04A-BEB4-3C2EA849D896}.wem		\Containers\Music Work Unit\Music\Title\Title Theme\Title Theme		555365
+	784761127	Level V2_Cello Spiccato_147_8B_1p master	.cache\4D\{4DA9F5E0-5633-6471-EDFF-DFFA8FA4B705}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V2\Level V2_Cello Spiccato_147_8B_1p master		262882
+	806864202	Level V1A_VIolin 2 staccato_147_8B_1p master	.cache\D8\{D87FCCF3-FFE8-9036-0DAB-485EEC6BAAD5}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1A\Level V1A_VIolin 2 staccato_147_8B_1p master		234734
+	823408597	Transition C2B_Cello Spiccato_147_3p master	.cache\33\{33C75589-BB01-09BE-A6F5-4CDB031C8D53}.wem		\Containers\Music Work Unit\Music\Level\Transitions\To C Key\Transition C2B_Cello Spiccato_147_3p master		58628
+	866700807	Transition V2C_VIolin 2 Trem_147_3p master	.cache\74\{74EAF800-49E3-A26E-F8C8-A22E8381E9B5}.wem		\Containers\Music Work Unit\Music\Level\Transitions\To D Key\Transition V2C_VIolin 2 Trem_147_3p master		106825
+	876908841	Level V1A_Crotales bow_147_8B_1p master	.cache\0E\{0E1A3C76-8077-3E87-E161-13D4F88E564F}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1A\Level V1A_Crotales bow_147_8B_1p master		302066
+	902091495	Level V1B_Violin Legato_147_8B_1p master	.cache\B7\{B7F9655A-1B1B-99F1-B3BD-9EAF1B036497}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1B\Level V1B_Violin Legato_147_8B_1p master		253071
+	925792368	Level B_VIolin 2 staccato_147_8B_1p master	.cache\B8\{B8FF483B-04E0-DC6C-2C26-E81DE912C848}.wem		\Containers\Music Work Unit\Music\Level\Possessing\B1\Level B_VIolin 2 staccato_147_8B_1p master		249821
+	943181524	Level V1A_Violin Legato_147_8B_1p master	.cache\D0\{D004ABBF-7759-4A58-0836-1F2F34296BB5}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1A\Level V1A_Violin Legato_147_8B_1p master		252559
+	980527910	Level V2_VIolin 2 Legato_147_8B_1p master	.cache\03\{035C80D7-078A-DB17-BAA5-FE9AB2FDB2D6}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V2\Level V2_VIolin 2 Legato_147_8B_1p master		186989
+	1001349646	Level V2_VIolin 2 Trem_147_8B_1p master	.cache\E0\{E03434DF-6F22-59E4-5584-EB67DCA58337}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V2\Level V2_VIolin 2 Trem_147_8B_1p master		238412
+	1004767331	Transition C2B_VIolin 2 Trill_147_3p master	.cache\F3\{F3D5A272-05B3-A42B-7FE0-12D20F250ACD}.wem		\Containers\Music Work Unit\Music\Level\Transitions\To C Key\Transition C2B_VIolin 2 Trill_147_3p master		103601
 

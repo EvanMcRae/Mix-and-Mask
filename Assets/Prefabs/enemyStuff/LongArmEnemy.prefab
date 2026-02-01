@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2839413193269721324}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.35, y: 1.61, z: 2.26}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 1.261, z: 0.644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63,7 +63,7 @@ Transform:
   m_GameObject: {fileID: 3198165356481605193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.39643, y: 0.34, z: -19.43}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -137,6 +137,8 @@ MonoBehaviour:
   attackRange: 5
   attackCooldown: 1
   nextAttackTime: 0
+  timeToStartMoving: 1
+  canMove: 0
   waveManager: {fileID: 0}
   orbitRadius: 6
   windupTime: 0.8
@@ -172,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LongArmController
   moveAcceleration: 5
   maxSpeed: 7
-  maskTransform: {fileID: 0}
+  maskTransform: {fileID: 7156524862429164782}
   maxPrimaryCooldown: 5
   maxSecondaryCooldown: 5
   isUnderControl: 0
@@ -253,7 +255,7 @@ CapsuleCollider:
   m_Radius: 1.2524996
   m_Height: 3.1725788
   m_Direction: 1
-  m_Center: {x: 0.51007724, y: 1.0051646, z: 1.6148043}
+  m_Center: {x: 0, y: 0.78, z: 0}
 --- !u!95 &4192107973287428364
 Animator:
   serializedVersion: 7
@@ -536,7 +538,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 276ecc81e904d604898e458c62c73071, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.49266005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 276ecc81e904d604898e458c62c73071, type: 3}
       propertyPath: m_LocalPosition.y
@@ -544,7 +546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 276ecc81e904d604898e458c62c73071, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.4965706
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 276ecc81e904d604898e458c62c73071, type: 3}
       propertyPath: m_LocalRotation.w
@@ -618,6 +620,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: LongArmGhost
       objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: 276ecc81e904d604898e458c62c73071, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f26ad50450a6a7642b5a2f856171aafa, type: 2}
+    - target: {fileID: 5797384429611982230, guid: 276ecc81e904d604898e458c62c73071, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f26ad50450a6a7642b5a2f856171aafa, type: 2}
+    - target: {fileID: 1630794972795428178, guid: 276ecc81e904d604898e458c62c73071, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1e1c97a5e9c868742ab12633d80217cf, type: 2}
+    - target: {fileID: 5797384429611982230, guid: 276ecc81e904d604898e458c62c73071, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1e1c97a5e9c868742ab12633d80217cf, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

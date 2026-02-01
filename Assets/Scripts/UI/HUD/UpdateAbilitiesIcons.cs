@@ -32,14 +32,22 @@ public class UpdateAbilitiesIcons : MonoBehaviour
     [SerializeField] float slideDuration = 0.45f;
     [SerializeField] float overshoot = 20f;
 
+    //Ability right stuff
     private RectTransform rect;
     private Vector2 startPos;
     private Quaternion startRot;
+
+    //AbilityCenter
+    [SerializeField] RectTransform centerRect;
+    private Vector2 centerStartPos;
+    private Quaternion centerStartRot;
 
     [SerializeField] GameObject canvasParent;
 
     //Needed for connecting to mask logic
     DetatchedMask maskController;
+
+    private bool isDead = false;
 
 
     //Set the things needs to animate the canvas
@@ -48,6 +56,8 @@ public class UpdateAbilitiesIcons : MonoBehaviour
         rect = GetComponent<RectTransform>();
         startPos = rect.anchoredPosition;
         startRot = rect.localRotation;
+        centerStartPos = centerRect.anchoredPosition;
+        centerStartRot = centerRect.localRotation;
         maskController = FindFirstObjectByType<DetatchedMask>();
 
     }
@@ -68,6 +78,21 @@ public class UpdateAbilitiesIcons : MonoBehaviour
         seq.Join(canvasGroup.DOFade(0f, fallDuration * 0.8f));
         //Hide the game object
         seq.OnComplete(() =>{canvasParent.SetActive(false);});
+    }
+
+    public void UICenterFallOff()
+    {
+        centerRect.DOKill();
+
+        Sequence seq = DOTween.Sequence();
+        //Move the UI down
+        seq.Join(centerRect.DOAnchorPosY(centerStartPos.y - fallDistance, fallDuration).SetEase(Ease.InQuad));
+        //Add the rotate
+        seq.Join(centerRect.DORotate(new Vector3(0, 0, Random.Range(0, rotateAmount)), fallDuration));
+        //Fade out
+        seq.Join(centerRect.GetComponent<Image>().DOFade(0f, fallDuration * 0.8f));
+        //Hide the game object
+        seq.OnComplete(() => { centerRect.gameObject.SetActive(false); });
     }
 
     public void UISlotIn()
@@ -199,8 +224,6 @@ public class UpdateAbilitiesIcons : MonoBehaviour
             return;
         }
 
-
-        
         //Update the UI based on what you did
         UpdateAbilityIcons(maskController.GetCurrentlyControlledEnemyType());
     }
@@ -221,13 +244,28 @@ public class UpdateAbilitiesIcons : MonoBehaviour
 
     public void CoolDownSecondary(float cooldown)
     {
-        AnimateCooldownRect(fillB, cooldown);
+        if (!isDead)
+        {
+
+            AnimateCooldownRect(fillB, cooldown);
+        }
     }
 
     public void CoolDownPrimary(float cooldown)
     {
-        AnimateCooldownRect(fillA, cooldown);
+        if (!isDead)
+        {
+            AnimateCooldownRect(fillA, cooldown);
+        }
     }
+
+    public void OnPlayerDie()
+    {
+        UICenterFallOff();
+        UIFallOff();
+        isDead = true;
+    }
+
 
     public void OnEnable()
     {

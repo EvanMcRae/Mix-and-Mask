@@ -21,10 +21,15 @@ public class playerHealth : MonoBehaviour
 
         currPlayerHealth -= dmg;
 
+        AkUnitySoundEngine.PostEvent("PlayerDamage", Utils.WwiseGlobal);
+
         UpdateHealthUI();
 
         if (currPlayerHealth <= 0)
+        {
+            
             Die();
+        }
 
         GiveIFrames();
         Debug.Log("Took player damage");
@@ -38,10 +43,17 @@ public class playerHealth : MonoBehaviour
         {
             healthUI.UpdateHealth((int)currPlayerHealth, (int)maxPlayerHealth);
         }
+        if (currPlayerHealth <= 0)
+        {
+            UpdateAbilitiesIcons abilityUI = FindFirstObjectByType<UpdateAbilitiesIcons>();
+            abilityUI.OnPlayerDie();
+        }
     }
     public void Die()
     {
         print("Game over!");
+        AkUnitySoundEngine.PostEvent("StopMusic", Utils.WwiseGlobal);
+        
         //Find the game manager object
         GameOverScreen gameOverUI = FindAnyObjectByType<GameOverScreen>();
         WaveManager.GameOver = true;

@@ -8,13 +8,27 @@ public class PauseScreen : MonoBehaviour
 {
     public static bool Paused = false, PausedThisFrame, GoingToMainMenu = false;
     [SerializeField] private PopupPanel pausePanel, settingsPanel;
+    [SerializeField] private GameObject wwiseGlobal;
 
     void Start()
     {
+        if (Utils.WwiseGlobal == null)
+        {
+            Utils.WwiseGlobal = wwiseGlobal;
+        }
+
         settingsPanel.OnClose += () =>
         {
             GetComponent<CanvasGroup>().DOFade(1, 0.5f).SetUpdate(true);
         };
+    }
+
+    void Update()
+    {
+        if (Utils.WwiseGlobal == null)
+        {
+            Utils.WwiseGlobal = wwiseGlobal;
+        }
     }
 
     // Update is called once per frame
@@ -37,19 +51,29 @@ public class PauseScreen : MonoBehaviour
 
     void Pause()
     {
+        AkUnitySoundEngine.PostEvent("PauseAll", Utils.WwiseGlobal);
         PausedThisFrame = true;
         pausePanel.Up();
         Time.timeScale = 0;
     }
 
+    public void PlaySelectSound()
+    {
+        AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
+    }
+
     public void Resume()
     {
         EventSystem.current.SetSelectedGameObject(null);
-        pausePanel.Down(() => Time.timeScale = 1);
+        pausePanel.Down(() => {
+            Time.timeScale = 1;
+            AkUnitySoundEngine.PostEvent("ResumeAll", Utils.WwiseGlobal);
+        });
     }
 
     public void TitleScreen()
     {
+        AkUnitySoundEngine.PostEvent("Back", Utils.WwiseGlobal);
         GoingToMainMenu = true;
         ScreenTransition.Out(() =>
         {
@@ -61,6 +85,7 @@ public class PauseScreen : MonoBehaviour
 
     public void Settings()
     {
+        AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
         settingsPanel.Up();
         Debug.Log(GetComponent<CanvasGroup>());
         GetComponent<CanvasGroup>().DOFade(0, 0.5f).SetUpdate(true);
