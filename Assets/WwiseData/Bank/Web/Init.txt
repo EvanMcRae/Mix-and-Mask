@@ -16,6 +16,12 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	2246998526	Main Audio Bus			\Default Work Unit\Main Audio Bus	
 	3991942870	Music			\Default Work Unit\Main Audio Bus\Music	
 
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	2411154035	Hallverb			\Default Work Unit\Main Audio Bus\SFX\Hallverb	
+
+Effect plug-ins	ID	Name	Type				Notes
+	2648499661	Hall_Medium_Dark	Wwise RoomVerb			
+
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			
 	3859886410	System	System			

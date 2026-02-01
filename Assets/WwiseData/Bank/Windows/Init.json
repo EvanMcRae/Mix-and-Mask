@@ -10,11 +10,21 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{489E44F6-B53B-2CB7-8A53-6F3C89F6B7DF}",
+    "Hash": "{9BAA8CE7-8EC1-0754-ED9B-00780D928D5D}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
     "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "2648499661",
+       "Name": "Hall_Medium_Dark",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Halls\\Hall_Medium_Dark",
+       "GUID": "{626B6E38-739B-4689-819F-F81AD3788BDE}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      }
+     ],
      "AudioDevices": [
       {
        "Id": "2317455096",
@@ -54,7 +64,28 @@
       "GUID": "{F3416399-4EC5-4E1B-A5EE-A019195222E6}"
      }
     ],
+    "AuxBusses": [
+     {
+      "Id": "2411154035",
+      "Name": "Hallverb",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\SFX\\Hallverb",
+      "GUID": "{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "2648499661"
+        }
+       ]
+      }
+     }
+    ],
     "GameParameters": [
+     {
+      "Id": "1328605826",
+      "Name": "Pullpitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Game\\Pullpitch",
+      "GUID": "{94A1893B-E156-4491-A14E-E17A89855FF7}"
+     },
      {
       "Id": "2346531308",
       "Name": "MusicVolume",
@@ -104,21 +135,28 @@
     ],
     "SwitchGroups": [
      {
+      "Id": "75059705",
+      "Name": "PullbackSwitch",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Gameplay\\PullbackSwitch",
+      "GUID": "{A1DADBAE-9667-406A-9674-6886A9804FA8}",
+      "Switches": []
+     },
+     {
       "Id": "2275179450",
       "Name": "GameplayMusic",
-      "ObjectPath": "\\Switches\\Default Work Unit\\GameplayMusic",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Musicc\\GameplayMusic",
       "GUID": "{88FA528F-3E29-4949-A8C5-BC96A2CF3EF0}",
       "Switches": [
        {
         "Id": "984691642",
         "Name": "InGame",
-        "ObjectPath": "\\Switches\\Default Work Unit\\GameplayMusic\\InGame",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Musicc\\GameplayMusic\\InGame",
         "GUID": "{370AF961-57B3-4295-88A1-1AF657F2DBC8}"
        },
        {
         "Id": "3594052030",
         "Name": "PreGame",
-        "ObjectPath": "\\Switches\\Default Work Unit\\GameplayMusic\\PreGame",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Musicc\\GameplayMusic\\PreGame",
         "GUID": "{778F5691-CCC4-4137-A4BC-738A932B1E3B}"
        }
       ]
@@ -126,19 +164,19 @@
      {
       "Id": "3991942870",
       "Name": "Music",
-      "ObjectPath": "\\Switches\\Default Work Unit\\Music",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Musicc\\Music",
       "GUID": "{E201DB7E-59FE-4F5A-A9B0-BCBB97A85F9B}",
       "Switches": [
        {
         "Id": "89505537",
         "Name": "GamePlay",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Music\\GamePlay",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Musicc\\Music\\GamePlay",
         "GUID": "{70877CFA-EA5A-46AC-9FE5-3C2E7D9F16C8}"
        },
        {
         "Id": "3705726509",
         "Name": "Title",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Music\\Title",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Musicc\\Music\\Title",
         "GUID": "{0032B4C4-3B8D-497C-BDF7-B1360A342600}"
        }
       ]
@@ -146,6 +184,6 @@
     ]
    }
   ],
-  "FileHash": "{7D34F48A-E0E2-C140-0CF4-E94FBCC74674}"
+  "FileHash": "{7C37CABB-CB36-DB38-4B12-B0FBCD2300E0}"
  }
 }

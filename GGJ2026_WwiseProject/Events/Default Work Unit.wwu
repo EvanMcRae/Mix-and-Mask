@@ -60,20 +60,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Possess" ID="{B8787EBB-6109-439C-8479-B5E370F6261E}">
-							<ChildrenList>
-								<Action Name="" ID="{7CE44570-4BE8-427A-ACE8-8FB804E73DF6}" ShortID="813550881">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="22"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Possessing" ID="{33517D12-B2D4-4880-ACEE-454CFAE09C28}" WorkUnitID="{77809AD6-F2DB-4AAE-B394-A8716712741C}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="PlayTitle" ID="{4A77AB81-71C8-42E4-BC6A-AB5A2A8F2D0A}">
 							<ChildrenList>
 								<Action Name="" ID="{0A711344-4758-4461-93C3-1D0107E10CE5}" ShortID="110614994">
@@ -122,6 +108,108 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+					</ChildrenList>
+				</Folder>
+				<Event Name="StopPanic" ID="{94D8EE79-F791-4821-A3E6-47CF41CA30F7}">
+					<ChildrenList>
+						<Action Name="" ID="{845B7634-FD68-4E97-80B6-2421E76334AB}" ShortID="258829394">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PauseAll" ID="{2FA2E241-5ADA-4DD6-962A-1D9D90D8023A}">
+					<ChildrenList>
+						<Action Name="" ID="{0BAE36EB-7AF9-45A5-8F76-81C766CF53A4}" ShortID="187124384">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="8"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ResumeAll" ID="{695C7766-F115-4D6C-9E9E-61E0B4242567}">
+					<ChildrenList>
+						<Action Name="" ID="{CDB2D14B-3FE8-4F1B-B030-36ED54D04DCB}" ShortID="642782266">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="10"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="Player Related" ID="{31834B25-A142-4790-A90A-1712013C55BC}" ShortID="300189253">
+					<ChildrenList>
+						<Event Name="Pullback" ID="{BAE2807A-E3D5-40C4-8227-6906CF2CCD63}">
+							<ChildrenList>
+								<Action Name="" ID="{CB710E80-A755-4D1E-9EEB-B05C645D0695}" ShortID="136830154">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Pullpitch" ID="{94A1893B-E156-4491-A14E-E17A89855FF7}" WorkUnitID="{45F79A77-EAB8-434C-87DA-ED90D66EBB45}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{4CB20CEA-EC03-461B-8A0D-C623DFD98C36}" ShortID="258602853">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Pull Back" ID="{99FF06F8-F382-4E30-90DD-B447F3D86646}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{440E6C62-1A7E-4FA9-A02E-62315A33A6F9}" ShortID="582174787">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.7"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="100"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Pullpitch" ID="{94A1893B-E156-4491-A14E-E17A89855FF7}" WorkUnitID="{45F79A77-EAB8-434C-87DA-ED90D66EBB45}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Jump" ID="{F8909CA3-4E47-4DB7-A101-75C00E692BC9}">
+							<ChildrenList>
+								<Action Name="" ID="{2772BCE1-44C6-4368-B08F-DA859725925F}" ShortID="52266032">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Unpossess" ID="{2A6E73C4-BBEF-43CD-834B-DCF7BC977A55}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Possess" ID="{B8787EBB-6109-439C-8479-B5E370F6261E}">
+							<ChildrenList>
+								<Action Name="" ID="{7CE44570-4BE8-427A-ACE8-8FB804E73DF6}" ShortID="813550881">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Possessing" ID="{33517D12-B2D4-4880-ACEE-454CFAE09C28}" WorkUnitID="{77809AD6-F2DB-4AAE-B394-A8716712741C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{0A01C12C-F878-4144-BCDC-E8C1FD580A6C}" ShortID="733027156">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Possess" ID="{2830D32E-27DD-4C5F-B6F5-EAADCC071317}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Possessnot" ID="{070EAE3F-6344-4187-AFF0-36027ABFBDD7}">
 							<ChildrenList>
 								<Action Name="" ID="{7AF6198F-6BA1-4D66-B6BE-121FD75C8F97}" ShortID="525200398">
@@ -134,40 +222,17 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{C47ADFFA-765A-417C-9318-88F6C3674754}" ShortID="848927598">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Unpossess" ID="{2A6E73C4-BBEF-43CD-834B-DCF7BC977A55}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="StopPanic" ID="{94D8EE79-F791-4821-A3E6-47CF41CA30F7}">
-					<ChildrenList>
-						<Action Name="" ID="{845B7634-FD68-4E97-80B6-2421E76334AB}" ShortID="258829394">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="3"/>
-							</PropertyList>
-							<ReferenceList/>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="PauseAll" ID="{2FA2E241-5ADA-4DD6-962A-1D9D90D8023A}">
-					<ChildrenList>
-						<Action Name="" ID="{0BAE36EB-7AF9-45A5-8F76-81C766CF53A4}" ShortID="187124384">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="8"/>
-							</PropertyList>
-							<ReferenceList/>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="ResumeAll" ID="{695C7766-F115-4D6C-9E9E-61E0B4242567}">
-					<ChildrenList>
-						<Action Name="" ID="{CDB2D14B-3FE8-4F1B-B030-36ED54D04DCB}" ShortID="642782266">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="10"/>
-							</PropertyList>
-							<ReferenceList/>
-						</Action>
-					</ChildrenList>
-				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

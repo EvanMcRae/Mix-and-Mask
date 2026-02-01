@@ -22,7 +22,15 @@
 						</GameParameter>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Game" ID="{115D778D-9DAC-4663-BAD0-8E0A3C548310}" ShortID="1003222715"/>
+				<Folder Name="Game" ID="{115D778D-9DAC-4663-BAD0-8E0A3C548310}" ShortID="1003222715">
+					<ChildrenList>
+						<GameParameter Name="Pullpitch" ID="{94A1893B-E156-4491-A14E-E17A89855FF7}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

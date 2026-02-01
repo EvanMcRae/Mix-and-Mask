@@ -11,6 +11,28 @@
 					</ReferenceList>
 					<ChildrenList>
 						<Bus Name="SFX" ID="{BA11651D-4472-4123-9070-3CD580BA7D92}">
+							<ChildrenList>
+								<AuxBus Name="Hallverb" ID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}">
+									<PropertyList>
+										<Property Name="BusVolume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ObjectLists>
+										<ObjectList Name="Effects">
+											<EffectSlot Name="" ID="{39BCB5E4-6213-4B0C-AC43-16FEAC5A510B}" ShortID="252186176">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+														<ObjectRef Name="Hall_Medium_Dark" ID="{626B6E38-739B-4689-819F-F81AD3788BDE}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</ObjectList>
+									</ObjectLists>
+								</AuxBus>
+							</ChildrenList>
 							<ObjectLists>
 								<ObjectList Name="RTPC">
 									<RTPC Name="" ID="{A19901A3-CED6-4E07-B50C-0C7ECDB80A09}" ShortID="506649258">

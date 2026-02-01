@@ -13,10 +13,12 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID JUMP = 3833651337U;
         static const AkUniqueID PAUSEALL = 4091047182U;
         static const AkUniqueID PLAYTITLE = 3593803035U;
         static const AkUniqueID POSSESS = 47246163U;
         static const AkUniqueID POSSESSNOT = 3348899946U;
+        static const AkUniqueID PULLBACK = 830775945U;
         static const AkUniqueID RESUMEALL = 3240900869U;
         static const AkUniqueID STARTGAME = 1521187885U;
         static const AkUniqueID STOPMUSIC = 1917263390U;
@@ -63,6 +65,15 @@ namespace AK
             } // namespace SWITCH
         } // namespace MUSIC
 
+        namespace PULLBACKSWITCH
+        {
+            static const AkUniqueID GROUP = 75059705U;
+
+            namespace SWITCH
+            {
+            } // namespace SWITCH
+        } // namespace PULLBACKSWITCH
+
     } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
@@ -70,6 +81,7 @@ namespace AK
         static const AkUniqueID FXVOLUME = 3328840097U;
         static const AkUniqueID MASTERVOLUME = 2918011349U;
         static const AkUniqueID MUSICVOLUME = 2346531308U;
+        static const AkUniqueID PULLPITCH = 1328605826U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
@@ -84,6 +96,11 @@ namespace AK
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES
+
+    namespace AUX_BUSSES
+    {
+        static const AkUniqueID HALLVERB = 2411154035U;
+    } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES
     {
