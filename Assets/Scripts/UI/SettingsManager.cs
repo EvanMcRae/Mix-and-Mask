@@ -56,6 +56,15 @@ public class SettingsManager : MonoBehaviour
         SetVSync();
     }
 
+    public void Update()
+    {
+        if (fullscreenToggle.isOn != Screen.fullScreen)
+        {
+            fullscreenToggle.isOn = Screen.fullScreen;
+            PlayerPrefs.SetInt("fullscreen", Screen.fullScreen ? 1 : 0);
+        }
+    }
+
     public void SetMusicVolume()
     {
         AkUnitySoundEngine.SetRTPCValue("musicVolume", musicVolumeSlider.value);

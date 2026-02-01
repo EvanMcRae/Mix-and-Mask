@@ -15,7 +15,8 @@ public class RunnerController : ControllableEnemy
     [Header("Cat Model Specific")]
     [SerializeField] private float maxDashCooldown = 5f;
     [SerializeField] private GameObject catModel = null;
-    [SerializeField] private Renderer renderer;
+    [SerializeField] private Renderer _renderer;
+    [SerializeField] private Collider _collider;
 
     public override void Start()
     {
@@ -29,7 +30,7 @@ public class RunnerController : ControllableEnemy
         type = ControllableEnemy.EnemyType.Runner;
     }
 
-    void FixedUpdate()
+    public override void FixedUpdate()
     {
         if (!isUnderControl) return;
 
@@ -49,10 +50,10 @@ public class RunnerController : ControllableEnemy
             if (invulTime <= 0)
             {
                 isInvulnerable = false;
+                _collider.isTrigger = false;
 
-                Color color = renderer.material.color;
-                color.a = 1;
-                renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+                _renderer.material.SetFloat("_MaxAlpha", 1f);
+                isSolid = true;
             }
         }
 
@@ -85,13 +86,19 @@ public class RunnerController : ControllableEnemy
     {
         if (isInvulnerable || invulTime > 0) return;
         Debug.Log("Temporary Invulnerability!");
+        BecomeInvulnerable();
+    }
+
+    private void BecomeInvulnerable()
+    {
         isInvulnerable = true;
         secondaryCooldown = maxSecondaryCooldown;
         invulTime = maxInvulTime;
 
-        Color color = renderer.material.color;
-        color.a = 0.3f;
-        renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+        _collider.isTrigger = true;
+
+        _renderer.material.SetFloat("_MaxAlpha", 0.3f);
+        isSolid = false;
     }
 
     public override void SetControlled(bool underControl)
@@ -99,6 +106,9 @@ public class RunnerController : ControllableEnemy
         runnerEnemy.enabled = !underControl;
         navAgent.enabled = !underControl;
         _rigidbody.isKinematic = !underControl;
+        _rigidbody.useGravity = !underControl;
+        if(underControl) _rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+        else _rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionY;
         base.SetControlled(underControl);
     }
 

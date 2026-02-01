@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class RunnerEnemy : EnemyBase
 {
     public float orbitRadius = 4f;
+    [SerializeField] Renderer _renderer = null;
 
     [Header("Attack")]
     public float windupTime = 0.4f;
@@ -11,8 +12,11 @@ public class RunnerEnemy : EnemyBase
     public float dashSpeed = 12f;
     public float dashDuration = 0.4f;
     public float damage = 1f;
-    public float maxInvulTime = 2f;
+    public float maxInvulTime = 5f;
     public float maxInvulCooldown = 10f;
+    private float invulCooldown = 5f;
+    private float invulTime = 0f;
+    [SerializeField] Collider _collider = null;
 
 
     private NavMeshAgent agent;
@@ -28,6 +32,7 @@ public class RunnerEnemy : EnemyBase
         Idle,
         Move,
         Attack,
+        Invulnerable,
         Dash
     }
 
@@ -42,6 +47,8 @@ public class RunnerEnemy : EnemyBase
         agent.acceleration = 20f;
         agent.autoBraking = false;
         agent.updateRotation = true;
+
+        invulCooldown = UnityEngine.Random.Range(maxInvulCooldown/2, maxInvulCooldown + 6); // Adds randomness so all cats on the map don't become invulnerable at once
 
         state = State.Move;
 
@@ -88,6 +95,18 @@ public class RunnerEnemy : EnemyBase
 
         float dist = Vector3.Distance(transform.position, player.position);
 
+        if (invulCooldown > 0) invulCooldown -= Time.deltaTime;
+
+        if (state == State.Move && invulCooldown <= 0) BecomeInvulnerable();
+
+        if (state == State.Invulnerable)
+        {
+            if (invulTime <= 0)
+            {
+                BecomeVulnerable();
+            }
+        }
+
         if (state == State.Move && dist < attackRange && Time.time > nextAttackTime)
         {
             state = State.Attack;
@@ -118,6 +137,11 @@ public class RunnerEnemy : EnemyBase
                 {
                     StartDash();
                 }
+                break;
+
+            case State.Invulnerable:
+                InvulnerabilityChecks();
+                OrbitPlayer();
                 break;
 
             case State.Dash:
@@ -218,7 +242,7 @@ public class RunnerEnemy : EnemyBase
             agent.enabled = true;
             state = State.Move;
         }
-        else if(state == State.Dash && collision.gameObject.CompareTag("Enemy"))
+        else if (state == State.Dash && collision.gameObject.CompareTag("Enemy"))
         {
             ControllableEnemy player = collision.gameObject.GetComponent<ControllableEnemy>();
             if (player != null && player.isUnderControl)
@@ -227,5 +251,35 @@ public class RunnerEnemy : EnemyBase
                 player.TakeDamage(damage);
             }
         }
+    }
+
+    public override void TakeDamage(float dmg)
+    {
+        if (state == State.Invulnerable) return;
+        base.TakeDamage(dmg);
+    }
+
+    private void BecomeInvulnerable()
+    {
+        invulCooldown = maxInvulCooldown;
+        invulTime = maxInvulTime;
+        _renderer.material.SetFloat("_MaxAlpha", 0.3f);
+        isSolid = false;
+        state = State.Invulnerable;
+        _collider.isTrigger = true;
+    }
+
+    private void BecomeVulnerable()
+    {
+        invulCooldown = maxInvulCooldown + UnityEngine.Random.Range(0, 6); // Adds randomness so all cats on the map don't become invulnerable at once
+        _renderer.material.SetFloat("_MaxAlpha", 1f);
+        isSolid = true;
+        state = State.Move;
+        _collider.isTrigger = false;
+    }
+
+    private void InvulnerabilityChecks()
+    {
+        if (invulTime > 0) invulTime -= Time.deltaTime;
     }
 }
