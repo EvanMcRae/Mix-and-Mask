@@ -96,6 +96,10 @@ public class ControllableEnemy : MonoBehaviour
 
     public virtual void TakeDamage(float dmg)
     {
+        if (isUnderControl)
+        {
+            AkUnitySoundEngine.PostEvent("PlayerDamage", Utils.WwiseGlobal);
+        }
         health -= dmg;
         UpdateHealthUI();
         if (health <= 0)

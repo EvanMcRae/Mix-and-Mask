@@ -17,6 +17,8 @@ public class playerHealth : MonoBehaviour
     {
         currPlayerHealth -= dmg;
 
+        AkUnitySoundEngine.PostEvent("PlayerDamage", Utils.WwiseGlobal);
+
         UpdateHealthUI();
 
         if (currPlayerHealth <= 0)
