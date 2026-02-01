@@ -10,6 +10,7 @@
 								<Action Name="" ID="{4C51A154-6DBD-4973-B040-ADD724D9B918}" ShortID="489754405">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -34,6 +35,16 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="GamePlay" ID="{70877CFA-EA5A-46AC-9FE5-3C2E7D9F16C8}" WorkUnitID="{77A6A1AD-D9A8-4040-A65F-F62EAF079D3D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{E8375114-23B7-4EF1-8DAB-56CD12A5BE9D}" ShortID="998308841">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JustMask" ID="{9A454829-8DAD-4751-AE40-BFB9E6E00BC7}" WorkUnitID="{77809AD6-F2DB-4AAE-B394-A8716712741C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -65,6 +76,17 @@
 						</Event>
 						<Event Name="PlayTitle" ID="{4A77AB81-71C8-42E4-BC6A-AB5A2A8F2D0A}">
 							<ChildrenList>
+								<Action Name="" ID="{0A711344-4758-4461-93C3-1D0107E10CE5}" ShortID="110614994">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Music" ID="{F943A07A-3ABB-45CB-BA3E-97493B7D222D}" WorkUnitID="{706EE1C2-2B52-45A1-9E61-CD8E4534886A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 								<Action Name="" ID="{31B25E9A-1261-4724-947E-56E76FF5FCDB}" ShortID="651428538">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="23"/>
@@ -90,6 +112,7 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
 										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">

@@ -101,6 +101,8 @@ public class DetatchedMask : MonoBehaviour
     // Then uses the difference between the positions to create a launch vector for the mask and flings it in that direction
     public void Slingshot(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0) return;
+        
         // When first pressed, get mouse position
         if (context.started)
         {

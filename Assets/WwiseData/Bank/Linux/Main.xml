@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Linux" BasePlatform="Linux" SchemaVersion="16" SoundBankVersion="172">
 	<SoundBanks>
-		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{06313B14-26EE-3880-E742-C16DA1D8E709}">
+		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{ABC06D92-B109-BC5C-15A0-EDF6E57AD85B}">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -666,6 +666,9 @@
 							</Children>
 						</SwitchContainer>
 					</SwitchContainers>
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="58477120" Id="2665410631" Name="JustMask" ObjectPath="\States\Default Work Unit\Possessed\JustMask" GUID="{9A454829-8DAD-4751-AE40-BFB9E6E00BC7}"/>
+					</ActionSetState>
 					<ActionSetSwitch>
 						<ActionSetSwitchEntry GroupId="3991942870" Id="89505537" Name="GamePlay" ObjectPath="\Switches\Default Work Unit\Music\GamePlay" GUID="{70877CFA-EA5A-46AC-9FE5-3C2E7D9F16C8}"/>
 						<ActionSetSwitchEntry GroupId="2275179450" Id="3594052030" Name="PreGame" ObjectPath="\Switches\Default Work Unit\GameplayMusic\PreGame" GUID="{778F5691-CCC4-4137-A4BC-738A932B1E3B}"/>
@@ -827,5 +830,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{85F9FE7B-2245-69DE-3E2B-4455A3D2CACF}</FileHash>
+	<FileHash>{D7C4DE3B-4A1A-6F8C-4B43-1ABF878735D9}</FileHash>
 </SoundBanksInfo>

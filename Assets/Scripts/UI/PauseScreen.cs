@@ -15,7 +15,6 @@ public class PauseScreen : MonoBehaviour
         {
             Utils.WwiseGlobal = wwiseGlobal;
         }
-        AkUnitySoundEngine.PostEvent("StartGame", Utils.WwiseGlobal);
     }
 
     void Update()

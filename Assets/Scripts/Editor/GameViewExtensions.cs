@@ -45,8 +45,9 @@ public static class GameViewExtensions
             return;
         }
 
-        if (ShaderPassHolder.Pass != null)
-            ShaderPassHolder.EnablePass();
+        // TODO if we actually like pixelation turn it back on
+        // if (ShaderPassHolder.Pass != null)
+        //      ShaderPassHolder.EnablePass();
 
         var gameWindow = EditorWindow.GetWindow(typeof(EditorWindow).Assembly.GetType("UnityEditor.GameView"));
         // We only do the force focus if Focused or Maximized play mode selected.

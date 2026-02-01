@@ -2921,7 +2921,7 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 669e9f9d9cb185748bec5e31588944f8, type: 2}
   useCallbacks: 0
-  stopSoundOnDestroy: 1
+  stopSoundOnDestroy: 0
   Callbacks: []
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0

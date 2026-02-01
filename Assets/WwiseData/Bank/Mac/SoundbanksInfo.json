@@ -158,7 +158,7 @@
     "Type": "User",
     "GUID": "{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}",
     "Language": "SFX",
-    "Hash": "{06313B14-26EE-3880-E742-C16DA1D8E709}",
+    "Hash": "{ABC06D92-B109-BC5C-15A0-EDF6E57AD85B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -1725,6 +1725,15 @@
         ]
        }
       ],
+      "ActionSetState": [
+       {
+        "GroupId": "58477120",
+        "Id": "2665410631",
+        "Name": "JustMask",
+        "ObjectPath": "\\States\\Default Work Unit\\Possessed\\JustMask",
+        "GUID": "{9A454829-8DAD-4751-AE40-BFB9E6E00BC7}"
+       }
+      ],
       "ActionSetSwitch": [
        {
         "GroupId": "3991942870",
@@ -2158,6 +2167,6 @@
     ]
    }
   ],
-  "FileHash": "{5F9C5F00-52C5-A927-BC61-17B5C897D960}"
+  "FileHash": "{E7AD0980-272C-837C-8AAE-A3FD36A59311}"
  }
 }
