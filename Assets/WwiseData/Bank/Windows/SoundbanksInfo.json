@@ -196,7 +196,7 @@
     "Type": "User",
     "GUID": "{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}",
     "Language": "SFX",
-    "Hash": "{38CB766D-D796-BF7C-E3EF-8CB1569D7E1C}",
+    "Hash": "{6D17ED39-DC44-4186-1BD5-76A6C60AC5B4}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -600,6 +600,14 @@
       "Location": "Memory",
       "ShortName": "Transition C2B_VIolin 2 Trill_147_3p master.wav",
       "CachePath": "F3/{F3D5A272-05B3-A42B-7FE0-12D20F250ACD}.wem"
+     },
+     {
+      "Id": "1044414243",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BIG HIT.wav",
+      "CachePath": "32/{3200161A-88CB-1E4E-489F-679754EB7FED}.wem"
      }
     ],
     "Plugins": {
@@ -3648,6 +3656,6 @@
     ]
    }
   ],
-  "FileHash": "{74B0E3FB-62C8-73F0-B8A0-1420C02C8990}"
+  "FileHash": "{173B4D06-E025-668B-FEBC-267769C21E09}"
  }
 }

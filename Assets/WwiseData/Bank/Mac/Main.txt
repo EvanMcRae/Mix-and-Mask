@@ -260,4 +260,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	980527910	Level V2_VIolin 2 Legato_147_8B_1p master	.cache\03\{035C80D7-078A-DB17-BAA5-FE9AB2FDB2D6}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V2\Level V2_VIolin 2 Legato_147_8B_1p master		186989
 	1001349646	Level V2_VIolin 2 Trem_147_8B_1p master	.cache\E0\{E03434DF-6F22-59E4-5584-EB67DCA58337}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V2\Level V2_VIolin 2 Trem_147_8B_1p master		238412
 	1004767331	Transition C2B_VIolin 2 Trill_147_3p master	.cache\F3\{F3D5A272-05B3-A42B-7FE0-12D20F250ACD}.wem		\Containers\Music Work Unit\Music\Level\Transitions\To C Key\Transition C2B_VIolin 2 Trill_147_3p master		103601
+	1044414243	Damage	.cache\32\{3200161A-88CB-1E4E-489F-679754EB7FED}.wem		\Containers\Default Work Unit\SFX\Player\Damage		84168
 

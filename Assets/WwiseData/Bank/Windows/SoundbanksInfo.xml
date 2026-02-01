@@ -69,7 +69,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{38CB766D-D796-BF7C-E3EF-8CB1569D7E1C}">
+		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{6D17ED39-DC44-4186-1BD5-76A6C60AC5B4}">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -273,6 +273,10 @@
 				<File Id="1004767331" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Transition C2B_VIolin 2 Trill_147_3p master.wav</ShortName>
 					<CachePath>F3/{F3D5A272-05B3-A42B-7FE0-12D20F250ACD}.wem</CachePath>
+				</File>
+				<File Id="1044414243" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BIG HIT.wav</ShortName>
+					<CachePath>32/{3200161A-88CB-1E4E-489F-679754EB7FED}.wem</CachePath>
 				</File>
 			</Media>
 			<Plugins>
@@ -1128,5 +1132,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{616FE20E-3F33-6B44-F163-53E4B16A2FC7}</FileHash>
+	<FileHash>{D22DEA17-F377-91DE-F8F6-3D9E17220BBA}</FileHash>
 </SoundBanksInfo>

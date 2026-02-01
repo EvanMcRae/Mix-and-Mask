@@ -15,6 +15,11 @@
 								<Value>-10</Value>
 							</ValueList>
 						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>5</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -113,6 +118,11 @@
 								<RandomSequenceContainer Name="Pull Back" ID="{4C272D9C-026A-459F-9B58-C737A84EBE84}" ShortID="394566543">
 									<PropertyList>
 										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -430,6 +440,57 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="Wooshes#04_49" ID="{D3D5EDF1-EB7B-460D-A542-0A87BC248C73}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Damage" ID="{45D5D96A-8101-480F-BC07-73F76D48DB30}" ShortID="986353036">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>30</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>300</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{34A7A9EE-75B0-4FED-8385-32D7E761783B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BIG HIT" ID="{CB2A28CE-2C39-4390-A3DD-40CF9472E9F9}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.31839581779005"/>
+												<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.103527474496151"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.580144521292582"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>BIG HIT.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1044414243"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="BIG HIT" ID="{CB2A28CE-2C39-4390-A3DD-40CF9472E9F9}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
