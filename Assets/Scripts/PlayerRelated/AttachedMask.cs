@@ -32,6 +32,7 @@ public class AttachedMask : MonoBehaviour
         if (controlledEnemy != null)
         {
             // Set the move direction of this enemy
+            Debug.Log($"AttachedMask Update: Calling Move with moveDir=({moveDir.x}, {moveDir.y})");
             controlledEnemy.Move(moveDir);
 
             // Find the angle of the current mouse position relative to the center of the screen
@@ -44,8 +45,8 @@ public class AttachedMask : MonoBehaviour
             controlledEnemy.Rotate(zRotation);
         }
 
-        this.transform.position = controlledEnemy.maskTransform.position;
-        this.transform.rotation = controlledEnemy.maskTransform.rotation;
+        this.transform.position = controlledEnemy.maskTransform != null ? controlledEnemy.maskTransform.position : controlledEnemy.transform.position;
+        this.transform.rotation = controlledEnemy.maskTransform != null ? controlledEnemy.maskTransform.rotation : controlledEnemy.transform.rotation;
         _rigidbody.linearVelocity = new Vector3(0, 0, 0);
     }
 
@@ -62,7 +63,11 @@ public class AttachedMask : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.performed || context.canceled) moveDir = context.ReadValue<Vector2>();
+        if (context.performed || context.canceled)
+        {
+            moveDir = context.ReadValue<Vector2>();
+            Debug.Log($"AttachedMask OnMove: moveDir=({moveDir.x}, {moveDir.y})");
+        }
     }
 
     public void PrimaryAction(InputAction.CallbackContext context)

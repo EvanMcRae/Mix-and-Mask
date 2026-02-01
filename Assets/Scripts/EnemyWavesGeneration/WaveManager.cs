@@ -21,12 +21,16 @@ public class WaveManager : MonoBehaviour
     private bool isClearing = false;
     public static bool GameOver = false;
 
+    private int totalEnemies = 0;
+
+    private BarScaler barUI;
     public VisualEffect enemySpawnVFX;
 
     void Start()
     {
         spawnPoints.AddRange(FindObjectsByType<WaveSpawnPoint>(FindObjectsSortMode.None));
-        StartNextWave(); 
+        StartNextWave();
+        barUI = FindFirstObjectByType<BarScaler>();
     }
 
     void Update()
@@ -70,6 +74,9 @@ public class WaveManager : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
         }
+        totalEnemies = activeEnemies;
+        //Total enemies in the current wave
+        barUI.UpdateBars(1.0f);
         spawningWave = false;
     }
 
@@ -95,7 +102,7 @@ public class WaveManager : MonoBehaviour
             activeEnemies--; 
             return;
         }
-
+        barUI.UpdateBars(activeEnemies/totalEnemies);
         activeEnemies--;
         if (activeEnemies <= 0 && !spawningWave)
         {
@@ -140,4 +147,6 @@ public class WaveManager : MonoBehaviour
     {
         GameOver = false;
     }
+
+
 }

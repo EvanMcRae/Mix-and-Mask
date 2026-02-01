@@ -16,6 +16,7 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField] private PopupPanel SettingsPanel, ControlsPanel, CreditsPanel;
     [SerializeField] private Button QuitButton;
+    [SerializeField] private GameObject wwiseGlobal;
     [SerializeField] private CanvasGroup buttonGroup;
     private Tween fadeTween;
 
@@ -34,6 +35,20 @@ public class MainMenuManager : MonoBehaviour
             Utils.SetNavigation(QuitButton.navigation.selectOnDown, QuitButton.navigation.selectOnUp, Utils.Direction.UP);
             Utils.SetNavigation(QuitButton.navigation.selectOnUp, QuitButton.navigation.selectOnDown, Utils.Direction.DOWN);
         }
+
+        if (Utils.WwiseGlobal == null)
+        {
+            Utils.WwiseGlobal = wwiseGlobal;
+        }
+        AkUnitySoundEngine.PostEvent("PlayTitle", Utils.WwiseGlobal);
+    }
+
+    void Update()
+    {
+        if (Utils.WwiseGlobal == null)
+        {
+            Utils.WwiseGlobal = wwiseGlobal;
+        }
     }
 
     public void PressPlay()
@@ -42,10 +57,12 @@ public class MainMenuManager : MonoBehaviour
         {
             if (ScreenTransition.goingIn)
             {
+                AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
                 Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Play);
             }
             return;
         }
+        AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
         Play();
     }
 
@@ -69,15 +86,16 @@ public class MainMenuManager : MonoBehaviour
         {
             if (ScreenTransition.goingIn)
             {
-                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, () => ScreenTransition.Out(() => Quit()));
+                AkUnitySoundEngine.PostEvent("Back", Utils.WwiseGlobal);
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Quit);
             }
             return;
         }
-
-        ScreenTransition.Out(() => Quit());
+        AkUnitySoundEngine.PostEvent("Back", Utils.WwiseGlobal);
+        Quit();
     }
 
-    public void Quit()
+    public void ActuallyQuit()
     {
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
@@ -86,16 +104,24 @@ public class MainMenuManager : MonoBehaviour
 #endif
     }
 
+    public void Quit()
+    {
+        AkUnitySoundEngine.PostEvent("StopMusic", Utils.WwiseGlobal);
+        ScreenTransition.Out(ActuallyQuit);
+    }
+
     public void PressCredits()
     {
         if (ScreenTransition.inProgress)
         {
             if (ScreenTransition.goingIn)
             {
+                AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
                 Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Credits);
             }
             return;
         }
+        AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
         Credits();
     }
 
@@ -112,10 +138,12 @@ public class MainMenuManager : MonoBehaviour
         {
             if (ScreenTransition.goingIn)
             {
+                AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
                 Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Controls);
             }
             return;
         }
+        AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
         Controls();
     }
 
@@ -132,10 +160,12 @@ public class MainMenuManager : MonoBehaviour
         {
             if (ScreenTransition.goingIn)
             {
+                AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
                 Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Settings);
             }
             return;
         }
+        AkUnitySoundEngine.PostEvent("Select", Utils.WwiseGlobal);
         Settings();
     }
 
