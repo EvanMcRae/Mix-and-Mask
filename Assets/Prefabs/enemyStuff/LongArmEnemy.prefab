@@ -137,6 +137,8 @@ MonoBehaviour:
   attackRange: 5
   attackCooldown: 1
   nextAttackTime: 0
+  timeToStartMoving: 1
+  canMove: 0
   waveManager: {fileID: 0}
   orbitRadius: 6
   windupTime: 0.8
@@ -618,6 +620,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LongArmGhost
       objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: 276ecc81e904d604898e458c62c73071, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f26ad50450a6a7642b5a2f856171aafa, type: 2}
+    - target: {fileID: 5797384429611982230, guid: 276ecc81e904d604898e458c62c73071, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f26ad50450a6a7642b5a2f856171aafa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
