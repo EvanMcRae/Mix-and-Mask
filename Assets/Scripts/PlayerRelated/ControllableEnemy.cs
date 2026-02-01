@@ -31,7 +31,8 @@ public class ControllableEnemy : MonoBehaviour
     {
         None,
         Runner,
-        Tank
+        Tank,
+        LongArm
     }
 
     public EnemyType type = EnemyType.None;

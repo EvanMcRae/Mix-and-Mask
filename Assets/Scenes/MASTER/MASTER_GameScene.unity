@@ -1150,6 +1150,14 @@ PrefabInstance:
       propertyPath: waveIncreasePerPoint
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 909961703917578552, guid: 3da0791c4502a52448fe4c118249ab9d, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 909961703917578552, guid: 3da0791c4502a52448fe4c118249ab9d, type: 3}
+      propertyPath: 'enemyPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3198165356481605193, guid: 6db3d47f92246184889e2cedcaa629be, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
