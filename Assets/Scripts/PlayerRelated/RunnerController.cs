@@ -51,9 +51,7 @@ public class RunnerController : ControllableEnemy
             {
                 isInvulnerable = false;
 
-                Color color = _renderer.material.color;
-                color.a = 1;
-                _renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+                _renderer.material.SetFloat("_MaxAlpha", 1f);
                 isSolid = true;
             }
         }
@@ -96,9 +94,7 @@ public class RunnerController : ControllableEnemy
         secondaryCooldown = maxSecondaryCooldown;
         invulTime = maxInvulTime;
 
-        Color color = _renderer.material.color;
-        color.a = 0.3f;
-        _renderer.material.SetColor("_BaseColor", new Color(color.r, color.g, color.b, color.a));
+        _renderer.material.SetFloat("_MaxAlpha", 0.3f);
         isSolid = false;
     }
 
