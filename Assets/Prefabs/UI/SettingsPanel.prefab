@@ -212,8 +212,8 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 717959453987392930}
     m_SelectOnDown: {fileID: 2196251970162318983}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 5171914591125530645}
+    m_SelectOnRight: {fileID: 5171914591125530645}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -879,8 +879,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1834016601429038514}
   - {fileID: 394742601566083557}
+  - {fileID: 1834016601429038514}
   m_Father: {fileID: 4017184349600911070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -970,8 +970,8 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 2196251970162318983}
     m_SelectOnDown: {fileID: 4300681297095437627}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 6187316269251447562}
+    m_SelectOnRight: {fileID: 6187316269251447562}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1157,6 +1157,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3937676541362199619, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2379834703558097929}
+    - target: {fileID: 3937676541362199619, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetLeftNav
+      objectReference: {fileID: 0}
     - target: {fileID: 4623604167580337393, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1164,6 +1172,30 @@ PrefabInstance:
     - target: {fileID: 4943142200794552014, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
       propertyPath: m_Name
       value: Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 6187316269251447562}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 4495675995201765079}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 4300681297095437627}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 4300681297095437627}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2019736394902209335}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSoundVolume
       objectReference: {fileID: 0}
     - target: {fileID: 7753456347194791494, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
       propertyPath: m_Pivot.x
@@ -1290,6 +1322,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1210971837036207293, guid: 3fe96fb048cfdf94cbbefa2b88f47bd7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 4495675995201765079}
+    - target: {fileID: 1210971837036207293, guid: 3fe96fb048cfdf94cbbefa2b88f47bd7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 6187316269251447562}
     - target: {fileID: 2014046612875461541, guid: 3fe96fb048cfdf94cbbefa2b88f47bd7, type: 3}
       propertyPath: m_Name
       value: SettingsPanel
@@ -1433,7 +1473,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 4495675995201765079}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 6187316269251447562}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   rightNav:
@@ -1497,7 +1537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2536627497388865056, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
       propertyPath: m_text
-      value: M
+      value: Music Volume
       objectReference: {fileID: 0}
     - target: {fileID: 2536627497388865056, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
       propertyPath: m_fontAsset
@@ -1511,6 +1551,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3937676541362199619, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2379834703558097929}
+    - target: {fileID: 3937676541362199619, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetLeftNav
+      objectReference: {fileID: 0}
     - target: {fileID: 4623604167580337393, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1518,6 +1566,30 @@ PrefabInstance:
     - target: {fileID: 4943142200794552014, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
       propertyPath: m_Name
       value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 2196251970162318983}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 5171914591125530645}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 717959453987392930}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 717959453987392930}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2019736394902209335}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMusicVolume
       objectReference: {fileID: 0}
     - target: {fileID: 7753456347194791494, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
       propertyPath: m_Pivot.x
@@ -1604,6 +1676,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+--- !u!114 &6187316269251447562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+  m_PrefabInstance: {fileID: 2058633627412828337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!224 &8577232034434811639 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7753456347194791494, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
@@ -1637,6 +1720,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3937676541362199619, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2379834703558097929}
+    - target: {fileID: 3937676541362199619, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetLeftNav
+      objectReference: {fileID: 0}
     - target: {fileID: 4623604167580337393, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1644,6 +1735,22 @@ PrefabInstance:
     - target: {fileID: 4943142200794552014, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
       propertyPath: m_Name
       value: Master
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 5171914591125530645}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 2196251970162318983}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2019736394902209335}
+    - target: {fileID: 5281736367014403003, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMasterVolume
       objectReference: {fileID: 0}
     - target: {fileID: 7753456347194791494, guid: ebb1f690cdbe0b8439111772440f71c7, type: 3}
       propertyPath: m_Pivot.x
