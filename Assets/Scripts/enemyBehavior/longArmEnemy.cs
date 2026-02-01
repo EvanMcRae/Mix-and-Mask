@@ -15,6 +15,15 @@ public class LongArmEnemy : EnemyBase
     public float cooldownTime = 0.5f;
     public float damage = 2f;
 
+    [Header("Punch Attack")]
+    public float punchWindupTime = 0.3f;
+    public float punchExtendDistance = 5f;
+    public float punchExtendDuration = 0.2f;
+    public float punchRetractDuration = 0.3f;
+    public float punchCooldown = 2f;
+    public float punchDamage = 1.5f;
+    private float nextPunchTime = 0f;
+
     [Header("Arm Colliders")]
     public GameObject leftArmCollider;
     public GameObject rightArmCollider;
@@ -32,6 +41,11 @@ public class LongArmEnemy : EnemyBase
 
     // Track which objects we've hit this spin to prevent multiple hits
     private System.Collections.Generic.HashSet<GameObject> hitThisSpin = new System.Collections.Generic.HashSet<GameObject>();
+    
+    // Punch attack state
+    private Vector3 armOriginalPosition;
+    private Vector3 armTargetPosition;
+    private Vector3 punchDirection;
 
     public enum State
     {
@@ -39,7 +53,10 @@ public class LongArmEnemy : EnemyBase
         Move,
         Windup,
         Spin,
-        Cooldown
+        Cooldown,
+        PunchWindup,
+        PunchExtend,
+        PunchRetract
     }
 
     public State state;
@@ -97,11 +114,22 @@ public class LongArmEnemy : EnemyBase
 
         float dist = Vector3.Distance(transform.position, player.position);
 
-        // Transition from Move to Windup when in range
+        // Transition from Move to attack when in range
         if (state == State.Move && dist < attackRange && Time.time > nextAttackTime)
         {
-            state = State.Windup;
-            stateTimer = windupTime;
+            // Randomly choose between spin and punch attack
+            if (Time.time > nextPunchTime && Random.value > 0.5f)
+            {
+                // Punch attack
+                state = State.PunchWindup;
+                stateTimer = punchWindupTime;
+            }
+            else
+            {
+                // Spin attack
+                state = State.Windup;
+                stateTimer = windupTime;
+            }
             
             // Only set destination if agent is enabled
             if (agent.enabled && agent.isOnNavMesh)
@@ -158,6 +186,22 @@ public class LongArmEnemy : EnemyBase
                         }
                     }
                 }
+                break;
+
+            case State.PunchWindup:
+                stateTimer -= Time.deltaTime;
+                if (stateTimer <= 0f)
+                {
+                    StartPunch();
+                }
+                break;
+
+            case State.PunchExtend:
+                PerformPunchExtend();
+                break;
+
+            case State.PunchRetract:
+                PerformPunchRetract();
                 break;
         }
     }
@@ -314,5 +358,77 @@ public class LongArmEnemy : EnemyBase
                 Debug.Log($"Enemy health after hit: {controlledEnemy.health}");
             }
         }
+    }
+
+    void StartPunch()
+    {
+        agent.enabled = false;
+
+        // Calculate punch direction toward player
+        punchDirection = (player.position - transform.position).normalized;
+        punchDirection.y = 0f;
+
+        // Use right arm for punch
+        if (rightArmCollider != null)
+        {
+            armOriginalPosition = rightArmCollider.transform.localPosition;
+            armTargetPosition = armOriginalPosition + rightArmCollider.transform.InverseTransformDirection(punchDirection * punchExtendDistance);
+            rightArmCollider.SetActive(true);
+            Debug.Log("Right arm punch started!");
+        }
+
+        hitThisSpin.Clear();
+        stateTimer = punchExtendDuration;
+        state = State.PunchExtend;
+    }
+
+    void PerformPunchExtend()
+    {
+        if (rightArmCollider != null)
+        {
+            float progress = 1f - (stateTimer / punchExtendDuration);
+            rightArmCollider.transform.localPosition = Vector3.Lerp(armOriginalPosition, armTargetPosition, progress);
+        }
+
+        stateTimer -= Time.deltaTime;
+        if (stateTimer <= 0f)
+        {
+            stateTimer = punchRetractDuration;
+            state = State.PunchRetract;
+        }
+    }
+
+    void PerformPunchRetract()
+    {
+        if (rightArmCollider != null)
+        {
+            float progress = 1f - (stateTimer / punchRetractDuration);
+            rightArmCollider.transform.localPosition = Vector3.Lerp(armTargetPosition, armOriginalPosition, progress);
+        }
+
+        stateTimer -= Time.deltaTime;
+        if (stateTimer <= 0f)
+        {
+            EndPunch();
+        }
+    }
+
+    void EndPunch()
+    {
+        // Disable arm collider
+        if (rightArmCollider != null)
+        {
+            rightArmCollider.SetActive(false);
+            rightArmCollider.transform.localPosition = armOriginalPosition;
+        }
+
+        // Clear hit tracking
+        hitThisSpin.Clear();
+
+        // Transition to cooldown
+        state = State.Cooldown;
+        stateTimer = cooldownTime;
+        nextAttackTime = Time.time + attackCooldown;
+        nextPunchTime = Time.time + punchCooldown;
     }
 }
