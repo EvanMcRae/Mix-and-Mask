@@ -88,6 +88,8 @@ public class LongArmEnemy : EnemyBase
     public override void Update()
     {
         base.Update();
+
+        if (!canMove) return;
         
         // Update player references in attack handlers
         if (spinAttack != null)
