@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: e8ab108ef3b4c1b4a97f3c1abb811023
+guid: 8435a16b1385538408a140d6ed7c5816
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ClockColorIdxd
-    second: {fileID: 2100000, guid: 5587ee9e19cbbfb4aae60af031f4cf29, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 0
     materialName: 0
