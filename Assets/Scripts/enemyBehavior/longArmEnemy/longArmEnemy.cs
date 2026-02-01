@@ -243,7 +243,7 @@ public class LongArmEnemy : EnemyBase
 
     void StartSpin()
     {
-        AkUnitySoundEngine.PostEvent("StartSpin", gameObject);
+        AkUnitySoundEngine.PostEvent("SpinAttack", gameObject);
         agent.enabled = false;
         stateTimer = spinDuration;
         state = State.Spin;
@@ -262,7 +262,6 @@ public class LongArmEnemy : EnemyBase
 
     void EndSpin()
     {
-        AkUnitySoundEngine.PostEvent("StopSpin", gameObject);
         spinAttack.End(leftArmCollider, rightArmCollider, hitThisSpin);
         state = State.Cooldown;
         stateTimer = cooldownTime;

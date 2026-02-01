@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Linux" BasePlatform="Linux" SchemaVersion="16" SoundBankVersion="172">
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{FD553CDA-7F6A-77B4-B20D-98A21E502029}">
+		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{E39C838C-01B9-DD32-9C04-C8F3F38A41A8}">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -63,5 +63,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D9ADA592-E9B1-982E-7E6E-4D7CF95127C9}</FileHash>
+	<FileHash>{78E4F8AD-7237-97A0-912F-D625FE8A4FDA}</FileHash>
 </SoundBanksInfo>

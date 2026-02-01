@@ -4,88 +4,11 @@
   "BasePlatform": "Windows",
   "PluginLibs": [
    {
-    "LibName": "Wwise Parametric EQ",
-    "LibId": "6881283",
-    "Type": "Effect",
-    "DLL": "AkParametricEQ",
-    "StaticLib": "AkParametricEQFX"
-   },
-   {
-    "LibName": "Wwise Delay",
-    "LibId": "6946819",
-    "Type": "Effect",
-    "DLL": "AkDelay",
-    "StaticLib": "AkDelayFX"
-   },
-   {
-    "LibName": "Wwise Compressor",
-    "LibId": "7077891",
-    "Type": "Effect",
-    "DLL": "AkCompressor",
-    "StaticLib": "AkCompressorFX"
-   },
-   {
-    "LibName": "Wwise Expander",
-    "LibId": "7143427",
-    "Type": "Effect",
-    "DLL": "AkCompressor",
-    "StaticLib": "AkCompressorFX"
-   },
-   {
-    "LibName": "Wwise Peak Limiter",
-    "LibId": "7208963",
-    "Type": "Effect",
-    "DLL": "AkPeakLimiter",
-    "StaticLib": "AkPeakLimiterFX"
-   },
-   {
-    "LibName": "Wwise Matrix Reverb",
-    "LibId": "7536643",
-    "Type": "Effect",
-    "DLL": "AkMatrixReverb",
-    "StaticLib": "AkMatrixReverbFX"
-   },
-   {
     "LibName": "Wwise RoomVerb",
     "LibId": "7733251",
     "Type": "Effect",
     "DLL": "AkRoomVerb",
     "StaticLib": "AkRoomVerbFX"
-   },
-   {
-    "LibName": "Wwise Flanger",
-    "LibId": "8192003",
-    "Type": "Effect",
-    "DLL": "AkFlanger",
-    "StaticLib": "AkFlangerFX"
-   },
-   {
-    "LibName": "Wwise Tremolo",
-    "LibId": "8585219",
-    "Type": "Effect",
-    "DLL": "AkTremolo",
-    "StaticLib": "AkTremoloFX"
-   },
-   {
-    "LibName": "Wwise Stereo Delay",
-    "LibId": "8847363",
-    "Type": "Effect",
-    "DLL": "AkStereoDelay",
-    "StaticLib": "AkStereoDelayFX"
-   },
-   {
-    "LibName": "Wwise Pitch Shifter",
-    "LibId": "8912899",
-    "Type": "Effect",
-    "DLL": "AkPitchShifter",
-    "StaticLib": "AkPitchShifterFX"
-   },
-   {
-    "LibName": "Wwise Harmonizer",
-    "LibId": "9043971",
-    "Type": "Effect",
-    "DLL": "AkHarmonizer",
-    "StaticLib": "AkHarmonizerFX"
    },
    {
     "LibName": "Wwise Synth One",
@@ -105,6 +28,6 @@
     "Type": "AudioDevice"
    }
   ],
-  "FileHash": "{D1533626-D463-0B22-002D-457085DC8EDF}"
+  "FileHash": "{13DBB552-41F1-C327-EFAB-D85DD5BBF793}"
  }
 }

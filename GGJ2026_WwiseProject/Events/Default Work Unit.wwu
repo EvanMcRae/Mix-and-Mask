@@ -18,6 +18,35 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{2A18E6FE-B071-4C61-9671-2ADA4C7AD24B}" ShortID="109229674">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ApplauseRTPC" ID="{C472854D-D63C-4C30-9DCE-50BE2FEB87A2}" WorkUnitID="{45F79A77-EAB8-434C-87DA-ED90D66EBB45}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{500C848D-2965-4FA4-AE23-243007C49AE5}" ShortID="870466884">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Applause" ID="{A0E985E0-6EB8-4537-A4C6-7C6EAC1441D0}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F0E10730-7662-40F5-B5EE-5398E45307D0}" ShortID="111592746">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="38"/>
+										<Property Name="FadeTime" Type="Real64" Value="2"/>
+										<Property Name="GameParameterValue" Type="Real64" Value="100"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ApplauseRTPC" ID="{C472854D-D63C-4C30-9DCE-50BE2FEB87A2}" WorkUnitID="{45F79A77-EAB8-434C-87DA-ED90D66EBB45}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 								<Action Name="" ID="{21154F2D-DBD2-4DE4-93E3-18E61A837E08}" ShortID="311744601">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="23"/>
@@ -50,7 +79,8 @@
 								</Action>
 								<Action Name="" ID="{58084ECF-4FC4-4E28-A872-BE3AA16D03DE}" ShortID="737805724">
 									<PropertyList>
-										<Property Name="Delay" Type="Real64" Value="0.5"/>
+										<Property Name="Delay" Type="Real64" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -183,7 +213,7 @@
 								<Action Name="" ID="{2772BCE1-44C6-4368-B08F-DA859725925F}" ShortID="52266032">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="JumpFR" ID="{26D3C2C4-0D09-43FC-9270-503DBD2371DC}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+											<ObjectRef Name="JumpFR" ID="{5BF75D77-1D21-41B8-8707-EAC604F58978}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -215,7 +245,7 @@
 								<Action Name="" ID="{C47ADFFA-765A-417C-9318-88F6C3674754}" ShortID="848927598">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Jump" ID="{EF268455-859D-41E6-8AA8-7DB8053A8D1B}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+											<ObjectRef Name="JumpFR" ID="{5BF75D77-1D21-41B8-8707-EAC604F58978}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
