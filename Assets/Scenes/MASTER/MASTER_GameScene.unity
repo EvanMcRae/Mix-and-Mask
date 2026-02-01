@@ -1649,6 +1649,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DetachedMask
       objectReference: {fileID: 0}
+    - target: {fileID: 5717032740652026581, guid: bfe158ddb1e73d742bca831b785347b3, type: 3}
+      propertyPath: m_Asset
+      value: 
+      objectReference: {fileID: 8926484042661614526, guid: 8119ef33a5f373840abdd5bcee6a6224, type: 3}
     - target: {fileID: 7440378363916546232, guid: bfe158ddb1e73d742bca831b785347b3, type: 3}
       propertyPath: mainCamera
       value: 
