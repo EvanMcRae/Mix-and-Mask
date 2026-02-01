@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -15,6 +16,11 @@ public class PauseScreen : MonoBehaviour
         {
             Utils.WwiseGlobal = wwiseGlobal;
         }
+
+        settingsPanel.OnClose += () =>
+        {
+            GetComponent<CanvasGroup>().DOFade(1, 0.5f).SetUpdate(true);
+        };
     }
 
     void Update()
@@ -25,6 +31,7 @@ public class PauseScreen : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
     void LateUpdate()
     {
         PausedThisFrame = false;
@@ -72,7 +79,8 @@ public class PauseScreen : MonoBehaviour
 
     public void Settings()
     {
-        if (settingsPanel == null) return; // TODO remove this is just to prevent errors rn
         settingsPanel.Up();
+        Debug.Log(GetComponent<CanvasGroup>());
+        GetComponent<CanvasGroup>().DOFade(0, 0.5f).SetUpdate(true);
     }
 }

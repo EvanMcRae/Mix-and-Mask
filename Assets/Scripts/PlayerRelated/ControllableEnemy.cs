@@ -25,6 +25,8 @@ public class ControllableEnemy : MonoBehaviour
     //This one is the one that is actually representing player health
     public float health = 10f;
 
+    UpdateAbilitiesIcons abilityUI;
+
     public enum EnemyType
     {
         None,
@@ -39,6 +41,8 @@ public class ControllableEnemy : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         isSolid = true;
         //rigidbody.freezeRotation = true;
+        //Needed for cooldowns
+        abilityUI = FindFirstObjectByType<UpdateAbilitiesIcons>();
     }
 
     public virtual void FixedUpdate()
@@ -66,11 +70,21 @@ public class ControllableEnemy : MonoBehaviour
 
     public virtual void PrimaryAction()
     {
+        if (primaryCooldown <= 0)
+        {
+            Debug.Log("Call for cooldown!");
+            abilityUI.CoolDownPrimary(maxPrimaryCooldown);
+        }
         Debug.Log("Attempting Primary Enemy Action!");
     }
 
     public virtual void SecondaryAction()
     {
+        if (secondaryCooldown <= 0)
+        {
+            Debug.Log("Call for cooldown!");
+            abilityUI.CoolDownSecondary(maxSecondaryCooldown);
+        }
         Debug.Log("Attempting Secondary Enemy Action!");
     }
 

@@ -5,9 +5,13 @@ using UnityEngine.UI;
 using static ControllableEnemy;
 public class UpdateAbilitiesIcons : MonoBehaviour
 {
+    private const float FULL_WIDTH = 344f;
+
     [SerializeField] Image rightImageA;
     [SerializeField] Image rightImageB;
 
+    [SerializeField] Image fillA;
+    [SerializeField] Image fillB;
 
     //test Sprites
     [SerializeField] Sprite[] iconSprites;
@@ -45,6 +49,7 @@ public class UpdateAbilitiesIcons : MonoBehaviour
         startPos = rect.anchoredPosition;
         startRot = rect.localRotation;
         maskController = FindFirstObjectByType<DetatchedMask>();
+
     }
 
 
@@ -87,6 +92,55 @@ public class UpdateAbilitiesIcons : MonoBehaviour
         seq.Join(canvasGroup.DOFade(1f, slideDuration * 0.6f));
     }
 
+    //private void AnimateCooldownRect(Image fillImage, float startWidth, float cooldownDuration)
+    //{
+    //    RectTransform rt = fillImage.rectTransform;
+    //    rt.DOKill();
+
+    //    // Reset fill
+    //    rt.sizeDelta = new Vector2(startWidth, rt.sizeDelta.y);
+
+    //    // POP animation
+    //    AnimateCooldownStart(fillImage);
+
+    //    // Drain cooldown
+    //    rt.DOSizeDelta(
+    //        new Vector2(0f, rt.sizeDelta.y),
+    //        cooldownDuration
+    //    )
+    //    .SetEase(Ease.Linear)
+    //    .SetLink(fillImage.gameObject, LinkBehaviour.KillOnDisable);
+    //}
+
+
+    public void AnimateCooldownRect(Image image, float cooldownDuration)
+    {
+        if (image == null) return;
+
+        image.DOKill();
+
+        // Reset fill to full
+        image.fillAmount = 1f;
+
+        // Animate fillAmount from 1 to 0 over cooldownDuration
+        image.DOFillAmount(0f, cooldownDuration)
+             .SetEase(Ease.Linear)
+             .SetLink(image.gameObject, LinkBehaviour.KillOnDisable);
+    }
+
+    private void AnimateCooldownStart(RectTransform mask)
+    {
+        RectTransform rt = mask;
+
+        rt.DOKill();
+
+        // Reset scale
+        rt.localScale = Vector3.one * 0.85f;
+
+        rt.DOScale(1f, 0.2f)
+          .SetEase(Ease.OutBack)
+          .SetLink(mask.gameObject, LinkBehaviour.KillOnDisable);
+    }
 
     public void UpdateAbilityIcons(EnemyType type)
     {
@@ -163,6 +217,16 @@ public class UpdateAbilitiesIcons : MonoBehaviour
 
         //Update the UI based on what you did
         UIFallOff();
+    }
+
+    public void CoolDownSecondary(float cooldown)
+    {
+        AnimateCooldownRect(fillB, cooldown);
+    }
+
+    public void CoolDownPrimary(float cooldown)
+    {
+        AnimateCooldownRect(fillA, cooldown);
     }
 
     public void OnEnable()

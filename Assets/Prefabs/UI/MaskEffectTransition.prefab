@@ -49,10 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03a770e848e42139f349143e6fd2f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaskEffectTransition
+  feature: {fileID: 0}
   speed: 1
   transitionDirection: 0
   isTransitioning: 1
   t: 1
+  color: {r: 0.12156863, g: 0.05490196, b: 0.10980392, a: 0}
 --- !u!114 &4608974982879843361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,4 +67,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9218a4d37be2604a884f22767dad09c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenTransition
-  met: {fileID: 6027765252515568784}
