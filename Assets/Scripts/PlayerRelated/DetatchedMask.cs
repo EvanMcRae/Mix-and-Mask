@@ -44,7 +44,10 @@ public class DetatchedMask : MonoBehaviour
     {
         if (movementCooldown > 0) movementCooldown -= Time.deltaTime;
         if (attachedCooldown > 0 && !isControlling) attachedCooldown -= Time.deltaTime;
+    }
 
+    void FixedUpdate()
+    {
         if (isDrawing)
         {
             Vector2 currentMousePos = Mouse.current.position.ReadValue();
@@ -68,7 +71,7 @@ public class DetatchedMask : MonoBehaviour
                 null,
                 out maskPosCanvasSpace
             );
-            
+
             Vector2 arrowDir = localMousePos - maskPosCanvasSpace;
 
             float angle = Mathf.Atan2(arrowDir.y, arrowDir.x) * Mathf.Rad2Deg;
