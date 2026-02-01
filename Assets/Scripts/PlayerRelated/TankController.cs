@@ -37,7 +37,7 @@ public class TankController : ControllableEnemy
     {
         if (primaryCooldown > 0) return;
         base.PrimaryAction();
-        Debug.Log("Player shooting!");
+        //Debug.Log("Player shooting!");
         Shoot();
     }
 

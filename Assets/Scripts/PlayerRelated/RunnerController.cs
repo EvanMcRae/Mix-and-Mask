@@ -121,6 +121,13 @@ public class RunnerController : ControllableEnemy
         base.TakeDamage(dmg);
     }
 
+    public override void TakeDamageOverTime(float dmg)
+    {
+        //Debug.Log("Runner DOT function called");
+        if (isInvulnerable) return;
+        base.TakeDamageOverTime(dmg);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (isDashing && collision.gameObject.CompareTag("Enemy"))

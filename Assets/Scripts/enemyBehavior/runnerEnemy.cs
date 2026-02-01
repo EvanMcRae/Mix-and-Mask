@@ -265,6 +265,13 @@ public class RunnerEnemy : EnemyBase
         base.TakeDamage(dmg);
     }
 
+    public override void TakeDamageOverTime(float dmg)
+    {
+        Debug.Log("Runner enemy DOT: " + health);
+        if (state == State.Invulnerable) return;
+        base.TakeDamageOverTime(dmg);
+    }
+
     private void BecomeInvulnerable()
     {
         invulCooldown = maxInvulCooldown;

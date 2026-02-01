@@ -17,15 +17,21 @@ public class Projectile : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         bool dontDestroy = false;
+        //if(belongsToPlayer) Debug.Log("Projectile Hit: " + other.gameObject.name);
+        //if (other.gameObject.name.StartsWith("runnerEnemy")) Debug.Log("Compare tag enemy: " + other.CompareTag("Enemy"));
         if (other.CompareTag("Enemy") || other.isTrigger)
         {
             EnemyBase enemy = other.GetComponent<EnemyBase>();
             ControllableEnemy ce = other.GetComponent<ControllableEnemy>();
+            //if (other.gameObject.name.StartsWith("runnerEnemy")) Debug.Log("Is enemy null: " + enemy == null);
+            //if (other.gameObject.name.StartsWith("runnerEnemy")) Debug.Log("Is ce null: " + ce == null);
+            //if (other.gameObject.name.StartsWith("runnerEnemy")) Debug.Log("Is ce under control: " + ce.isUnderControl);
             if (enemy != null)
             {
                 if (belongsToPlayer)
                 {
                     if (ce != null && !ce.isUnderControl) enemy.TakeDamage(5f);
+                    else if (ce == null) enemy.TakeDamage(5f);
                     if (!enemy.isSolid) dontDestroy = true;
                 }
                 else

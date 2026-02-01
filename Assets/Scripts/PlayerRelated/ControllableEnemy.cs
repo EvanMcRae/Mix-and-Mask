@@ -101,8 +101,17 @@ public class ControllableEnemy : MonoBehaviour
         if (health <= 0)
             Die();
     }
+    
+    public virtual void TakeDamageOverTime(float dmg)
+    {
+        health -= dmg;
+        UpdateHealthUI();
+        if (health <= 0)
+            Die();
+    }
 
-    public virtual void Die(){
+    public virtual void Die()
+    {
         Destroy(gameObject);
     }
     private void UpdateHealthUI()

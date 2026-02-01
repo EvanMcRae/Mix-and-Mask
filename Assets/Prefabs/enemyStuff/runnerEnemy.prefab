@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8819291296875314493}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Mask Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 4516478814258087144}
   - component: {fileID: -8608804040371270441}
   - component: {fileID: 5287650938716446655}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: runnerEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -146,6 +146,8 @@ MonoBehaviour:
   attackRange: 3
   attackCooldown: 5
   nextAttackTime: 0
+  timeToStartMoving: 1
+  canMove: 0
   waveManager: {fileID: 0}
   orbitRadius: 14
   _renderer: {fileID: 3886667577965455417}
@@ -250,7 +252,7 @@ MonoBehaviour:
   maskTransform: {fileID: 8819291296875314493}
   maxPrimaryCooldown: 2.5
   maxSecondaryCooldown: 15
-  isUnderControl: 1
+  isUnderControl: 0
   maxHealth: 10
   health: 10
   type: 1

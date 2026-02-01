@@ -51,6 +51,13 @@ public abstract class EnemyBase : MonoBehaviour
             Die();
     }
 
+    public virtual void TakeDamageOverTime(float dmg)
+    {
+        health -= dmg;
+        if (health <= 0)
+            Die();
+    }
+
     protected virtual void Die()
     {
         if (waveManager != null)

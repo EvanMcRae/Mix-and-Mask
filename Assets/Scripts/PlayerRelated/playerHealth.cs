@@ -30,6 +30,16 @@ public class playerHealth : MonoBehaviour
         Debug.Log("Took player damage");
     }
 
+    public void playerTakeDamageOverTime(float dmg)
+    {
+        currPlayerHealth -= dmg;
+
+        UpdateHealthUI();
+
+        if (currPlayerHealth <= 0)
+            Die();
+    }
+
     public void UpdateHealthUI()
     {
         //update UI element

@@ -30,29 +30,29 @@ public class Acid : MonoBehaviour
             {
                 if (belongsToPlayer)
                 {
-                    Debug.Log("Possessed stepped in acid");
-                    if (ce != null && !ce.isUnderControl) enemy.TakeDamage(dps * Time.deltaTime);
+                    //Debug.Log("Possessed stepped in acid");
+                    if (ce != null && !ce.isUnderControl) enemy.TakeDamageOverTime(dps * Time.deltaTime);
                 }
                 else
                 {
-                    if (ce != null && ce.isUnderControl) ce.TakeDamage(dps * Time.deltaTime);
+                    if (ce != null && ce.isUnderControl) ce.TakeDamageOverTime(dps * Time.deltaTime);
                 }
             }
         }
         
         if (other.CompareTag("Player") && !belongsToPlayer)
         {
-            Debug.Log("Player stepped in acid");
+            //Debug.Log("Player stepped in acid");
 
             ControllableEnemy player = other.GetComponent<ControllableEnemy>();
             if (player != null)
             {
-                player.TakeDamage(dps * Time.deltaTime);
+                player.TakeDamageOverTime(dps * Time.deltaTime);
             }
             else
             {
                 playerHealth playerAsMask = other.GetComponent<playerHealth>();
-                playerAsMask.playerTakeDamage(dps * Time.deltaTime);
+                playerAsMask.playerTakeDamageOverTime(dps * Time.deltaTime);
             }
 
         }
