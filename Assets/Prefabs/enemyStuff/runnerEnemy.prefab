@@ -148,6 +148,7 @@ MonoBehaviour:
   nextAttackTime: 0
   waveManager: {fileID: 0}
   orbitRadius: 14
+  _renderer: {fileID: 0}
   windupTime: 1
   backupDistance: 3
   dashSpeed: 12
@@ -155,6 +156,7 @@ MonoBehaviour:
   damage: 5
   maxInvulTime: 2
   maxInvulCooldown: 10
+  _collider: {fileID: 0}
   model: {fileID: 3405390858390558466}
   turnSpeed: 10
   state: 0
@@ -245,14 +247,16 @@ MonoBehaviour:
   moveAcceleration: 15
   maxSpeed: 9.64
   maskTransform: {fileID: 8819291296875314493}
-  maxPrimaryCooldown: 5
+  maxPrimaryCooldown: 2.5
   maxSecondaryCooldown: 15
   isUnderControl: 0
+  maxHealth: 10
   health: 10
   type: 1
   maxDashCooldown: 5
   catModel: {fileID: 2596800577544064440}
-  renderer: {fileID: 3886667577965455417}
+  _renderer: {fileID: 3886667577965455417}
+  _collider: {fileID: 1772545698791862272}
 --- !u!95 &5287650938716446655
 Animator:
   serializedVersion: 7
