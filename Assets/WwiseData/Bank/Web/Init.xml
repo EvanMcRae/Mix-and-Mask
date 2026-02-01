@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Web" BasePlatform="Web" SchemaVersion="16" SoundBankVersion="172">
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{B57C1424-6D99-7D00-AB14-A029925163FF}">
+		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{3C665371-3F7B-A171-F7FC-F1BEB118335F}">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -30,6 +30,7 @@
 			</AuxBusses>
 			<GameParameters>
 				<GameParameter Id="1328605826" Name="Pullpitch" ObjectPath="\Game Parameters\Default Work Unit\Game\Pullpitch" GUID="{94A1893B-E156-4491-A14E-E17A89855FF7}"/>
+				<GameParameter Id="1924569601" Name="ApplauseRTPC" ObjectPath="\Game Parameters\Default Work Unit\Game\ApplauseRTPC" GUID="{C472854D-D63C-4C30-9DCE-50BE2FEB87A2}"/>
 				<GameParameter Id="2346531308" Name="MusicVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MusicVolume" GUID="{D4A310EE-8626-4E8F-8FFB-FD7B895D1B27}"/>
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume" GUID="{732E2AFE-F830-4950-8BAF-6DB770D75704}"/>
 				<GameParameter Id="3328840097" Name="FXVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\FXVolume" GUID="{50A7FDEE-6AD9-44D8-AC80-A7871FE3C1EE}"/>
@@ -62,5 +63,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A433A5D8-2758-26DF-76FC-D98864599E51}</FileHash>
+	<FileHash>{395ED4DC-8B82-761D-841F-F7F57661BD1D}</FileHash>
 </SoundBanksInfo>

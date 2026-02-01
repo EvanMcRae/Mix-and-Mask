@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{B57C1424-6D99-7D00-AB14-A029925163FF}">
+		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{3C665371-3F7B-A171-F7FC-F1BEB118335F}">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -38,6 +38,7 @@
 			</AuxBusses>
 			<GameParameters>
 				<GameParameter Id="1328605826" Name="Pullpitch" ObjectPath="\Game Parameters\Default Work Unit\Game\Pullpitch" GUID="{94A1893B-E156-4491-A14E-E17A89855FF7}"/>
+				<GameParameter Id="1924569601" Name="ApplauseRTPC" ObjectPath="\Game Parameters\Default Work Unit\Game\ApplauseRTPC" GUID="{C472854D-D63C-4C30-9DCE-50BE2FEB87A2}"/>
 				<GameParameter Id="2346531308" Name="MusicVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MusicVolume" GUID="{D4A310EE-8626-4E8F-8FFB-FD7B895D1B27}"/>
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume" GUID="{732E2AFE-F830-4950-8BAF-6DB770D75704}"/>
 				<GameParameter Id="3328840097" Name="FXVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\FXVolume" GUID="{50A7FDEE-6AD9-44D8-AC80-A7871FE3C1EE}"/>
@@ -69,7 +70,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{18AFCD51-AB3C-B010-0E5E-A309EC8B66BD}">
+		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{B90D626C-5AD2-011B-B369-4258B0E1C13A}">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -106,10 +107,6 @@
 					<ShortName>Pregame_VIolin 2 Trill_147_10B_1p_1master.wav</ShortName>
 					<CachePath>0B/{0B1857BC-D5E1-91C6-51AC-8B05121D1E25}.wem</CachePath>
 				</File>
-				<File Id="138676990" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Level V1A_VIolin 2 Legato_147_8B_1p master.wav</ShortName>
-					<CachePath>DF/{DFB0B424-70BE-5F4C-6A79-8D5BFA3000F9}.wem</CachePath>
-				</File>
 				<File Id="181384360" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Level C_Cello Harmonic_147_16B_1p master.wav</ShortName>
 					<CachePath>0F/{0F6FC4EC-0396-AE33-449F-383C2B80A4BE}.wem</CachePath>
@@ -120,11 +117,11 @@
 				</File>
 				<File Id="200480144" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Beep_2.wav</ShortName>
-					<CachePath>F4/{F46130E0-1E47-EBD5-5762-B8B7CD3F34E2}.wem</CachePath>
+					<CachePath>6C/{6C09EB68-E074-558D-E66F-96229AE86FAC}.wem</CachePath>
 				</File>
 				<File Id="223144473" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Beep_1.wav</ShortName>
-					<CachePath>4F/{4F1AC70B-D2C7-783C-8DB8-A577DD433A7C}.wem</CachePath>
+					<CachePath>B7/{B7F7E8B0-6DC3-D508-152A-E5A01F2FF9AA}.wem</CachePath>
 				</File>
 				<File Id="231202635" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Possess Keys jingle#01_bip_2.1.wav</ShortName>
@@ -262,9 +259,9 @@
 					<ShortName>Level B_VIolin 2 staccato_147_8B_1p master.wav</ShortName>
 					<CachePath>B8/{B8FF483B-04E0-DC6C-2C26-E81DE912C848}.wem</CachePath>
 				</File>
-				<File Id="943181524" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Level V1A_Violin Legato_147_8B_1p master.wav</ShortName>
-					<CachePath>D0/{D004ABBF-7759-4A58-0836-1F2F34296BB5}.wem</CachePath>
+				<File Id="946546211" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>proper Wooshes#04_bip_2.2.wav</ShortName>
+					<CachePath>D7/{D72A6DEF-9E43-8AEC-17C5-E2AAC452590B}.wem</CachePath>
 				</File>
 				<File Id="980527910" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Level V2_VIolin 2 Legato_147_8B_1p master.wav</ShortName>
@@ -280,7 +277,7 @@
 				</File>
 				<File Id="1024512673" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Beep.wav</ShortName>
-					<CachePath>BC/{BCBBA405-84EF-350E-CD01-3BEDECC52480}.wem</CachePath>
+					<CachePath>48/{480CEEEC-B7F2-878F-34DA-58F064F00FC8}.wem</CachePath>
 				</File>
 				<File Id="1044414243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BIG HIT.wav</ShortName>
@@ -292,6 +289,9 @@
 				</File>
 			</Media>
 			<Plugins>
+				<Custom>
+					<Plugin Id="573913135" Name="Synth One" ObjectPath="\Containers\Default Work Unit\SFX\UI\Applause\Synth One" GUID="{808B9A57-EFDE-44AE-840E-5100267D7CAD}" LibName="Wwise Synth One" LibId="9699330"/>
+				</Custom>
 				<ShareSets>
 					<Plugin Id="4496003" Name="Dirty_Washing_Machine" ObjectPath="\Effects\Factory Effects\RoomVerb\Claustrophobia\Dirty_Washing_Machine" GUID="{824764DD-7364-411D-AF50-DEDF8E3DCC48}" LibName="Wwise RoomVerb" LibId="7733251"/>
 					<Plugin Id="48620415" Name="Have_U_Ever_Been_Outside" ObjectPath="\Effects\Factory Effects\RoomVerb\Exteriors\Have_U_Ever_Been_Outside" GUID="{FE29AE8D-FD86-4652-A95D-68D32F5760EC}" LibName="Wwise RoomVerb" LibId="7733251"/>
@@ -556,7 +556,6 @@
 																<MediaRef Id="92192739"/>
 																<MediaRef Id="108010996"/>
 																<MediaRef Id="112853337"/>
-																<MediaRef Id="138676990"/>
 																<MediaRef Id="181384360"/>
 																<MediaRef Id="186814078"/>
 																<MediaRef Id="231853013"/>
@@ -584,7 +583,6 @@
 																<MediaRef Id="876908841"/>
 																<MediaRef Id="902091495"/>
 																<MediaRef Id="925792368"/>
-																<MediaRef Id="943181524"/>
 																<MediaRef Id="980527910"/>
 																<MediaRef Id="1001349646"/>
 																<MediaRef Id="1004767331"/>
@@ -671,7 +669,6 @@
 																<MediaRef Id="92192739"/>
 																<MediaRef Id="108010996"/>
 																<MediaRef Id="112853337"/>
-																<MediaRef Id="138676990"/>
 																<MediaRef Id="181384360"/>
 																<MediaRef Id="186814078"/>
 																<MediaRef Id="231853013"/>
@@ -699,7 +696,6 @@
 																<MediaRef Id="876908841"/>
 																<MediaRef Id="902091495"/>
 																<MediaRef Id="925792368"/>
-																<MediaRef Id="943181524"/>
 																<MediaRef Id="980527910"/>
 																<MediaRef Id="1001349646"/>
 																<MediaRef Id="1004767331"/>
@@ -771,6 +767,14 @@
 						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
 					</AuxBusRefs>
 				</Event>
+				<Event Id="3607344297" Name="SpinAttack" ObjectPath="\Events\Default Work Unit\EnemiesPoss\LongArm\SpinAttack" GUID="{1A3EDCE7-25EC-4AA9-BFA3-7801EC94CC98}" DurationType="OneShot" DurationMin="0.36688665" DurationMax="0.36688665">
+					<MediaRefs>
+						<MediaRef Id="946546211"/>
+					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
+					</AuxBusRefs>
+				</Event>
 				<Event Id="1521187885" Name="StartGame" ObjectPath="\Events\Default Work Unit\Music\StartGame" GUID="{3528EA39-2F60-4568-9F2A-C9DDCE3A2639}" DurationType="Infinite">
 					<SwitchContainers>
 						<SwitchContainer>
@@ -831,7 +835,6 @@
 																<MediaRef Id="92192739"/>
 																<MediaRef Id="108010996"/>
 																<MediaRef Id="112853337"/>
-																<MediaRef Id="138676990"/>
 																<MediaRef Id="181384360"/>
 																<MediaRef Id="186814078"/>
 																<MediaRef Id="231853013"/>
@@ -859,7 +862,6 @@
 																<MediaRef Id="876908841"/>
 																<MediaRef Id="902091495"/>
 																<MediaRef Id="925792368"/>
-																<MediaRef Id="943181524"/>
 																<MediaRef Id="980527910"/>
 																<MediaRef Id="1001349646"/>
 																<MediaRef Id="1004767331"/>
@@ -946,7 +948,6 @@
 																<MediaRef Id="92192739"/>
 																<MediaRef Id="108010996"/>
 																<MediaRef Id="112853337"/>
-																<MediaRef Id="138676990"/>
 																<MediaRef Id="181384360"/>
 																<MediaRef Id="186814078"/>
 																<MediaRef Id="231853013"/>
@@ -974,7 +975,6 @@
 																<MediaRef Id="876908841"/>
 																<MediaRef Id="902091495"/>
 																<MediaRef Id="925792368"/>
-																<MediaRef Id="943181524"/>
 																<MediaRef Id="980527910"/>
 																<MediaRef Id="1001349646"/>
 																<MediaRef Id="1004767331"/>
@@ -1011,11 +1011,6 @@
 						<ActionSetSwitchEntry GroupId="3991942870" Id="89505537" Name="GamePlay" ObjectPath="\Switches\Default Work Unit\Musicc\Music\GamePlay" GUID="{70877CFA-EA5A-46AC-9FE5-3C2E7D9F16C8}"/>
 						<ActionSetSwitchEntry GroupId="2275179450" Id="3594052030" Name="PreGame" ObjectPath="\Switches\Default Work Unit\Musicc\GameplayMusic\PreGame" GUID="{778F5691-CCC4-4137-A4BC-738A932B1E3B}"/>
 					</ActionSetSwitch>
-				</Event>
-				<Event Id="655593811" Name="StartSpin" ObjectPath="\Events\Default Work Unit\EnemiesPoss\Spinner\StartSpin" GUID="{56DFF254-BBA3-409E-AD56-44731E89692A}" DurationType="Infinite">
-					<AuxBusRefs>
-						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
-					</AuxBusRefs>
 				</Event>
 				<Event Id="1917263390" Name="StopMusic" ObjectPath="\Events\Default Work Unit\Music\StopMusic" GUID="{9AFC09F7-DB2C-4E7B-855B-31A21B97CD33}" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<SwitchContainers>
@@ -1077,7 +1072,6 @@
 																<MediaRef Id="92192739"/>
 																<MediaRef Id="108010996"/>
 																<MediaRef Id="112853337"/>
-																<MediaRef Id="138676990"/>
 																<MediaRef Id="181384360"/>
 																<MediaRef Id="186814078"/>
 																<MediaRef Id="231853013"/>
@@ -1105,7 +1099,6 @@
 																<MediaRef Id="876908841"/>
 																<MediaRef Id="902091495"/>
 																<MediaRef Id="925792368"/>
-																<MediaRef Id="943181524"/>
 																<MediaRef Id="980527910"/>
 																<MediaRef Id="1001349646"/>
 																<MediaRef Id="1004767331"/>
@@ -1137,11 +1130,6 @@
 					</SwitchContainers>
 				</Event>
 				<Event Id="2922217614" Name="StopPanic" ObjectPath="\Events\Default Work Unit\StopPanic" GUID="{94D8EE79-F791-4821-A3E6-47CF41CA30F7}" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="3357596825" Name="StopSpin" ObjectPath="\Events\Default Work Unit\EnemiesPoss\Spinner\StopSpin" GUID="{D2DF450B-BF03-4D62-B9FD-2E1E1969D42B}" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
-					<AuxBusRefs>
-						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
-					</AuxBusRefs>
-				</Event>
 			</Events>
 			<Busses>
 				<Bus Id="393239870" Name="SFX" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX" GUID="{BA11651D-4472-4123-9070-3CD580BA7D92}"/>
@@ -1188,5 +1176,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{271D52E7-FD9F-A2FE-13C6-BB93DD616BA9}</FileHash>
+	<FileHash>{9C74B31D-E47C-4E4E-0810-51640A41CBDB}</FileHash>
 </SoundBanksInfo>

@@ -120,7 +120,7 @@
 										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-2</Value>
+												<Value>-20</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -733,6 +733,7 @@
 									<ChildrenList>
 										<AudioFileSource Name="Beep" ID="{F2FEA1CF-A225-4DCB-804B-27BCF50E463F}">
 											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0479673052308571"/>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.662034448482649"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="0.0970983857774549"/>
@@ -768,6 +769,7 @@
 									<ChildrenList>
 										<AudioFileSource Name="Beep_1" ID="{B7115C97-82DA-4AF7-8A83-FDDF27BBD221}">
 											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0395024866607059"/>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.479607178234095"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="0.032366128592485"/>
@@ -796,6 +798,7 @@
 									<ChildrenList>
 										<AudioFileSource Name="Beep_2" ID="{FBEEC516-AA9A-4E9B-952C-A7FC8DB74FDE}">
 											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0507889114209075"/>
 												<Property Name="FadeOutDuration" Type="Real64" Value="0.497261430193633"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="0.0588475065317908"/>
@@ -810,6 +813,78 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="Beep_2" ID="{FBEEC516-AA9A-4E9B-952C-A7FC8DB74FDE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Applause" ID="{A0E985E0-6EB8-4537-A4C6-7C6EAC1441D0}" ShortID="47177539">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{34A7A9EE-75B0-4FED-8385-32D7E761783B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<SourcePlugin Name="Synth One" ID="{808B9A57-EFDE-44AE-840E-5100267D7CAD}" ShortID="573913135" PluginName="Wwise Synth One" CompanyID="0" PluginID="148">
+											<PropertyList>
+												<Property Name="NoiseLevel" Type="Real32" Value="-4"/>
+												<Property Name="NoiseShape" Type="int32" Value="1"/>
+												<Property Name="Osc1Level" Type="Real32" Value="-96"/>
+												<Property Name="Osc2Level" Type="Real32" Value="-96"/>
+											</PropertyList>
+											<ObjectLists>
+												<ObjectList Name="RTPC">
+													<RTPC Name="" ID="{8F0FAAC6-DD8B-4F12-A185-E99AD6179385}" ShortID="730401969">
+														<PropertyList>
+															<Property Name="PropertyName" Type="string" Value="OutputLevel"/>
+														</PropertyList>
+														<ReferenceList>
+															<Reference Name="ControlInput">
+																<Custom>
+																	<ModulatorEnvelope Name="Modulator Envelope (Custom)" ID="{639BB522-F5AE-48F7-B3CF-5C4A5E3F9732}" ShortID="903701226">
+																		<PropertyList>
+																			<Property Name="EnvelopeAttackTime" Type="Real64" Value="0.01"/>
+																		</PropertyList>
+																	</ModulatorEnvelope>
+																</Custom>
+															</Reference>
+															<Reference Name="Curve">
+																<Custom>
+																	<Curve Name="" ID="{8464DED8-8C68-4009-809D-96FCBAB5ADDD}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-96</YPos>
+																				<Flags>21</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>1</XPos>
+																				<YPos>0</YPos>
+																				<Flags>53</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</RTPC>
+												</ObjectList>
+											</ObjectLists>
+											<Language>SFX</Language>
+										</SourcePlugin>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Synth One" ID="{808B9A57-EFDE-44AE-840E-5100267D7CAD}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -901,7 +976,7 @@
 										</Sound>
 									</ChildrenList>
 								</PropertyContainer>
-								<PropertyContainer Name="Spinning Enemy" ID="{419E21CC-FC79-4CE5-A740-0E211D5ABF20}" ShortID="1001962650">
+								<PropertyContainer Name="LongArm" ID="{83FBC113-C702-4B45-9B8C-64DF2782F716}" ShortID="294299080">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{34A7A9EE-75B0-4FED-8385-32D7E761783B}"/>
@@ -911,154 +986,89 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<RandomSequenceContainer Name="Spin" ID="{A0151B8A-D3E8-45CA-AF56-7DB69A24FD62}" ShortID="672371110">
+										<Sound Name="Spin" ID="{6C80DBE8-E24E-4B84-957D-871B3B860875}" ShortID="850663683">
 											<PropertyList>
-												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+												<Property Name="Lowpass" Type="int16">
+													<ValueList>
+														<Value>25</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-1400</Value>
+													</ValueList>
+												</Property>
+												<Property Name="UserAuxSendLPF0" Type="int16">
+													<ValueList>
+														<Value>20</Value>
+													</ValueList>
+												</Property>
+												<Property Name="UserAuxSendVolume0" Type="Real64">
+													<ValueList>
+														<Value>-10</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{34A7A9EE-75B0-4FED-8385-32D7E761783B}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
+													<ObjectRef Name="SFX" ID="{BA11651D-4472-4123-9070-3CD580BA7D92}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Hallverb" ID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="Spin Woosh" ID="{497A22D9-199C-4AD9-BC2F-99CD92DB43A8}" ShortID="1058795963">
+												<AudioFileSource Name="Whoosh 02" ID="{F1D18A40-37A8-40EC-8536-8597B2450F4A}">
 													<PropertyList>
-														<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
-														<Property Name="Lowpass" Type="int16">
-															<ValueList>
-																<Value>26</Value>
-															</ValueList>
-														</Property>
-														<Property Name="MaxSoundPerInstance" Type="int16">
-															<ValueList>
-																<Value>2</Value>
-															</ValueList>
-														</Property>
-														<Property Name="OverLimitBehavior" Type="int16" Value="1"/>
-														<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
-														<Property Name="Pitch" Type="int32">
-															<ValueList>
-																<Value>-410</Value>
-															</ValueList>
-														</Property>
-														<Property Name="UseMaxSoundPerInstance" Type="bool">
-															<ValueList>
-																<Value>True</Value>
-															</ValueList>
-														</Property>
-														<Property Name="UserAuxSendLPF0" Type="int16">
-															<ValueList>
-																<Value>20</Value>
-															</ValueList>
-														</Property>
-														<Property Name="UserAuxSendVolume0" Type="Real64">
-															<ValueList>
-																<Value>-10</Value>
-															</ValueList>
-														</Property>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.195435177479217"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.313075769748261"/>
+														<Property Name="FadeOutShape" Type="int16" Value="6"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.481946942521565"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.941124776288508"/>
 													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{34A7A9EE-75B0-4FED-8385-32D7E761783B}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="SFX" ID="{BA11651D-4472-4123-9070-3CD580BA7D92}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
-														</Reference>
-														<Reference Name="UserAuxSend0">
-															<ObjectRef Name="Hallverb" ID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<SourcePlugin Name="Soundseed Air Woosh" ID="{92104383-BC9E-4D22-9645-CEE6320C2C0D}" ShortID="52779010" PluginName="SoundSeed Air Woosh" CompanyID="0" PluginID="120">
-															<PropertyList>
-																<Property Name="Duration" Type="Real64" Value="0.2"/>
-																<Property Name="SpeedAutomate" Type="bool" Value="True"/>
-																<Property Name="SpeedPointTimeRandom" Type="Real32" Value="0.06"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<PluginData>
-	<WooshData>
-		<CurveList Version="1">
-			<CurveInfo Name="Speed">
-				<Curve Name="" ID="{BDBA4CC9-32D9-4D9F-8C86-03F61A48D863}">
-					<PropertyList>
-						<Property Name="Flags" Type="int32" Value="1"/>
-					</PropertyList>
-					<PointList>
-						<Point>
-							<XPos>0</XPos>
-							<YPos>0</YPos>
-							<Flags>5</Flags>
-						</Point>
-						<Point>
-							<XPos>0.030664</XPos>
-							<YPos>83.11258</YPos>
-							<Flags>0</Flags>
-						</Point>
-						<Point>
-							<XPos>0.14883</XPos>
-							<YPos>-0</YPos>
-							<Flags>0</Flags>
-						</Point>
-						<Point>
-							<XPos>0.2</XPos>
-							<YPos>0</YPos>
-							<Flags>37</Flags>
-						</Point>
-					</PointList>
-				</Curve>
-			</CurveInfo>
-		</CurveList>
-		<Path Version="1">
-			<Path2D Name="" ID="{859703A9-9C6D-4635-8CF9-E8DFCC6B38A9}">
-				<PropertyList>
-					<Property Name="LinearTime" Type="bool" Value="False"/>
-				</PropertyList>
-				<PointList>
-					<Point>
-						<XPos>0</XPos>
-						<YPos>0</YPos>
-						<Flags>12</Flags>
-						<Time>0</Time>
-					</Point>
-				</PointList>
-			</Path2D>
-		</Path>
-	</WooshData>
-</PluginData>
-															<PluginInnerObjectList>
-																<List Name="Deflectors">
-																	<PluginInnerObject Name="" ID="{DD119008-9F26-478A-9349-3573816C0A13}" PluginName="Deflector" CompanyID="0" PluginID="122">
-																		<PropertyList>
-																			<Property Name="Frequency" Type="Real32" Value="357"/>
-																		</PropertyList>
-																	</PluginInnerObject>
-																</List>
-															</PluginInnerObjectList>
-														</SourcePlugin>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Soundseed Air Woosh" ID="{92104383-BC9E-4D22-9645-CEE6320C2C0D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
+													<Language>SFX</Language>
+													<AudioFile>Whoosh 02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="574148224"/>
+													</MediaIDList>
+												</AudioFileSource>
+												<AudioFileSource Name="More Wooshes" ID="{13C96508-C4B1-4148-B229-80ADA315DA09}">
+													<PropertyList>
+														<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>More Wooshes.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="479868911"/>
+													</MediaIDList>
+												</AudioFileSource>
+												<AudioFileSource Name="proper Wooshes#04_bip_2_2" ID="{EC408B6A-6A8A-41FE-983E-C56F7FBD6108}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0461447879449645"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.00769079799082742"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.171120227285782"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>proper Wooshes#04_bip_2.2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="946546211"/>
+													</MediaIDList>
+												</AudioFileSource>
 											</ChildrenList>
-											<ObjectLists>
-												<ObjectList Name="Playlist">
-													<PluginInnerObject Name="" ID="{9673185D-460C-44AA-980C-25CB9BC8DFED}" PluginName="PlaylistSlot" CompanyID="0" PluginID="86">
-														<ReferenceList>
-															<Reference Name="PlaylistObject">
-																<ObjectRef Name="Spin Woosh" ID="{497A22D9-199C-4AD9-BC2F-99CD92DB43A8}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
-															</Reference>
-														</ReferenceList>
-													</PluginInnerObject>
-												</ObjectList>
-											</ObjectLists>
-										</RandomSequenceContainer>
+											<ActiveSourceList>
+												<ActiveSource Name="proper Wooshes#04_bip_2_2" ID="{EC408B6A-6A8A-41FE-983E-C56F7FBD6108}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
 								</PropertyContainer>
 							</ChildrenList>
