@@ -16,6 +16,7 @@ public class RunnerController : ControllableEnemy
     [SerializeField] private float maxDashCooldown = 5f;
     [SerializeField] private GameObject catModel = null;
     [SerializeField] private Renderer renderer;
+    [SerializeField] private Collider collider;
 
     public override void Start()
     {

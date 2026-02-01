@@ -254,6 +254,7 @@ MonoBehaviour:
   maxDashCooldown: 5
   catModel: {fileID: 2887894025711782268}
   renderer: {fileID: 3680320646483126441}
+  collider: {fileID: 1772545698791862272}
 --- !u!1001 &2653382696860595245
 PrefabInstance:
   m_ObjectHideFlags: 0

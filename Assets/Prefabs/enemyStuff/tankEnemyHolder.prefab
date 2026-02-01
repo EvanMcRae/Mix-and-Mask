@@ -90,6 +90,7 @@ MonoBehaviour:
   firePoint: {fileID: 9038091080988963486}
   acidPoint: {fileID: 6479601449243745434}
   projectileSpeed: 10
+  maxAcidCooldown: 10
 --- !u!136 &2232661044508933095
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -310,7 +311,7 @@ Transform:
   m_GameObject: {fileID: 6430768726275050912}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.852, y: -0.34, z: 0.559}
+  m_LocalPosition: {x: 0.852, y: 0.028, z: 0.559}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

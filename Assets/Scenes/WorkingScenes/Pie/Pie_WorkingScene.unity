@@ -289,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7681932378775738210, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -611,7 +611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7681932378775738210, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -696,7 +696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7681932378775738210, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8906436539713407908, guid: 5378029e38356704f9dc7d5088f05f87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1029,7 +1029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8027495602229665048, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1103,6 +1103,10 @@ PrefabInstance:
     - target: {fileID: 8027495602229665048, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
       propertyPath: m_Name
       value: runnerEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027495602229665048, guid: 9212aa8961207354581b8b794ce6a875, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
