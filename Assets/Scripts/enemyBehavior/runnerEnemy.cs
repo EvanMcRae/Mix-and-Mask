@@ -18,6 +18,7 @@ public class RunnerEnemy : EnemyBase
     private NavMeshAgent agent;
     private float stateTimer;
     private Vector3 dashDirection;
+    private bool facePlayer = false;
 
     public Transform model;//enemy model
     public float turnSpeed = 10f;
@@ -40,7 +41,7 @@ public class RunnerEnemy : EnemyBase
         agent.speed = 6f;
         agent.acceleration = 20f;
         agent.autoBraking = false;
-        agent.updateRotation = false;
+        agent.updateRotation = true;
 
         state = State.Move;
 
@@ -54,21 +55,30 @@ public class RunnerEnemy : EnemyBase
         Act();
     }
 
-    void LateUpdate() // makes the placeholder model roatate to face the player
+    void LateUpdate() 
     {
-        if (player == null) return;
+        if (facePlayer == true && player != null)
+        {
+            // makes the model rotate to face the player\
 
-        Vector3 dir = player.position - model.position;
-        dir.y = 0f;//top-down, no tilting
+            agent.updateRotation = false;
 
-        if (dir.sqrMagnitude < 0.01f) return;
+            Vector3 dir = player.position - model.position;
+            dir.y = 0f;//top-down, no tilting
 
-        Quaternion targetRot = Quaternion.LookRotation(dir);
-        model.rotation = Quaternion.Slerp(
-            model.rotation,
-            targetRot,
-            turnSpeed * Time.deltaTime
-        );
+            if (dir.sqrMagnitude < 0.01f) return;
+
+            Quaternion targetRot = Quaternion.LookRotation(dir);
+            model.rotation = Quaternion.Slerp(
+                model.rotation,
+                targetRot,
+                turnSpeed * Time.deltaTime
+            );
+        }
+        else
+        {
+            agent.updateRotation = true;
+        }
     }
 
     public void UpdateState()
@@ -131,6 +141,7 @@ public class RunnerEnemy : EnemyBase
     void StartDash()
     {
         agent.enabled = false;
+        facePlayer = true;
 
         dashDirection = (player.position - transform.position).normalized;
         dashDirection.y = 0f;
@@ -149,6 +160,7 @@ public class RunnerEnemy : EnemyBase
             agent.enabled = true;
             nextAttackTime = Time.time + attackCooldown;
             state = State.Move;
+            facePlayer = false;
         }
     }
 
