@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using DG.Tweening;
 using UnityEditor;
 #endif
 
@@ -15,6 +16,8 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField] private PopupPanel SettingsPanel, ControlsPanel, CreditsPanel;
     [SerializeField] private Button QuitButton;
+    [SerializeField] private CanvasGroup buttonGroup;
+    private Tween fadeTween;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -89,11 +92,18 @@ public class MainMenuManager : MonoBehaviour
         {
             if (ScreenTransition.goingIn)
             {
-                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, () => CreditsPanel.Up());
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Credits);
             }
             return;
         }
+        Credits();
+    }
+
+    public void Credits()
+    {
+        FadeOutMenu();
         CreditsPanel.Up();
+        CreditsPanel.OnClose = FadeInMenu;
     }
 
     public void PressControls()
@@ -102,11 +112,18 @@ public class MainMenuManager : MonoBehaviour
         {
             if (ScreenTransition.goingIn)
             {
-                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, () => ControlsPanel.Up());
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Controls);
             }
             return;
         }
+        Controls();
+    }
+
+    public void Controls()
+    {
+        FadeOutMenu();
         ControlsPanel.Up();
+        ControlsPanel.OnClose = FadeInMenu;
     }
 
     public void PressSettings()
@@ -115,10 +132,31 @@ public class MainMenuManager : MonoBehaviour
         {
             if (ScreenTransition.goingIn)
             {
-                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, () => SettingsPanel.Up());
+                Utils.SetExclusiveAction(ref ScreenTransition.instance.InAction, Settings);
             }
-        return;
+            return;
         }
+        Settings();
+    }
+
+    public void Settings()
+    {
+        FadeOutMenu();
         SettingsPanel.Up();
+        SettingsPanel.OnClose = FadeInMenu;
+    }
+
+    void FadeOutMenu()
+    {
+        if (fadeTween != null)
+            Utils.KillTween(ref fadeTween);
+        fadeTween = buttonGroup.DOFade(0, 0.5f).SetUpdate(true);
+    }
+
+    void FadeInMenu()
+    {
+        if (fadeTween != null)
+            Utils.KillTween(ref fadeTween);
+        fadeTween = buttonGroup.DOFade(1, 0.5f).SetUpdate(true);
     }
 }
