@@ -24,7 +24,10 @@ public class playerHealth : MonoBehaviour
         UpdateHealthUI();
 
         if (currPlayerHealth <= 0)
+        {
+            
             Die();
+        }
 
         GiveIFrames();
         Debug.Log("Took player damage");
@@ -37,6 +40,11 @@ public class playerHealth : MonoBehaviour
         if (healthUI != null)
         {
             healthUI.UpdateHealth((int)currPlayerHealth, (int)maxPlayerHealth);
+        }
+        if (currPlayerHealth <= 0)
+        {
+            UpdateAbilitiesIcons abilityUI = FindFirstObjectByType<UpdateAbilitiesIcons>();
+            abilityUI.OnPlayerDie();
         }
     }
     public void Die()
