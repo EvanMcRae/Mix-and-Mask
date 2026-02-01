@@ -249,7 +249,7 @@ MonoBehaviour:
   maskTransform: {fileID: 8819291296875314493}
   maxPrimaryCooldown: 2.5
   maxSecondaryCooldown: 15
-  isUnderControl: 0
+  isUnderControl: 1
   maxHealth: 10
   health: 10
   type: 1

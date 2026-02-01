@@ -13,7 +13,7 @@ public class MaskEffect : MonoBehaviour {
     public bool transitionDirection = false;
     public bool isTransitioning = false;
     private float t;
-    private Color color;
+    [SerializeField] private Color color;
 
     public void OnEnable() {
         mask.onAttach.AddListener(OnAttach);
