@@ -100,6 +100,12 @@ public class LongArmController : ControllableEnemy
             Debug.Log("Player spin: Right arm enabled");
         }
         
+        // Start shoulder rotation animation
+        if (enemyScript.spinAttack != null)
+        {
+            enemyScript.spinAttack.StartShoulderRotation();
+        }
+        
         // Perform the spin
         float elapsed = 0f;
         while (elapsed < spinDuration)
@@ -115,6 +121,12 @@ public class LongArmController : ControllableEnemy
             float currentRotation = startRotation + (spinDegrees * progress);
             enemyScript.model.rotation = Quaternion.Euler(0f, currentRotation, 0f);
             
+            // Update shoulder rotation
+            if (enemyScript.spinAttack != null)
+            {
+                enemyScript.spinAttack.UpdateShoulderRotationManually();
+            }
+            
             yield return null;
         }
         
@@ -123,6 +135,27 @@ public class LongArmController : ControllableEnemy
             enemyScript.leftArmCollider.SetActive(false);
         if (enemyScript.rightArmCollider != null)
             enemyScript.rightArmCollider.SetActive(false);
+        
+        // Start shoulder reset animation
+        if (enemyScript.spinAttack != null)
+        {
+            enemyScript.spinAttack.StartShoulderReset();
+        }
+        
+        // Continue resetting shoulders during cooldown
+        float cooldownElapsed = 0f;
+        float cooldownDuration = 0.5f; // Match shoulder rotation duration
+        while (cooldownElapsed < cooldownDuration)
+        {
+            cooldownElapsed += Time.deltaTime;
+            
+            if (enemyScript.spinAttack != null)
+            {
+                enemyScript.spinAttack.UpdateShoulderRotationManually();
+            }
+            
+            yield return null;
+        }
         
         Debug.Log("Player spin: Complete!");
         isSpinning = false;
@@ -175,6 +208,12 @@ public class LongArmController : ControllableEnemy
             Debug.Log("Player punch: Right arm extended!");
         }
         
+        // Start shoulder rotation animation
+        if (enemyScript.punchAttack != null)
+        {
+            enemyScript.punchAttack.StartShoulderRotation();
+        }
+        
         // Extend phase - both arms move together
         float elapsed = 0f;
         while (elapsed < extendDuration)
@@ -186,6 +225,12 @@ public class LongArmController : ControllableEnemy
                 leftArm.transform.localPosition = Vector3.Lerp(leftArmOriginalPosition, leftArmTargetPosition, progress);
             if (rightArm != null)
                 rightArm.transform.localPosition = Vector3.Lerp(rightArmOriginalPosition, rightArmTargetPosition, progress);
+            
+            // Update shoulder rotation
+            if (enemyScript.punchAttack != null)
+            {
+                enemyScript.punchAttack.UpdateShoulderRotationManually();
+            }
             
             yield return null;
         }
@@ -202,6 +247,12 @@ public class LongArmController : ControllableEnemy
             if (rightArm != null)
                 rightArm.transform.localPosition = Vector3.Lerp(rightArmTargetPosition, rightArmOriginalPosition, progress);
             
+            // Update shoulder rotation
+            if (enemyScript.punchAttack != null)
+            {
+                enemyScript.punchAttack.UpdateShoulderRotationManually();
+            }
+            
             yield return null;
         }
         
@@ -215,6 +266,27 @@ public class LongArmController : ControllableEnemy
         {
             rightArm.transform.localPosition = rightArmOriginalPosition;
             rightArm.SetActive(false);
+        }
+        
+        // Start shoulder reset animation
+        if (enemyScript.punchAttack != null)
+        {
+            enemyScript.punchAttack.StartShoulderReset();
+        }
+        
+        // Continue resetting shoulders during cooldown
+        float cooldownElapsed = 0f;
+        float cooldownDuration = 0.5f; // Match shoulder rotation duration
+        while (cooldownElapsed < cooldownDuration)
+        {
+            cooldownElapsed += Time.deltaTime;
+            
+            if (enemyScript.punchAttack != null)
+            {
+                enemyScript.punchAttack.UpdateShoulderRotationManually();
+            }
+            
+            yield return null;
         }
         
         Debug.Log("Player punch: Complete!");
@@ -349,6 +421,19 @@ public class LongArmController : ControllableEnemy
             // Reset attack states
             isSpinning = false;
             isPunching = false;
+        }
+        
+        // Reset shoulders when releasing control
+        if (!underControl && enemyScript != null)
+        {
+            if (enemyScript.spinAttack != null)
+            {
+                enemyScript.spinAttack.ResetShouldersImmediately();
+            }
+            if (enemyScript.punchAttack != null)
+            {
+                enemyScript.punchAttack.ResetShouldersImmediately();
+            }
         }
     }
 

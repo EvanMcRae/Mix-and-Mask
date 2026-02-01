@@ -31,6 +31,10 @@ public class LongArmEnemy : EnemyBase
     [Header("Visual")]
     public Transform model;
     public float turnSpeed = 10f;
+    
+    [Header("Shoulder Bones")]
+    public Transform shoulderL;
+    public Transform shoulderR;
 
     private NavMeshAgent agent;
     private float stateTimer;
@@ -39,8 +43,8 @@ public class LongArmEnemy : EnemyBase
     private System.Collections.Generic.HashSet<GameObject> hitThisSpin = new System.Collections.Generic.HashSet<GameObject>();
     
     // Attack handlers
-    private LongArmSpinAttack spinAttack;
-    private LongArmPunchAttack punchAttack;
+    public LongArmSpinAttack spinAttack;
+    public LongArmPunchAttack punchAttack;
 
     public enum State
     {
@@ -70,7 +74,9 @@ public class LongArmEnemy : EnemyBase
 
         // Initialize attack handlers
         spinAttack = new LongArmSpinAttack(this, model, player);
+        spinAttack.SetShoulders(shoulderL, shoulderR);
         punchAttack = new LongArmPunchAttack(this, player);
+        punchAttack.SetShoulders(shoulderL, shoulderR);
 
         // Disable arm colliders initially
         if (leftArmCollider != null)
@@ -167,6 +173,10 @@ public class LongArmEnemy : EnemyBase
                 break;
 
             case State.Cooldown:
+                // Continue updating shoulder reset animation
+                if (spinAttack != null)
+                    spinAttack.UpdateShoulderReset();
+                    
                 stateTimer -= Time.deltaTime;
                 if (stateTimer <= 0f)
                 {
@@ -320,6 +330,7 @@ public class LongArmEnemy : EnemyBase
     void PerformPunchExtend()
     {
         punchAttack.PerformExtend(leftArmCollider, rightArmCollider, stateTimer, punchExtendDuration);
+        punchAttack.UpdateShoulderRotationManually();
         stateTimer -= Time.deltaTime;
         if (stateTimer <= 0f)
         {
@@ -331,6 +342,7 @@ public class LongArmEnemy : EnemyBase
     void PerformPunchRetract()
     {
         punchAttack.PerformRetract(leftArmCollider, rightArmCollider, stateTimer, punchRetractDuration);
+        punchAttack.UpdateShoulderRotationManually();
         stateTimer -= Time.deltaTime;
         if (stateTimer <= 0f)
         {

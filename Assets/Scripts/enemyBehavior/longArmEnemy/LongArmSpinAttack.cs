@@ -12,16 +12,28 @@ public class LongArmSpinAttack
     private float spinRotationProgress;
     private float spinStartRotation;
     
+    // Shoulder rotation helper
+    private ShoulderRotation shoulderRotation;
+    
     public LongArmSpinAttack(LongArmEnemy enemy, Transform model, Transform player)
     {
         this.enemy = enemy;
         this.model = model;
         this.player = player;
+        
+        // Initialize shoulder rotation: Z-axis, left=-50, right=+50
+        shoulderRotation = new ShoulderRotation(ShoulderRotation.RotationAxis.Z, -50f, 50f);
     }
 
     public void UpdatePlayer(Transform player)
     {
         this.player = player;
+    }
+    
+    public void SetShoulders(Transform shoulderL, Transform shoulderR)
+    {
+        shoulderRotation.shoulderL = shoulderL;
+        shoulderRotation.shoulderR = shoulderR;
     }
 
     public void Start(GameObject leftArmCollider, GameObject rightArmCollider, HashSet<GameObject> hitThisSpin)
@@ -57,6 +69,10 @@ public class LongArmSpinAttack
 
         // Clear hit tracking
         hitThisSpin.Clear();
+        
+        // Start shoulder rotation
+        shoulderRotation.StartRotation();
+        
         Debug.Log("Starting spin attack!");
     }
 
@@ -71,6 +87,14 @@ public class LongArmSpinAttack
         spinRotationProgress = 1f - (stateTimer / spinDuration);
         float currentRotation = spinStartRotation + (spinRotationDegrees * spinRotationProgress);
         model.rotation = Quaternion.Euler(0f, currentRotation, 0f);
+        
+        // Update shoulder rotation
+        shoulderRotation.Update();
+    }
+    
+    private void UpdateShoulderRotation()
+    {
+        shoulderRotation.Update();
     }
 
     public void End(GameObject leftArmCollider, GameObject rightArmCollider, HashSet<GameObject> hitThisSpin)
@@ -83,5 +107,34 @@ public class LongArmSpinAttack
 
         // Clear hit tracking
         hitThisSpin.Clear();
+        
+        // Start resetting shoulder rotation
+        shoulderRotation.StartReset();
+    }
+    
+    public void UpdateShoulderReset()
+    {
+        shoulderRotation.UpdateReset();
+    }
+    
+    // Public methods for player control
+    public void StartShoulderRotation()
+    {
+        shoulderRotation.StartRotation();
+    }
+    
+    public void UpdateShoulderRotationManually()
+    {
+        shoulderRotation.Update();
+    }
+    
+    public void StartShoulderReset()
+    {
+        shoulderRotation.StartReset();
+    }
+    
+    public void ResetShouldersImmediately()
+    {
+        shoulderRotation.ResetImmediately();
     }
 }

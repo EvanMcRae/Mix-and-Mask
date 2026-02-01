@@ -12,15 +12,27 @@ public class LongArmPunchAttack
     private Vector3 rightArmTargetPosition;
     private Vector3 punchDirection;
     
+    // Shoulder rotation helper
+    private ShoulderRotation shoulderRotation;
+    
     public LongArmPunchAttack(LongArmEnemy enemy, Transform player)
     {
         this.enemy = enemy;
         this.player = player;
+        
+        // Initialize shoulder rotation: X-axis, both shoulders +100 degrees
+        shoulderRotation = new ShoulderRotation(ShoulderRotation.RotationAxis.X, -100f, -100f);
     }
 
     public void UpdatePlayer(Transform player)
     {
         this.player = player;
+    }
+    
+    public void SetShoulders(Transform shoulderL, Transform shoulderR)
+    {
+        shoulderRotation.shoulderL = shoulderL;
+        shoulderRotation.shoulderR = shoulderR;
     }
 
     public void Start(GameObject leftArmCollider, GameObject rightArmCollider, float punchExtendDistance, HashSet<GameObject> hitThisSpin)
@@ -50,6 +62,9 @@ public class LongArmPunchAttack
         }
     
         hitThisSpin.Clear();
+        
+        // Start shoulder rotation
+        shoulderRotation.StartRotation();
     }
 
     public void PerformExtend(GameObject leftArmCollider, GameObject rightArmCollider, float stateTimer, float punchExtendDuration)
@@ -65,6 +80,9 @@ public class LongArmPunchAttack
         {
             rightArmCollider.transform.localPosition = Vector3.Lerp(rightArmOriginalPosition, rightArmTargetPosition, progress);
         }
+        
+        // Update shoulder rotation
+        shoulderRotation.Update();
     }
 
     public void PerformRetract(GameObject leftArmCollider, GameObject rightArmCollider, float stateTimer, float punchRetractDuration)
@@ -80,6 +98,9 @@ public class LongArmPunchAttack
         {
             rightArmCollider.transform.localPosition = Vector3.Lerp(rightArmTargetPosition, rightArmOriginalPosition, progress);
         }
+        
+        // Update shoulder rotation
+        shoulderRotation.Update();
     }
 
     public void End(GameObject leftArmCollider, GameObject rightArmCollider, HashSet<GameObject> hitThisSpin)
@@ -99,5 +120,39 @@ public class LongArmPunchAttack
 
         // Clear hit tracking
         hitThisSpin.Clear();
+        
+        // Start resetting shoulder rotation
+        shoulderRotation.StartReset();
+    }
+    
+    private void UpdateShoulderRotation()
+    {
+        shoulderRotation.Update();
+    }
+    
+    public void UpdateShoulderReset()
+    {
+        shoulderRotation.UpdateReset();
+    }
+    
+    // Public methods for player control
+    public void StartShoulderRotation()
+    {
+        shoulderRotation.StartRotation();
+    }
+    
+    public void UpdateShoulderRotationManually()
+    {
+        shoulderRotation.Update();
+    }
+    
+    public void StartShoulderReset()
+    {
+        shoulderRotation.StartReset();
+    }
+    
+    public void ResetShouldersImmediately()
+    {
+        shoulderRotation.ResetImmediately();
     }
 }
