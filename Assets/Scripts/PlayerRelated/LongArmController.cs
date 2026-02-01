@@ -143,45 +143,79 @@ public class LongArmController : ControllableEnemy
         punchDirection.y = 0f;
         punchDirection.Normalize();
         
-        GameObject armCollider = enemyScript.rightArmCollider;
-        if (armCollider == null)
+        GameObject leftArm = enemyScript.leftArmCollider;
+        GameObject rightArm = enemyScript.rightArmCollider;
+        
+        if (leftArm == null && rightArm == null)
         {
-            Debug.LogWarning("Right arm collider is null, cannot punch!");
+            Debug.LogWarning("Both arm colliders are null, cannot punch!");
             isPunching = false;
             yield break;
         }
         
-        // Store original position
-        Vector3 armOriginalPosition = armCollider.transform.localPosition;
-        Vector3 armTargetPosition = armOriginalPosition + armCollider.transform.InverseTransformDirection(punchDirection * punchDistance);
+        // Store original positions for both arms
+        Vector3 leftArmOriginalPosition = Vector3.zero;
+        Vector3 leftArmTargetPosition = Vector3.zero;
+        Vector3 rightArmOriginalPosition = Vector3.zero;
+        Vector3 rightArmTargetPosition = Vector3.zero;
         
-        // Enable arm collider
-        armCollider.SetActive(true);
-        Debug.Log("Player punch: Right arm extended!");
+        if (leftArm != null)
+        {
+            leftArmOriginalPosition = leftArm.transform.localPosition;
+            leftArmTargetPosition = leftArmOriginalPosition + leftArm.transform.InverseTransformDirection(punchDirection * punchDistance);
+            leftArm.SetActive(true);
+            Debug.Log("Player punch: Left arm extended!");
+        }
         
-        // Extend phase
+        if (rightArm != null)
+        {
+            rightArmOriginalPosition = rightArm.transform.localPosition;
+            rightArmTargetPosition = rightArmOriginalPosition + rightArm.transform.InverseTransformDirection(punchDirection * punchDistance);
+            rightArm.SetActive(true);
+            Debug.Log("Player punch: Right arm extended!");
+        }
+        
+        // Extend phase - both arms move together
         float elapsed = 0f;
         while (elapsed < extendDuration)
         {
             elapsed += Time.deltaTime;
             float progress = elapsed / extendDuration;
-            armCollider.transform.localPosition = Vector3.Lerp(armOriginalPosition, armTargetPosition, progress);
+            
+            if (leftArm != null)
+                leftArm.transform.localPosition = Vector3.Lerp(leftArmOriginalPosition, leftArmTargetPosition, progress);
+            if (rightArm != null)
+                rightArm.transform.localPosition = Vector3.Lerp(rightArmOriginalPosition, rightArmTargetPosition, progress);
+            
             yield return null;
         }
         
-        // Retract phase
+        // Retract phase - both arms move together
         elapsed = 0f;
         while (elapsed < retractDuration)
         {
             elapsed += Time.deltaTime;
             float progress = elapsed / retractDuration;
-            armCollider.transform.localPosition = Vector3.Lerp(armTargetPosition, armOriginalPosition, progress);
+            
+            if (leftArm != null)
+                leftArm.transform.localPosition = Vector3.Lerp(leftArmTargetPosition, leftArmOriginalPosition, progress);
+            if (rightArm != null)
+                rightArm.transform.localPosition = Vector3.Lerp(rightArmTargetPosition, rightArmOriginalPosition, progress);
+            
             yield return null;
         }
         
-        // Ensure arm is back at original position
-        armCollider.transform.localPosition = armOriginalPosition;
-        armCollider.SetActive(false);
+        // Ensure arms are back at original positions
+        if (leftArm != null)
+        {
+            leftArm.transform.localPosition = leftArmOriginalPosition;
+            leftArm.SetActive(false);
+        }
+        if (rightArm != null)
+        {
+            rightArm.transform.localPosition = rightArmOriginalPosition;
+            rightArm.SetActive(false);
+        }
         
         Debug.Log("Player punch: Complete!");
         isPunching = false;
@@ -300,7 +334,11 @@ public class LongArmController : ControllableEnemy
         if (underControl && enemyScript != null)
         {
             if (enemyScript.leftArmCollider != null)
+            {
                 enemyScript.leftArmCollider.SetActive(false);
+                // Reset arm position to original
+                enemyScript.leftArmCollider.transform.localPosition = Vector3.zero;
+            }
             if (enemyScript.rightArmCollider != null)
             {
                 enemyScript.rightArmCollider.SetActive(false);

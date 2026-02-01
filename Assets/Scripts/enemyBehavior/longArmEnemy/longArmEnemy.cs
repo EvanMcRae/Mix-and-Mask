@@ -34,18 +34,13 @@ public class LongArmEnemy : EnemyBase
 
     private NavMeshAgent agent;
     private float stateTimer;
-    private Vector3 lungeDirection;
-    private Vector3 lungeStartPosition;
-    private float spinRotationProgress;
-    private float spinStartRotation;
 
     // Track which objects we've hit this spin to prevent multiple hits
     private System.Collections.Generic.HashSet<GameObject> hitThisSpin = new System.Collections.Generic.HashSet<GameObject>();
     
-    // Punch attack state
-    private Vector3 armOriginalPosition;
-    private Vector3 armTargetPosition;
-    private Vector3 punchDirection;
+    // Attack handlers
+    private LongArmSpinAttack spinAttack;
+    private LongArmPunchAttack punchAttack;
 
     public enum State
     {
@@ -73,6 +68,10 @@ public class LongArmEnemy : EnemyBase
 
         state = State.Move;
 
+        // Initialize attack handlers
+        spinAttack = new LongArmSpinAttack(this, model, player);
+        punchAttack = new LongArmPunchAttack(this, player);
+
         // Disable arm colliders initially
         if (leftArmCollider != null)
             leftArmCollider.SetActive(false);
@@ -83,6 +82,13 @@ public class LongArmEnemy : EnemyBase
     public override void Update()
     {
         base.Update();
+        
+        // Update player references in attack handlers
+        if (spinAttack != null)
+            spinAttack.UpdatePlayer(player);
+        if (punchAttack != null)
+            punchAttack.UpdatePlayer(player);
+            
         UpdateState();
         Act();
     }
@@ -226,55 +232,14 @@ public class LongArmEnemy : EnemyBase
     void StartSpin()
     {
         agent.enabled = false;
-
-        // Calculate lunge direction toward player
-        lungeDirection = (player.position - transform.position).normalized;
-        lungeDirection.y = 0f;
-
-        lungeStartPosition = transform.position;
-        spinRotationProgress = 0f;
-        spinStartRotation = model.eulerAngles.y;
         stateTimer = spinDuration;
         state = State.Spin;
-
-        // Enable arm colliders
-        if (leftArmCollider != null)
-        {
-            leftArmCollider.SetActive(true);
-            Debug.Log("Left arm collider enabled");
-        }
-        else
-        {
-            Debug.LogWarning("Left arm collider is null!");
-        }
-        
-        if (rightArmCollider != null)
-        {
-            rightArmCollider.SetActive(true);
-            Debug.Log("Right arm collider enabled");
-        }
-        else
-        {
-            Debug.LogWarning("Right arm collider is null!");
-        }
-
-        // Clear hit tracking
-        hitThisSpin.Clear();
-        Debug.Log("Starting spin attack!");
+        spinAttack.Start(leftArmCollider, rightArmCollider, hitThisSpin);
     }
 
     void PerformSpin()
     {
-        // Move forward
-        float lungeProgress = 1f - (stateTimer / spinDuration);
-        Vector3 targetPosition = lungeStartPosition + lungeDirection * lungeDistance;
-        transform.position = Vector3.Lerp(lungeStartPosition, targetPosition, lungeProgress);
-
-        // Rotate the entire enemy (and thus the arm colliders)
-        spinRotationProgress = 1f - (stateTimer / spinDuration);
-        float currentRotation = spinStartRotation + (spinRotationDegrees * spinRotationProgress);
-        model.rotation = Quaternion.Euler(0f, currentRotation, 0f);
-
+        spinAttack.Perform(stateTimer, spinDuration, lungeDistance, spinRotationDegrees);
         stateTimer -= Time.deltaTime;
         if (stateTimer <= 0f)
         {
@@ -284,16 +249,7 @@ public class LongArmEnemy : EnemyBase
 
     void EndSpin()
     {
-        // Disable arm colliders
-        if (leftArmCollider != null)
-            leftArmCollider.SetActive(false);
-        if (rightArmCollider != null)
-            rightArmCollider.SetActive(false);
-
-        // Clear hit tracking
-        hitThisSpin.Clear();
-
-        // Transition to cooldown
+        spinAttack.End(leftArmCollider, rightArmCollider, hitThisSpin);
         state = State.Cooldown;
         stateTimer = cooldownTime;
         nextAttackTime = Time.time + attackCooldown;
@@ -307,13 +263,6 @@ public class LongArmEnemy : EnemyBase
         if (state != State.Spin)
         {
             Debug.Log("Not in Spin state, ignoring collision");
-            return;
-        }
-
-        // Prevent hitting the same target multiple times in one spin
-        if (hitThisSpin.Contains(other.gameObject))
-        {
-            Debug.Log($"Already hit {other.name} this spin, ignoring");
             return;
         }
 
@@ -348,14 +297,14 @@ public class LongArmEnemy : EnemyBase
         }
         else if (other.CompareTag("Enemy"))
         {
-            // Can hit other possessed enemies
-            ControllableEnemy controlledEnemy = other.GetComponent<ControllableEnemy>();
-            if (controlledEnemy != null && controlledEnemy.isUnderControl)
+            ControllableEnemy hitEnemy = other.GetComponent<ControllableEnemy>();
+            
+            // Don't hit yourself
+            if (hitEnemy != null && hitEnemy != this.GetComponent<ControllableEnemy>())
             {
                 hitThisSpin.Add(other.gameObject);
-                Debug.Log($"Player-controlled enemy hit by long arm enemy (health before: {controlledEnemy.health}, damage: {damage})");
-                controlledEnemy.TakeDamage(damage);
-                Debug.Log($"Enemy health after hit: {controlledEnemy.health}");
+                hitEnemy.TakeDamage(damage);
+                Debug.Log($"Enemy hit by long arm enemy, damage: {damage}");
             }
         }
     }
@@ -363,33 +312,14 @@ public class LongArmEnemy : EnemyBase
     void StartPunch()
     {
         agent.enabled = false;
-
-        // Calculate punch direction toward player
-        punchDirection = (player.position - transform.position).normalized;
-        punchDirection.y = 0f;
-
-        // Use right arm for punch
-        if (rightArmCollider != null)
-        {
-            armOriginalPosition = rightArmCollider.transform.localPosition;
-            armTargetPosition = armOriginalPosition + rightArmCollider.transform.InverseTransformDirection(punchDirection * punchExtendDistance);
-            rightArmCollider.SetActive(true);
-            Debug.Log("Right arm punch started!");
-        }
-
-        hitThisSpin.Clear();
+        punchAttack.Start(leftArmCollider, rightArmCollider, punchExtendDistance, hitThisSpin);
         stateTimer = punchExtendDuration;
         state = State.PunchExtend;
     }
 
     void PerformPunchExtend()
     {
-        if (rightArmCollider != null)
-        {
-            float progress = 1f - (stateTimer / punchExtendDuration);
-            rightArmCollider.transform.localPosition = Vector3.Lerp(armOriginalPosition, armTargetPosition, progress);
-        }
-
+        punchAttack.PerformExtend(leftArmCollider, rightArmCollider, stateTimer, punchExtendDuration);
         stateTimer -= Time.deltaTime;
         if (stateTimer <= 0f)
         {
@@ -400,12 +330,7 @@ public class LongArmEnemy : EnemyBase
 
     void PerformPunchRetract()
     {
-        if (rightArmCollider != null)
-        {
-            float progress = 1f - (stateTimer / punchRetractDuration);
-            rightArmCollider.transform.localPosition = Vector3.Lerp(armTargetPosition, armOriginalPosition, progress);
-        }
-
+        punchAttack.PerformRetract(leftArmCollider, rightArmCollider, stateTimer, punchRetractDuration);
         stateTimer -= Time.deltaTime;
         if (stateTimer <= 0f)
         {
@@ -415,17 +340,7 @@ public class LongArmEnemy : EnemyBase
 
     void EndPunch()
     {
-        // Disable arm collider
-        if (rightArmCollider != null)
-        {
-            rightArmCollider.SetActive(false);
-            rightArmCollider.transform.localPosition = armOriginalPosition;
-        }
-
-        // Clear hit tracking
-        hitThisSpin.Clear();
-
-        // Transition to cooldown
+        punchAttack.End(leftArmCollider, rightArmCollider, hitThisSpin);
         state = State.Cooldown;
         stateTimer = cooldownTime;
         nextAttackTime = Time.time + attackCooldown;

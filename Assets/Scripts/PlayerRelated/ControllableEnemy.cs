@@ -52,8 +52,24 @@ public class ControllableEnemy : MonoBehaviour
 
         //Debug.Log("Enemy is under Control");
 
-        if (_rigidbody.linearVelocity.magnitude < maxSpeed) _rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
-        else _rigidbody.linearVelocity = _rigidbody.linearVelocity.normalized * maxSpeed;
+        // Calculate target velocity based on input
+        Vector3 targetVelocity = new Vector3(moveDir.x, 0, moveDir.y) * maxSpeed;
+        
+        // Smoothly interpolate current velocity towards target velocity
+        Vector3 currentVelocity = _rigidbody.linearVelocity;
+        Vector3 velocityChange = targetVelocity - new Vector3(currentVelocity.x, 0, currentVelocity.z);
+        
+        // Apply acceleration with deltaTime consideration
+        Vector3 newVelocity = currentVelocity + velocityChange * (moveAcceleration * Time.fixedDeltaTime);
+        
+        // Preserve Y velocity (gravity) and clamp horizontal velocity to maxSpeed
+        Vector3 horizontalVelocity = new Vector3(newVelocity.x, 0, newVelocity.z);
+        if (horizontalVelocity.magnitude > maxSpeed)
+        {
+            horizontalVelocity = horizontalVelocity.normalized * maxSpeed;
+        }
+        
+        _rigidbody.linearVelocity = new Vector3(horizontalVelocity.x, currentVelocity.y, horizontalVelocity.z);
     }
 
     public virtual void Move(Vector2 moveDir)
