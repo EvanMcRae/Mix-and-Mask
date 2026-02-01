@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SelectOnPointerMove : MonoBehaviour, IPointerMoveHandler, IPointerEnterHandler, ISelectHandler, IDeselectHandler, IPointerDownHandler, IPointerUpHandler
 {
-    public static bool disabledEnter = false;
+    public static bool disabledEnter = false, disabledSound = false;
     private bool selected = false, pressed = false;
     [SerializeField] private GameObject[] dependencies;
 
@@ -37,7 +37,8 @@ public class SelectOnPointerMove : MonoBehaviour, IPointerMoveHandler, IPointerE
                     image.color = GetComponent<Selectable>().colors.selectedColor;
             }
         }
-        AkUnitySoundEngine.PostEvent("Highlight", Utils.WwiseGlobal);
+        if (!disabledSound)
+            AkUnitySoundEngine.PostEvent("Highlight", Utils.WwiseGlobal);
     }
 
     public void OnDeselect(BaseEventData eventData)
