@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.InputSystem; // <--- THIS LINE IS REQUIRED FOR 'Keyboard'
+using UnityEngine.InputSystem;
+using UnityEngine.VFX; // <--- THIS LINE IS REQUIRED FOR 'Keyboard'
 
 public class WaveManager : MonoBehaviour
 {
@@ -20,10 +21,16 @@ public class WaveManager : MonoBehaviour
     private bool isClearing = false;
     public static bool GameOver = false;
 
+    private int totalEnemies = 0;
+
+    private BarScaler barUI;
+    public VisualEffect enemySpawnVFX;
+
     void Start()
     {
         spawnPoints.AddRange(FindObjectsByType<WaveSpawnPoint>(FindObjectsSortMode.None));
-        StartNextWave(); 
+        StartNextWave();
+        barUI = FindFirstObjectByType<BarScaler>();
     }
 
     void Update()
@@ -62,10 +69,14 @@ public class WaveManager : MonoBehaviour
             for (int i = 0; i < Mathf.Max(0, count); i++)
             {
                 SpawnRandomEnemy(point);
+                
                 activeEnemies++;
                 yield return new WaitForSeconds(0.1f);
             }
         }
+        totalEnemies = activeEnemies;
+        //Total enemies in the current wave
+        barUI.UpdateBars(1.0f);
         spawningWave = false;
     }
 
@@ -77,6 +88,10 @@ public class WaveManager : MonoBehaviour
         Vector2 randomPoint = Random.insideUnitCircle * point.scatterRadius;
         Vector3 spawnPos = new Vector3(point.transform.position.x + randomPoint.x, point.transform.position.y, point.transform.position.z + randomPoint.y);
         
+        VisualEffect vfxObj = Instantiate(enemySpawnVFX);
+        vfxObj.gameObject.transform.position = spawnPos + new Vector3(0, 0.05f, 0);
+        vfxObj.Play();
+        
         Instantiate(randomPrefab, spawnPos, Quaternion.identity);
     }
 
@@ -87,7 +102,7 @@ public class WaveManager : MonoBehaviour
             activeEnemies--; 
             return;
         }
-
+        barUI.UpdateBars(activeEnemies/totalEnemies);
         activeEnemies--;
         if (activeEnemies <= 0 && !spawningWave)
         {
@@ -132,4 +147,6 @@ public class WaveManager : MonoBehaviour
     {
         GameOver = false;
     }
+
+
 }
