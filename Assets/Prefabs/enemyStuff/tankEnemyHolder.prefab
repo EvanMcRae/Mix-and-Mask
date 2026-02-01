@@ -156,9 +156,10 @@ MonoBehaviour:
   moveAcceleration: 7
   maxSpeed: 9
   maskTransform: {fileID: 4711953940606790409}
-  maxPrimaryCooldown: 5
+  maxPrimaryCooldown: 1.5
   maxSecondaryCooldown: 10
   isUnderControl: 0
+  maxHealth: 10
   health: 10
   type: 2
   tankModel: {fileID: 4840359870832052907}
