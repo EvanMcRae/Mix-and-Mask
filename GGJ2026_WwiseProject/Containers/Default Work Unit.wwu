@@ -504,9 +504,14 @@
 						</PropertyContainer>
 						<PropertyContainer Name="UI" ID="{29A505CE-64B4-492A-A8CF-8D1FA46B8C11}" ShortID="664802836">
 							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>29</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-2</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -704,6 +709,31 @@
 												<ActiveSource Name="BIG HIT" ID="{C0BACC39-FDA8-4F83-AA85-CC9D1D562B75}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+									</ChildrenList>
+								</PropertyContainer>
+								<PropertyContainer Name="Spinning Enemy" ID="{419E21CC-FC79-4CE5-A740-0E211D5ABF20}" ShortID="1001962650">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{34A7A9EE-75B0-4FED-8385-32D7E761783B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Spin" ID="{3DB6709E-7AFA-4E60-BDD7-4D97A51F6527}" ShortID="554345459">
+											<PropertyList>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{34A7A9EE-75B0-4FED-8385-32D7E761783B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{92E53005-C45A-4C10-BCA0-2EB308A51A0A}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</PropertyContainer>
 							</ChildrenList>

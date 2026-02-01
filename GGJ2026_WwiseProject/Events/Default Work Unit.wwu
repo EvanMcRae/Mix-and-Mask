@@ -212,20 +212,21 @@
 						</Event>
 						<Event Name="Possessnot" ID="{070EAE3F-6344-4187-AFF0-36027ABFBDD7}">
 							<ChildrenList>
-								<Action Name="" ID="{7AF6198F-6BA1-4D66-B6BE-121FD75C8F97}" ShortID="525200398">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="22"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="JustMask" ID="{9A454829-8DAD-4751-AE40-BFB9E6E00BC7}" WorkUnitID="{77809AD6-F2DB-4AAE-B394-A8716712741C}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 								<Action Name="" ID="{C47ADFFA-765A-417C-9318-88F6C3674754}" ShortID="848927598">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Unpossess" ID="{2A6E73C4-BBEF-43CD-834B-DCF7BC977A55}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7AF6198F-6BA1-4D66-B6BE-121FD75C8F97}" ShortID="525200398">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+										<Property Name="Delay" Type="Real64" Value="3"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JustMask" ID="{9A454829-8DAD-4751-AE40-BFB9E6E00BC7}" WorkUnitID="{77809AD6-F2DB-4AAE-B394-A8716712741C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
