@@ -69,7 +69,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{FE8BFB5B-FAD6-2C39-8EAD-0BC4A33CFA18}">
+		<SoundBank Id="3161908922" Type="User" GUID="{AADF2FDE-C3E3-4214-9FE8-62F7FDF1A5E5}" Language="SFX" Hash="{D463F1B6-0A21-71D3-B418-478291DAA24B}">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -117,6 +117,14 @@
 				<File Id="186814078" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Level V1B_VIolin 2 Legato_147_8B_1p master.wav</ShortName>
 					<CachePath>EB/{EBEA0D12-4221-37D8-F70C-8BEAFFB3825D}.wem</CachePath>
+				</File>
+				<File Id="200480144" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Beep_2.wav</ShortName>
+					<CachePath>8B/{8B533A0D-F067-08D6-EF40-A9427BF8AE8A}.wem</CachePath>
+				</File>
+				<File Id="223144473" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Beep_1.wav</ShortName>
+					<CachePath>73/{731DED40-1E05-B836-6A62-52E5C9A2C575}.wem</CachePath>
 				</File>
 				<File Id="231202635" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Possess Keys jingle#01_bip_2.1.wav</ShortName>
@@ -273,6 +281,10 @@
 				<File Id="1004767331" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Transition C2B_VIolin 2 Trill_147_3p master.wav</ShortName>
 					<CachePath>F3/{F3D5A272-05B3-A42B-7FE0-12D20F250ACD}.wem</CachePath>
+				</File>
+				<File Id="1024512673" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Beep.wav</ShortName>
+					<CachePath>95/{959628C8-0C54-31A7-BBE4-96076E69BB85}.wem</CachePath>
 				</File>
 				<File Id="1044414243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BIG HIT.wav</ShortName>
@@ -446,6 +458,22 @@
 				</ShareSets>
 			</Plugins>
 			<Events>
+				<Event Id="1559875400" Name="Back" ObjectPath="\Events\Default Work Unit\UI\Back" GUID="{C34702DB-279E-4BCB-80F0-3E19F6594FC9}" DurationType="OneShot" DurationMin="0.8268075" DurationMax="0.8268075">
+					<MediaRefs>
+						<MediaRef Id="200480144"/>
+					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
+					</AuxBusRefs>
+				</Event>
+				<Event Id="3174665583" Name="Highlight" ObjectPath="\Events\Default Work Unit\UI\Highlight" GUID="{10E72362-305D-4846-9101-0FA9C396057E}" DurationType="OneShot" DurationMin="0.9297907" DurationMax="0.9297907">
+					<MediaRefs>
+						<MediaRef Id="1024512673"/>
+					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
+					</AuxBusRefs>
+				</Event>
 				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Player Related\Jump" GUID="{F8909CA3-4E47-4DB7-A101-75C00E692BC9}" DurationType="OneShot" DurationMin="0.19611153" DurationMax="0.19611153">
 					<MediaRefs>
 						<MediaRef Id="314107693"/>
@@ -733,6 +761,14 @@
 					</AuxBusRefs>
 				</Event>
 				<Event Id="3240900869" Name="ResumeAll" ObjectPath="\Events\Default Work Unit\ResumeAll" GUID="{695C7766-F115-4D6C-9E9E-61E0B4242567}" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1432588725" Name="Select" ObjectPath="\Events\Default Work Unit\UI\Select" GUID="{32BCC230-0318-4854-9D19-8AA1DC97908F}" DurationType="OneShot" DurationMin="0.7973838" DurationMax="0.7973838">
+					<MediaRefs>
+						<MediaRef Id="223144473"/>
+					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="2411154035" Name="Hallverb" ObjectPath="\Busses\Default Work Unit\Main Audio Bus\SFX\Hallverb" GUID="{77350F67-CDEF-4075-A896-F7C4BBBF0E3C}"/>
+					</AuxBusRefs>
+				</Event>
 				<Event Id="1521187885" Name="StartGame" ObjectPath="\Events\Default Work Unit\Music\StartGame" GUID="{3528EA39-2F60-4568-9F2A-C9DDCE3A2639}" DurationType="Infinite">
 					<SwitchContainers>
 						<SwitchContainer>
@@ -1140,5 +1176,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{78D69DB0-AE2A-BE66-D2A3-2D9BBBE2E0FD}</FileHash>
+	<FileHash>{229B16D1-6989-480C-8FD0-9233242BEBBF}</FileHash>
 </SoundBanksInfo>

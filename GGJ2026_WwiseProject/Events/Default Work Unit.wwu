@@ -244,6 +244,43 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="UI" ID="{DD7C49A6-5C1C-4F44-B4E3-3291A41A285A}" ShortID="996271954">
+					<ChildrenList>
+						<Event Name="Highlight" ID="{10E72362-305D-4846-9101-0FA9C396057E}">
+							<ChildrenList>
+								<Action Name="" ID="{E63618CE-6792-4733-8B86-F40D4FBF195E}" ShortID="1069504811">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Highlight" ID="{9C808E4F-F532-4662-A5CD-79C990DC905B}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Select" ID="{32BCC230-0318-4854-9D19-8AA1DC97908F}">
+							<ChildrenList>
+								<Action Name="" ID="{793B8905-2ED1-4F18-8858-470CAAEAE84D}" ShortID="843671690">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Select" ID="{BFF0F9DE-B778-44E3-A442-CFF679605317}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Back" ID="{C34702DB-279E-4BCB-80F0-3E19F6594FC9}">
+							<ChildrenList>
+								<Action Name="" ID="{0436044E-93CB-48A8-88A9-F50CF8E7C1C9}" ShortID="718970856">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Back" ID="{D0295822-7514-451D-BD3C-024962CCDEF8}" WorkUnitID="{F86F4727-6DAC-45F7-B45A-F22A2D226627}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

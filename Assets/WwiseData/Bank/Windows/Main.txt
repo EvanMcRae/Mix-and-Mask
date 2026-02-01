@@ -2,9 +2,12 @@ Event	ID	Name			Wwise Object Path	Notes
 	47246163	Possess			\Default Work Unit\Player Related\Possess	
 	337406793	PlayerDamage			\Default Work Unit\Player Related\PlayerDamage	
 	830775945	Pullback			\Default Work Unit\Player Related\Pullback	
+	1432588725	Select			\Default Work Unit\UI\Select	
 	1521187885	StartGame			\Default Work Unit\Music\StartGame	
+	1559875400	Back			\Default Work Unit\UI\Back	
 	1917263390	StopMusic			\Default Work Unit\Music\StopMusic	
 	2922217614	StopPanic			\Default Work Unit\StopPanic	
+	3174665583	Highlight			\Default Work Unit\UI\Highlight	
 	3240900869	ResumeAll			\Default Work Unit\ResumeAll	
 	3348899946	Possessnot			\Default Work Unit\Player Related\Possessnot	
 	3593803035	PlayTitle			\Default Work Unit\Music\PlayTitle	
@@ -222,6 +225,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	138676990	Level V1A_VIolin 2 Legato_147_8B_1p master	.cache\DF\{DFB0B424-70BE-5F4C-6A79-8D5BFA3000F9}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1A\Level V1A_VIolin 2 Legato_147_8B_1p master		251632
 	181384360	Level C_Cello Harmonic_147_16B_1p master	.cache\0F\{0F6FC4EC-0396-AE33-449F-383C2B80A4BE}.wem		\Containers\Music Work Unit\Music\Level\Possessing\C1\Level C_Cello Harmonic_147_16B_1p master		381411
 	186814078	Level V1B_VIolin 2 Legato_147_8B_1p master	.cache\EB\{EBEA0D12-4221-37D8-F70C-8BEAFFB3825D}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1B\Level V1B_VIolin 2 Legato_147_8B_1p master		248840
+	200480144	Back	.cache\8B\{8B533A0D-F067-08D6-EF40-A9427BF8AE8A}.wem		\Containers\Default Work Unit\SFX\UI\Back		145944
+	223144473	Select	.cache\73\{731DED40-1E05-B836-6A62-52E5C9A2C575}.wem		\Containers\Default Work Unit\SFX\UI\Select		140756
 	231202635	Possess Keys jingle#01_bip_2	.cache\73\{734734B7-E285-0660-1436-239916135333}.wem		\Containers\Default Work Unit\SFX\Player\Possess\Possess Keys jingle#01_bip_2		88020
 	231853013	Level V1A_Cello Pizz_147_8B_1p master	.cache\D1\{D1530644-448A-3B75-401D-27FD7C8B0A51}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V1A\Level V1A_Cello Pizz_147_8B_1p master		243462
 	239623173	Pull Back	.cache\75\{75641A98-3554-02C9-27E9-17F680BC6FA7}.wem		\Containers\Default Work Unit\SFX\Player\Pull Back\Pull Back		54096
@@ -261,5 +266,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	980527910	Level V2_VIolin 2 Legato_147_8B_1p master	.cache\03\{035C80D7-078A-DB17-BAA5-FE9AB2FDB2D6}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V2\Level V2_VIolin 2 Legato_147_8B_1p master		186989
 	1001349646	Level V2_VIolin 2 Trem_147_8B_1p master	.cache\E0\{E03434DF-6F22-59E4-5584-EB67DCA58337}.wem		\Containers\Music Work Unit\Music\Level\Possessing\V2\Level V2_VIolin 2 Trem_147_8B_1p master		238412
 	1004767331	Transition C2B_VIolin 2 Trill_147_3p master	.cache\F3\{F3D5A272-05B3-A42B-7FE0-12D20F250ACD}.wem		\Containers\Music Work Unit\Music\Level\Transitions\To C Key\Transition C2B_VIolin 2 Trill_147_3p master		103601
+	1024512673	Highlight	.cache\95\{959628C8-0C54-31A7-BBE4-96076E69BB85}.wem		\Containers\Default Work Unit\SFX\UI\Highlight		164112
 	1044414243	Damage	.cache\32\{3200161A-88CB-1E4E-489F-679754EB7FED}.wem		\Containers\Default Work Unit\SFX\Player\Damage		84168
 

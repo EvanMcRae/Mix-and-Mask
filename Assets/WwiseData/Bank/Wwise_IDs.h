@@ -13,6 +13,8 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BACK = 1559875400U;
+        static const AkUniqueID HIGHLIGHT = 3174665583U;
         static const AkUniqueID JUMP = 3833651337U;
         static const AkUniqueID PAUSEALL = 4091047182U;
         static const AkUniqueID PLAYERDAMAGE = 337406793U;
@@ -21,6 +23,7 @@ namespace AK
         static const AkUniqueID POSSESSNOT = 3348899946U;
         static const AkUniqueID PULLBACK = 830775945U;
         static const AkUniqueID RESUMEALL = 3240900869U;
+        static const AkUniqueID SELECT = 1432588725U;
         static const AkUniqueID STARTGAME = 1521187885U;
         static const AkUniqueID STOPMUSIC = 1917263390U;
         static const AkUniqueID STOPPANIC = 2922217614U;
