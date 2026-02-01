@@ -32,6 +32,8 @@ public class LongArmController : ControllableEnemy
     {
         if (!isUnderControl) return;
 
+        Debug.Log($"LongArmController FixedUpdate: moveDir=({moveDir.x}, {moveDir.y}), velocity={_rigidbody.linearVelocity.magnitude}, isKinematic={_rigidbody.isKinematic}");
+        
         // Apply movement force
         if (_rigidbody.linearVelocity.magnitude < maxSpeed) 
             _rigidbody.AddForce(new Vector3(moveDir.x, 0, moveDir.y) * moveAcceleration, ForceMode.Acceleration);
@@ -41,6 +43,8 @@ public class LongArmController : ControllableEnemy
 
     public override void Move(Vector2 moveDir)
     {
+        Debug.Log($"LongArmController Move called: moveDir=({moveDir.x}, {moveDir.y}), isSpinning={isSpinning}");
+        
         // Don't allow movement while spinning
         if (isSpinning) return;
         
@@ -141,6 +145,8 @@ public class LongArmController : ControllableEnemy
 
     public override void SetControlled(bool underControl)
     {
+        Debug.Log($"LongArmController SetControlled: underControl={underControl}");
+        
         isUnderControl = underControl;
 
         if (enemyScript != null)
@@ -151,11 +157,23 @@ public class LongArmController : ControllableEnemy
         if (navAgent != null)
         {
             navAgent.enabled = !underControl;
+            
+            // Prevent NavMeshAgent from overriding transform position when under player control
+            if (underControl)
+            {
+                navAgent.updatePosition = false;
+            }
+            else
+            {
+                navAgent.updatePosition = true;
+            }
         }
 
         if (_rigidbody != null)
         {
             _rigidbody.isKinematic = !underControl;
+            
+            Debug.Log($"Rigidbody isKinematic set to: {_rigidbody.isKinematic}");
             
             // Ensure proper rigidbody constraints for movement
             if (underControl)
@@ -163,12 +181,7 @@ public class LongArmController : ControllableEnemy
                 _rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | 
                                         RigidbodyConstraints.FreezeRotationZ | 
                                         RigidbodyConstraints.FreezePositionY;
-                // Add drag to reduce sliding
-                _rigidbody.linearDamping = 5f;
-            }
-            else
-            {
-                _rigidbody.linearDamping = 0f;
+                Debug.Log($"Rigidbody constraints set to: {_rigidbody.constraints}");
             }
         }
 
