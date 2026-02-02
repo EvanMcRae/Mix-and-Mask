@@ -1,6 +1,9 @@
 # Mix & Mask
 A submission for the 2026 Global Game Jam, hosted at UMBC.
 
+Download on itch.io: https://evanmcrae.itch.io/mix-and-mask
+Site submission page: https://globalgamejam.org/games/2026/mix-and-mask-5
+
 Play as a mysterious mask in a haunted manor with the ability to possess all manner of monsters! When possessed, you get to attack the other monsters, but they attack you back. Fling yourself from monster to monster and try to survive as many waves as possible!
 
 Use the left mouse button to fling yourself onto nearby enemies!
