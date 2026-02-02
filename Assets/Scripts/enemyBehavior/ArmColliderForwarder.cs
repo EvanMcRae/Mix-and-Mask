@@ -7,11 +7,13 @@ using UnityEngine;
 public class ArmColliderForwarder : MonoBehaviour
 {
     private LongArmEnemy parentEnemy;
+    private LongArmController parentController;
 
     void Start()
     {
         // Find the LongArmEnemy component in parent hierarchy
         parentEnemy = GetComponentInParent<LongArmEnemy>();
+        parentController = GetComponentInParent<LongArmController>();
         
         if (parentEnemy == null)
         {
@@ -21,9 +23,10 @@ public class ArmColliderForwarder : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (parentEnemy != null)
+        if (parentEnemy != null && parentController != null)
         {
-            parentEnemy.OnArmColliderHit(other);
+            if (parentController.isUnderControl) parentController.OnArmColliderHit(other);
+            else parentEnemy.OnArmColliderHit(other);
         }
     }
 }

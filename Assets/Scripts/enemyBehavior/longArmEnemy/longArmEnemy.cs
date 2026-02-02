@@ -310,10 +310,10 @@ public class LongArmEnemy : EnemyBase
         }
         else if (other.CompareTag("Enemy"))
         {
-            ControllableEnemy hitEnemy = other.GetComponent<ControllableEnemy>();
+            EnemyBase hitEnemy = other.GetComponent<EnemyBase>();
             
             // Don't hit yourself
-            if (hitEnemy != null && hitEnemy != this.GetComponent<ControllableEnemy>())
+            if (hitEnemy != null && hitEnemy != this.GetComponent<EnemyBase>())
             {
                 hitThisSpin.Add(other.gameObject);
                 hitEnemy.TakeDamage(damage);

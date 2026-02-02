@@ -23,8 +23,11 @@ public class AttachedMask : MonoBehaviour
     {
         if (!isControlling || Time.timeScale == 0) return;
 
+        // This is called when the thing you are on dies
         if (controlledEnemy == null)
         {
+            Debug.Log("Attached thing died, taking some damage");
+            GetComponent<playerHealth>().playerTakeDamage(2f);
             Detatch(); // Immediately detach so we don't crash
             return;
         }

@@ -97,7 +97,6 @@ public class ControllableEnemy : MonoBehaviour
             Debug.Log("Call for cooldown!");
             abilityUI.CoolDownPrimary(maxPrimaryCooldown);
         }
-        Debug.Log("Attempting Primary Enemy Action!");
     }
 
     public virtual void SecondaryAction()
@@ -107,7 +106,6 @@ public class ControllableEnemy : MonoBehaviour
             Debug.Log("Call for cooldown!");
             abilityUI.CoolDownSecondary(maxSecondaryCooldown);
         }
-        Debug.Log("Attempting Secondary Enemy Action!");
     }
 
     public virtual void SetControlled(bool underControl)
