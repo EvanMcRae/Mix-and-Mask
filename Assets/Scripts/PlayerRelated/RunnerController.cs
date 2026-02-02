@@ -109,8 +109,6 @@ public class RunnerController : ControllableEnemy
         navAgent.enabled = !underControl;
         _rigidbody.isKinematic = !underControl;
         _rigidbody.useGravity = !underControl;
-        if(underControl) _rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
-        else _rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionY;
         base.SetControlled(underControl);
     }
 

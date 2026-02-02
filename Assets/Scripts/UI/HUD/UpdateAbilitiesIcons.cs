@@ -183,6 +183,10 @@ public class UpdateAbilitiesIcons : MonoBehaviour
                 firstIndex = 2;
                 secondIndex = 3;
                 break;
+            case EnemyType.LongArm:
+                firstIndex = 4;
+                secondIndex = 5;
+                break;
             case EnemyType.None:
             //make the UI fall away
             default:
@@ -223,6 +227,9 @@ public class UpdateAbilitiesIcons : MonoBehaviour
             Debug.Log("NO DETATCHED MASK TO PULL TYPE FROM");
             return;
         }
+
+        fillA.fillAmount = 0;
+        fillB.fillAmount = 0;
 
         //Update the UI based on what you did
         UpdateAbilityIcons(maskController.GetCurrentlyControlledEnemyType());

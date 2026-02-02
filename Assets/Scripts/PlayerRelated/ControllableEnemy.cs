@@ -14,6 +14,8 @@ public class ControllableEnemy : MonoBehaviour
     protected float primaryCooldown = 0;
     protected float secondaryCooldown = 0;
     public bool isSolid { get; protected set; }
+    [HideInInspector] 
+    public WaveManager waveManager; // Added reference
 
 
     protected Vector2 moveDir = new Vector2(0, 0);
@@ -44,6 +46,9 @@ public class ControllableEnemy : MonoBehaviour
         //rigidbody.freezeRotation = true;
         //Needed for cooldowns
         abilityUI = FindFirstObjectByType<UpdateAbilitiesIcons>();
+        
+        // Find the manager in the scene
+        waveManager = Object.FindFirstObjectByType<WaveManager>();
     }
 
     public virtual void FixedUpdate()
@@ -92,7 +97,6 @@ public class ControllableEnemy : MonoBehaviour
             Debug.Log("Call for cooldown!");
             abilityUI.CoolDownPrimary(maxPrimaryCooldown);
         }
-        Debug.Log("Attempting Primary Enemy Action!");
     }
 
     public virtual void SecondaryAction()
@@ -102,7 +106,6 @@ public class ControllableEnemy : MonoBehaviour
             Debug.Log("Call for cooldown!");
             abilityUI.CoolDownSecondary(maxSecondaryCooldown);
         }
-        Debug.Log("Attempting Secondary Enemy Action!");
     }
 
     public virtual void SetControlled(bool underControl)
@@ -134,6 +137,7 @@ public class ControllableEnemy : MonoBehaviour
     public virtual void Die()
     {
         Destroy(gameObject);
+        waveManager.EnemyDied();
     }
     private void UpdateHealthUI()
     {
